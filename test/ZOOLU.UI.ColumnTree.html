@@ -1,0 +1,77 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="../themes/default/css/ui.css"/>
+
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<header>
+
+</header>
+<div role="main">
+    <div id="tree"></div>
+</div>
+<footer>
+
+</footer>
+
+<script src="js/libs/jquery-1.7.2.min.js"></script>
+<script src="js/libs/sinon-1.3.4.js"></script>
+
+
+<script src="../src/zoolu.js"></script>
+<script src="../src/zoolu/ui.js"></script>
+
+<script>
+
+    var server;
+    $(document).ready(function() {
+        window.debug = true;
+        server = sinon.fakeServer.create();
+
+        server.respondWith('GET', '/nodes',
+                [200, { 'Content-Type': 'application/json' },
+                    '[{ "id": 1, "type": "page", "name": "Home" },' +
+                            ' { "id": 2, "type": "folder", "name": "News" }]']);
+
+        server.respondWith('GET', '/nodes/2/children',
+                [200, { 'Content-Type': 'application/json' },
+                    '[{ "id": 3, "type": "start-page", "name": "News" },' +
+                            ' { "id": 4, "type": "page", "name": "New major release ZOOLU 2.0" },' +
+                            ' { "id": 5, "type": "folder", "name": "Archive" }]']);
+
+        server.respondWith('GET', '/nodes/5/children',
+                [200, { 'Content-Type': 'application/json' },
+                    '[{ "id": 6, "type": "start-page", "name": "Archive" },' +
+                            ' { "id": 7, "type": "page", "name": "New major release ZOOLU 1.3" },' +
+                            ' { "id": 8, "type": "page", "name": "New major release ZOOLU 1.2" }]']);
+
+        new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
+        server.respond();
+
+        $('#tree').bind('ColumnTree.load', function() {
+            setTimeout('server.respond()', 100);
+        });
+    });
+
+
+</script>
+
+</body>
+</html>

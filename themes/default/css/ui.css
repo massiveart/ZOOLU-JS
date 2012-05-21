@@ -1,0 +1,6 @@
+.column {
+    float: left;
+    width: 260px;
+    height: 100%;
+    overflow: auto;
+}
