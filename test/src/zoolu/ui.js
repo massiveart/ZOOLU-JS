@@ -53,21 +53,21 @@ TestCase('ZOOLU.UI', {
 
     'test column tree select node': function() {
         try {
-            new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
+            var columnTree =new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
             this.server.respond();
         } catch (e) {
             fail('Column tree instantiation');
         }
 
         var event = sinon.spy();
-        this.$tree.bind('ColumnTree.select', event);
+        columnTree.on('ColumnTree.select', event);
 
         // select folder and load children
         $('#row-2-folder').click();
         this.server.respond();
 
         assertTrue('ColumnTree select event triggered', event.calledOnce);
-        assertEquals('ColumnTree selected element id', 'row-2-folder', $(event.args[0][1]).attr('id'))
+        assertEquals('ColumnTree selected element id', 'row-2-folder', $(event.args[0][0]).attr('id'))
         assertEquals('Second column', 1, $('#column-1').length);
         assertEquals('Second column rows', 3, $('#column-1 .row').length);
     },

@@ -10,7 +10,9 @@
     'use strict';
 
     function log() {
-        if (window.debug) window.log.apply(this, $.merge(['ZOOLU', 'UI'], arguments));
+        if (window.debug) {
+            window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));
+        }
     }
 
     var ColumnTree = function(container, options) {
@@ -19,6 +21,8 @@
         if (!this.$container.length) {
             throw "Column container doesn't exist!";
         }
+
+        this.$container.addClass('column-tree');
 
         this.options = $.extend({
             urlAddOnForLoadingNodeChildren: '/children'
@@ -29,11 +33,12 @@
 
         this.$selected = null;
         this.$currentColumn = null;
-        this.$currentColumnList = null;
 
         this.data = [];
 
         log('ColumnTree', 'construct', this);
+
+        ZOOLU.UTIL.Events.enable.call(this);
 
         this.load();
     };
@@ -54,7 +59,7 @@
             log('ColumnTree', 'load');
 
             if (this.options.url) {
-                this.trigger('load');
+                this.fire('ColumnTree.load');
 
                 if (this.$container.find('.column').length <= this.level) {
                     this.addColumn();
@@ -96,44 +101,47 @@
 
             this.$currentColumn.removeClass('busy');
 
-            this.$currentColumnList = $('#column-' + this.level + ' .list');
-            this.$currentColumnList.html('');
+            this.$list = $('<ul class="list"/>');
 
             // http://jsperf.com/loops3/2
             for (var i = -1, length = this.data[this.level].length; ++i < length;) {
-                this.addRow(this.data[this.level][i]);
+                this.prepareRow(this.data[this.level][i]).appendTo(this.$list);
             }
 
-            log('ColumnTree', 'updateView', this.$currentColumnList);
+            this.$currentColumn.html(this.$list);
+
+            // cleanup
+            delete this.$row;
+            delete this.$list;
+
+            log('ColumnTree', 'updateView', this.$currentColumn);
         },
 
         addColumn: function() {
             log('ColumnTree', 'addColumn');
             this.$container.append($('<div class="column"/>').attr('id', 'column-' + this.level).data('level', this.level));
-            $('#column-' + this.level).append($('<ul class="list"/>'));
         },
 
-        addRow: function(node) {
-            log('ColumnTree', 'addRow', arguments);
+        prepareRow: function(node) {
+            log('ColumnTree', 'prepareRow', arguments);
 
-            this.row = $('<li class="row ' + node.type + '"/>').attr('id', 'row-' + node.id + '-' + node.type);
-            this.row.html(node.name);
+            this.$row = $('<li class="row ' + node.type + '"/>').attr('id', 'row-' + node.id + '-' + node.type);
+            this.$row.html(node.name);
 
             // store node data to the element
-            this.row.data('id', node.id);
-            this.row.data('type', node.type);
-            this.row.data('level', this.level);
+            this.$row.data('id', node.id);
+            this.$row.data('type', node.type);
+            this.$row.data('level', this.level);
 
             this.attachRowObservers(node);
 
-            this.$currentColumnList.append(this.row);
-            delete this.row;
+            return this.$row;
         },
 
         attachRowObservers: function() {
             log('ColumnTree', 'attachRowObservers', arguments);
 
-            this.row.bind('click', function(event) {
+            this.$row.on('click', function(event) {
                 this.select(event.target);
             }.bind(this));
         },
@@ -141,7 +149,7 @@
         select: function(element) {
             log('ColumnTree', 'select', arguments);
             this.$selected = $(element);
-            this.trigger('select', this.$selected);
+            this.fire('ColumnTree.select', [this.$selected]);
 
             this.$selected.addClass('selected');
 
@@ -151,18 +159,14 @@
             this.$container.find('.column').each(function(index, element) {
                 log(element);
                 if ($(element).data('level') > this.level) {
-                    $(element).html($('<ul class="list"/>'));
+                    $(element).html('');
                 }
             }.bind(this));
 
-            if (this.$selected.data('type') == ColumnTree.prototype.CONST.nodeTypes.folder) {
+            if (this.$selected.data('type') === ColumnTree.prototype.CONST.nodeTypes.folder) {
                 this.level++;
                 this.load();
             }
-        },
-
-        trigger: function(event, params) {
-            this.$container.trigger('ColumnTree.' + event, params);
         }
     };
 

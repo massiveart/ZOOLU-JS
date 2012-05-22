@@ -6,30 +6,31 @@ if (!Function.prototype.bind) {
             throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
         }
 
-        var aArgs = Array.prototype.slice.call(arguments, 1),
-            fToBind = this,
-            fNOP = function() {
+        var Args = Array.prototype.slice.call(arguments, 1),
+            ToBind = this,
+            NOP = function() {
             },
-            fBound = function() {
-                return fToBind.apply(this instanceof fNOP ? this : oThis || window, aArgs.concat(Array.prototype.slice.call(arguments)));
+            Bound = function() {
+                return ToBind.apply(this instanceof NOP ? this : oThis || window, Args.concat(Array.prototype.slice.call(arguments)));
             };
 
-        fNOP.prototype = this.prototype;
-        fBound.prototype = new fNOP();
+        NOP.prototype = this.prototype;
+        Bound.prototype = new NOP();
 
-        return fBound;
+        return Bound;
     };
 }
 
 // usage: log('inside coolFunc',this,arguments);
 // http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function() {
-    log.history = log.history || [];   // store logs to an array for reference
-    log.history.push(arguments);
+    this.log.history = this.log.history || [];   // store logs to an array for reference
+    this.log.history.push(arguments);
     if (this.console) {
-        console.log(Array.prototype.slice.call(arguments));
+        this.console.log(Array.prototype.slice.call(arguments));
     }
 };
+
 
 window.debug = false;
 
@@ -45,7 +46,9 @@ window.debug = false;
     'use strict';
 
     function log() {
-        if (window.debug) window.log.apply(this, $.merge(['ZOOLU'], arguments));
+        if (window.debug) {
+            window.log.apply(window, $.merge(['ZOOLU'], arguments));
+        }
     }
 
     var ZOOLU = {
