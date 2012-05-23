@@ -31,9 +31,9 @@ describe('ZOOLU.UI', function() {
         $tree.remove();
     });
 
-    it('column tree load nodes', function() {
+    it('ColumnTree load nodes', function() {
         try {
-            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
+            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
             server.respond();
         } catch (e) {
 

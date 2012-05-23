@@ -39,7 +39,7 @@ TestCase('ZOOLU.UI', {
 
     'test column tree load nodes': function() {
         try {
-            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
+            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
             this.server.respond();
         } catch (e) {
             fail('Column tree instantiation');
@@ -53,7 +53,7 @@ TestCase('ZOOLU.UI', {
 
     'test column tree select node': function() {
         try {
-            var columnTree =new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
+            var columnTree =new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
             this.server.respond();
         } catch (e) {
             fail('Column tree instantiation');
@@ -74,7 +74,7 @@ TestCase('ZOOLU.UI', {
 
     'test column tree select nested node': function() {
         try {
-            new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes' });
+            new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
             this.server.respond();
         } catch (e) {
             fail('Column tree instantiation');

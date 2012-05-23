@@ -1,5 +1,7 @@
-// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
 if (!Function.prototype.bind) {
+    /**
+     * @link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
+     */
     Function.prototype.bind = function(oThis) {
         if (typeof this !== 'function') {
             // closest thing possible to the ECMAScript 5 internal IsCallable function
@@ -21,8 +23,11 @@ if (!Function.prototype.bind) {
     };
 }
 
-// usage: log('inside coolFunc',this,arguments);
-// http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+/**
+ * @link http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+ * @example
+ *  log('inside coolFunc',this,arguments);
+ */
 window.log = function() {
     this.log.history = this.log.history || [];   // store logs to an array for reference
     this.log.history.push(arguments);
@@ -30,7 +35,6 @@ window.log = function() {
         this.console.log(Array.prototype.slice.call(arguments));
     }
 };
-
 
 window.debug = false;
 
@@ -51,7 +55,14 @@ window.debug = false;
         }
     }
 
-    var ZOOLU = {
+    var ZOOLU;
+
+    /** @namespace */
+    ZOOLU = {
+        /**
+         * ZOOLU version
+         * @var {String}
+         */
         version: '0.1.0'
     };
 

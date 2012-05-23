@@ -1,8 +1,9 @@
-/*!
+/**
  * ZOOLU UI JavaScript Library 0.1.0
  * http://zoolucms.org/
  *
- * Copyright 2012, Thomas Schedler
+ * @copyright Thomas Schedler <thomas@chirimoya.at>
+ *
  * http://zoolucms.org/license
  */
 (function(window, ZOOLU, $, undefined) {
@@ -15,7 +16,26 @@
         }
     }
 
-    var ColumnTree = function(container, options) {
+    /** @namespace */
+    ZOOLU.UI = { };
+
+    /**
+     * ZOOLU ColumnTree UI Element
+     *
+     * @class
+     * @example
+     *  var columnTree = new ZOOLU.UI.ColumnTree('#tree', {
+     *      url: '/nodes',
+     *      hasChildren: { 'folder': true }
+     *  });
+     *
+     * @borrows ZOOLU.UTIL.Events#fire as #fire
+     * @borrows ZOOLU.UTIL.Events#on as #on
+     * @borrows ZOOLU.UTIL.Events#off as #off
+     * @param {String} container Selector to get the column tree container
+     * @param {Object} options Default options will be merged with the given options
+     */
+    ZOOLU.UI.ColumnTree = function(container, options) {
         this.$container = $(container);
 
         if (!this.$container.length) {
@@ -25,6 +45,7 @@
         this.$container.addClass('column-tree');
 
         this.options = $.extend({
+            hasChildren: { },
             urlAddOnForLoadingNodeChildren: '/children'
         }, options);
 
@@ -43,18 +64,16 @@
         this.load();
     };
 
-    ColumnTree.prototype = {
+    ZOOLU.UI.ColumnTree.prototype = /** @lends ZOOLU.UI.ColumnTree# */{
 
-        CONST: {
-            nodeTypes: {
-                folder: 'folder',
-                page: 'page',
-                startPage: 'start-page'
-            }
-        },
+        constructor: ZOOLU.UI.ColumnTree,
 
-        constructor: ColumnTree,
-
+        /**
+         * Loads nodes from the given REST service entry point (<code>options.url</code>).
+         * If there is a selected node, his children will be loaded.
+         *
+         * @public
+         */
         load: function() {
             log('ColumnTree', 'load');
 
@@ -163,17 +182,13 @@
                 }
             }.bind(this));
 
-            if (this.$selected.data('type') === ColumnTree.prototype.CONST.nodeTypes.folder) {
+            if (this.options.hasChildren.hasOwnProperty(this.$selected.data('type')) &&
+                this.options.hasChildren[this.$selected.data('type')] === true) {
+
                 this.level++;
                 this.load();
             }
         }
     };
-
-    $.extend(ZOOLU, {
-        UI: {
-            ColumnTree: ColumnTree
-        }
-    });
 
 })(window, window.ZOOLU, window.jQuery);
