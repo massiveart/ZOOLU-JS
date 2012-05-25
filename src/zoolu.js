@@ -67,6 +67,6 @@ window.debug = false;
     };
 
     // expose ZOOLU to the global object
-    window.ZOOLU = ZOOLU;
+    window.ZOOLU = window.$z = ZOOLU;
 
 })(window, window.jQuery);

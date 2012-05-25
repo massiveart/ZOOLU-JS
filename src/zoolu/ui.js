@@ -29,9 +29,9 @@
      *      hasChildren: { 'folder': true }
      *  });
      *
-     * @borrows ZOOLU.UTIL.Events#fire as #fire
-     * @borrows ZOOLU.UTIL.Events#on as #on
-     * @borrows ZOOLU.UTIL.Events#off as #off
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
      * @param {String} container Selector to get the column tree container
      * @param {Object} options Default options will be merged with the given options
      */
@@ -46,7 +46,8 @@
 
         this.options = $.extend({
             hasChildren: { },
-            urlAddOnForLoadingNodeChildren: '/children'
+            urlAddOnForLoadingNodeChildren: '/children',
+            rowMaxLength: 30
         }, options);
 
         this.level = 0;
@@ -59,12 +60,12 @@
 
         log('ColumnTree', 'construct', this);
 
-        ZOOLU.UTIL.Events.enable.call(this);
+        ZOOLU.MIXIN.Events.enable.call(this);
 
         this.load();
     };
 
-    ZOOLU.UI.ColumnTree.prototype = /** @lends ZOOLU.UI.ColumnTree# */{
+    ZOOLU.UI.ColumnTree.prototype = /** @lends ZOOLU.UI.ColumnTree# */ {
 
         constructor: ZOOLU.UI.ColumnTree,
 
@@ -72,13 +73,13 @@
          * Loads nodes from the given REST service entry point (<code>options.url</code>).
          * If there is a selected node, his children will be loaded.
          *
-         * @public
+         * @private
          */
         load: function() {
             log('ColumnTree', 'load');
 
             if (this.options.url) {
-                this.fire('ColumnTree.load');
+                this.trigger('ColumnTree.load');
 
                 if (this.$container.find('.column').length <= this.level) {
                     this.addColumn();
@@ -91,12 +92,12 @@
                     url: this.selectedId ? this.options.url + '/' + this.selectedId + this.options.urlAddOnForLoadingNodeChildren : this.options.url,
                     type: 'GET',
                     dataType: 'JSON',
-                    success: function(data, textStatus, jqXHR) {
+                    success: function(data) {
                         log('ColumnTree', 'load', 'success', data);
                         this.updateData(data);
                         this.updateView();
                     }.bind(this),
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function(jqXHR, textStatus) {
                         log('ColumnTree', 'load', 'error', textStatus);
                         this.$currentColumn.removeClass('busy');
                         // TODO
@@ -105,12 +106,20 @@
             }
         },
 
+        /**
+         *
+         * @private
+         */
         updateData: function(data) {
             log('ColumnTree', 'updateData');
 
             this.data[this.level] = data;
         },
 
+        /**
+         *
+         * @private
+         */
         updateView: function() {
             log('ColumnTree', 'updateView');
 
@@ -132,20 +141,26 @@
             // cleanup
             delete this.$row;
             delete this.$list;
-
-            log('ColumnTree', 'updateView', this.$currentColumn);
         },
 
+        /**
+         *
+         * @private
+         */
         addColumn: function() {
             log('ColumnTree', 'addColumn');
             this.$container.append($('<div class="column"/>').attr('id', 'column-' + this.level).data('level', this.level));
         },
 
+        /**
+         *
+         * @private
+         */
         prepareRow: function(node) {
             log('ColumnTree', 'prepareRow', arguments);
 
             this.$row = $('<li class="row ' + node.type + '"/>').attr('id', 'row-' + node.id + '-' + node.type);
-            this.$row.html(node.name);
+            this.$row.html(ZOOLU.UTIL.String.truncateInBetween(node.name, this.options.rowMaxLength));
 
             // store node data to the element
             this.$row.data('id', node.id);
@@ -157,6 +172,10 @@
             return this.$row;
         },
 
+        /**
+         *
+         * @private
+         */
         attachRowObservers: function() {
             log('ColumnTree', 'attachRowObservers', arguments);
 
@@ -165,10 +184,16 @@
             }.bind(this));
         },
 
+        /**
+         *
+         * @private
+         */
         select: function(element) {
             log('ColumnTree', 'select', arguments);
+
             this.$selected = $(element);
-            this.fire('ColumnTree.select', [this.$selected]);
+            this.trigger('ColumnTree.select', [this.$selected]);
+            this.updateSelectedMarker();
 
             this.$selected.addClass('selected');
 
@@ -188,6 +213,14 @@
                 this.level++;
                 this.load();
             }
+        },
+
+        /**
+         *
+         * @private
+         */
+        updateSelectedMarker: function() {
+            // TODO
         }
     };
 

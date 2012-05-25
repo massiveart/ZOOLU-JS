@@ -48,12 +48,12 @@ TestCase('ZOOLU.UI', {
         assertEquals('Column data length', 2, columnTree.data[columnTree.level].length);
         assertEquals('Column length', 1, $('#tree .column').length);
         assertEquals('First column', 1, $('#column-0').length);
-        assertEquals('First column rows', 2, $('#column-0 .row').length);
+        assertEquals('First column rows', 4, $('#column-0 .row').length);
     },
 
     'test column tree select node': function() {
         try {
-            var columnTree =new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
+            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
             this.server.respond();
         } catch (e) {
             fail('Column tree instantiation');
@@ -74,14 +74,14 @@ TestCase('ZOOLU.UI', {
 
     'test column tree select nested node': function() {
         try {
-            new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
+            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
             this.server.respond();
         } catch (e) {
             fail('Column tree instantiation');
         }
 
         var event = sinon.spy();
-        this.$tree.bind('ColumnTree.select', event);
+        columnTree.on('ColumnTree.select', event);
 
         // select folder and load children
         $('#row-2-folder').click();

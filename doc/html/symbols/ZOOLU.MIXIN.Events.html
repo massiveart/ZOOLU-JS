@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - ZOOLU.UI.ColumnTree</title>
+		<title>JsDoc Reference - ZOOLU.MIXIN.Events</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -216,7 +216,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class ZOOLU.UI.ColumnTree
+				Class ZOOLU.MIXIN.Events
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -227,13 +227,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_zoolu_ui.js.html">ui.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.ColumnTree.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.MIXIN.Events.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -246,9 +246,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.UI.ColumnTree.html#constructor">ZOOLU.UI.ColumnTree</a></b>(container, options)
+								<b><a href="../symbols/ZOOLU.MIXIN.Events.html#constructor">ZOOLU.MIXIN.Events</a></b>()
 							</div>
-							<div class="description">ZOOLU ColumnTree UI Element</div>
+							<div class="description">This is an event API that can be mixed into other objects.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -262,7 +262,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.ColumnTree.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.MIXIN.Events.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -273,36 +273,18 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#addColumn">addColumn</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#enable">enable</a></b>()
 								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#attachRowObservers">attachRowObservers</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#load">load</a></b>()
-								</div>
-								<div class="description">Loads nodes from the given REST service entry point (<code>options.url</code>).</div>
+								<div class="description">Enables event consumption and management on the provided class.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#off">off</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#off">off</a></b>(event, callback)
 								</div>
 								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
 							</td>
@@ -311,64 +293,19 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#on">on</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#on">on</a></b>(event, callback)
 								</div>
 								<div class="description">Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.</div>
 							</td>
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#prepareRow">prepareRow</a></b>(node)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#select">select</a></b>(element)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#trigger">trigger</a></b>(event, args)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#trigger">trigger</a></b>(event, args)
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#updateData">updateData</a></b>(data)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#updateSelectedMarker">updateSelectedMarker</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#updateView">updateView</a></b>()
-								</div>
-								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -389,41 +326,17 @@ to it.</div>
 				</div>
 				
 				<div class="fixedFont">
-						<b>ZOOLU.UI.ColumnTree</b>(container, options)
+						<b>ZOOLU.MIXIN.Events</b>()
 				</div>
 				
 				<div class="description">
-					ZOOLU ColumnTree UI Element
+					This is an event API that can be mixed into other objects.
 					
 				</div>
 				
 				
 				
-				<pre class="code"> var columnTree = new ZOOLU.UI.ColumnTree('#tree', {
-     url: '/nodes',
-     hasChildren: { 'folder': true }
- });</pre>
 				
-				
-				
-				
-					
-						<dl class="detailList">
-						<dt class="heading">Parameters:</dt>
-						
-							<dt>
-								<span class="light fixedFont">{String}</span>  <b>container</b>
-								
-							</dt>
-								<dd>Selector to get the column tree container</dd>
-						
-							<dt>
-								<span class="light fixedFont">{Object}</span>  <b>options</b>
-								
-							</dt>
-								<dd>Default options will be merged with the given options</dd>
-						
-						</dl>
 					
 					
 					
@@ -444,69 +357,38 @@ to it.</div>
 					Method Detail
 				</div>
 				
-					<a name="addColumn"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<a name="enable"> </a>
+					<div class="fixedFont">
 					
 					
-					<b>addColumn</b>()
+					<b>enable</b>()
 					
 					</div>
 					<div class="description">
-						
+						Enables event consumption and management on the provided class. This needs to be called
+from the context of the object in which events are to be enabled.
 						
 						
 					</div>
 					
 					
 					
-						
-						
-						
-						
-						
-						
-						
+					<pre class="code"> var MyObj = function() {
+     this.init = function() {
+         ZOOLU.MIXIN.Events.enable.call(this);
+     };
 
-					<hr />
-				
-					<a name="attachRowObservers"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>attachRowObservers</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+     this.log = function() {
+         console.log(this);
+         this.trigger('log');
+     };
 
-					<hr />
-				
-					<a name="load"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>load</b>()
-					
-					</div>
-					<div class="description">
-						Loads nodes from the given REST service entry point (<code>options.url</code>).
-If there is a selected node, his children will be loaded.
-						
-						
-					</div>
+     this.init();
+ };
+
+ var obj = new MyObj();
+ obj.on('log', function() { console.log('Event triggered!'); });
+ obj.log();</pre>
 					
 					
 					
@@ -530,9 +412,6 @@ If there is a selected node, his children will be loaded.
 					<div class="description">
 						Removes the provided <code>callback</code> from the <code>event</code>. If no function is
 provided, all listeners for this event are removed.
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
 						
 						
 					</div>
@@ -576,9 +455,6 @@ provided, all listeners for this event are removed.
 					<div class="description">
 						Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.
 						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
-						
 						
 					</div>
 					
@@ -611,78 +487,6 @@ provided, all listeners for this event are removed.
 
 					<hr />
 				
-					<a name="prepareRow"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>prepareRow</b>(node)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>node</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="select"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>select</b>(element)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>element</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="trigger"> </a>
 					<div class="fixedFont">
 					
@@ -693,9 +497,6 @@ provided, all listeners for this event are removed.
 					<div class="description">
 						Triggers the provided <code>event</code> and executes all listeners attached
 to it. If <code>args</code> is provided, they will be passed along to the listeners.
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
 						
 						
 					</div>
@@ -719,92 +520,6 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 								<dd>Optional array of args to pass to the listeners</dd>
 							
 							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="updateData"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>updateData</b>(data)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>data</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="updateSelectedMarker"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>updateSelectedMarker</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="updateView"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>updateView</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
 						
 						
 						
