@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - ZOOLU.MIXIN.Events</title>
+		<title>JsDoc Reference - ZOOLU.UI.SplitPanel</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -203,11 +203,7 @@ ul.inheritsList
 	
 	<li><a href="../symbols/ZOOLU.UI.ColumnTree.html">ZOOLU.UI.ColumnTree</a></li>
 	
-	<li><a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a></li>
-	
-	<li><a href="../symbols/ZOOLU.UI.Layout.html">ZOOLU.UI.Layout</a></li>
-	
-	<li><a href="../symbols/ZOOLU.UI.Layout.Panel.html">ZOOLU.UI.Layout.Panel</a></li>
+	<li><a href="../symbols/ZOOLU.UI.SplitPanel.html">ZOOLU.UI.SplitPanel</a></li>
 	
 	<li><a href="../symbols/ZOOLU.UTIL.html">ZOOLU.UTIL</a></li>
 	
@@ -222,7 +218,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class ZOOLU.MIXIN.Events
+				Class ZOOLU.UI.SplitPanel
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -233,13 +229,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_zoolu_ui.js.html">ui.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.MIXIN.Events.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.SplitPanel.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -252,9 +248,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.MIXIN.Events.html#constructor">ZOOLU.MIXIN.Events</a></b>()
+								<b><a href="../symbols/ZOOLU.UI.SplitPanel.html#constructor">ZOOLU.UI.SplitPanel</a></b>()
 							</div>
-							<div class="description">This is an event API that can be mixed into other objects.</div>
+							<div class="description">ZOOLU SplitPanel UI Element</div>
 						</td>
 					</tr>
 				</tbody>
@@ -268,7 +264,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.MIXIN.Events.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.SplitPanel.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -281,16 +277,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#enable">enable</a></b>()
-								</div>
-								<div class="description">Enables event consumption and management on the provided class.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#off">off</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.SplitPanel.html#off">off</a></b>(event, callback)
 								</div>
 								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
 							</td>
@@ -299,7 +286,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#on">on</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.SplitPanel.html#on">on</a></b>(event, callback)
 								</div>
 								<div class="description">Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.</div>
 							</td>
@@ -308,7 +295,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#trigger">trigger</a></b>(event, args)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.SplitPanel.html#trigger">trigger</a></b>(event, args)
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
@@ -332,13 +319,17 @@ to it.</div>
 				</div>
 				
 				<div class="fixedFont">
-						<b>ZOOLU.MIXIN.Events</b>()
+						<b>ZOOLU.UI.SplitPanel</b>()
 				</div>
 				
 				<div class="description">
-					This is an event API that can be mixed into other objects.
+					ZOOLU SplitPanel UI Element
 					<br /><i>Author: </i><a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>.
 				</div>
+				
+				
+				
+				<pre class="code"> var splitPanel = new ZOOLU.UI.SplitPanel();</pre>
 				
 				
 				
@@ -363,51 +354,6 @@ to it.</div>
 					Method Detail
 				</div>
 				
-					<a name="enable"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>enable</b>()
-					
-					</div>
-					<div class="description">
-						Enables event consumption and management on the provided class. This needs to be called
-from the context of the object in which events are to be enabled.
-						
-						
-					</div>
-					
-					
-					
-					<pre class="code"> var MyObj = function() {
-     this.init = function() {
-         ZOOLU.MIXIN.Events.enable.call(this);
-     };
-
-     this.log = function() {
-         console.log(this);
-         this.trigger('log');
-     };
-
-     this.init();
- };
-
- var obj = new MyObj();
- obj.on('log', function() { console.log('Event triggered!'); });
- obj.log();</pre>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="off"> </a>
 					<div class="fixedFont">
 					
@@ -418,6 +364,9 @@ from the context of the object in which events are to be enabled.
 					<div class="description">
 						Removes the provided <code>callback</code> from the <code>event</code>. If no function is
 provided, all listeners for this event are removed.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
 						
 						
 					</div>
@@ -461,6 +410,9 @@ provided, all listeners for this event are removed.
 					<div class="description">
 						Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.
 						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
+						
 						
 					</div>
 					
@@ -503,6 +455,9 @@ provided, all listeners for this event are removed.
 					<div class="description">
 						Triggers the provided <code>event</code> and executes all listeners attached
 to it. If <code>args</code> is provided, they will be passed along to the listeners.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
 						
 						
 					</div>
@@ -548,7 +503,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			&copy;2012<br />
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun May 27 2012 22:02:25 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun May 27 2012 00:26:22 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>

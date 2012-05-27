@@ -38,12 +38,13 @@ window.log = function() {
 
 window.debug = false;
 
-/*!
- * ZOOLU JavaScript Library 0.1.0
+/**
+ * ZOOLU v2.0.0.alpha1
  * http://zoolucms.org/
  *
- * Copyright 2012, Thomas Schedler
- * http://zoolucms.org/license
+ * @category ZOOLU
+ * @copyright Copyright (c) 2011-2012 MASSIVE ART WebServices (http://www.massiveart.com)
+ * @license http://zoolucms.org/license
  */
 (function(window, $, undefined) {
 
@@ -63,7 +64,7 @@ window.debug = false;
          * ZOOLU version
          * @var {String}
          */
-        version: '0.1.0'
+        version: '2.0.0.alpha1'
     };
 
     // expose ZOOLU to the global object

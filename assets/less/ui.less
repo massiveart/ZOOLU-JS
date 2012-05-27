@@ -1,0 +1,48 @@
+/* ColumnTree classes
+-------------------------------------------------------------- */
+
+.column-tree {
+    height: 100%;
+    marin: 20px;
+    border: 1px solid #666;
+    .clearfix();
+
+    .column {
+        float: left;
+        width: 260px;
+        height: 100%;
+        overflow: auto;
+        border-right: 1px solid #666;
+    }
+
+    ul {
+        list-style: none;
+        list-style-image: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        overflow: hidden;
+        height: 22px;
+        padding: 0 10px 0 22px;
+    }
+
+    li:hover {
+        background-color: #ebebeb;
+    }
+
+    li.page,
+    li.folder {
+        background-image: url('../img/icons/page.png');
+        background-repeat: no-repeat;
+        background-position: 2px 2px;
+    }
+
+    li.folder {
+        background-image: url('../img/icons/folder.png');
+    }
+}
+
+/* Layout classes
+-------------------------------------------------------------- */

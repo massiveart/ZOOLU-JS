@@ -25,8 +25,19 @@
 
 </header>
 <div role="main">
-    <div style="height: 160px; margin: 10px;">
-        <div id="tree"></div>
+    <div id="layout">
+        <div class="west">
+            <h1>WEST</h1>
+        </div>
+        <div id="center" class="center">
+            <div class="north">
+                <h1>NORTH</h1>
+                <div id="tree"></div>
+            </div>
+            <div class="center">
+                <h1>CENTER</h1>
+            </div>
+        </div>
     </div>
 </div>
 <footer>
@@ -47,7 +58,10 @@
     var server;
     $(document).ready(function() {
         window.debug = true;
-        server = sinon.fakeServer.create();
+
+        var layout = new ZOOLU.UI.Layout('#layout');
+
+        /* server = sinon.fakeServer.create();
 
         server.respondWith('GET', '/nodes',
                 [200, { 'Content-Type': 'application/json' },
@@ -71,11 +85,7 @@
 
         columnTree.on('ColumnTree.load', function() {
             setTimeout('server.respond()', 100);
-        });
-
-        columnTree.on('ColumnTree.select', function(args){
-            log(args.attr('id'));
-        });
+        }); */
     });
 
 </script>

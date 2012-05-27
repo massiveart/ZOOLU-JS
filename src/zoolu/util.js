@@ -1,10 +1,11 @@
 /**
- * ZOOLU UTIL JavaScript Library 0.1.0
+ * ZOOLU v2.0.0.alpha1
  * http://zoolucms.org/
  *
- * @author Thomas Schedler <ths@massiveart.com>
- *
- * http://zoolucms.org/license
+ * @category ZOOLU
+ * @package UTIL
+ * @copyright Copyright (c) 2011-2012 MASSIVE ART WebServices (http://www.massiveart.com)
+ * @license http://zoolucms.org/license
  */
 (function(window, ZOOLU, $, undefined) {
 
@@ -20,14 +21,15 @@
     ZOOLU.UTIL = {};
 
     /**
-     * @class
+     * @namespace
+     * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
      */
-    ZOOLU.UTIL.String = /** @lends ZOOLU.UTIL.String */{
+    ZOOLU.UTIL.String = /** @lends ZOOLU.UTIL.String */ {
 
         /**
          * Truncate a string to the given length and adding an ellipsis.
          *
-         * @public
+         * @static
          * @param {String} str String to be truncated
          * @param {Integer} limit Max length of the string
          * @return string
@@ -49,7 +51,7 @@
         /**
          * Truncate a string to the given length, breaking at word boundaries and adding an ellipsis.
          *
-         * @public
+         * @static
          * @param {String} str String to be truncated
          * @param {Integer} limit Max length of the string
          * @return string
@@ -83,9 +85,10 @@
         /**
          * Truncate a string to the given length and adding an ellipsis in between.
          *
-         * @public
+         * @static
          * @param {String} str String to be truncated
          * @param {Integer} limit Max length of the string
+         * @param {String} separator Separator will be added, if given string is too long
          * @return string
          */
         truncateInBetween: function(str, limit, separator) {
@@ -107,9 +110,7 @@
             } else {
                 return str;
             }
-
         }
-
     };
 
 })(window, window.ZOOLU, window.jQuery);

@@ -1,10 +1,11 @@
 /**
- * ZOOLU UI JavaScript Library 0.1.0
+ * ZOOLU v2.0.0.alpha1
  * http://zoolucms.org/
  *
- * @copyright Thomas Schedler <thomas@chirimoya.at>
- *
- * http://zoolucms.org/license
+ * @category ZOOLU
+ * @package UI
+ * @copyright Copyright (c) 2011-2012 MASSIVE ART WebServices (http://www.massiveart.com)
+ * @license http://zoolucms.org/license
  */
 (function(window, ZOOLU, $, undefined) {
 
@@ -20,9 +21,40 @@
     ZOOLU.UI = { };
 
     /**
+     * ZOOLU UI Exception
+     *
+     * @class
+     * @constructor
+     * @example
+     *  throw new ZOOLU.UI.Exception('Message for the catcher.');
+     *
+     * @param {String|Null} message Message which is throw to the catcher
+     * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
+     */
+    ZOOLU.UI.Exception = function(message) {
+        this.name = 'ZOOLU.UI.Exception';
+        this.message = message || 'Something went wrong!';
+    };
+
+    ZOOLU.UI.Exception.prototype = /** @lends ZOOLU.UI.Exception# */ {
+
+        constructor: ZOOLU.UI.Exception,
+
+        /**
+         * Make the exception convert to a pretty string when used as
+         * a string. (e.g. by the error console)
+         * @return {String}
+         */
+        toString: function() {
+            return this.name + ': "' + this.message + '"';
+        }
+    };
+
+    /**
      * ZOOLU ColumnTree UI Element
      *
      * @class
+     * @constructor
      * @example
      *  var columnTree = new ZOOLU.UI.ColumnTree('#tree', {
      *      url: '/nodes',
@@ -34,16 +66,20 @@
      * @borrows ZOOLU.MIXIN.Events#off as #off
      * @param {String} container Selector to get the column tree container
      * @param {Object} options Default options will be merged with the given options
+     * @throws {ZOOLU.UI.Exception} ColumnTree container doesn't exist!
+     * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
      */
     ZOOLU.UI.ColumnTree = function(container, options) {
         this.$container = $(container);
 
         if (!this.$container.length) {
-            throw "Column container doesn't exist!";
+            throw new ZOOLU.UI.Exception("ColumnTree container doesn't exist!");
         }
 
+        // add css class
         this.$container.addClass('column-tree');
 
+        // extend default options with given
         this.options = $.extend({
             hasChildren: { },
             urlAddOnForLoadingNodeChildren: '/children',
@@ -58,10 +94,12 @@
 
         this.data = [];
 
-        log('ColumnTree', 'construct', this);
-
+        // add event API
         ZOOLU.MIXIN.Events.enable.call(this);
 
+        log('ColumnTree', 'construct', this);
+
+        // try to load first level
         this.load();
     };
 
@@ -71,9 +109,8 @@
 
         /**
          * Loads nodes from the given REST service entry point (<code>options.url</code>).
-         * If there is a selected node, his children will be loaded.
-         *
-         * @private
+         * If there is a selected node, the children of this node will be loaded.
+         * @triggers ColumnTree.load
          */
         load: function() {
             log('ColumnTree', 'load');
@@ -81,6 +118,7 @@
             if (this.options.url) {
                 this.trigger('ColumnTree.load');
 
+                // add column if is missing for the current level
                 if (this.$container.find('.column').length <= this.level) {
                     this.addColumn();
                 }
@@ -108,7 +146,6 @@
 
         /**
          *
-         * @private
          */
         updateData: function(data) {
             log('ColumnTree', 'updateData');
@@ -118,13 +155,13 @@
 
         /**
          *
-         * @private
+         * @throws {ZOOLU.UI.Exception} Current column not found!
          */
         updateView: function() {
             log('ColumnTree', 'updateView');
 
             if (!this.$currentColumn.length) {
-                throw "Current column not found!";
+                throw new ZOOLU.UI.Exception('Current column not found!');
             }
 
             this.$currentColumn.removeClass('busy');
@@ -145,7 +182,6 @@
 
         /**
          *
-         * @private
          */
         addColumn: function() {
             log('ColumnTree', 'addColumn');
@@ -154,7 +190,7 @@
 
         /**
          *
-         * @private
+         * @return {Object}
          */
         prepareRow: function(node) {
             log('ColumnTree', 'prepareRow', arguments);
@@ -174,7 +210,6 @@
 
         /**
          *
-         * @private
          */
         attachRowObservers: function() {
             log('ColumnTree', 'attachRowObservers', arguments);
@@ -186,7 +221,8 @@
 
         /**
          *
-         * @private
+         * @param {Object} element Element which has been selected
+         * @triggers ColumnTree.select with the selected object
          */
         select: function(element) {
             log('ColumnTree', 'select', arguments);
@@ -200,8 +236,8 @@
             this.selectedId = this.$selected.data('id');
             this.level = this.$selected.data('level');
 
+            // cleanup tree
             this.$container.find('.column').each(function(index, element) {
-                log(element);
                 if ($(element).data('level') > this.level) {
                     $(element).html('');
                 }
@@ -217,11 +253,127 @@
 
         /**
          *
-         * @private
          */
         updateSelectedMarker: function() {
             // TODO
         }
+    };
+
+    /**
+     * ZOOLU Layout UI Element
+     *
+     * @class
+     * @constructor
+     * @example
+     *  var layout = new ZOOLU.UI.Layout('#layout');
+     *
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @param {String} container Selector to get the layout container
+     * @param {Object} options Default options will be merged with the given options
+     * @throws {ZOOLU.UI.Exception} Layout container doesn't exist!
+     * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
+     */
+    ZOOLU.UI.Layout = function(container, options) {
+        this.$container = $(container);
+
+        if (!this.$container.length) {
+            throw new ZOOLU.UI.Exception("Layout container doesn't exist!");
+        }
+
+        // add css class
+        this.$container.addClass('layout');
+
+        this.panels = [];
+
+        // extend default options with given
+        this.options = $.extend({
+            fullPage: true,
+            possiblePanels: ['west', 'north', 'center'],
+            hasChildPanels: ['center']
+        }, options);
+
+        // add event API
+        ZOOLU.MIXIN.Events.enable.call(this);
+
+        log('Layout', 'construct', this);
+
+        this.initialize();
+    };
+
+    ZOOLU.UI.Layout.prototype = /** @lends ZOOLU.UI.Layout# */ {
+
+        constructor: ZOOLU.UI.Layout,
+
+        initialize: function() {
+
+            log('Layout', 'initialize');
+
+            for (var i = -1, length = this.options.possiblePanels.length; ++i < length;) {
+                this.$container.find('> .' + this.options.possiblePanels[i]).each(this.initPanel.bind(this));
+            }
+        },
+
+        /**
+         * Callback
+         * @private
+         * @param idx
+         * @param el
+         */
+        initPanel: function(idx, el) {
+
+            log('Layout', 'initPanel', arguments);
+
+            this.addPanel(new ZOOLU.UI.Layout.Panel(el, this.options));
+        },
+
+        addPanel: function(panel){
+
+            log('Layout', 'addPanel', arguments);
+
+            this.panels.push(panel);
+        }
+    };
+
+    /**
+     * ZOOLU Layout Panel UI Element
+     *
+     * @class
+     * @constructor
+     * @private
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @param {String} element Selector to get the panel
+     * @param {Object} options Default options will be merged with the given options
+     * @throws {ZOOLU.UI.Exception} Panel doesn't exist!
+     * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
+     */
+    ZOOLU.UI.Layout.Panel = function(element, options) {
+        this.$element = $(element);
+
+        if (!this.$element.length) {
+            throw new ZOOLU.UI.Exception("Panel doesn't exist!");
+        }
+
+        // add css class
+        this.$element.addClass('panel');
+
+        // extend default options with given
+        this.options = $.extend({
+
+        }, options);
+
+        // add event API
+        ZOOLU.MIXIN.Events.enable.call(this);
+
+        log('Layout', 'Panel', 'construct', this);
+    };
+
+    ZOOLU.UI.Layout.Panel.prototype = /** @lends ZOOLU.UI.Layout.Panel# */ {
+
+        constructor: ZOOLU.UI.Layout.Panel
     };
 
 })(window, window.ZOOLU, window.jQuery);

@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - ZOOLU.MIXIN.Events</title>
+		<title>JsDoc Reference - ZOOLU.UI.Exception</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -222,7 +222,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class ZOOLU.MIXIN.Events
+				Class ZOOLU.UI.Exception
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -233,13 +233,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_zoolu_mixin.js.html">mixin.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_zoolu_ui.js.html">ui.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.MIXIN.Events.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.Exception.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -252,9 +252,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.MIXIN.Events.html#constructor">ZOOLU.MIXIN.Events</a></b>()
+								<b><a href="../symbols/ZOOLU.UI.Exception.html#constructor">ZOOLU.UI.Exception</a></b>(message)
 							</div>
-							<div class="description">This is an event API that can be mixed into other objects.</div>
+							<div class="description">ZOOLU UI Exception</div>
 						</td>
 					</tr>
 				</tbody>
@@ -268,7 +268,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.MIXIN.Events.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.Exception.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -281,37 +281,10 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#enable">enable</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Exception.html#toString">toString</a></b>()
 								</div>
-								<div class="description">Enables event consumption and management on the provided class.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#off">off</a></b>(event, callback)
-								</div>
-								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#on">on</a></b>(event, callback)
-								</div>
-								<div class="description">Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.MIXIN.Events.html#trigger">trigger</a></b>(event, args)
-								</div>
-								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
-to it.</div>
+								<div class="description">Make the exception convert to a pretty string when used as
+a string.</div>
 							</td>
 						</tr>
 					
@@ -332,17 +305,32 @@ to it.</div>
 				</div>
 				
 				<div class="fixedFont">
-						<b>ZOOLU.MIXIN.Events</b>()
+						<b>ZOOLU.UI.Exception</b>(message)
 				</div>
 				
 				<div class="description">
-					This is an event API that can be mixed into other objects.
+					ZOOLU UI Exception
 					<br /><i>Author: </i><a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>.
 				</div>
 				
 				
 				
+				<pre class="code"> throw new ZOOLU.UI.Exception('Message for the catcher.');</pre>
 				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{String|Null}</span>  <b>message</b>
+								
+							</dt>
+								<dd>Message which is throw to the catcher</dd>
+						
+						</dl>
 					
 					
 					
@@ -363,173 +351,33 @@ to it.</div>
 					Method Detail
 				</div>
 				
-					<a name="enable"> </a>
+					<a name="toString"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>enable</b>()
+					<span class="light">{String}</span>
+					<b>toString</b>()
 					
 					</div>
 					<div class="description">
-						Enables event consumption and management on the provided class. This needs to be called
-from the context of the object in which events are to be enabled.
+						Make the exception convert to a pretty string when used as
+a string. (e.g. by the error console)
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code"> var MyObj = function() {
-     this.init = function() {
-         ZOOLU.MIXIN.Events.enable.call(this);
-     };
-
-     this.log = function() {
-         console.log(this);
-         this.trigger('log');
-     };
-
-     this.init();
- };
-
- var obj = new MyObj();
- obj.on('log', function() { console.log('Event triggered!'); });
- obj.log();</pre>
-					
-					
-					
 						
 						
 						
 						
-						
-						
-						
-
-					<hr />
-				
-					<a name="off"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>off</b>(event, callback)
-					
-					</div>
-					<div class="description">
-						Removes the provided <code>callback</code> from the <code>event</code>. If no function is
-provided, all listeners for this event are removed.
-						
-						
-					</div>
-					
-					
-					
 						
 							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
+							<dt class="heading">Returns:</dt>
 							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>event</b>
-									
-								</dt>
-								<dd>The name of the event to unbind</dd>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
-									
-								</dt>
-								<dd>An optional listener to be removed</dd>
+								<dd><span class="light fixedFont">{String}</span> </dd>
 							
 							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="on"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>on</b>(event, callback)
-					
-					</div>
-					<div class="description">
-						Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>event</b>
-									
-								</dt>
-								<dd>The name of the event to bind</dd>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
-									
-								</dt>
-								<dd>A function to bind to the event</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="trigger"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>trigger</b>(event, args)
-					
-					</div>
-					<div class="description">
-						Triggers the provided <code>event</code> and executes all listeners attached
-to it. If <code>args</code> is provided, they will be passed along to the listeners.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>event</b>
-									
-								</dt>
-								<dd>The name of the event to trigger</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Array}</span> <b>args</b>
-									
-								</dt>
-								<dd>Optional array of args to pass to the listeners</dd>
-							
-							</dl>
-						
-						
-						
-						
 						
 						
 						

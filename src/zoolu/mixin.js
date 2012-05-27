@@ -1,10 +1,11 @@
 /**
- * ZOOLU MIXIN JavaScript Library 0.1.0
+ * ZOOLU v2.0.0.alpha1
  * http://zoolucms.org/
  *
- * @author Thomas Schedler <ths@massiveart.com>
- *
- * http://zoolucms.org/license
+ * @category ZOOLU
+ * @package MIXIN
+ * @copyright Copyright (c) 2011-2012 MASSIVE ART WebServices (http://www.massiveart.com)
+ * @license http://zoolucms.org/license
  */
 (function(window, ZOOLU, $, undefined) {
 
@@ -22,6 +23,7 @@
     /**
      * This is an event API that can be mixed into other objects.
      * @class
+     * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
      */
     ZOOLU.MIXIN.Events = /** @lends ZOOLU.MIXIN.Events# */ {
 

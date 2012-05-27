@@ -203,6 +203,12 @@ ul.inheritsList
 	
 	<li><a href="../symbols/ZOOLU.UI.ColumnTree.html">ZOOLU.UI.ColumnTree</a></li>
 	
+	<li><a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a></li>
+	
+	<li><a href="../symbols/ZOOLU.UI.Layout.html">ZOOLU.UI.Layout</a></li>
+	
+	<li><a href="../symbols/ZOOLU.UI.Layout.Panel.html">ZOOLU.UI.Layout.Panel</a></li>
+	
 	<li><a href="../symbols/ZOOLU.UTIL.html">ZOOLU.UTIL</a></li>
 	
 	<li><a href="../symbols/ZOOLU.UTIL.String.html">ZOOLU.UTIL.String</a></li>
@@ -273,7 +279,7 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#addColumn">addColumn</a></b>()
 								</div>
@@ -282,7 +288,7 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#attachRowObservers">attachRowObservers</a></b>()
 								</div>
@@ -291,7 +297,7 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#load">load</a></b>()
 								</div>
@@ -318,7 +324,7 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#prepareRow">prepareRow</a></b>(node)
 								</div>
@@ -327,7 +333,7 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#select">select</a></b>(element)
 								</div>
@@ -346,7 +352,7 @@ to it.</div>
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#updateData">updateData</a></b>(data)
 								</div>
@@ -355,7 +361,7 @@ to it.</div>
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#updateSelectedMarker">updateSelectedMarker</a></b>()
 								</div>
@@ -364,7 +370,7 @@ to it.</div>
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ColumnTree.html#updateView">updateView</a></b>()
 								</div>
@@ -394,7 +400,7 @@ to it.</div>
 				
 				<div class="description">
 					ZOOLU ColumnTree UI Element
-					
+					<br /><i>Author: </i><a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>.
 				</div>
 				
 				
@@ -428,6 +434,16 @@ to it.</div>
 					
 					
 					
+						<dl class="detailList">
+						<dt class="heading">Throws:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a>}</span>  <b></b>
+							</dt>
+								<dd>ColumnTree container doesn't exist!</dd>
+						
+						</dl>
+					
 					
 					
 					
@@ -445,7 +461,7 @@ to it.</div>
 				</div>
 				
 					<a name="addColumn"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>addColumn</b>()
@@ -470,7 +486,7 @@ to it.</div>
 					<hr />
 				
 					<a name="attachRowObservers"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>attachRowObservers</b>()
@@ -495,7 +511,7 @@ to it.</div>
 					<hr />
 				
 					<a name="load"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>load</b>()
@@ -503,7 +519,7 @@ to it.</div>
 					</div>
 					<div class="description">
 						Loads nodes from the given REST service entry point (<code>options.url</code>).
-If there is a selected node, his children will be loaded.
+If there is a selected node, the children of this node will be loaded.
 						
 						
 					</div>
@@ -612,9 +628,9 @@ provided, all listeners for this event are removed.
 					<hr />
 				
 					<a name="prepareRow"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
-					
+					<span class="light">{Object}</span>
 					<b>prepareRow</b>(node)
 					
 					</div>
@@ -642,13 +658,20 @@ provided, all listeners for this event are removed.
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> </dd>
+							
+							</dl>
+						
 						
 						
 
 					<hr />
 				
 					<a name="select"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>select</b>(element)
@@ -667,10 +690,10 @@ provided, all listeners for this event are removed.
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>element</b>
+									<span class="light fixedFont">{Object}</span> <b>element</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>Element which has been selected</dd>
 							
 							</dl>
 						
@@ -730,7 +753,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 					<hr />
 				
 					<a name="updateData"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>updateData</b>(data)
@@ -766,7 +789,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 					<hr />
 				
 					<a name="updateSelectedMarker"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>updateSelectedMarker</b>()
@@ -791,7 +814,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 					<hr />
 				
 					<a name="updateView"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
 					<b>updateView</b>()
@@ -808,6 +831,16 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Throws:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a>}</span>  <b></b>
+								</dt>
+								<dd>Current column not found!</dd>
+							
+							</dl>
 						
 						
 						
@@ -827,7 +860,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			&copy;2012<br />
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri May 25 2012 21:13:03 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun May 27 2012 22:02:25 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>
