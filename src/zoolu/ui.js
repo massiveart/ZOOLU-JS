@@ -284,14 +284,16 @@
 
         // add css class
         this.$container.addClass('layout');
+        this.$container.addClass('busy');
 
-        this.panels = [];
+        this.height = this.$container.outerHeight(true);
+        this.width = this.$container.outerWidth(true);
+
+        this.panels = {};
 
         // extend default options with given
         this.options = $.extend({
-            fullPage: true,
-            possiblePanels: ['west', 'north', 'center'],
-            hasChildPanels: ['center']
+            fullScreen: true
         }, options);
 
         // add event API
@@ -306,33 +308,156 @@
 
         constructor: ZOOLU.UI.Layout,
 
+        CONST: {
+            orientations: ['west', 'north', 'center']
+        },
+
         initialize: function() {
+            var panels;
 
             log('Layout', 'initialize');
 
-            for (var i = -1, length = this.options.possiblePanels.length; ++i < length;) {
-                this.$container.find('> .' + this.options.possiblePanels[i]).each(this.initPanel.bind(this));
+            // if full screen, set some default html & body css properties
+            if (this.options.fullScreen) {
+                $('html').css({
+                    height: '100%',
+                    overflow: 'hidden',
+                    overflowX: 'hidden',
+                    overflowY: 'hidden'
+                });
+
+                $('body').css({
+                    position: 'relative',
+                    height: '100%',
+                    overflow: 'hidden',
+                    overflowX: 'hidden',
+                    overflowY: 'hidden',
+                    margin: 0,
+                    padding: 0,
+                    border: 'none'
+                });
             }
+
+            // find and init all panels
+            for (var i = -1, length = this.CONST.orientations.length; ++i < length;) {
+                panels = this.$container.find('> .' + this.CONST.orientations[i]);
+                if (panels.length) {
+                    this.initPanel(panels.first(), this.CONST.orientations[i]);
+                }
+            }
+
+            this.arrange();
+
+            // resize observer
+            $(window).resize(this.arrange.bind(this));
+        },
+
+        enable: function() {
+
+            /** @ignore */
+            this.initPanel = function(panel, orientation) {
+                ZOOLU.UI.Layout.prototype.initPanel.call(this, panel, orientation);
+            }.bind(this);
+
+            /** @ignore */
+            this.addPanel = function(panel) {
+                ZOOLU.UI.Layout.prototype.addPanel.call(this, panel);
+            }.bind(this);
+
+            /** @ignore */
+            this.arrange = function() {
+                ZOOLU.UI.Layout.prototype.arrange.call(this);
+            }.bind(this);
         },
 
         /**
-         * Callback
-         * @private
-         * @param idx
-         * @param el
+         * Initialize panel of the current layout.
+         *
+         * @param {Object} panel Panel of the current layout
+         * @param {String} orientation Orientation of the given panel
          */
-        initPanel: function(idx, el) {
+        initPanel: function(panel, orientation) {
 
             log('Layout', 'initPanel', arguments);
 
-            this.addPanel(new ZOOLU.UI.Layout.Panel(el, this.options));
+            this.addPanel(new ZOOLU.UI.Layout.Panel(panel, this, orientation, this.options));
         },
 
-        addPanel: function(panel){
+        /**
+         * Add instance of ZOOLU.UI.Layout.Panel to the current layout.
+         *
+         * @param {ZOOLU.UI.Layout.Panel} panel Instance of ZOOLU.UI.Layout.Panel
+         */
+        addPanel: function(panel) {
 
             log('Layout', 'addPanel', arguments);
 
-            this.panels.push(panel);
+            this.panels[panel.orientation] = panel;
+
+            panel.on('Layout.Panel.resize', this.arrange.bind(this));
+        },
+
+        /**
+         * Arrange all layout panels.
+         */
+        arrange: function() {
+
+            if (!!this.layout) {
+                log('Layout', 'Panel', 'arrange');
+            } else {
+                log('Layout', 'arrange');
+            }
+
+            //TODO cleanup!!!
+
+            this.updateDimension();
+
+            // west
+            this.left = 0;
+            if (this.panels.hasOwnProperty('west')) {
+                this.panels.west.setPositionLeft(this.left);
+                this.left += this.panels.west.width;
+            }
+
+            // north
+            this.top = 0;
+            if (this.panels.hasOwnProperty('north')) {
+                this.panels.north.setPositionTop(this.top);
+                this.top += this.panels.north.height;
+            }
+
+            // center
+            if (this.panels.hasOwnProperty('center')) {
+                this.panels.center.setPositionLeft(this.left);
+                this.panels.center.setPositionTop(this.top);
+                this.panels.center.updateDimension(
+                    (this.left === 0 ? '100%' : this.width - this.left),
+                    (this.top === 0 ? '100%' : this.height - this.top)
+                );
+
+                if (this.panels.center.hasChildren) {
+                    this.panels.center.arrange();
+                }
+            }
+
+            this.unbusy();
+        },
+
+        unbusy: function() {
+            this.$container.removeClass('busy');
+        },
+
+        updateDimension: function(width, height) {
+            if (!!width) {
+                this.$container.width(width);
+            }
+
+            if (!!height) {
+                this.$container.height(height);
+            }
+
+            this.height = this.$container.outerHeight(true);
+            this.width = this.$container.outerWidth(true);
         }
     };
 
@@ -346,12 +471,17 @@
      * @borrows ZOOLU.MIXIN.Events#on as #on
      * @borrows ZOOLU.MIXIN.Events#off as #off
      * @param {String} element Selector to get the panel
+     * @param {ZOOLU.UI.Layout} layout Instance of the parent ZOOLU.UI.Layout
      * @param {Object} options Default options will be merged with the given options
      * @throws {ZOOLU.UI.Exception} Panel doesn't exist!
      * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
      */
-    ZOOLU.UI.Layout.Panel = function(element, options) {
+    ZOOLU.UI.Layout.Panel = function(element, layout, orientation, options) {
         this.$element = $(element);
+        this.layout = layout;
+        this.orientation = orientation;
+        this.hasChildren = false;
+        this.handler = null;
 
         if (!this.$element.length) {
             throw new ZOOLU.UI.Exception("Panel doesn't exist!");
@@ -359,6 +489,9 @@
 
         // add css class
         this.$element.addClass('panel');
+
+        this.height = this.$element.outerHeight(true);
+        this.width = this.$element.outerWidth(true);
 
         // extend default options with given
         this.options = $.extend({
@@ -369,11 +502,97 @@
         ZOOLU.MIXIN.Events.enable.call(this);
 
         log('Layout', 'Panel', 'construct', this);
+
+        this.initialize();
+
+        if (this.orientation === 'center') {
+            ZOOLU.UI.Layout.prototype.enable.call(this);
+            this.panels = {};
+            this.initializeLayout();
+        }
     };
 
     ZOOLU.UI.Layout.Panel.prototype = /** @lends ZOOLU.UI.Layout.Panel# */ {
 
-        constructor: ZOOLU.UI.Layout.Panel
+        constructor: ZOOLU.UI.Layout.Panel,
+
+        initialize: function() {
+            this.$handler = $('<div class="handler"/>');
+            this.$handler.appendTo(this.$element);
+
+            // TODO cleanup!!!
+            this.$handler.mousedown(function(event) {
+                event.preventDefault();
+                $(window).on('mousemove.layout', this.resize.bind(this));
+            }.bind(this));
+
+            $(window).mouseup(function() {
+                $(window).off('mousemove.layout');
+            });
+        },
+
+        initializeLayout: function() {
+            var panels;
+
+            log('Layout', 'Panel', 'initialize');
+
+            // find and init all panels
+            for (var i = -1, length = ZOOLU.UI.Layout.prototype.CONST.orientations.length; ++i < length;) {
+                panels = this.$element.find('> .' + ZOOLU.UI.Layout.prototype.CONST.orientations[i]);
+                if (panels.length) {
+                    this.hasChildren = true;
+                    this.initPanel(panels.first(), ZOOLU.UI.Layout.prototype.CONST.orientations[i]);
+                }
+            }
+        },
+
+        /**
+         *
+         * @param {Object} event
+         * @triggers Layout.Panel.resize
+         */
+        resize: function(event) {
+            //log(event.pageX + ', ' + event.pageY);
+
+            if (this.orientation === 'west') {
+                this.updateDimension(event.pageX);
+            } else {
+                this.updateDimension(null, event.pageY);
+            }
+
+            this.trigger('Layout.Panel.resize');
+        },
+
+        unbusy: function() {
+            this.$element.removeClass('busy');
+        },
+
+        updateDimension: function(width, height) {
+            if (!!width) {
+                this.$element.width(width);
+            }
+
+            if (!!height) {
+                this.$element.height(height);
+            }
+
+            this.height = this.$element.outerHeight(true);
+            this.width = this.$element.outerWidth(true);
+        },
+
+        setPositionLeft: function(left) {
+
+            log('Layout', 'Panel', 'setPositionLeft', this.orientation);
+
+            this.$element.css({left: left});
+        },
+
+        setPositionTop: function(top) {
+
+            log('Layout', 'Panel', 'setPositionTop', this.orientation);
+
+            this.$element.css({top: top});
+        }
     };
 
 })(window, window.ZOOLU, window.jQuery);

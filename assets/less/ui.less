@@ -46,3 +46,63 @@
 
 /* Layout classes
 -------------------------------------------------------------- */
+
+.layout {
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+
+    .panel {
+        overflow: hidden;
+    }
+
+    .handler {
+        position: absolute;
+        background-color: #ebebeb;
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .west {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 260px;
+
+        .handler {
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            cursor: ew-resize;
+        }
+    }
+
+    .north {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 160px;
+        width: 100%;
+
+        .handler {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+            cursor: ns-resize;
+        }
+    }
+
+    .center {
+        position: absolute;
+    }
+}

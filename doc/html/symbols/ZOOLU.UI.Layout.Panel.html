@@ -252,7 +252,7 @@ ul.inheritsList
 						<td class="attributes">&lt;private&gt; &nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#constructor">ZOOLU.UI.Layout.Panel</a></b>(element, options)
+								<b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#constructor">ZOOLU.UI.Layout.Panel</a></b>(element, layout, options, options)
 							</div>
 							<div class="description">ZOOLU Layout Panel UI Element</div>
 						</td>
@@ -281,6 +281,24 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#initialize">initialize</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#initializeLayout">initializeLayout</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#off">off</a></b>(event, callback)
 								</div>
 								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
@@ -299,10 +317,55 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#resize">resize</a></b>(event)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#setPositionLeft">setPositionLeft</a></b>(left)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#setPositionTop">setPositionTop</a></b>(top)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#trigger">trigger</a></b>(event, args)
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#unbusy">unbusy</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#updateDimension">updateDimension</a></b>(width, height)
+								</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -323,7 +386,7 @@ to it.</div>
 				</div>
 				
 				<div class="fixedFont">&lt;private&gt; 
-						<b>ZOOLU.UI.Layout.Panel</b>(element, options)
+						<b>ZOOLU.UI.Layout.Panel</b>(element, layout, options, options)
 				</div>
 				
 				<div class="description">
@@ -345,10 +408,22 @@ to it.</div>
 								<dd>Selector to get the panel</dd>
 						
 							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Layout.html">ZOOLU.UI.Layout</a>}</span>  <b>layout</b>
+								
+							</dt>
+								<dd>Instance of the parent ZOOLU.UI.Layout</dd>
+						
+							<dt>
 								<span class="light fixedFont">{Object}</span>  <b>options</b>
 								
 							</dt>
 								<dd>Default options will be merged with the given options</dd>
+						
+							<dt>
+								 <b>options</b>
+								
+							</dt>
+								<dd></dd>
 						
 						</dl>
 					
@@ -380,6 +455,56 @@ to it.</div>
 				<div class="sectionTitle">
 					Method Detail
 				</div>
+				
+					<a name="initialize"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initialize</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initializeLayout"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initializeLayout</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
 				
 					<a name="off"> </a>
 					<div class="fixedFont">
@@ -472,6 +597,114 @@ provided, all listeners for this event are removed.
 
 					<hr />
 				
+					<a name="resize"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resize</b>(event)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>event</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setPositionLeft"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setPositionLeft</b>(left)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>left</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setPositionTop"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setPositionTop</b>(top)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>top</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
 					<a name="trigger"> </a>
 					<div class="fixedFont">
 					
@@ -516,6 +749,73 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 						
 						
 
+					<hr />
+				
+					<a name="unbusy"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>unbusy</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateDimension"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>updateDimension</b>(width, height)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>width</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>height</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
 					
 				
 			
@@ -530,7 +830,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			&copy;2012<br />
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun May 27 2012 22:02:25 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon May 28 2012 15:10:59 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>

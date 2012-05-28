@@ -283,6 +283,24 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#addPanel">addPanel</a></b>(panel)
 								</div>
+								<div class="description">Add instance of ZOOLU.UI.Layout.Panel to the current layout.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#arrange">arrange</a></b>()
+								</div>
+								<div class="description">Arrange all layout panels.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#enable">enable</a></b>()
+								</div>
 								<div class="description"></div>
 							</td>
 						</tr>
@@ -297,11 +315,11 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#initPanel">initPanel</a></b>(idx, el)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#initPanel">initPanel</a></b>(panel, orientation)
 								</div>
-								<div class="description">Callback</div>
+								<div class="description">Initialize panel of the current layout.</div>
 							</td>
 						</tr>
 					
@@ -330,6 +348,24 @@ ul.inheritsList
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#unbusy">unbusy</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#updateDimension">updateDimension</a></b>(width, height)
+								</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -420,7 +456,7 @@ to it.</div>
 					
 					</div>
 					<div class="description">
-						
+						Add instance of ZOOLU.UI.Layout.Panel to the current layout.
 						
 						
 					</div>
@@ -432,12 +468,62 @@ to it.</div>
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>panel</b>
+									<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Layout.Panel.html">ZOOLU.UI.Layout.Panel</a>}</span> <b>panel</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>Instance of ZOOLU.UI.Layout.Panel</dd>
 							
 							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="arrange"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>arrange</b>()
+					
+					</div>
+					<div class="description">
+						Arrange all layout panels.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="enable"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>enable</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
 						
 						
 						
@@ -474,14 +560,14 @@ to it.</div>
 					<hr />
 				
 					<a name="initPanel"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<div class="fixedFont">
 					
 					
-					<b>initPanel</b>(idx, el)
+					<b>initPanel</b>(panel, orientation)
 					
 					</div>
 					<div class="description">
-						Callback
+						Initialize panel of the current layout.
 						
 						
 					</div>
@@ -493,16 +579,16 @@ to it.</div>
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>idx</b>
+									<span class="light fixedFont">{Object}</span> <b>panel</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>Panel of the current layout</dd>
 							
 								<dt>
-									<b>el</b>
+									<span class="light fixedFont">{String}</span> <b>orientation</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>Orientation of the given panel</dd>
 							
 							</dl>
 						
@@ -650,6 +736,73 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 						
 						
 
+					<hr />
+				
+					<a name="unbusy"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>unbusy</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateDimension"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>updateDimension</b>(width, height)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>width</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>height</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
 					
 				
 			
@@ -664,7 +817,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			&copy;2012<br />
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun May 27 2012 22:02:25 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon May 28 2012 15:10:59 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>
