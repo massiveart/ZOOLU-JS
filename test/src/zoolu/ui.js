@@ -48,7 +48,7 @@ TestCase('ZOOLU.UI', {
         assertEquals('Column data length', 2, columnTree.data[columnTree.level].length);
         assertEquals('Column length', 1, $('#tree .column').length);
         assertEquals('First column', 1, $('#column-0').length);
-        assertEquals('First column rows', 4, $('#column-0 .row').length);
+        assertEquals('First column rows', 2, $('#column-0 .row').length);
     },
 
     'test column tree select node': function() {

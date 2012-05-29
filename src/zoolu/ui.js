@@ -26,7 +26,7 @@
      * @class
      * @constructor
      * @example
-     *  throw new ZOOLU.UI.Exception('Message for the catcher.');
+     *  throw new ZOOLU.UI.Exception('Message for the catcher!');
      *
      * @param {String|Null} message Message which is throw to the catcher
      * @author <a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>
@@ -43,6 +43,7 @@
         /**
          * Make the exception convert to a pretty string when used as
          * a string. (e.g. by the error console)
+         *
          * @return {String}
          */
         toString: function() {
@@ -88,6 +89,7 @@
 
         this.level = 0;
         this.selectedId = null;
+        this.selectedElementIds = [];
 
         this.$selected = null;
         this.$currentColumn = null;
@@ -110,6 +112,7 @@
         /**
          * Loads nodes from the given REST service entry point (<code>options.url</code>).
          * If there is a selected node, the children of this node will be loaded.
+         *
          * @triggers ColumnTree.load
          */
         load: function() {
@@ -145,7 +148,8 @@
         },
 
         /**
-         *
+         * Updates instance data object with the fetched data
+         * from the REST-Service for the current level.
          */
         updateData: function(data) {
             log('ColumnTree', 'updateData');
@@ -154,6 +158,8 @@
         },
 
         /**
+         * Updates current column with a list (<code>&lt;ul class="list"/&gt;</code>)
+         * and the associated rows (<code>&lt;li class="row ' + node.type + '"/&gt;</code>)
          *
          * @throws {ZOOLU.UI.Exception} Current column not found!
          */
@@ -181,7 +187,7 @@
         },
 
         /**
-         *
+         * Adds a new column to the tree (<code>&lt;div class="column"/&gt;</code>).
          */
         addColumn: function() {
             log('ColumnTree', 'addColumn');
@@ -189,6 +195,8 @@
         },
 
         /**
+         * Prepares the row element (<code>&lt;li class="row ' + node.type + '"/&gt;</code>)
+         * with all the properties. Stores node data (id, type, level) at the DOM element.
          *
          * @return {Object}
          */
@@ -198,7 +206,7 @@
             this.$row = $('<li class="row ' + node.type + '"/>').attr('id', 'row-' + node.id + '-' + node.type);
             this.$row.html(ZOOLU.UTIL.String.truncateInBetween(node.name, this.options.rowMaxLength));
 
-            // store node data to the element
+            // store node data at the element
             this.$row.data('id', node.id);
             this.$row.data('type', node.type);
             this.$row.data('level', this.level);
@@ -209,7 +217,7 @@
         },
 
         /**
-         *
+         * Attaches all observers (click, ...) to the row element.
          */
         attachRowObservers: function() {
             log('ColumnTree', 'attachRowObservers', arguments);
@@ -220,6 +228,8 @@
         },
 
         /**
+         * Selects a row element of a list. Loads the node children if the option
+         * <code>hasChildren</code> is set for this kind of node-type.
          *
          * @param {Object} element Element which has been selected
          * @triggers ColumnTree.select with the selected object
@@ -228,18 +238,22 @@
             log('ColumnTree', 'select', arguments);
 
             this.$selected = $(element);
-            this.trigger('ColumnTree.select', [this.$selected]);
-            this.updateSelectedMarker();
-
-            this.$selected.addClass('selected');
-
             this.selectedId = this.$selected.data('id');
             this.level = this.$selected.data('level');
+
+            this.trigger('ColumnTree.select', [this.$selected]);
+            this.updateSelectedMarker();
 
             // cleanup tree
             this.$container.find('.column').each(function(index, element) {
                 if ($(element).data('level') > this.level) {
+
+                    // cleanup dom
                     $(element).html('');
+
+                    // cleanup data
+                    delete(this.data[$(element).data('level')]);
+                    delete(this.selectedElementIds[$(element).data('level')]);
                 }
             }.bind(this));
 
@@ -252,10 +266,18 @@
         },
 
         /**
-         *
+         * Updates the selected marker of the current column.
          */
         updateSelectedMarker: function() {
-            // TODO
+            log('ColumnTree', 'updateSelectedMarker');
+
+            if (this.selectedElementIds[this.level]) {
+                log($('#' + this.selectedElementIds[this.level]));
+                $('#' + this.selectedElementIds[this.level]).removeClass('selected');
+            }
+
+            this.$selected.addClass('selected');
+            this.selectedElementIds[this.level] = this.$selected.attr('id');
         }
     };
 
