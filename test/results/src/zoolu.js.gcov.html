@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>LCOV - jsTestDriver.conf-coverage.dat - src/zoolu.js</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - zoolu.js<span style="font-size: 80%;"> (source / <a href="zoolu.js.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">jsTestDriver.conf-coverage.dat</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntryLo">56.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-05-29</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :<span class="lineCov">          1 : if (!Function.prototype.bind) {</span></a>
+<span class="lineNum">       2 </span>                :            :     /**
+<span class="lineNum">       3 </span>                :            :      * @link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
+<span class="lineNum">       4 </span>                :            :      */
+<span class="lineNum">       5 </span>                :<span class="lineNoCov">          0 :     Function.prototype.bind = function(oThis) {</span>
+<span class="lineNum">       6 </span>                :<span class="lineNoCov">          0 :         if (typeof this !== 'function') {</span>
+<span class="lineNum">       7 </span>                :            :             // closest thing possible to the ECMAScript 5 internal IsCallable function
+<span class="lineNum">       8 </span>                :<span class="lineNoCov">          0 :             throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');</span>
+<span class="lineNum">       9 </span>                :            :         }
+<span class="lineNum">      10 </span>                :            : 
+<span class="lineNum">      11 </span>                :<span class="lineNoCov">          0 :         var Args = Array.prototype.slice.call(arguments, 1),</span>
+<span class="lineNum">      12 </span>                :            :             ToBind = this,
+<span class="lineNum">      13 </span>                :            :             NOP = function() {
+<span class="lineNum">      14 </span>                :            :             },
+<span class="lineNum">      15 </span>                :            :             Bound = function() {
+<span class="lineNum">      16 </span>                :<span class="lineNoCov">          0 :                 return ToBind.apply(this instanceof NOP ? this : oThis || window, Args.concat(Array.prototype.slice.call(arguments)));</span>
+<span class="lineNum">      17 </span>                :            :             };
+<span class="lineNum">      18 </span>                :            : 
+<span class="lineNum">      19 </span>                :<span class="lineNoCov">          0 :         NOP.prototype = this.prototype;</span>
+<span class="lineNum">      20 </span>                :<span class="lineNoCov">          0 :         Bound.prototype = new NOP();</span>
+<span class="lineNum">      21 </span>                :            : 
+<span class="lineNum">      22 </span>                :<span class="lineNoCov">          0 :         return Bound;</span>
+<span class="lineNum">      23 </span>                :            :     };
+<span class="lineNum">      24 </span>                :            : }
+<span class="lineNum">      25 </span>                :            : 
+<span class="lineNum">      26 </span>                :            : /**
+<span class="lineNum">      27 </span>                :            :  * @link http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+<span class="lineNum">      28 </span>                :            :  * @example
+<span class="lineNum">      29 </span>                :            :  *  log('inside coolFunc',this,arguments);
+<span class="lineNum">      30 </span>                :            :  */
+<span class="lineNum">      31 </span>                :<span class="lineCov">          1 : window.log = function() {</span>
+<span class="lineNum">      32 </span>                :<span class="lineCov">         86 :     this.log.history = this.log.history || [];   // store logs to an array for reference</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">         86 :     this.log.history.push(arguments);</span>
+<span class="lineNum">      34 </span>                :<span class="lineCov">         86 :     if (this.console) {</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">         86 :         this.console.log(Array.prototype.slice.call(arguments));</span>
+<span class="lineNum">      36 </span>                :            :     }
+<span class="lineNum">      37 </span>                :            : };
+<span class="lineNum">      38 </span>                :            : 
+<span class="lineNum">      39 </span>                :<span class="lineCov">          1 : window.debug = false;</span>
+<span class="lineNum">      40 </span>                :            : 
+<span class="lineNum">      41 </span>                :            : /**
+<span class="lineNum">      42 </span>                :            :  * ZOOLU v2.0.0.alpha1
+<span class="lineNum">      43 </span>                :            :  * http://zoolucms.org/
+<span class="lineNum">      44 </span>                :            :  *
+<span class="lineNum">      45 </span>                :            :  * @category ZOOLU
+<span class="lineNum">      46 </span>                :            :  * @copyright Copyright (c) 2011-2012 MASSIVE ART WebServices (http://www.massiveart.com)
+<span class="lineNum">      47 </span>                :            :  * @license http://zoolucms.org/license
+<span class="lineNum">      48 </span>                :            :  */
+<span class="lineNum">      49 </span>                :<span class="lineCov">          1 : (function(window, $, undefined) {</span>
+<span class="lineNum">      50 </span>                :            : 
+<span class="lineNum">      51 </span>                :<span class="lineCov">          1 :     'use strict';</span>
+<span class="lineNum">      52 </span>                :            : 
+<span class="lineNum">      53 </span>                :<span class="lineCov">          1 :     function log() {</span>
+<span class="lineNum">      54 </span>                :<span class="lineNoCov">          0 :         if (window.debug) {</span>
+<span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 :             window.log.apply(window, $.merge(['ZOOLU'], arguments));</span>
+<span class="lineNum">      56 </span>                :            :         }
+<span class="lineNum">      57 </span>                :            :     }
+<span class="lineNum">      58 </span>                :            : 
+<span class="lineNum">      59 </span>                :<span class="lineCov">          1 :     var ZOOLU;</span>
+<span class="lineNum">      60 </span>                :            : 
+<span class="lineNum">      61 </span>                :            :     /** @namespace */
+<span class="lineNum">      62 </span>                :<span class="lineCov">          1 :     ZOOLU = {</span>
+<span class="lineNum">      63 </span>                :            :         /**
+<span class="lineNum">      64 </span>                :            :          * ZOOLU version
+<span class="lineNum">      65 </span>                :            :          * @var {String}
+<span class="lineNum">      66 </span>                :            :          */
+<span class="lineNum">      67 </span>                :            :         version: '2.0.0.alpha1'
+<span class="lineNum">      68 </span>                :            :     };
+<span class="lineNum">      69 </span>                :            : 
+<span class="lineNum">      70 </span>                :            :     // expose ZOOLU to the global object
+<span class="lineNum">      71 </span>                :<span class="lineCov">          1 :     window.ZOOLU = window.$z = ZOOLU;</span>
+<span class="lineNum">      72 </span>                :            : 
+<span class="lineNum">      73 </span>                :            : })(window, window.jQuery);
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
