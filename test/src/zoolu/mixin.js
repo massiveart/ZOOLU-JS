@@ -1,13 +1,13 @@
 TestCase('ZOOLU.MIXIN', {
-    setUp : function() {
+    setUp: function() {
         this.eventApi = {};
     },
     
-    tearDown : function() {
+    tearDown: function() {
     
     },
     
-    'test Event Api enable' : function() {
+    'test Event Api enable': function() {
         ZOOLU.MIXIN.Events.enable.call(this.eventApi);
     
         assertEquals('Type of the listener Object', 'object', typeof this.eventApi.listeners);
@@ -16,7 +16,7 @@ TestCase('ZOOLU.MIXIN', {
         assertEquals('Type of the listener Object', 'function', typeof this.eventApi.off);
     },
     
-    'test Event Api on' : function() {
+    'test Event Api on': function() {
         var eventName, callback;
         eventName = 'testEvent';
     
@@ -29,7 +29,7 @@ TestCase('ZOOLU.MIXIN', {
         assertEquals('Stored Callback type', 'function', typeof this.eventApi.listeners[eventName][0]);
     },
     
-    'test Event Api trigger' : function() {
+    'test Event Api trigger': function() {
         var eventName, callbackResult, triggerArg, argValue;
         eventName = 'testEvent';
         argValue = 'this is a string';
@@ -45,7 +45,7 @@ TestCase('ZOOLU.MIXIN', {
         assertEquals('Trigger passed argument', argValue, triggerArg);
     },
     
-    'test Event Api off' : function() {
+    'test Event Api off': function() {
         var eventName1, eventName2, callbackOneRemove, callbackOneStay, callbackAll1, callbackAll2;
         eventName1 = 'testEvent';
         eventName2 = 'testEvent2';

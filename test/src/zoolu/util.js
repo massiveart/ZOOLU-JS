@@ -1,13 +1,13 @@
-TestCase( 'ZOOLU.UTIL', {
-    setUp : function() {
+TestCase('ZOOLU.UTIL', {
+    setUp: function() {
 
     },
 
-    tearDown : function() {
+    tearDown: function() {
 
     },
 
-    'test truncate' : function() {
+    'test truncate': function() {
         var limit, tooLongString, shortString;
 
         limit = 10;
@@ -20,7 +20,7 @@ TestCase( 'ZOOLU.UTIL', {
         assertEquals('Truncated boolean', '', ZOOLU.UTIL.String.truncate(true, limit));
     },
 
-    'test truncate at word boundaries' : function() {
+    'test truncate at word boundaries': function() {
         var limit, tooLongString, shortString, moreWords;
 
         limit = 10;
@@ -35,7 +35,7 @@ TestCase( 'ZOOLU.UTIL', {
         assertEquals('Truncated boolean', '', ZOOLU.UTIL.String.truncateAtWordBoundaries(true, limit));
     },
 
-    'test truncate in between' : function() {
+    'test truncate in between': function() {
         var limit, ownSeparator, tooLongString, truncatedByOwnSep, shortString, containsOwnSep, containsDefaultSep;
 
         limit = 10;
