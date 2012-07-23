@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Chrome_190108452_Mac_OS.ZOOLU.UI" errors="0" failures="0" tests="4" time="0.031999998">
-<testcase classname="Chrome_190108452_Mac_OS.ZOOLU.UI" name="test column tree instantiation" time="0.0030"/>
-<testcase classname="Chrome_190108452_Mac_OS.ZOOLU.UI" name="test column tree load nodes" time="0.0090"/>
-<testcase classname="Chrome_190108452_Mac_OS.ZOOLU.UI" name="test column tree select node" time="0.0080"/>
-<testcase classname="Chrome_190108452_Mac_OS.ZOOLU.UI" name="test column tree select nested node" time="0.012"/>
-</testsuite>
