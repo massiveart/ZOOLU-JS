@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-05-29</td>
+            <td class="headerValue">2012-07-23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -69,25 +69,25 @@
       <td>
 <pre class="sourceHeading">           Branch data     Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span>                :<span class="lineCov">          1 : TestCase('ZOOLU.UI', {</span></a>
+<a name="1"><span class="lineNum">       1 </span>                :<span class="lineCov">          2 : TestCase('ZOOLU.UI', {</span></a>
 <span class="lineNum">       2 </span>                :            :     setUp: function() {
-<span class="lineNum">       3 </span>                :<span class="lineCov">          4 :         this.$tree = $('&lt;div id=&quot;tree&quot;/&gt;');</span>
-<span class="lineNum">       4 </span>                :<span class="lineCov">          4 :         $('body').append(this.$tree);</span>
+<span class="lineNum">       3 </span>                :<span class="lineCov">          8 :         this.$tree = $('&lt;div id=&quot;tree&quot;/&gt;');</span>
+<span class="lineNum">       4 </span>                :<span class="lineCov">          8 :         $('body').append(this.$tree);</span>
 <span class="lineNum">       5 </span>                :            : 
-<span class="lineNum">       6 </span>                :<span class="lineCov">          4 :         this.server = sinon.fakeServer.create();</span>
+<span class="lineNum">       6 </span>                :<span class="lineCov">          8 :         this.server = sinon.fakeServer.create();</span>
 <span class="lineNum">       7 </span>                :            : 
-<span class="lineNum">       8 </span>                :<span class="lineCov">          4 :         this.server.respondWith('GET', '/nodes',</span>
+<span class="lineNum">       8 </span>                :<span class="lineCov">          8 :         this.server.respondWith('GET', '/nodes',</span>
 <span class="lineNum">       9 </span>                :            :             [200, { 'Content-Type': 'application/json' },
 <span class="lineNum">      10 </span>                :            :                 '[{ &quot;id&quot;: 1, &quot;type&quot;: &quot;page&quot;, &quot;name&quot;: &quot;Home&quot; },' +
 <span class="lineNum">      11 </span>                :            :                 ' { &quot;id&quot;: 2, &quot;type&quot;: &quot;folder&quot;, &quot;name&quot;: &quot;News&quot; }]']);
 <span class="lineNum">      12 </span>                :            : 
-<span class="lineNum">      13 </span>                :<span class="lineCov">          4 :         this.server.respondWith('GET', '/nodes/2/children',</span>
+<span class="lineNum">      13 </span>                :<span class="lineCov">          8 :         this.server.respondWith('GET', '/nodes/2/children',</span>
 <span class="lineNum">      14 </span>                :            :             [200, { 'Content-Type': 'application/json' },
 <span class="lineNum">      15 </span>                :            :                 '[{ &quot;id&quot;: 3, &quot;type&quot;: &quot;start-page&quot;, &quot;name&quot;: &quot;News&quot; },' +
 <span class="lineNum">      16 </span>                :            :                 ' { &quot;id&quot;: 4, &quot;type&quot;: &quot;page&quot;, &quot;name&quot;: &quot;New major release ZOOLU 2.0&quot; },' +
 <span class="lineNum">      17 </span>                :            :                 ' { &quot;id&quot;: 5, &quot;type&quot;: &quot;folder&quot;, &quot;name&quot;: &quot;Archive&quot; }]']);
 <span class="lineNum">      18 </span>                :            : 
-<span class="lineNum">      19 </span>                :<span class="lineCov">          4 :         this.server.respondWith('GET', '/nodes/5/children',</span>
+<span class="lineNum">      19 </span>                :<span class="lineCov">          8 :         this.server.respondWith('GET', '/nodes/5/children',</span>
 <span class="lineNum">      20 </span>                :            :             [200, { 'Content-Type': 'application/json' },
 <span class="lineNum">      21 </span>                :            :                 '[{ &quot;id&quot;: 6, &quot;type&quot;: &quot;start-page&quot;, &quot;name&quot;: &quot;Archive&quot; },' +
 <span class="lineNum">      22 </span>                :            :                 ' { &quot;id&quot;: 7, &quot;type&quot;: &quot;page&quot;, &quot;name&quot;: &quot;New major release ZOOLU 1.3&quot; },' +
@@ -95,72 +95,72 @@
 <span class="lineNum">      24 </span>                :            :     },
 <span class="lineNum">      25 </span>                :            : 
 <span class="lineNum">      26 </span>                :            :     tearDown: function() {
-<span class="lineNum">      27 </span>                :<span class="lineCov">          4 :         this.server.restore();</span>
+<span class="lineNum">      27 </span>                :<span class="lineCov">          8 :         this.server.restore();</span>
 <span class="lineNum">      28 </span>                :            :     },
 <span class="lineNum">      29 </span>                :            : 
 <span class="lineNum">      30 </span>                :            :     'test column tree instantiation': function() {
-<span class="lineNum">      31 </span>                :<span class="lineCov">          1 :         try {</span>
-<span class="lineNum">      32 </span>                :<span class="lineCov">          1 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree');</span>
+<span class="lineNum">      31 </span>                :<span class="lineCov">          2 :         try {</span>
+<span class="lineNum">      32 </span>                :<span class="lineCov">          2 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree');</span>
 <span class="lineNum">      33 </span>                :            :         } catch (e) {
 <span class="lineNum">      34 </span>                :<span class="lineNoCov">          0 :             fail('Column tree instantiation');</span>
 <span class="lineNum">      35 </span>                :            :         }
 <span class="lineNum">      36 </span>                :            : 
-<span class="lineNum">      37 </span>                :<span class="lineCov">          1 :         assertEquals('Column tree instance', 'object', typeof columnTree);</span>
+<span class="lineNum">      37 </span>                :<span class="lineCov">          2 :         assertEquals('Column tree instance', 'object', typeof columnTree);</span>
 <span class="lineNum">      38 </span>                :            :     },
 <span class="lineNum">      39 </span>                :            : 
 <span class="lineNum">      40 </span>                :            :     'test column tree load nodes': function() {
-<span class="lineNum">      41 </span>                :<span class="lineCov">          1 :         try {</span>
-<span class="lineNum">      42 </span>                :<span class="lineCov">          1 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });</span>
-<span class="lineNum">      43 </span>                :<span class="lineCov">          1 :             this.server.respond();</span>
+<span class="lineNum">      41 </span>                :<span class="lineCov">          2 :         try {</span>
+<span class="lineNum">      42 </span>                :<span class="lineCov">          2 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });</span>
+<span class="lineNum">      43 </span>                :<span class="lineCov">          2 :             this.server.respond();</span>
 <span class="lineNum">      44 </span>                :            :         } catch (e) {
 <span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 :             fail('Column tree instantiation');</span>
 <span class="lineNum">      46 </span>                :            :         }
 <span class="lineNum">      47 </span>                :            : 
-<span class="lineNum">      48 </span>                :<span class="lineCov">          1 :         assertEquals('Column data length', 2, columnTree.data[columnTree.level].length);</span>
-<span class="lineNum">      49 </span>                :<span class="lineCov">          1 :         assertEquals('Column length', 1, $('#tree .column').length);</span>
-<span class="lineNum">      50 </span>                :<span class="lineCov">          1 :         assertEquals('First column', 1, $('#column-0').length);</span>
-<span class="lineNum">      51 </span>                :<span class="lineCov">          1 :         assertEquals('First column rows', 2, $('#column-0 .row').length);</span>
+<span class="lineNum">      48 </span>                :<span class="lineCov">          2 :         assertEquals('Column data length', 2, columnTree.data[columnTree.level].length);</span>
+<span class="lineNum">      49 </span>                :<span class="lineCov">          2 :         assertEquals('Column length', 1, $('#tree .column').length);</span>
+<span class="lineNum">      50 </span>                :<span class="lineCov">          2 :         assertEquals('First column', 1, $('#column-0').length);</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">          2 :         assertEquals('First column rows', 2, $('#column-0 .row').length);</span>
 <span class="lineNum">      52 </span>                :            :     },
 <span class="lineNum">      53 </span>                :            : 
 <span class="lineNum">      54 </span>                :            :     'test column tree select node': function() {
-<span class="lineNum">      55 </span>                :<span class="lineCov">          1 :         try {</span>
-<span class="lineNum">      56 </span>                :<span class="lineCov">          1 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });</span>
-<span class="lineNum">      57 </span>                :<span class="lineCov">          1 :             this.server.respond();</span>
+<span class="lineNum">      55 </span>                :<span class="lineCov">          2 :         try {</span>
+<span class="lineNum">      56 </span>                :<span class="lineCov">          2 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });</span>
+<span class="lineNum">      57 </span>                :<span class="lineCov">          2 :             this.server.respond();</span>
 <span class="lineNum">      58 </span>                :            :         } catch (e) {
 <span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :             fail('Column tree instantiation');</span>
 <span class="lineNum">      60 </span>                :            :         }
 <span class="lineNum">      61 </span>                :            : 
-<span class="lineNum">      62 </span>                :<span class="lineCov">          1 :         var event = sinon.spy();</span>
-<span class="lineNum">      63 </span>                :<span class="lineCov">          1 :         columnTree.on('ColumnTree.select', event);</span>
+<span class="lineNum">      62 </span>                :<span class="lineCov">          2 :         var event = sinon.spy();</span>
+<span class="lineNum">      63 </span>                :<span class="lineCov">          2 :         columnTree.on('ColumnTree.select', event);</span>
 <span class="lineNum">      64 </span>                :            : 
 <span class="lineNum">      65 </span>                :            :         // select folder and load children
-<span class="lineNum">      66 </span>                :<span class="lineCov">          1 :         $('#row-2-folder').click();</span>
-<span class="lineNum">      67 </span>                :<span class="lineCov">          1 :         this.server.respond();</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">          2 :         $('#row-2-folder').click();</span>
+<span class="lineNum">      67 </span>                :<span class="lineCov">          2 :         this.server.respond();</span>
 <span class="lineNum">      68 </span>                :            : 
-<span class="lineNum">      69 </span>                :<span class="lineCov">          1 :         assertTrue('ColumnTree select event triggered', event.calledOnce);</span>
-<span class="lineNum">      70 </span>                :<span class="lineCov">          1 :         assertEquals('ColumnTree selected element id', 'row-2-folder', $(event.args[0][0]).attr('id'))</span>
-<span class="lineNum">      71 </span>                :<span class="lineCov">          1 :         assertEquals('Second column', 1, $('#column-1').length);</span>
-<span class="lineNum">      72 </span>                :<span class="lineCov">          1 :         assertEquals('Second column rows', 3, $('#column-1 .row').length);</span>
+<span class="lineNum">      69 </span>                :<span class="lineCov">          2 :         assertTrue('ColumnTree select event triggered', event.calledOnce);</span>
+<span class="lineNum">      70 </span>                :<span class="lineCov">          2 :         assertEquals('ColumnTree selected element id', 'row-2-folder', $(event.args[0][0]).attr('id'))</span>
+<span class="lineNum">      71 </span>                :<span class="lineCov">          2 :         assertEquals('Second column', 1, $('#column-1').length);</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">          2 :         assertEquals('Second column rows', 3, $('#column-1 .row').length);</span>
 <span class="lineNum">      73 </span>                :            :     },
 <span class="lineNum">      74 </span>                :            : 
 <span class="lineNum">      75 </span>                :            :     'test column tree select nested node': function() {
-<span class="lineNum">      76 </span>                :<span class="lineCov">          1 :         try {</span>
-<span class="lineNum">      77 </span>                :<span class="lineCov">          1 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });</span>
-<span class="lineNum">      78 </span>                :<span class="lineCov">          1 :             this.server.respond();</span>
+<span class="lineNum">      76 </span>                :<span class="lineCov">          2 :         try {</span>
+<span class="lineNum">      77 </span>                :<span class="lineCov">          2 :             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });</span>
+<span class="lineNum">      78 </span>                :<span class="lineCov">          2 :             this.server.respond();</span>
 <span class="lineNum">      79 </span>                :            :         } catch (e) {
 <span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 :             fail('Column tree instantiation');</span>
 <span class="lineNum">      81 </span>                :            :         }
 <span class="lineNum">      82 </span>                :            : 
-<span class="lineNum">      83 </span>                :<span class="lineCov">          1 :         var event = sinon.spy();</span>
-<span class="lineNum">      84 </span>                :<span class="lineCov">          1 :         columnTree.on('ColumnTree.select', event);</span>
+<span class="lineNum">      83 </span>                :<span class="lineCov">          2 :         var event = sinon.spy();</span>
+<span class="lineNum">      84 </span>                :<span class="lineCov">          2 :         columnTree.on('ColumnTree.select', event);</span>
 <span class="lineNum">      85 </span>                :            : 
 <span class="lineNum">      86 </span>                :            :         // select folder and load children
-<span class="lineNum">      87 </span>                :<span class="lineCov">          1 :         $('#row-2-folder').click();</span>
-<span class="lineNum">      88 </span>                :<span class="lineCov">          1 :         this.server.respond();</span>
+<span class="lineNum">      87 </span>                :<span class="lineCov">          2 :         $('#row-2-folder').click();</span>
+<span class="lineNum">      88 </span>                :<span class="lineCov">          2 :         this.server.respond();</span>
 <span class="lineNum">      89 </span>                :            : 
 <span class="lineNum">      90 </span>                :            :         // select folder and load children
-<span class="lineNum">      91 </span>                :<span class="lineCov">          1 :         $('#row-5-folder').click();</span>
-<span class="lineNum">      92 </span>                :<span class="lineCov">          1 :         this.server.respond();</span>
+<span class="lineNum">      91 </span>                :<span class="lineCov">          2 :         $('#row-5-folder').click();</span>
+<span class="lineNum">      92 </span>                :<span class="lineCov">          2 :         this.server.respond();</span>
 <span class="lineNum">      93 </span>                :            : 
 <span class="lineNum">      94 </span>                :            :     }
 <span class="lineNum">      95 </span>                :            : });

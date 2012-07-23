@@ -82,7 +82,7 @@
          */
         trigger: function(event, args) {
             if (!!this.listeners[event]) {
-                if (args == undefined) {
+                if (args === undefined) {
                     args = [];
                 }
                 

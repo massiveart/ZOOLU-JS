@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-05-29</td>
+            <td class="headerValue">2012-07-23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -78,18 +78,18 @@
 <span class="lineNum">       7 </span>                :            :  * @copyright Copyright (c) 2011-2012 MASSIVE ART WebServices (http://www.massiveart.com)
 <span class="lineNum">       8 </span>                :            :  * @license http://zoolucms.org/license
 <span class="lineNum">       9 </span>                :            :  */
-<span class="lineNum">      10 </span>                :<span class="lineCov">          1 : (function(window, ZOOLU, $, undefined) {</span>
+<span class="lineNum">      10 </span>                :<span class="lineCov">          2 : (function(window, ZOOLU, $, undefined) {</span>
 <span class="lineNum">      11 </span>                :            : 
-<span class="lineNum">      12 </span>                :<span class="lineCov">          1 :     'use strict';</span>
+<span class="lineNum">      12 </span>                :<span class="lineCov">          2 :     'use strict';</span>
 <span class="lineNum">      13 </span>                :            : 
-<span class="lineNum">      14 </span>                :<span class="lineCov">          1 :     function log() {</span>
-<span class="lineNum">      15 </span>                :<span class="lineCov">         71 :         if (window.debug) {</span>
-<span class="lineNum">      16 </span>                :<span class="lineCov">         71 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
+<span class="lineNum">      14 </span>                :<span class="lineCov">          2 :     function log() {</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">        142 :         if (window.debug) {</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">        142 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
 <span class="lineNum">      17 </span>                :            :         }
 <span class="lineNum">      18 </span>                :            :     }
 <span class="lineNum">      19 </span>                :            : 
 <span class="lineNum">      20 </span>                :            :     /** @namespace */
-<span class="lineNum">      21 </span>                :<span class="lineCov">          1 :     ZOOLU.UI = { };</span>
+<span class="lineNum">      21 </span>                :<span class="lineCov">          2 :     ZOOLU.UI = { };</span>
 <span class="lineNum">      22 </span>                :            : 
 <span class="lineNum">      23 </span>                :            :     /**
 <span class="lineNum">      24 </span>                :            :      * ZOOLU UI Exception
@@ -102,12 +102,12 @@
 <span class="lineNum">      31 </span>                :            :      * @param {String|Null} message Message which is throw to the catcher
 <span class="lineNum">      32 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
 <span class="lineNum">      33 </span>                :            :      */
-<span class="lineNum">      34 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.Exception = function(message) {</span>
+<span class="lineNum">      34 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Exception = function(message) {</span>
 <span class="lineNum">      35 </span>                :<span class="lineNoCov">          0 :         this.name = 'ZOOLU.UI.Exception';</span>
 <span class="lineNum">      36 </span>                :<span class="lineNoCov">          0 :         this.message = message || 'Something went wrong!';</span>
 <span class="lineNum">      37 </span>                :            :     };
 <span class="lineNum">      38 </span>                :            : 
-<span class="lineNum">      39 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.Exception.prototype = /** @lends ZOOLU.UI.Exception# */ {</span>
+<span class="lineNum">      39 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Exception.prototype = /** @lends ZOOLU.UI.Exception# */ {</span>
 <span class="lineNum">      40 </span>                :            : 
 <span class="lineNum">      41 </span>                :            :         constructor: ZOOLU.UI.Exception,
 <span class="lineNum">      42 </span>                :            : 
@@ -141,42 +141,42 @@
 <span class="lineNum">      70 </span>                :            :      * @throws {ZOOLU.UI.Exception} ColumnTree container doesn't exist!
 <span class="lineNum">      71 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
 <span class="lineNum">      72 </span>                :            :      */
-<span class="lineNum">      73 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.ColumnTree = function(container, options) {</span>
-<span class="lineNum">      74 </span>                :<span class="lineCov">          4 :         this.$container = $(container);</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.ColumnTree = function(container, options) {</span>
+<span class="lineNum">      74 </span>                :<span class="lineCov">          8 :         this.$container = $(container);</span>
 <span class="lineNum">      75 </span>                :            : 
-<span class="lineNum">      76 </span>                :<span class="lineCov">          4 :         if (!this.$container.length) {</span>
+<span class="lineNum">      76 </span>                :<span class="lineCov">          8 :         if (!this.$container.length) {</span>
 <span class="lineNum">      77 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception(&quot;ColumnTree container doesn't exist!&quot;);</span>
 <span class="lineNum">      78 </span>                :            :         }
 <span class="lineNum">      79 </span>                :            : 
 <span class="lineNum">      80 </span>                :            :         // add css class
-<span class="lineNum">      81 </span>                :<span class="lineCov">          4 :         this.$container.addClass('column-tree');</span>
+<span class="lineNum">      81 </span>                :<span class="lineCov">          8 :         this.$container.addClass('column-tree');</span>
 <span class="lineNum">      82 </span>                :            : 
 <span class="lineNum">      83 </span>                :            :         // extend default options with given
-<span class="lineNum">      84 </span>                :<span class="lineCov">          4 :         this.options = $.extend({</span>
+<span class="lineNum">      84 </span>                :<span class="lineCov">          8 :         this.options = $.extend({</span>
 <span class="lineNum">      85 </span>                :            :             hasChildren: { },
 <span class="lineNum">      86 </span>                :            :             urlAddOnForLoadingNodeChildren: '/children',
 <span class="lineNum">      87 </span>                :            :             rowMaxLength: 30
 <span class="lineNum">      88 </span>                :            :         }, options);
 <span class="lineNum">      89 </span>                :            : 
-<span class="lineNum">      90 </span>                :<span class="lineCov">          4 :         this.level = 0;</span>
-<span class="lineNum">      91 </span>                :<span class="lineCov">          4 :         this.selectedId = null;</span>
-<span class="lineNum">      92 </span>                :<span class="lineCov">          4 :         this.selectedElementIds = [];</span>
+<span class="lineNum">      90 </span>                :<span class="lineCov">          8 :         this.level = 0;</span>
+<span class="lineNum">      91 </span>                :<span class="lineCov">          8 :         this.selectedId = null;</span>
+<span class="lineNum">      92 </span>                :<span class="lineCov">          8 :         this.selectedElementIds = [];</span>
 <span class="lineNum">      93 </span>                :            : 
-<span class="lineNum">      94 </span>                :<span class="lineCov">          4 :         this.$selected = null;</span>
-<span class="lineNum">      95 </span>                :<span class="lineCov">          4 :         this.$currentColumn = null;</span>
+<span class="lineNum">      94 </span>                :<span class="lineCov">          8 :         this.$selected = null;</span>
+<span class="lineNum">      95 </span>                :<span class="lineCov">          8 :         this.$currentColumn = null;</span>
 <span class="lineNum">      96 </span>                :            : 
-<span class="lineNum">      97 </span>                :<span class="lineCov">          4 :         this.data = [];</span>
+<span class="lineNum">      97 </span>                :<span class="lineCov">          8 :         this.data = [];</span>
 <span class="lineNum">      98 </span>                :            : 
 <span class="lineNum">      99 </span>                :            :         // add event API
-<span class="lineNum">     100 </span>                :<span class="lineCov">          4 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">     100 </span>                :<span class="lineCov">          8 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">     101 </span>                :            : 
-<span class="lineNum">     102 </span>                :<span class="lineCov">          4 :         log('ColumnTree', 'construct', this);</span>
+<span class="lineNum">     102 </span>                :<span class="lineCov">          8 :         log('ColumnTree', 'construct', this);</span>
 <span class="lineNum">     103 </span>                :            : 
 <span class="lineNum">     104 </span>                :            :         // try to load first level
-<span class="lineNum">     105 </span>                :<span class="lineCov">          4 :         this.load();</span>
+<span class="lineNum">     105 </span>                :<span class="lineCov">          8 :         this.load();</span>
 <span class="lineNum">     106 </span>                :            :     };
 <span class="lineNum">     107 </span>                :            : 
-<span class="lineNum">     108 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.ColumnTree.prototype = /** @lends ZOOLU.UI.ColumnTree# */ {</span>
+<span class="lineNum">     108 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.ColumnTree.prototype = /** @lends ZOOLU.UI.ColumnTree# */ {</span>
 <span class="lineNum">     109 </span>                :            : 
 <span class="lineNum">     110 </span>                :            :         constructor: ZOOLU.UI.ColumnTree,
 <span class="lineNum">     111 </span>                :            : 
@@ -187,27 +187,27 @@
 <span class="lineNum">     116 </span>                :            :          * @triggers ColumnTree.load
 <span class="lineNum">     117 </span>                :            :          */
 <span class="lineNum">     118 </span>                :            :         load: function() {
-<span class="lineNum">     119 </span>                :<span class="lineCov">          7 :             log('ColumnTree', 'load');</span>
+<span class="lineNum">     119 </span>                :<span class="lineCov">         14 :             log('ColumnTree', 'load');</span>
 <span class="lineNum">     120 </span>                :            : 
-<span class="lineNum">     121 </span>                :<span class="lineCov">          7 :             if (this.options.url) {</span>
-<span class="lineNum">     122 </span>                :<span class="lineCov">          6 :                 this.trigger('ColumnTree.load');</span>
+<span class="lineNum">     121 </span>                :<span class="lineCov">         14 :             if (this.options.url) {</span>
+<span class="lineNum">     122 </span>                :<span class="lineCov">         12 :                 this.trigger('ColumnTree.load');</span>
 <span class="lineNum">     123 </span>                :            : 
 <span class="lineNum">     124 </span>                :            :                 // add column if is missing for the current level
-<span class="lineNum">     125 </span>                :<span class="lineCov">          6 :                 if (this.$container.find('.column').length &lt;= this.level) {</span>
-<span class="lineNum">     126 </span>                :<span class="lineCov">          6 :                     this.addColumn();</span>
+<span class="lineNum">     125 </span>                :<span class="lineCov">         12 :                 if (this.$container.find('.column').length &lt;= this.level) {</span>
+<span class="lineNum">     126 </span>                :<span class="lineCov">         12 :                     this.addColumn();</span>
 <span class="lineNum">     127 </span>                :            :                 }
 <span class="lineNum">     128 </span>                :            : 
-<span class="lineNum">     129 </span>                :<span class="lineCov">          6 :                 this.$currentColumn = $('#column-' + this.level);</span>
-<span class="lineNum">     130 </span>                :<span class="lineCov">          6 :                 this.$currentColumn.addClass('busy');</span>
+<span class="lineNum">     129 </span>                :<span class="lineCov">         12 :                 this.$currentColumn = $('#column-' + this.level);</span>
+<span class="lineNum">     130 </span>                :<span class="lineCov">         12 :                 this.$currentColumn.addClass('busy');</span>
 <span class="lineNum">     131 </span>                :            : 
-<span class="lineNum">     132 </span>                :<span class="lineCov">          6 :                 $.ajax({</span>
+<span class="lineNum">     132 </span>                :<span class="lineCov">         12 :                 $.ajax({</span>
 <span class="lineNum">     133 </span>                :            :                     url: this.selectedId ? this.options.url + '/' + this.selectedId + this.options.urlAddOnForLoadingNodeChildren : this.options.url,
 <span class="lineNum">     134 </span>                :            :                     type: 'GET',
 <span class="lineNum">     135 </span>                :            :                     dataType: 'JSON',
 <span class="lineNum">     136 </span>                :            :                     success: function(data) {
-<span class="lineNum">     137 </span>                :<span class="lineCov">          6 :                         log('ColumnTree', 'load', 'success', data);</span>
-<span class="lineNum">     138 </span>                :<span class="lineCov">          6 :                         this.updateData(data);</span>
-<span class="lineNum">     139 </span>                :<span class="lineCov">          6 :                         this.updateView();</span>
+<span class="lineNum">     137 </span>                :<span class="lineCov">         12 :                         log('ColumnTree', 'load', 'success', data);</span>
+<span class="lineNum">     138 </span>                :<span class="lineCov">         12 :                         this.updateData(data);</span>
+<span class="lineNum">     139 </span>                :<span class="lineCov">         12 :                         this.updateView();</span>
 <span class="lineNum">     140 </span>                :            :                     }.bind(this),
 <span class="lineNum">     141 </span>                :            :                     error: function(jqXHR, textStatus) {
 <span class="lineNum">     142 </span>                :<span class="lineNoCov">          0 :                         log('ColumnTree', 'load', 'error', textStatus);</span>
@@ -223,9 +223,9 @@
 <span class="lineNum">     152 </span>                :            :          * from the REST-Service for the current level.
 <span class="lineNum">     153 </span>                :            :          */
 <span class="lineNum">     154 </span>                :            :         updateData: function(data) {
-<span class="lineNum">     155 </span>                :<span class="lineCov">          6 :             log('ColumnTree', 'updateData');</span>
+<span class="lineNum">     155 </span>                :<span class="lineCov">         12 :             log('ColumnTree', 'updateData');</span>
 <span class="lineNum">     156 </span>                :            : 
-<span class="lineNum">     157 </span>                :<span class="lineCov">          6 :             this.data[this.level] = data;</span>
+<span class="lineNum">     157 </span>                :<span class="lineCov">         12 :             this.data[this.level] = data;</span>
 <span class="lineNum">     158 </span>                :            :         },
 <span class="lineNum">     159 </span>                :            : 
 <span class="lineNum">     160 </span>                :            :         /**
@@ -235,34 +235,34 @@
 <span class="lineNum">     164 </span>                :            :          * @throws {ZOOLU.UI.Exception} Current column not found!
 <span class="lineNum">     165 </span>                :            :          */
 <span class="lineNum">     166 </span>                :            :         updateView: function() {
-<span class="lineNum">     167 </span>                :<span class="lineCov">          6 :             log('ColumnTree', 'updateView');</span>
+<span class="lineNum">     167 </span>                :<span class="lineCov">         12 :             log('ColumnTree', 'updateView');</span>
 <span class="lineNum">     168 </span>                :            : 
-<span class="lineNum">     169 </span>                :<span class="lineCov">          6 :             if (!this.$currentColumn.length) {</span>
+<span class="lineNum">     169 </span>                :<span class="lineCov">         12 :             if (!this.$currentColumn.length) {</span>
 <span class="lineNum">     170 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('Current column not found!');</span>
 <span class="lineNum">     171 </span>                :            :             }
 <span class="lineNum">     172 </span>                :            : 
-<span class="lineNum">     173 </span>                :<span class="lineCov">          6 :             this.$currentColumn.removeClass('busy');</span>
+<span class="lineNum">     173 </span>                :<span class="lineCov">         12 :             this.$currentColumn.removeClass('busy');</span>
 <span class="lineNum">     174 </span>                :            : 
-<span class="lineNum">     175 </span>                :<span class="lineCov">          6 :             this.$list = $('&lt;ul class=&quot;list&quot;/&gt;');</span>
+<span class="lineNum">     175 </span>                :<span class="lineCov">         12 :             this.$list = $('&lt;ul class=&quot;list&quot;/&gt;');</span>
 <span class="lineNum">     176 </span>                :            : 
 <span class="lineNum">     177 </span>                :            :             // http://jsperf.com/loops3/2
-<span class="lineNum">     178 </span>                :<span class="lineCov">          6 :             for (var i = -1, length = this.data[this.level].length; ++i &lt; length;) {</span>
-<span class="lineNum">     179 </span>                :<span class="lineCov">         15 :                 this.prepareRow(this.data[this.level][i]).appendTo(this.$list);</span>
+<span class="lineNum">     178 </span>                :<span class="lineCov">         12 :             for (var i = -1, length = this.data[this.level].length; ++i &lt; length;) {</span>
+<span class="lineNum">     179 </span>                :<span class="lineCov">         30 :                 this.prepareRow(this.data[this.level][i]).appendTo(this.$list);</span>
 <span class="lineNum">     180 </span>                :            :             }
 <span class="lineNum">     181 </span>                :            : 
-<span class="lineNum">     182 </span>                :<span class="lineCov">          6 :             this.$currentColumn.html(this.$list);</span>
+<span class="lineNum">     182 </span>                :<span class="lineCov">         12 :             this.$currentColumn.html(this.$list);</span>
 <span class="lineNum">     183 </span>                :            : 
 <span class="lineNum">     184 </span>                :            :             // cleanup
-<span class="lineNum">     185 </span>                :<span class="lineCov">          6 :             delete this.$row;</span>
-<span class="lineNum">     186 </span>                :<span class="lineCov">          6 :             delete this.$list;</span>
+<span class="lineNum">     185 </span>                :<span class="lineCov">         12 :             delete this.$row;</span>
+<span class="lineNum">     186 </span>                :<span class="lineCov">         12 :             delete this.$list;</span>
 <span class="lineNum">     187 </span>                :            :         },
 <span class="lineNum">     188 </span>                :            : 
 <span class="lineNum">     189 </span>                :            :         /**
 <span class="lineNum">     190 </span>                :            :          * Adds a new column to the tree (&lt;code&gt;&amp;lt;div class=&quot;column&quot;/&amp;gt;&lt;/code&gt;).
 <span class="lineNum">     191 </span>                :            :          */
 <span class="lineNum">     192 </span>                :            :         addColumn: function() {
-<span class="lineNum">     193 </span>                :<span class="lineCov">          6 :             log('ColumnTree', 'addColumn');</span>
-<span class="lineNum">     194 </span>                :<span class="lineCov">          6 :             this.$container.append($('&lt;div class=&quot;column&quot;/&gt;').attr('id', 'column-' + this.level).data('level', this.level));</span>
+<span class="lineNum">     193 </span>                :<span class="lineCov">         12 :             log('ColumnTree', 'addColumn');</span>
+<span class="lineNum">     194 </span>                :<span class="lineCov">         12 :             this.$container.append($('&lt;div class=&quot;column&quot;/&gt;').attr('id', 'column-' + this.level).data('level', this.level));</span>
 <span class="lineNum">     195 </span>                :            :         },
 <span class="lineNum">     196 </span>                :            : 
 <span class="lineNum">     197 </span>                :            :         /**
@@ -272,29 +272,29 @@
 <span class="lineNum">     201 </span>                :            :          * @return {Object}
 <span class="lineNum">     202 </span>                :            :          */
 <span class="lineNum">     203 </span>                :            :         prepareRow: function(node) {
-<span class="lineNum">     204 </span>                :<span class="lineCov">         15 :             log('ColumnTree', 'prepareRow', arguments);</span>
+<span class="lineNum">     204 </span>                :<span class="lineCov">         30 :             log('ColumnTree', 'prepareRow', arguments);</span>
 <span class="lineNum">     205 </span>                :            : 
-<span class="lineNum">     206 </span>                :<span class="lineCov">         15 :             this.$row = $('&lt;li class=&quot;row ' + node.type + '&quot;/&gt;').attr('id', 'row-' + node.id + '-' + node.type);</span>
-<span class="lineNum">     207 </span>                :<span class="lineCov">         15 :             this.$row.html(ZOOLU.UTIL.String.truncateInBetween(node.name, this.options.rowMaxLength));</span>
+<span class="lineNum">     206 </span>                :<span class="lineCov">         30 :             this.$row = $('&lt;li class=&quot;row ' + node.type + '&quot;/&gt;').attr('id', 'row-' + node.id + '-' + node.type);</span>
+<span class="lineNum">     207 </span>                :<span class="lineCov">         30 :             this.$row.html(ZOOLU.UTIL.String.truncateInBetween(node.name, this.options.rowMaxLength));</span>
 <span class="lineNum">     208 </span>                :            : 
 <span class="lineNum">     209 </span>                :            :             // store node data at the element
-<span class="lineNum">     210 </span>                :<span class="lineCov">         15 :             this.$row.data('id', node.id);</span>
-<span class="lineNum">     211 </span>                :<span class="lineCov">         15 :             this.$row.data('type', node.type);</span>
-<span class="lineNum">     212 </span>                :<span class="lineCov">         15 :             this.$row.data('level', this.level);</span>
+<span class="lineNum">     210 </span>                :<span class="lineCov">         30 :             this.$row.data('id', node.id);</span>
+<span class="lineNum">     211 </span>                :<span class="lineCov">         30 :             this.$row.data('type', node.type);</span>
+<span class="lineNum">     212 </span>                :<span class="lineCov">         30 :             this.$row.data('level', this.level);</span>
 <span class="lineNum">     213 </span>                :            : 
-<span class="lineNum">     214 </span>                :<span class="lineCov">         15 :             this.attachRowObservers(node);</span>
+<span class="lineNum">     214 </span>                :<span class="lineCov">         30 :             this.attachRowObservers(node);</span>
 <span class="lineNum">     215 </span>                :            : 
-<span class="lineNum">     216 </span>                :<span class="lineCov">         15 :             return this.$row;</span>
+<span class="lineNum">     216 </span>                :<span class="lineCov">         30 :             return this.$row;</span>
 <span class="lineNum">     217 </span>                :            :         },
 <span class="lineNum">     218 </span>                :            : 
 <span class="lineNum">     219 </span>                :            :         /**
 <span class="lineNum">     220 </span>                :            :          * Attaches all observers (click, ...) to the row element.
 <span class="lineNum">     221 </span>                :            :          */
 <span class="lineNum">     222 </span>                :            :         attachRowObservers: function() {
-<span class="lineNum">     223 </span>                :<span class="lineCov">         15 :             log('ColumnTree', 'attachRowObservers', arguments);</span>
+<span class="lineNum">     223 </span>                :<span class="lineCov">         30 :             log('ColumnTree', 'attachRowObservers', arguments);</span>
 <span class="lineNum">     224 </span>                :            : 
-<span class="lineNum">     225 </span>                :<span class="lineCov">         15 :             this.$row.on('click', function(event) {</span>
-<span class="lineNum">     226 </span>                :<span class="lineCov">          3 :                 this.select(event.target);</span>
+<span class="lineNum">     225 </span>                :<span class="lineCov">         30 :             this.$row.on('click', function(event) {</span>
+<span class="lineNum">     226 </span>                :<span class="lineCov">          6 :                 this.select(event.target);</span>
 <span class="lineNum">     227 </span>                :            :             }.bind(this));
 <span class="lineNum">     228 </span>                :            :         },
 <span class="lineNum">     229 </span>                :            : 
@@ -306,18 +306,18 @@
 <span class="lineNum">     235 </span>                :            :          * @triggers ColumnTree.select with the selected object
 <span class="lineNum">     236 </span>                :            :          */
 <span class="lineNum">     237 </span>                :            :         select: function(element) {
-<span class="lineNum">     238 </span>                :<span class="lineCov">          3 :             log('ColumnTree', 'select', arguments);</span>
+<span class="lineNum">     238 </span>                :<span class="lineCov">          6 :             log('ColumnTree', 'select', arguments);</span>
 <span class="lineNum">     239 </span>                :            : 
-<span class="lineNum">     240 </span>                :<span class="lineCov">          3 :             this.$selected = $(element);</span>
-<span class="lineNum">     241 </span>                :<span class="lineCov">          3 :             this.selectedId = this.$selected.data('id');</span>
-<span class="lineNum">     242 </span>                :<span class="lineCov">          3 :             this.level = this.$selected.data('level');</span>
+<span class="lineNum">     240 </span>                :<span class="lineCov">          6 :             this.$selected = $(element);</span>
+<span class="lineNum">     241 </span>                :<span class="lineCov">          6 :             this.selectedId = this.$selected.data('id');</span>
+<span class="lineNum">     242 </span>                :<span class="lineCov">          6 :             this.level = this.$selected.data('level');</span>
 <span class="lineNum">     243 </span>                :            : 
-<span class="lineNum">     244 </span>                :<span class="lineCov">          3 :             this.trigger('ColumnTree.select', [this.$selected]);</span>
-<span class="lineNum">     245 </span>                :<span class="lineCov">          3 :             this.updateSelectedMarker();</span>
+<span class="lineNum">     244 </span>                :<span class="lineCov">          6 :             this.trigger('ColumnTree.select', [this.$selected]);</span>
+<span class="lineNum">     245 </span>                :<span class="lineCov">          6 :             this.updateSelectedMarker();</span>
 <span class="lineNum">     246 </span>                :            : 
 <span class="lineNum">     247 </span>                :            :             // cleanup tree
-<span class="lineNum">     248 </span>                :<span class="lineCov">          3 :             this.$container.find('.column').each(function(index, element) {</span>
-<span class="lineNum">     249 </span>                :<span class="lineCov">          4 :                 if ($(element).data('level') &gt; this.level) {</span>
+<span class="lineNum">     248 </span>                :<span class="lineCov">          6 :             this.$container.find('.column').each(function(index, element) {</span>
+<span class="lineNum">     249 </span>                :<span class="lineCov">          8 :                 if ($(element).data('level') &gt; this.level) {</span>
 <span class="lineNum">     250 </span>                :            : 
 <span class="lineNum">     251 </span>                :            :                     // cleanup dom
 <span class="lineNum">     252 </span>                :<span class="lineNoCov">          0 :                     $(element).html('');</span>
@@ -328,11 +328,11 @@
 <span class="lineNum">     257 </span>                :            :                 }
 <span class="lineNum">     258 </span>                :            :             }.bind(this));
 <span class="lineNum">     259 </span>                :            : 
-<span class="lineNum">     260 </span>                :<span class="lineCov">          3 :             if (this.options.hasChildren.hasOwnProperty(this.$selected.data('type')) &amp;&amp;</span>
+<span class="lineNum">     260 </span>                :<span class="lineCov">          6 :             if (this.options.hasChildren.hasOwnProperty(this.$selected.data('type')) &amp;&amp;</span>
 <span class="lineNum">     261 </span>                :            :                 this.options.hasChildren[this.$selected.data('type')] === true) {
 <span class="lineNum">     262 </span>                :            : 
-<span class="lineNum">     263 </span>                :<span class="lineCov">          3 :                 this.level++;</span>
-<span class="lineNum">     264 </span>                :<span class="lineCov">          3 :                 this.load();</span>
+<span class="lineNum">     263 </span>                :<span class="lineCov">          6 :                 this.level++;</span>
+<span class="lineNum">     264 </span>                :<span class="lineCov">          6 :                 this.load();</span>
 <span class="lineNum">     265 </span>                :            :             }
 <span class="lineNum">     266 </span>                :            :         },
 <span class="lineNum">     267 </span>                :            : 
@@ -340,15 +340,15 @@
 <span class="lineNum">     269 </span>                :            :          * Updates the selected marker of the current column.
 <span class="lineNum">     270 </span>                :            :          */
 <span class="lineNum">     271 </span>                :            :         updateSelectedMarker: function() {
-<span class="lineNum">     272 </span>                :<span class="lineCov">          3 :             log('ColumnTree', 'updateSelectedMarker');</span>
+<span class="lineNum">     272 </span>                :<span class="lineCov">          6 :             log('ColumnTree', 'updateSelectedMarker');</span>
 <span class="lineNum">     273 </span>                :            : 
-<span class="lineNum">     274 </span>                :<span class="lineCov">          3 :             if (this.selectedElementIds[this.level]) {</span>
+<span class="lineNum">     274 </span>                :<span class="lineCov">          6 :             if (this.selectedElementIds[this.level]) {</span>
 <span class="lineNum">     275 </span>                :<span class="lineNoCov">          0 :                 log($('#' + this.selectedElementIds[this.level]));</span>
 <span class="lineNum">     276 </span>                :<span class="lineNoCov">          0 :                 $('#' + this.selectedElementIds[this.level]).removeClass('selected');</span>
 <span class="lineNum">     277 </span>                :            :             }
 <span class="lineNum">     278 </span>                :            : 
-<span class="lineNum">     279 </span>                :<span class="lineCov">          3 :             this.$selected.addClass('selected');</span>
-<span class="lineNum">     280 </span>                :<span class="lineCov">          3 :             this.selectedElementIds[this.level] = this.$selected.attr('id');</span>
+<span class="lineNum">     279 </span>                :<span class="lineCov">          6 :             this.$selected.addClass('selected');</span>
+<span class="lineNum">     280 </span>                :<span class="lineCov">          6 :             this.selectedElementIds[this.level] = this.$selected.attr('id');</span>
 <span class="lineNum">     281 </span>                :            :         }
 <span class="lineNum">     282 </span>                :            :     };
 <span class="lineNum">     283 </span>                :            : 
@@ -368,7 +368,7 @@
 <span class="lineNum">     297 </span>                :            :      * @throws {ZOOLU.UI.Exception} Layout container doesn't exist!
 <span class="lineNum">     298 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
 <span class="lineNum">     299 </span>                :            :      */
-<span class="lineNum">     300 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.Layout = function(container, options) {</span>
+<span class="lineNum">     300 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Layout = function(container, options) {</span>
 <span class="lineNum">     301 </span>                :<span class="lineNoCov">          0 :         this.$container = $(container);</span>
 <span class="lineNum">     302 </span>                :            : 
 <span class="lineNum">     303 </span>                :<span class="lineNoCov">          0 :         if (!this.$container.length) {</span>
@@ -397,7 +397,7 @@
 <span class="lineNum">     326 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
 <span class="lineNum">     327 </span>                :            :     };
 <span class="lineNum">     328 </span>                :            : 
-<span class="lineNum">     329 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.Layout.prototype = /** @lends ZOOLU.UI.Layout# */ {</span>
+<span class="lineNum">     329 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Layout.prototype = /** @lends ZOOLU.UI.Layout# */ {</span>
 <span class="lineNum">     330 </span>                :            : 
 <span class="lineNum">     331 </span>                :            :         constructor: ZOOLU.UI.Layout,
 <span class="lineNum">     332 </span>                :            : 
@@ -447,248 +447,250 @@
 <span class="lineNum">     376 </span>                :            : 
 <span class="lineNum">     377 </span>                :            :         enable: function() {
 <span class="lineNum">     378 </span>                :            : 
-<span class="lineNum">     379 </span>                :            :             /** @ignore */
-<span class="lineNum">     380 </span>                :<span class="lineNoCov">          0 :             this.initPanel = function(panel, orientation) {</span>
-<span class="lineNum">     381 </span>                :<span class="lineNoCov">          0 :                 ZOOLU.UI.Layout.prototype.initPanel.call(this, panel, orientation);</span>
-<span class="lineNum">     382 </span>                :            :             }.bind(this);
-<span class="lineNum">     383 </span>                :            : 
-<span class="lineNum">     384 </span>                :            :             /** @ignore */
-<span class="lineNum">     385 </span>                :<span class="lineNoCov">          0 :             this.addPanel = function(panel) {</span>
-<span class="lineNum">     386 </span>                :<span class="lineNoCov">          0 :                 ZOOLU.UI.Layout.prototype.addPanel.call(this, panel);</span>
-<span class="lineNum">     387 </span>                :            :             }.bind(this);
-<span class="lineNum">     388 </span>                :            : 
-<span class="lineNum">     389 </span>                :            :             /** @ignore */
-<span class="lineNum">     390 </span>                :<span class="lineNoCov">          0 :             this.arrange = function() {</span>
-<span class="lineNum">     391 </span>                :<span class="lineNoCov">          0 :                 ZOOLU.UI.Layout.prototype.arrange.call(this);</span>
-<span class="lineNum">     392 </span>                :            :             }.bind(this);
-<span class="lineNum">     393 </span>                :            :         },
-<span class="lineNum">     394 </span>                :            : 
-<span class="lineNum">     395 </span>                :            :         /**
-<span class="lineNum">     396 </span>                :            :          * Initialize panel of the current layout.
-<span class="lineNum">     397 </span>                :            :          *
-<span class="lineNum">     398 </span>                :            :          * @param {Object} panel Panel of the current layout
-<span class="lineNum">     399 </span>                :            :          * @param {String} orientation Orientation of the given panel
-<span class="lineNum">     400 </span>                :            :          */
-<span class="lineNum">     401 </span>                :            :         initPanel: function(panel, orientation) {
-<span class="lineNum">     402 </span>                :            : 
-<span class="lineNum">     403 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'initPanel', arguments);</span>
+<span class="lineNum">     379 </span>                :            :             // FIXME ??
+<span class="lineNum">     380 </span>                :            : 
+<span class="lineNum">     381 </span>                :            :             /** @ignore */
+<span class="lineNum">     382 </span>                :<span class="lineNoCov">          0 :             this.initPanel = function(panel, orientation) {</span>
+<span class="lineNum">     383 </span>                :<span class="lineNoCov">          0 :                 ZOOLU.UI.Layout.prototype.initPanel.call(this, panel, orientation);</span>
+<span class="lineNum">     384 </span>                :            :             }.bind(this);
+<span class="lineNum">     385 </span>                :            : 
+<span class="lineNum">     386 </span>                :            :             /** @ignore */
+<span class="lineNum">     387 </span>                :<span class="lineNoCov">          0 :             this.addPanel = function(panel) {</span>
+<span class="lineNum">     388 </span>                :<span class="lineNoCov">          0 :                 ZOOLU.UI.Layout.prototype.addPanel.call(this, panel);</span>
+<span class="lineNum">     389 </span>                :            :             }.bind(this);
+<span class="lineNum">     390 </span>                :            : 
+<span class="lineNum">     391 </span>                :            :             /** @ignore */
+<span class="lineNum">     392 </span>                :<span class="lineNoCov">          0 :             this.arrange = function() {</span>
+<span class="lineNum">     393 </span>                :<span class="lineNoCov">          0 :                 ZOOLU.UI.Layout.prototype.arrange.call(this);</span>
+<span class="lineNum">     394 </span>                :            :             }.bind(this);
+<span class="lineNum">     395 </span>                :            :         },
+<span class="lineNum">     396 </span>                :            : 
+<span class="lineNum">     397 </span>                :            :         /**
+<span class="lineNum">     398 </span>                :            :          * Initialize panel of the current layout.
+<span class="lineNum">     399 </span>                :            :          *
+<span class="lineNum">     400 </span>                :            :          * @param {Object} panel Panel of the current layout
+<span class="lineNum">     401 </span>                :            :          * @param {String} orientation Orientation of the given panel
+<span class="lineNum">     402 </span>                :            :          */
+<span class="lineNum">     403 </span>                :            :         initPanel: function(panel, orientation) {
 <span class="lineNum">     404 </span>                :            : 
-<span class="lineNum">     405 </span>                :<span class="lineNoCov">          0 :             this.addPanel(new ZOOLU.UI.Layout.Panel(panel, this, orientation, this.options));</span>
-<span class="lineNum">     406 </span>                :            :         },
-<span class="lineNum">     407 </span>                :            : 
-<span class="lineNum">     408 </span>                :            :         /**
-<span class="lineNum">     409 </span>                :            :          * Add instance of ZOOLU.UI.Layout.Panel to the current layout.
-<span class="lineNum">     410 </span>                :            :          *
-<span class="lineNum">     411 </span>                :            :          * @param {ZOOLU.UI.Layout.Panel} panel Instance of ZOOLU.UI.Layout.Panel
-<span class="lineNum">     412 </span>                :            :          */
-<span class="lineNum">     413 </span>                :            :         addPanel: function(panel) {
-<span class="lineNum">     414 </span>                :            : 
-<span class="lineNum">     415 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'addPanel', arguments);</span>
+<span class="lineNum">     405 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'initPanel', arguments);</span>
+<span class="lineNum">     406 </span>                :            : 
+<span class="lineNum">     407 </span>                :<span class="lineNoCov">          0 :             this.addPanel(new ZOOLU.UI.Layout.Panel(panel, this, orientation, this.options));</span>
+<span class="lineNum">     408 </span>                :            :         },
+<span class="lineNum">     409 </span>                :            : 
+<span class="lineNum">     410 </span>                :            :         /**
+<span class="lineNum">     411 </span>                :            :          * Add instance of ZOOLU.UI.Layout.Panel to the current layout.
+<span class="lineNum">     412 </span>                :            :          *
+<span class="lineNum">     413 </span>                :            :          * @param {ZOOLU.UI.Layout.Panel} panel Instance of ZOOLU.UI.Layout.Panel
+<span class="lineNum">     414 </span>                :            :          */
+<span class="lineNum">     415 </span>                :            :         addPanel: function(panel) {
 <span class="lineNum">     416 </span>                :            : 
-<span class="lineNum">     417 </span>                :<span class="lineNoCov">          0 :             this.panels[panel.orientation] = panel;</span>
+<span class="lineNum">     417 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'addPanel', arguments);</span>
 <span class="lineNum">     418 </span>                :            : 
-<span class="lineNum">     419 </span>                :<span class="lineNoCov">          0 :             panel.on('Layout.Panel.resize', this.arrange.bind(this));</span>
-<span class="lineNum">     420 </span>                :            :         },
-<span class="lineNum">     421 </span>                :            : 
-<span class="lineNum">     422 </span>                :            :         /**
-<span class="lineNum">     423 </span>                :            :          * Arrange all layout panels.
-<span class="lineNum">     424 </span>                :            :          */
-<span class="lineNum">     425 </span>                :            :         arrange: function() {
-<span class="lineNum">     426 </span>                :            : 
-<span class="lineNum">     427 </span>                :<span class="lineNoCov">          0 :             if (!!this.layout) {</span>
-<span class="lineNum">     428 </span>                :<span class="lineNoCov">          0 :                 log('Layout', 'Panel', 'arrange');</span>
-<span class="lineNum">     429 </span>                :            :             } else {
-<span class="lineNum">     430 </span>                :<span class="lineNoCov">          0 :                 log('Layout', 'arrange');</span>
-<span class="lineNum">     431 </span>                :            :             }
-<span class="lineNum">     432 </span>                :            : 
-<span class="lineNum">     433 </span>                :            :             //TODO cleanup!!!
+<span class="lineNum">     419 </span>                :<span class="lineNoCov">          0 :             this.panels[panel.orientation] = panel;</span>
+<span class="lineNum">     420 </span>                :            : 
+<span class="lineNum">     421 </span>                :<span class="lineNoCov">          0 :             panel.on('Layout.Panel.resize', this.arrange.bind(this));</span>
+<span class="lineNum">     422 </span>                :            :         },
+<span class="lineNum">     423 </span>                :            : 
+<span class="lineNum">     424 </span>                :            :         /**
+<span class="lineNum">     425 </span>                :            :          * Arrange all layout panels.
+<span class="lineNum">     426 </span>                :            :          */
+<span class="lineNum">     427 </span>                :            :         arrange: function() {
+<span class="lineNum">     428 </span>                :            : 
+<span class="lineNum">     429 </span>                :<span class="lineNoCov">          0 :             if (!!this.layout) {</span>
+<span class="lineNum">     430 </span>                :<span class="lineNoCov">          0 :                 log('Layout', 'Panel', 'arrange');</span>
+<span class="lineNum">     431 </span>                :            :             } else {
+<span class="lineNum">     432 </span>                :<span class="lineNoCov">          0 :                 log('Layout', 'arrange');</span>
+<span class="lineNum">     433 </span>                :            :             }
 <span class="lineNum">     434 </span>                :            : 
-<span class="lineNum">     435 </span>                :<span class="lineNoCov">          0 :             this.updateDimension();</span>
+<span class="lineNum">     435 </span>                :            :             //TODO cleanup!!!
 <span class="lineNum">     436 </span>                :            : 
-<span class="lineNum">     437 </span>                :            :             // west
-<span class="lineNum">     438 </span>                :<span class="lineNoCov">          0 :             this.left = 0;</span>
-<span class="lineNum">     439 </span>                :<span class="lineNoCov">          0 :             if (this.panels.hasOwnProperty('west')) {</span>
-<span class="lineNum">     440 </span>                :<span class="lineNoCov">          0 :                 this.panels.west.setPositionLeft(this.left);</span>
-<span class="lineNum">     441 </span>                :<span class="lineNoCov">          0 :                 this.left += this.panels.west.width;</span>
-<span class="lineNum">     442 </span>                :            :             }
-<span class="lineNum">     443 </span>                :            : 
-<span class="lineNum">     444 </span>                :            :             // north
-<span class="lineNum">     445 </span>                :<span class="lineNoCov">          0 :             this.top = 0;</span>
-<span class="lineNum">     446 </span>                :<span class="lineNoCov">          0 :             if (this.panels.hasOwnProperty('north')) {</span>
-<span class="lineNum">     447 </span>                :<span class="lineNoCov">          0 :                 this.panels.north.setPositionTop(this.top);</span>
-<span class="lineNum">     448 </span>                :<span class="lineNoCov">          0 :                 this.top += this.panels.north.height;</span>
-<span class="lineNum">     449 </span>                :            :             }
-<span class="lineNum">     450 </span>                :            : 
-<span class="lineNum">     451 </span>                :            :             // center
-<span class="lineNum">     452 </span>                :<span class="lineNoCov">          0 :             if (this.panels.hasOwnProperty('center')) {</span>
-<span class="lineNum">     453 </span>                :<span class="lineNoCov">          0 :                 this.panels.center.setPositionLeft(this.left);</span>
-<span class="lineNum">     454 </span>                :<span class="lineNoCov">          0 :                 this.panels.center.setPositionTop(this.top);</span>
-<span class="lineNum">     455 </span>                :<span class="lineNoCov">          0 :                 this.panels.center.updateDimension(</span>
-<span class="lineNum">     456 </span>                :            :                     (this.left === 0 ? '100%' : this.width - this.left),
-<span class="lineNum">     457 </span>                :            :                     (this.top === 0 ? '100%' : this.height - this.top)
-<span class="lineNum">     458 </span>                :            :                 );
-<span class="lineNum">     459 </span>                :            : 
-<span class="lineNum">     460 </span>                :<span class="lineNoCov">          0 :                 if (this.panels.center.hasChildren) {</span>
-<span class="lineNum">     461 </span>                :<span class="lineNoCov">          0 :                     this.panels.center.arrange();</span>
-<span class="lineNum">     462 </span>                :            :                 }
-<span class="lineNum">     463 </span>                :            :             }
-<span class="lineNum">     464 </span>                :            : 
-<span class="lineNum">     465 </span>                :<span class="lineNoCov">          0 :             this.unbusy();</span>
-<span class="lineNum">     466 </span>                :            :         },
-<span class="lineNum">     467 </span>                :            : 
-<span class="lineNum">     468 </span>                :            :         unbusy: function() {
-<span class="lineNum">     469 </span>                :<span class="lineNoCov">          0 :             this.$container.removeClass('busy');</span>
-<span class="lineNum">     470 </span>                :            :         },
-<span class="lineNum">     471 </span>                :            : 
-<span class="lineNum">     472 </span>                :            :         updateDimension: function(width, height) {
-<span class="lineNum">     473 </span>                :<span class="lineNoCov">          0 :             if (!!width) {</span>
-<span class="lineNum">     474 </span>                :<span class="lineNoCov">          0 :                 this.$container.width(width);</span>
-<span class="lineNum">     475 </span>                :            :             }
-<span class="lineNum">     476 </span>                :            : 
-<span class="lineNum">     477 </span>                :<span class="lineNoCov">          0 :             if (!!height) {</span>
-<span class="lineNum">     478 </span>                :<span class="lineNoCov">          0 :                 this.$container.height(height);</span>
-<span class="lineNum">     479 </span>                :            :             }
-<span class="lineNum">     480 </span>                :            : 
-<span class="lineNum">     481 </span>                :<span class="lineNoCov">          0 :             this.height = this.$container.outerHeight(true);</span>
-<span class="lineNum">     482 </span>                :<span class="lineNoCov">          0 :             this.width = this.$container.outerWidth(true);</span>
-<span class="lineNum">     483 </span>                :            :         }
-<span class="lineNum">     484 </span>                :            :     };
-<span class="lineNum">     485 </span>                :            : 
-<span class="lineNum">     486 </span>                :            :     /**
-<span class="lineNum">     487 </span>                :            :      * ZOOLU Layout Panel UI Element
-<span class="lineNum">     488 </span>                :            :      *
-<span class="lineNum">     489 </span>                :            :      * @class
-<span class="lineNum">     490 </span>                :            :      * @constructor
-<span class="lineNum">     491 </span>                :            :      * @private
-<span class="lineNum">     492 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
-<span class="lineNum">     493 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#on as #on
-<span class="lineNum">     494 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#off as #off
-<span class="lineNum">     495 </span>                :            :      * @param {String} element Selector to get the panel
-<span class="lineNum">     496 </span>                :            :      * @param {ZOOLU.UI.Layout} layout Instance of the parent ZOOLU.UI.Layout
-<span class="lineNum">     497 </span>                :            :      * @param {Object} options Default options will be merged with the given options
-<span class="lineNum">     498 </span>                :            :      * @throws {ZOOLU.UI.Exception} Panel doesn't exist!
-<span class="lineNum">     499 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
-<span class="lineNum">     500 </span>                :            :      */
-<span class="lineNum">     501 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.Layout.Panel = function(element, layout, orientation, options) {</span>
-<span class="lineNum">     502 </span>                :<span class="lineNoCov">          0 :         this.$element = $(element);</span>
-<span class="lineNum">     503 </span>                :<span class="lineNoCov">          0 :         this.layout = layout;</span>
-<span class="lineNum">     504 </span>                :<span class="lineNoCov">          0 :         this.orientation = orientation;</span>
-<span class="lineNum">     505 </span>                :<span class="lineNoCov">          0 :         this.hasChildren = false;</span>
-<span class="lineNum">     506 </span>                :<span class="lineNoCov">          0 :         this.handler = null;</span>
-<span class="lineNum">     507 </span>                :            : 
-<span class="lineNum">     508 </span>                :<span class="lineNoCov">          0 :         if (!this.$element.length) {</span>
-<span class="lineNum">     509 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception(&quot;Panel doesn't exist!&quot;);</span>
-<span class="lineNum">     510 </span>                :            :         }
-<span class="lineNum">     511 </span>                :            : 
-<span class="lineNum">     512 </span>                :            :         // add css class
-<span class="lineNum">     513 </span>                :<span class="lineNoCov">          0 :         this.$element.addClass('panel');</span>
-<span class="lineNum">     514 </span>                :            : 
-<span class="lineNum">     515 </span>                :<span class="lineNoCov">          0 :         this.height = this.$element.outerHeight(true);</span>
-<span class="lineNum">     516 </span>                :<span class="lineNoCov">          0 :         this.width = this.$element.outerWidth(true);</span>
-<span class="lineNum">     517 </span>                :            : 
-<span class="lineNum">     518 </span>                :            :         // extend default options with given
-<span class="lineNum">     519 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
-<span class="lineNum">     520 </span>                :            : 
-<span class="lineNum">     521 </span>                :            :         }, options);
+<span class="lineNum">     437 </span>                :<span class="lineNoCov">          0 :             this.updateDimension();</span>
+<span class="lineNum">     438 </span>                :            : 
+<span class="lineNum">     439 </span>                :            :             // west
+<span class="lineNum">     440 </span>                :<span class="lineNoCov">          0 :             this.left = 0;</span>
+<span class="lineNum">     441 </span>                :<span class="lineNoCov">          0 :             if (this.panels.hasOwnProperty('west')) {</span>
+<span class="lineNum">     442 </span>                :<span class="lineNoCov">          0 :                 this.panels.west.setPositionLeft(this.left);</span>
+<span class="lineNum">     443 </span>                :<span class="lineNoCov">          0 :                 this.left += this.panels.west.width;</span>
+<span class="lineNum">     444 </span>                :            :             }
+<span class="lineNum">     445 </span>                :            : 
+<span class="lineNum">     446 </span>                :            :             // north
+<span class="lineNum">     447 </span>                :<span class="lineNoCov">          0 :             this.top = 0;</span>
+<span class="lineNum">     448 </span>                :<span class="lineNoCov">          0 :             if (this.panels.hasOwnProperty('north')) {</span>
+<span class="lineNum">     449 </span>                :<span class="lineNoCov">          0 :                 this.panels.north.setPositionTop(this.top);</span>
+<span class="lineNum">     450 </span>                :<span class="lineNoCov">          0 :                 this.top += this.panels.north.height;</span>
+<span class="lineNum">     451 </span>                :            :             }
+<span class="lineNum">     452 </span>                :            : 
+<span class="lineNum">     453 </span>                :            :             // center
+<span class="lineNum">     454 </span>                :<span class="lineNoCov">          0 :             if (this.panels.hasOwnProperty('center')) {</span>
+<span class="lineNum">     455 </span>                :<span class="lineNoCov">          0 :                 this.panels.center.setPositionLeft(this.left);</span>
+<span class="lineNum">     456 </span>                :<span class="lineNoCov">          0 :                 this.panels.center.setPositionTop(this.top);</span>
+<span class="lineNum">     457 </span>                :<span class="lineNoCov">          0 :                 this.panels.center.updateDimension(</span>
+<span class="lineNum">     458 </span>                :            :                     (this.left === 0 ? '100%' : this.width - this.left),
+<span class="lineNum">     459 </span>                :            :                     (this.top === 0 ? '100%' : this.height - this.top)
+<span class="lineNum">     460 </span>                :            :                 );
+<span class="lineNum">     461 </span>                :            : 
+<span class="lineNum">     462 </span>                :<span class="lineNoCov">          0 :                 if (this.panels.center.hasChildren) {</span>
+<span class="lineNum">     463 </span>                :<span class="lineNoCov">          0 :                     this.panels.center.arrange();</span>
+<span class="lineNum">     464 </span>                :            :                 }
+<span class="lineNum">     465 </span>                :            :             }
+<span class="lineNum">     466 </span>                :            : 
+<span class="lineNum">     467 </span>                :<span class="lineNoCov">          0 :             this.unbusy();</span>
+<span class="lineNum">     468 </span>                :            :         },
+<span class="lineNum">     469 </span>                :            : 
+<span class="lineNum">     470 </span>                :            :         unbusy: function() {
+<span class="lineNum">     471 </span>                :<span class="lineNoCov">          0 :             this.$container.removeClass('busy');</span>
+<span class="lineNum">     472 </span>                :            :         },
+<span class="lineNum">     473 </span>                :            : 
+<span class="lineNum">     474 </span>                :            :         updateDimension: function(width, height) {
+<span class="lineNum">     475 </span>                :<span class="lineNoCov">          0 :             if (!!width) {</span>
+<span class="lineNum">     476 </span>                :<span class="lineNoCov">          0 :                 this.$container.width(width);</span>
+<span class="lineNum">     477 </span>                :            :             }
+<span class="lineNum">     478 </span>                :            : 
+<span class="lineNum">     479 </span>                :<span class="lineNoCov">          0 :             if (!!height) {</span>
+<span class="lineNum">     480 </span>                :<span class="lineNoCov">          0 :                 this.$container.height(height);</span>
+<span class="lineNum">     481 </span>                :            :             }
+<span class="lineNum">     482 </span>                :            : 
+<span class="lineNum">     483 </span>                :<span class="lineNoCov">          0 :             this.height = this.$container.outerHeight(true);</span>
+<span class="lineNum">     484 </span>                :<span class="lineNoCov">          0 :             this.width = this.$container.outerWidth(true);</span>
+<span class="lineNum">     485 </span>                :            :         }
+<span class="lineNum">     486 </span>                :            :     };
+<span class="lineNum">     487 </span>                :            : 
+<span class="lineNum">     488 </span>                :            :     /**
+<span class="lineNum">     489 </span>                :            :      * ZOOLU Layout Panel UI Element
+<span class="lineNum">     490 </span>                :            :      *
+<span class="lineNum">     491 </span>                :            :      * @class
+<span class="lineNum">     492 </span>                :            :      * @constructor
+<span class="lineNum">     493 </span>                :            :      * @private
+<span class="lineNum">     494 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+<span class="lineNum">     495 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#on as #on
+<span class="lineNum">     496 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#off as #off
+<span class="lineNum">     497 </span>                :            :      * @param {String} element Selector to get the panel
+<span class="lineNum">     498 </span>                :            :      * @param {ZOOLU.UI.Layout} layout Instance of the parent ZOOLU.UI.Layout
+<span class="lineNum">     499 </span>                :            :      * @param {Object} options Default options will be merged with the given options
+<span class="lineNum">     500 </span>                :            :      * @throws {ZOOLU.UI.Exception} Panel doesn't exist!
+<span class="lineNum">     501 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
+<span class="lineNum">     502 </span>                :            :      */
+<span class="lineNum">     503 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Layout.Panel = function(element, layout, orientation, options) {</span>
+<span class="lineNum">     504 </span>                :<span class="lineNoCov">          0 :         this.$element = $(element);</span>
+<span class="lineNum">     505 </span>                :<span class="lineNoCov">          0 :         this.layout = layout;</span>
+<span class="lineNum">     506 </span>                :<span class="lineNoCov">          0 :         this.orientation = orientation;</span>
+<span class="lineNum">     507 </span>                :<span class="lineNoCov">          0 :         this.hasChildren = false;</span>
+<span class="lineNum">     508 </span>                :<span class="lineNoCov">          0 :         this.handler = null;</span>
+<span class="lineNum">     509 </span>                :            : 
+<span class="lineNum">     510 </span>                :<span class="lineNoCov">          0 :         if (!this.$element.length) {</span>
+<span class="lineNum">     511 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception(&quot;Panel doesn't exist!&quot;);</span>
+<span class="lineNum">     512 </span>                :            :         }
+<span class="lineNum">     513 </span>                :            : 
+<span class="lineNum">     514 </span>                :            :         // add css class
+<span class="lineNum">     515 </span>                :<span class="lineNoCov">          0 :         this.$element.addClass('panel');</span>
+<span class="lineNum">     516 </span>                :            : 
+<span class="lineNum">     517 </span>                :<span class="lineNoCov">          0 :         this.height = this.$element.outerHeight(true);</span>
+<span class="lineNum">     518 </span>                :<span class="lineNoCov">          0 :         this.width = this.$element.outerWidth(true);</span>
+<span class="lineNum">     519 </span>                :            : 
+<span class="lineNum">     520 </span>                :            :         // extend default options with given
+<span class="lineNum">     521 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
 <span class="lineNum">     522 </span>                :            : 
-<span class="lineNum">     523 </span>                :            :         // add event API
-<span class="lineNum">     524 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
-<span class="lineNum">     525 </span>                :            : 
-<span class="lineNum">     526 </span>                :<span class="lineNoCov">          0 :         log('Layout', 'Panel', 'construct', this);</span>
+<span class="lineNum">     523 </span>                :            :         }, options);
+<span class="lineNum">     524 </span>                :            : 
+<span class="lineNum">     525 </span>                :            :         // add event API
+<span class="lineNum">     526 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">     527 </span>                :            : 
-<span class="lineNum">     528 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">     528 </span>                :<span class="lineNoCov">          0 :         log('Layout', 'Panel', 'construct', this);</span>
 <span class="lineNum">     529 </span>                :            : 
-<span class="lineNum">     530 </span>                :<span class="lineNoCov">          0 :         if (this.orientation === 'center') {</span>
-<span class="lineNum">     531 </span>                :<span class="lineNoCov">          0 :             ZOOLU.UI.Layout.prototype.enable.call(this);</span>
-<span class="lineNum">     532 </span>                :<span class="lineNoCov">          0 :             this.panels = {};</span>
-<span class="lineNum">     533 </span>                :<span class="lineNoCov">          0 :             this.initializeLayout();</span>
-<span class="lineNum">     534 </span>                :            :         }
-<span class="lineNum">     535 </span>                :            :     };
-<span class="lineNum">     536 </span>                :            : 
-<span class="lineNum">     537 </span>                :<span class="lineCov">          1 :     ZOOLU.UI.Layout.Panel.prototype = /** @lends ZOOLU.UI.Layout.Panel# */ {</span>
+<span class="lineNum">     530 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">     531 </span>                :            : 
+<span class="lineNum">     532 </span>                :<span class="lineNoCov">          0 :         if (this.orientation === 'center') {</span>
+<span class="lineNum">     533 </span>                :<span class="lineNoCov">          0 :             ZOOLU.UI.Layout.prototype.enable.call(this);</span>
+<span class="lineNum">     534 </span>                :<span class="lineNoCov">          0 :             this.panels = {};</span>
+<span class="lineNum">     535 </span>                :<span class="lineNoCov">          0 :             this.initializeLayout();</span>
+<span class="lineNum">     536 </span>                :            :         }
+<span class="lineNum">     537 </span>                :            :     };
 <span class="lineNum">     538 </span>                :            : 
-<span class="lineNum">     539 </span>                :            :         constructor: ZOOLU.UI.Layout.Panel,
+<span class="lineNum">     539 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Layout.Panel.prototype = /** @lends ZOOLU.UI.Layout.Panel# */ {</span>
 <span class="lineNum">     540 </span>                :            : 
-<span class="lineNum">     541 </span>                :            :         initialize: function() {
-<span class="lineNum">     542 </span>                :<span class="lineNoCov">          0 :             this.$handler = $('&lt;div class=&quot;handler&quot;/&gt;');</span>
-<span class="lineNum">     543 </span>                :<span class="lineNoCov">          0 :             this.$handler.appendTo(this.$element);</span>
-<span class="lineNum">     544 </span>                :            : 
-<span class="lineNum">     545 </span>                :            :             // TODO cleanup!!!
-<span class="lineNum">     546 </span>                :<span class="lineNoCov">          0 :             this.$handler.mousedown(function(event) {</span>
-<span class="lineNum">     547 </span>                :<span class="lineNoCov">          0 :                 event.preventDefault();</span>
-<span class="lineNum">     548 </span>                :<span class="lineNoCov">          0 :                 $(window).on('mousemove.layout', this.resize.bind(this));</span>
-<span class="lineNum">     549 </span>                :            :             }.bind(this));
-<span class="lineNum">     550 </span>                :            : 
-<span class="lineNum">     551 </span>                :<span class="lineNoCov">          0 :             $(window).mouseup(function() {</span>
-<span class="lineNum">     552 </span>                :<span class="lineNoCov">          0 :                 $(window).off('mousemove.layout');</span>
-<span class="lineNum">     553 </span>                :            :             });
-<span class="lineNum">     554 </span>                :            :         },
-<span class="lineNum">     555 </span>                :            : 
-<span class="lineNum">     556 </span>                :            :         initializeLayout: function() {
-<span class="lineNum">     557 </span>                :<span class="lineNoCov">          0 :             var panels;</span>
-<span class="lineNum">     558 </span>                :            : 
-<span class="lineNum">     559 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'initialize');</span>
+<span class="lineNum">     541 </span>                :            :         constructor: ZOOLU.UI.Layout.Panel,
+<span class="lineNum">     542 </span>                :            : 
+<span class="lineNum">     543 </span>                :            :         initialize: function() {
+<span class="lineNum">     544 </span>                :<span class="lineNoCov">          0 :             this.$handler = $('&lt;div class=&quot;handler&quot;/&gt;');</span>
+<span class="lineNum">     545 </span>                :<span class="lineNoCov">          0 :             this.$handler.appendTo(this.$element);</span>
+<span class="lineNum">     546 </span>                :            : 
+<span class="lineNum">     547 </span>                :            :             // TODO cleanup!!!
+<span class="lineNum">     548 </span>                :<span class="lineNoCov">          0 :             this.$handler.mousedown(function(event) {</span>
+<span class="lineNum">     549 </span>                :<span class="lineNoCov">          0 :                 event.preventDefault();</span>
+<span class="lineNum">     550 </span>                :<span class="lineNoCov">          0 :                 $(window).on('mousemove.layout', this.resize.bind(this));</span>
+<span class="lineNum">     551 </span>                :            :             }.bind(this));
+<span class="lineNum">     552 </span>                :            : 
+<span class="lineNum">     553 </span>                :<span class="lineNoCov">          0 :             $(window).mouseup(function() {</span>
+<span class="lineNum">     554 </span>                :<span class="lineNoCov">          0 :                 $(window).off('mousemove.layout');</span>
+<span class="lineNum">     555 </span>                :            :             });
+<span class="lineNum">     556 </span>                :            :         },
+<span class="lineNum">     557 </span>                :            : 
+<span class="lineNum">     558 </span>                :            :         initializeLayout: function() {
+<span class="lineNum">     559 </span>                :<span class="lineNoCov">          0 :             var panels;</span>
 <span class="lineNum">     560 </span>                :            : 
-<span class="lineNum">     561 </span>                :            :             // find and init all panels
-<span class="lineNum">     562 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = ZOOLU.UI.Layout.prototype.CONST.orientations.length; ++i &lt; length;) {</span>
-<span class="lineNum">     563 </span>                :<span class="lineNoCov">          0 :                 panels = this.$element.find('&gt; .' + ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
-<span class="lineNum">     564 </span>                :<span class="lineNoCov">          0 :                 if (panels.length) {</span>
-<span class="lineNum">     565 </span>                :<span class="lineNoCov">          0 :                     this.hasChildren = true;</span>
-<span class="lineNum">     566 </span>                :<span class="lineNoCov">          0 :                     this.initPanel(panels.first(), ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
-<span class="lineNum">     567 </span>                :            :                 }
-<span class="lineNum">     568 </span>                :            :             }
-<span class="lineNum">     569 </span>                :            :         },
-<span class="lineNum">     570 </span>                :            : 
-<span class="lineNum">     571 </span>                :            :         /**
-<span class="lineNum">     572 </span>                :            :          *
-<span class="lineNum">     573 </span>                :            :          * @param {Object} event
-<span class="lineNum">     574 </span>                :            :          * @triggers Layout.Panel.resize
-<span class="lineNum">     575 </span>                :            :          */
-<span class="lineNum">     576 </span>                :            :         resize: function(event) {
-<span class="lineNum">     577 </span>                :            :             //log(event.pageX + ', ' + event.pageY);
-<span class="lineNum">     578 </span>                :            : 
-<span class="lineNum">     579 </span>                :<span class="lineNoCov">          0 :             if (this.orientation === 'west') {</span>
-<span class="lineNum">     580 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(event.pageX);</span>
-<span class="lineNum">     581 </span>                :            :             } else {
-<span class="lineNum">     582 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(null, event.pageY);</span>
-<span class="lineNum">     583 </span>                :            :             }
-<span class="lineNum">     584 </span>                :            : 
-<span class="lineNum">     585 </span>                :<span class="lineNoCov">          0 :             this.trigger('Layout.Panel.resize');</span>
-<span class="lineNum">     586 </span>                :            :         },
-<span class="lineNum">     587 </span>                :            : 
-<span class="lineNum">     588 </span>                :            :         unbusy: function() {
-<span class="lineNum">     589 </span>                :<span class="lineNoCov">          0 :             this.$element.removeClass('busy');</span>
-<span class="lineNum">     590 </span>                :            :         },
-<span class="lineNum">     591 </span>                :            : 
-<span class="lineNum">     592 </span>                :            :         updateDimension: function(width, height) {
-<span class="lineNum">     593 </span>                :<span class="lineNoCov">          0 :             if (!!width) {</span>
-<span class="lineNum">     594 </span>                :<span class="lineNoCov">          0 :                 this.$element.width(width);</span>
-<span class="lineNum">     595 </span>                :            :             }
-<span class="lineNum">     596 </span>                :            : 
-<span class="lineNum">     597 </span>                :<span class="lineNoCov">          0 :             if (!!height) {</span>
-<span class="lineNum">     598 </span>                :<span class="lineNoCov">          0 :                 this.$element.height(height);</span>
-<span class="lineNum">     599 </span>                :            :             }
-<span class="lineNum">     600 </span>                :            : 
-<span class="lineNum">     601 </span>                :<span class="lineNoCov">          0 :             this.height = this.$element.outerHeight(true);</span>
-<span class="lineNum">     602 </span>                :<span class="lineNoCov">          0 :             this.width = this.$element.outerWidth(true);</span>
-<span class="lineNum">     603 </span>                :            :         },
-<span class="lineNum">     604 </span>                :            : 
-<span class="lineNum">     605 </span>                :            :         setPositionLeft: function(left) {
+<span class="lineNum">     561 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'initialize');</span>
+<span class="lineNum">     562 </span>                :            : 
+<span class="lineNum">     563 </span>                :            :             // find and init all panels
+<span class="lineNum">     564 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = ZOOLU.UI.Layout.prototype.CONST.orientations.length; ++i &lt; length;) {</span>
+<span class="lineNum">     565 </span>                :<span class="lineNoCov">          0 :                 panels = this.$element.find('&gt; .' + ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
+<span class="lineNum">     566 </span>                :<span class="lineNoCov">          0 :                 if (panels.length) {</span>
+<span class="lineNum">     567 </span>                :<span class="lineNoCov">          0 :                     this.hasChildren = true;</span>
+<span class="lineNum">     568 </span>                :<span class="lineNoCov">          0 :                     this.initPanel(panels.first(), ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
+<span class="lineNum">     569 </span>                :            :                 }
+<span class="lineNum">     570 </span>                :            :             }
+<span class="lineNum">     571 </span>                :            :         },
+<span class="lineNum">     572 </span>                :            : 
+<span class="lineNum">     573 </span>                :            :         /**
+<span class="lineNum">     574 </span>                :            :          *
+<span class="lineNum">     575 </span>                :            :          * @param {Object} event
+<span class="lineNum">     576 </span>                :            :          * @triggers Layout.Panel.resize
+<span class="lineNum">     577 </span>                :            :          */
+<span class="lineNum">     578 </span>                :            :         resize: function(event) {
+<span class="lineNum">     579 </span>                :            :             //log(event.pageX + ', ' + event.pageY);
+<span class="lineNum">     580 </span>                :            : 
+<span class="lineNum">     581 </span>                :<span class="lineNoCov">          0 :             if (this.orientation === 'west') {</span>
+<span class="lineNum">     582 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(event.pageX + (this.$handler.width() / 2));</span>
+<span class="lineNum">     583 </span>                :            :             } else {
+<span class="lineNum">     584 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(null, event.pageY + (this.$handler.height() / 2));</span>
+<span class="lineNum">     585 </span>                :            :             }
+<span class="lineNum">     586 </span>                :            : 
+<span class="lineNum">     587 </span>                :<span class="lineNoCov">          0 :             this.trigger('Layout.Panel.resize');</span>
+<span class="lineNum">     588 </span>                :            :         },
+<span class="lineNum">     589 </span>                :            : 
+<span class="lineNum">     590 </span>                :            :         unbusy: function() {
+<span class="lineNum">     591 </span>                :<span class="lineNoCov">          0 :             this.$element.removeClass('busy');</span>
+<span class="lineNum">     592 </span>                :            :         },
+<span class="lineNum">     593 </span>                :            : 
+<span class="lineNum">     594 </span>                :            :         updateDimension: function(width, height) {
+<span class="lineNum">     595 </span>                :<span class="lineNoCov">          0 :             if (!!width) {</span>
+<span class="lineNum">     596 </span>                :<span class="lineNoCov">          0 :                 this.$element.width(width);</span>
+<span class="lineNum">     597 </span>                :            :             }
+<span class="lineNum">     598 </span>                :            : 
+<span class="lineNum">     599 </span>                :<span class="lineNoCov">          0 :             if (!!height) {</span>
+<span class="lineNum">     600 </span>                :<span class="lineNoCov">          0 :                 this.$element.height(height);</span>
+<span class="lineNum">     601 </span>                :            :             }
+<span class="lineNum">     602 </span>                :            : 
+<span class="lineNum">     603 </span>                :<span class="lineNoCov">          0 :             this.height = this.$element.outerHeight(true);</span>
+<span class="lineNum">     604 </span>                :<span class="lineNoCov">          0 :             this.width = this.$element.outerWidth(true);</span>
+<span class="lineNum">     605 </span>                :            :         },
 <span class="lineNum">     606 </span>                :            : 
-<span class="lineNum">     607 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionLeft', this.orientation);</span>
+<span class="lineNum">     607 </span>                :            :         setPositionLeft: function(left) {
 <span class="lineNum">     608 </span>                :            : 
-<span class="lineNum">     609 </span>                :<span class="lineNoCov">          0 :             this.$element.css({left: left});</span>
-<span class="lineNum">     610 </span>                :            :         },
-<span class="lineNum">     611 </span>                :            : 
-<span class="lineNum">     612 </span>                :            :         setPositionTop: function(top) {
+<span class="lineNum">     609 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionLeft', this.orientation);</span>
+<span class="lineNum">     610 </span>                :            : 
+<span class="lineNum">     611 </span>                :<span class="lineNoCov">          0 :             this.$element.css({left: left});</span>
+<span class="lineNum">     612 </span>                :            :         },
 <span class="lineNum">     613 </span>                :            : 
-<span class="lineNum">     614 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionTop', this.orientation);</span>
+<span class="lineNum">     614 </span>                :            :         setPositionTop: function(top) {
 <span class="lineNum">     615 </span>                :            : 
-<span class="lineNum">     616 </span>                :<span class="lineNoCov">          0 :             this.$element.css({top: top});</span>
-<span class="lineNum">     617 </span>                :            :         }
-<span class="lineNum">     618 </span>                :            :     };
-<span class="lineNum">     619 </span>                :            : 
-<span class="lineNum">     620 </span>                :            : })(window, window.ZOOLU, window.jQuery);
+<span class="lineNum">     616 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionTop', this.orientation);</span>
+<span class="lineNum">     617 </span>                :            : 
+<span class="lineNum">     618 </span>                :<span class="lineNoCov">          0 :             this.$element.css({top: top});</span>
+<span class="lineNum">     619 </span>                :            :         }
+<span class="lineNum">     620 </span>                :            :     };
+<span class="lineNum">     621 </span>                :            : 
+<span class="lineNum">     622 </span>                :            : })(window, window.ZOOLU, window.jQuery);
 </pre>
       </td>
     </tr>

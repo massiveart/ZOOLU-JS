@@ -31,13 +31,13 @@
             <td class="headerValue">jsTestDriver.conf-coverage.dat</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntryHi">100.0 %</td>
+            <td class="headerCovTableEntry">41</td>
+            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntryMed">89.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-05-29</td>
+            <td class="headerValue">2012-07-23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -69,19 +69,86 @@
       <td>
 <pre class="sourceHeading">           Branch data     Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span>                :<span class="lineCov">          1 : TestCase('ZOOLU.MIXIN', {</span></a>
+<a name="1"><span class="lineNum">       1 </span>                :<span class="lineCov">          2 : TestCase('ZOOLU.MIXIN', {</span></a>
 <span class="lineNum">       2 </span>                :            :     setUp: function() {
-<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       3 </span>                :<span class="lineCov">          8 :         this.eventApi = {};</span>
 <span class="lineNum">       4 </span>                :            :     },
-<span class="lineNum">       5 </span>                :            : 
+<span class="lineNum">       5 </span>                :            :     
 <span class="lineNum">       6 </span>                :            :     tearDown: function() {
-<span class="lineNum">       7 </span>                :            : 
+<span class="lineNum">       7 </span>                :            :     
 <span class="lineNum">       8 </span>                :            :     },
-<span class="lineNum">       9 </span>                :            : 
-<span class="lineNum">      10 </span>                :            :     'test': function() {
-<span class="lineNum">      11 </span>                :            : 
-<span class="lineNum">      12 </span>                :            :     }
-<span class="lineNum">      13 </span>                :            : });
+<span class="lineNum">       9 </span>                :            :     
+<span class="lineNum">      10 </span>                :            :     'test Event Api enable': function() {
+<span class="lineNum">      11 </span>                :<span class="lineCov">          2 :         ZOOLU.MIXIN.Events.enable.call(this.eventApi);</span>
+<span class="lineNum">      12 </span>                :            :     
+<span class="lineNum">      13 </span>                :<span class="lineCov">          2 :         assertEquals('Type of the listener Object', 'object', typeof this.eventApi.listeners);</span>
+<span class="lineNum">      14 </span>                :<span class="lineCov">          2 :         assertEquals('Type of the listener Object', 'function', typeof this.eventApi.trigger);</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">          2 :         assertEquals('Type of the listener Object', 'function', typeof this.eventApi.on);</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">          2 :         assertEquals('Type of the listener Object', 'function', typeof this.eventApi.off);</span>
+<span class="lineNum">      17 </span>                :            :     },
+<span class="lineNum">      18 </span>                :            :     
+<span class="lineNum">      19 </span>                :            :     'test Event Api on': function() {
+<span class="lineNum">      20 </span>                :<span class="lineCov">          2 :         var eventName, callback;</span>
+<span class="lineNum">      21 </span>                :<span class="lineCov">          2 :         eventName = 'testEvent';</span>
+<span class="lineNum">      22 </span>                :            :     
+<span class="lineNum">      23 </span>                :<span class="lineCov">          2 :         ZOOLU.MIXIN.Events.enable.call(this.eventApi);</span>
+<span class="lineNum">      24 </span>                :<span class="lineCov">          2 :         this.eventApi.on(eventName, function() {</span>
+<span class="lineNum">      25 </span>                :<span class="lineNoCov">          0 :             callback = 'do something';</span>
+<span class="lineNum">      26 </span>                :            :         });
+<span class="lineNum">      27 </span>                :            :     
+<span class="lineNum">      28 </span>                :<span class="lineCov">          2 :         assertEquals('Stored Event type', 'object', typeof this.eventApi.listeners[eventName]);</span>
+<span class="lineNum">      29 </span>                :<span class="lineCov">          2 :         assertEquals('Stored Callback type', 'function', typeof this.eventApi.listeners[eventName][0]);</span>
+<span class="lineNum">      30 </span>                :            :     },
+<span class="lineNum">      31 </span>                :            :     
+<span class="lineNum">      32 </span>                :            :     'test Event Api trigger': function() {
+<span class="lineNum">      33 </span>                :<span class="lineCov">          2 :         var eventName, callbackResult, triggerArg, argValue;</span>
+<span class="lineNum">      34 </span>                :<span class="lineCov">          2 :         eventName = 'testEvent';</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">          2 :         argValue = 'this is a string';</span>
+<span class="lineNum">      36 </span>                :            :     
+<span class="lineNum">      37 </span>                :<span class="lineCov">          2 :         ZOOLU.MIXIN.Events.enable.call(this.eventApi);</span>
+<span class="lineNum">      38 </span>                :<span class="lineCov">          2 :         this.eventApi.on(eventName, function(arg) {</span>
+<span class="lineNum">      39 </span>                :<span class="lineCov">          2 :             callbackResult = 2 + 2;</span>
+<span class="lineNum">      40 </span>                :<span class="lineCov">          2 :             triggerArg = arg;</span>
+<span class="lineNum">      41 </span>                :            :         });
+<span class="lineNum">      42 </span>                :<span class="lineCov">          2 :         this.eventApi.trigger(eventName, [ argValue ]);</span>
+<span class="lineNum">      43 </span>                :            :     
+<span class="lineNum">      44 </span>                :<span class="lineCov">          2 :         assertEquals('Result of callback', 4, callbackResult);</span>
+<span class="lineNum">      45 </span>                :<span class="lineCov">          2 :         assertEquals('Trigger passed argument', argValue, triggerArg);</span>
+<span class="lineNum">      46 </span>                :            :     },
+<span class="lineNum">      47 </span>                :            :     
+<span class="lineNum">      48 </span>                :            :     'test Event Api off': function() {
+<span class="lineNum">      49 </span>                :<span class="lineCov">          2 :         var eventName1, eventName2, callbackOneRemove, callbackOneStay, callbackAll1, callbackAll2;</span>
+<span class="lineNum">      50 </span>                :<span class="lineCov">          2 :         eventName1 = 'testEvent';</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">          2 :         eventName2 = 'testEvent2';</span>
+<span class="lineNum">      52 </span>                :<span class="lineCov">          2 :         callbackOneRemove = function() {</span>
+<span class="lineNum">      53 </span>                :<span class="lineNoCov">          0 :             var calc = 2 + 2;</span>
+<span class="lineNum">      54 </span>                :            :         };
+<span class="lineNum">      55 </span>                :<span class="lineCov">          2 :         callbackOneStay = function() {</span>
+<span class="lineNum">      56 </span>                :<span class="lineNoCov">          0 :             var calc = 2 + 2;</span>
+<span class="lineNum">      57 </span>                :            :         };
+<span class="lineNum">      58 </span>                :<span class="lineCov">          2 :         callbackAll1 = function() {</span>
+<span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :             var calc = 2 + 2;</span>
+<span class="lineNum">      60 </span>                :            :         };
+<span class="lineNum">      61 </span>                :<span class="lineCov">          2 :         callbackAll2 = function() {</span>
+<span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 :             var calc = 2 + 2;</span>
+<span class="lineNum">      63 </span>                :            :         };
+<span class="lineNum">      64 </span>                :            :     
+<span class="lineNum">      65 </span>                :<span class="lineCov">          2 :         ZOOLU.MIXIN.Events.enable.call(this.eventApi);</span>
+<span class="lineNum">      66 </span>                :            :     
+<span class="lineNum">      67 </span>                :<span class="lineCov">          2 :         this.eventApi.on(eventName1, callbackOneRemove);</span>
+<span class="lineNum">      68 </span>                :<span class="lineCov">          2 :         this.eventApi.on(eventName1, callbackOneStay);</span>
+<span class="lineNum">      69 </span>                :<span class="lineCov">          2 :         this.eventApi.off(eventName1, callbackOneRemove);</span>
+<span class="lineNum">      70 </span>                :            :     
+<span class="lineNum">      71 </span>                :<span class="lineCov">          2 :         this.eventApi.on(eventName2, callbackAll1);</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">          2 :         this.eventApi.on(eventName2, callbackAll2);</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">          2 :         this.eventApi.off(eventName2);</span>
+<span class="lineNum">      74 </span>                :            :     
+<span class="lineNum">      75 </span>                :<span class="lineCov">          2 :         assertEquals('Second Callback from Event 1 - now on first place', callbackOneStay, this.eventApi.listeners[eventName1][0]);</span>
+<span class="lineNum">      76 </span>                :<span class="lineCov">          2 :         assertEquals('Removed callback from Event 1', 'undefined', typeof this.eventApi.listeners[eventName1][1]);</span>
+<span class="lineNum">      77 </span>                :<span class="lineCov">          2 :         assertEquals('First removed callback from Event 2', 'undefined', typeof this.eventApi.listeners[eventName2][0]);</span>
+<span class="lineNum">      78 </span>                :<span class="lineCov">          2 :         assertEquals('Second removed callback from Event 2', 'undefined', typeof this.eventApi.listeners[eventName2][1]);</span>
+<span class="lineNum">      79 </span>                :            :     }
+<span class="lineNum">      80 </span>                :            : });
 </pre>
       </td>
     </tr>
