@@ -69,7 +69,7 @@
 
             if (bits.length > limit) {
                 for (i = bits.length - 1; i > -1; --i) {
-                    if (i > limit) {
+                    if (i >= limit) {
                         bits.length = i;
                     } else if (' ' === bits[i]) {
                         bits.length = i;

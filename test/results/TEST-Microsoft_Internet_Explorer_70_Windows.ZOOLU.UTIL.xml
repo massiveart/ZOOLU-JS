@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UTIL" errors="0" failures="0" tests="3" time="0.0030">
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UTIL" name="test truncate" time="0.0"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UTIL" name="test truncate at word boundaries" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UTIL" name="test truncate in between" time="0.0010"/>
+</testsuite>

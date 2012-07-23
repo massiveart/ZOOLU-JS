@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" errors="0" failures="0" tests="4" time="0.07000001">
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree instantiation" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree load nodes" time="0.013"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select node" time="0.023"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select nested node" time="0.032"/>
+</testsuite>
