@@ -585,6 +585,16 @@
             
         },
         
+        /**
+         * Adds a Minimizer DOM-Element into an other DOM-Element
+         * 
+         * @private
+         * @param {Object} DOM-Object in which the minimizer is added
+         * @param {Array} Array that specifies to which panels Minimizer are added.
+         * @example
+         *  this.addMinimizer($('.handler'), ['west', 'north']);
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         addMinimizer: function(element,orientations) {
             this.$minimizer = $('<div class="minimizer"/>');
             for (var i = 0; i < orientations.length; i++) {
@@ -609,6 +619,13 @@
             }
         },
         
+        /**
+         * Gets the Cookies for the current panel and applys the width and height of
+         * the cookie to the element (if they are given)
+         * 
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         applyStoredDimensions: function() {
             if (!!this.store) {
                 if (this.store.get('PANEL.'+this.orientation+'.height') != null) {
@@ -624,6 +641,14 @@
             }
         },
         
+        /**
+         * Stores a width and a height in a cookie
+         * 
+         * @private
+         * @param {Integer} Width to store 
+         * @param {Integer} Height to store
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         storeDimensions: function(width, height) {
             if (!!this.store) {
                 if (!!width || width === 0) {
@@ -635,6 +660,14 @@
             }
         },
         
+        
+        /**
+         * Minimize the panel, triggers resize event, removes the resize event from the handler
+         * and adds an onclick event to the handler
+         * 
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         minimize: function() {
             if (this.orientation === 'west') {
                 this.updateDimension(this.options.minimizeWidth);
@@ -648,6 +681,13 @@
             this.closed = true;
         },
         
+        /**
+         * Maximize the panel to the last width/height, triggers a resize event,
+         * removes the click-Event from the handler, adds the resize event back to the handler
+         * 
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         maximize: function() {
             if (this.orientation === 'west') {
                 this.updateDimension(this.tmpWidth);
@@ -660,6 +700,13 @@
             this.closed = false;
         },
         
+        /**
+         * Toggles the resize and the click event for the handler
+         * 
+         * @private
+         * @param {Boolean} In accordance with minimized/maximized - true: currently minimized
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         toggleHandlerEvents: function(action) {
             if (action === false) /*minimize*/ {
                 this.$handler.css('cursor', 'pointer');
@@ -681,6 +728,14 @@
             }
         },
         
+        /**
+         * Removes an event from an element
+         * 
+         * @private
+         * @param {Object} DOM-Object from which the event will be removed
+         * @param {String} Event which will be removed
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         removeEvent: function(element, event) {
             element.unbind(event);
         },
