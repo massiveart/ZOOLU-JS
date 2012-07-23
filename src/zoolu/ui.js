@@ -504,9 +504,11 @@
         this.orientation = orientation;
         this.hasChildren = false;
         this.handler = null;
+        this.handlerCursor = '';
         this.minimizer = null;
         this.closed = false;
         this.storedHeight = 0;
+        this.storedWidth = 0;
 
         if (!this.$element.length) {
             throw new ZOOLU.UI.Exception("Panel doesn't exist!");
@@ -520,7 +522,9 @@
 
         // extend default options with given
         this.options = $.extend({
-            minimizeHeight: 10
+            minimizeHeight: 5,
+            minimizeWidth: 50,
+            minimizeOrientations: ['north', 'west']
         }, options);
 
         // add event API
@@ -543,15 +547,17 @@
 
         initialize: function() {
             this.storedHeight = this.$element.height();
+            this.storedWidth = this.$element.width();
             this.$handler = $('<div class="handler"/>');
             this.$handler.appendTo(this.$element);
-            this.addMinimizer(this.$handler,['north']);
+            this.$handlerCursor = this.$handler.css('cursor');
+            this.addMinimizer(this.$handler, this.options.minimizeOrientations);
             
             this.$minimizer.click(function(event) {
                 event.stopPropagation();
                 if (this.closed === false) {
                     this.$handler.trigger('Layout.Panel.minimize');
-                    this.minimize(this.options.minimizeHeight);
+                    this.minimize();
                 } else {
                     this.$handler.trigger('Layout.Panel.maximize');
                     this.maximize(this.storedHeight);
@@ -559,7 +565,7 @@
             }.bind(this));
             
             this.$handler.mousedown(function() {
-                this.$handler.on('Layout.Panel.minimize', this.minimize(this.options.minimizeHeight));
+                this.$handler.on('Layout.Panel.minimize', this.minimize());
                 this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));
             }.bind(this))
             this.$handler.mouseup(function() {
@@ -573,8 +579,8 @@
         
         addMinimizer: function(element,orientations) {
             this.$minimizer = $('<div class="minimizer"/>');
-            for(var i=0; i<orientations.length; i++) {
-                if(this.orientation === orientations[i]){
+            for (var i = 0; i < orientations.length; i++) {
+                if (this.orientation === orientations[i]){
                     this.$minimizer.appendTo(element);
                 }
             }
@@ -595,9 +601,14 @@
             }
         },
         
-        minimize: function(px) {
-            this.storedHeight = this.$element.height();
-            this.updateDimension(null, px);
+        minimize: function() {
+            if (this.orientation == 'west') {
+                this.storedWidth = this.$element.width();
+                this.updateDimension(this.options.minimizeWidth); 
+            } else {
+                this.storedHeight = this.$element.height();
+                this.updateDimension(null, this.options.minimizeHeight);
+            }
             this.trigger('Layout.Panel.resize');
             this.removeEvent(this.$handler, 'mousedown');
             this.toggleHandlerEvents(this.closed);
@@ -605,7 +616,11 @@
         },
         
         maximize: function() {
-            this.updateDimension(null, this.storedHeight);
+            if (this.orientation == 'west') {
+                this.updateDimension(this.storedWidth);
+            } else {
+                this.updateDimension(null, this.storedHeight);
+            }
             this.trigger('Layout.Panel.resize');
             this.removeEvent(this.$handler, 'click')
             this.toggleHandlerEvents(this.closed);
@@ -613,14 +628,14 @@
         },
         
         toggleHandlerEvents: function(action) {
-            if(action === false) /*minimize*/ {
+            if (action === false) /*minimize*/ {
                 this.$handler.css('cursor', 'pointer');
                 this.$handler.click(function() {
                     this.$handler.trigger('Layout.Panel.maximize');
                     this.maximize(this.storedHeight);
                 }.bind(this));
             } else /*maximize*/ {
-                this.$handler.css('cursor', 'ns-resize');
+                this.$handler.css('cursor', this.handlerCursor);
                 // TODO cleanup!!!
                 this.$handler.mousedown(function(event) {
                     event.preventDefault();
@@ -659,11 +674,11 @@
         },
 
         updateDimension: function(width, height) {
-            if (!!width) {
+            if (!!width || width === 0) {
                 this.$element.width(width);
             }
 
-            if (!!height) {
+            if (!!height || height === 0) {
                 this.$element.height(height);
             }
 
