@@ -32,8 +32,8 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">77</td>
-            <td class="headerCovTableEntry">196</td>
-            <td class="headerCovTableEntryLo">39.3 %</td>
+            <td class="headerCovTableEntry">246</td>
+            <td class="headerCovTableEntryLo">31.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
@@ -577,120 +577,205 @@
 <span class="lineNum">     506 </span>                :<span class="lineNoCov">          0 :         this.orientation = orientation;</span>
 <span class="lineNum">     507 </span>                :<span class="lineNoCov">          0 :         this.hasChildren = false;</span>
 <span class="lineNum">     508 </span>                :<span class="lineNoCov">          0 :         this.handler = null;</span>
-<span class="lineNum">     509 </span>                :            : 
-<span class="lineNum">     510 </span>                :<span class="lineNoCov">          0 :         if (!this.$element.length) {</span>
-<span class="lineNum">     511 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception(&quot;Panel doesn't exist!&quot;);</span>
-<span class="lineNum">     512 </span>                :            :         }
-<span class="lineNum">     513 </span>                :            : 
-<span class="lineNum">     514 </span>                :            :         // add css class
-<span class="lineNum">     515 </span>                :<span class="lineNoCov">          0 :         this.$element.addClass('panel');</span>
-<span class="lineNum">     516 </span>                :            : 
-<span class="lineNum">     517 </span>                :<span class="lineNoCov">          0 :         this.height = this.$element.outerHeight(true);</span>
-<span class="lineNum">     518 </span>                :<span class="lineNoCov">          0 :         this.width = this.$element.outerWidth(true);</span>
-<span class="lineNum">     519 </span>                :            : 
-<span class="lineNum">     520 </span>                :            :         // extend default options with given
-<span class="lineNum">     521 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
-<span class="lineNum">     522 </span>                :            : 
-<span class="lineNum">     523 </span>                :            :         }, options);
+<span class="lineNum">     509 </span>                :<span class="lineNoCov">          0 :         this.handlerCursor = '';</span>
+<span class="lineNum">     510 </span>                :<span class="lineNoCov">          0 :         this.minimizer = null;</span>
+<span class="lineNum">     511 </span>                :<span class="lineNoCov">          0 :         this.closed = false;</span>
+<span class="lineNum">     512 </span>                :<span class="lineNoCov">          0 :         this.storedHeight = 0;</span>
+<span class="lineNum">     513 </span>                :<span class="lineNoCov">          0 :         this.storedWidth = 0;</span>
+<span class="lineNum">     514 </span>                :            : 
+<span class="lineNum">     515 </span>                :<span class="lineNoCov">          0 :         if (!this.$element.length) {</span>
+<span class="lineNum">     516 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception(&quot;Panel doesn't exist!&quot;);</span>
+<span class="lineNum">     517 </span>                :            :         }
+<span class="lineNum">     518 </span>                :            : 
+<span class="lineNum">     519 </span>                :            :         // add css class
+<span class="lineNum">     520 </span>                :<span class="lineNoCov">          0 :         this.$element.addClass('panel');</span>
+<span class="lineNum">     521 </span>                :            : 
+<span class="lineNum">     522 </span>                :<span class="lineNoCov">          0 :         this.height = this.$element.outerHeight(true);</span>
+<span class="lineNum">     523 </span>                :<span class="lineNoCov">          0 :         this.width = this.$element.outerWidth(true);</span>
 <span class="lineNum">     524 </span>                :            : 
-<span class="lineNum">     525 </span>                :            :         // add event API
-<span class="lineNum">     526 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
-<span class="lineNum">     527 </span>                :            : 
-<span class="lineNum">     528 </span>                :<span class="lineNoCov">          0 :         log('Layout', 'Panel', 'construct', this);</span>
-<span class="lineNum">     529 </span>                :            : 
-<span class="lineNum">     530 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">     525 </span>                :            :         // extend default options with given
+<span class="lineNum">     526 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">     527 </span>                :            :             minimizeHeight: 5,
+<span class="lineNum">     528 </span>                :            :             minimizeWidth: 50,
+<span class="lineNum">     529 </span>                :            :             minimizeOrientations: ['north', 'west']
+<span class="lineNum">     530 </span>                :            :         }, options);
 <span class="lineNum">     531 </span>                :            : 
-<span class="lineNum">     532 </span>                :<span class="lineNoCov">          0 :         if (this.orientation === 'center') {</span>
-<span class="lineNum">     533 </span>                :<span class="lineNoCov">          0 :             ZOOLU.UI.Layout.prototype.enable.call(this);</span>
-<span class="lineNum">     534 </span>                :<span class="lineNoCov">          0 :             this.panels = {};</span>
-<span class="lineNum">     535 </span>                :<span class="lineNoCov">          0 :             this.initializeLayout();</span>
-<span class="lineNum">     536 </span>                :            :         }
-<span class="lineNum">     537 </span>                :            :     };
+<span class="lineNum">     532 </span>                :            :         // add event API
+<span class="lineNum">     533 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">     534 </span>                :            : 
+<span class="lineNum">     535 </span>                :<span class="lineNoCov">          0 :         log('Layout', 'Panel', 'construct', this);</span>
+<span class="lineNum">     536 </span>                :            : 
+<span class="lineNum">     537 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
 <span class="lineNum">     538 </span>                :            : 
-<span class="lineNum">     539 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Layout.Panel.prototype = /** @lends ZOOLU.UI.Layout.Panel# */ {</span>
-<span class="lineNum">     540 </span>                :            : 
-<span class="lineNum">     541 </span>                :            :         constructor: ZOOLU.UI.Layout.Panel,
-<span class="lineNum">     542 </span>                :            : 
-<span class="lineNum">     543 </span>                :            :         initialize: function() {
-<span class="lineNum">     544 </span>                :<span class="lineNoCov">          0 :             this.$handler = $('&lt;div class=&quot;handler&quot;/&gt;');</span>
-<span class="lineNum">     545 </span>                :<span class="lineNoCov">          0 :             this.$handler.appendTo(this.$element);</span>
-<span class="lineNum">     546 </span>                :            : 
-<span class="lineNum">     547 </span>                :            :             // TODO cleanup!!!
-<span class="lineNum">     548 </span>                :<span class="lineNoCov">          0 :             this.$handler.mousedown(function(event) {</span>
-<span class="lineNum">     549 </span>                :<span class="lineNoCov">          0 :                 event.preventDefault();</span>
-<span class="lineNum">     550 </span>                :<span class="lineNoCov">          0 :                 $(window).on('mousemove.layout', this.resize.bind(this));</span>
-<span class="lineNum">     551 </span>                :            :             }.bind(this));
-<span class="lineNum">     552 </span>                :            : 
-<span class="lineNum">     553 </span>                :<span class="lineNoCov">          0 :             $(window).mouseup(function() {</span>
-<span class="lineNum">     554 </span>                :<span class="lineNoCov">          0 :                 $(window).off('mousemove.layout');</span>
-<span class="lineNum">     555 </span>                :            :             });
-<span class="lineNum">     556 </span>                :            :         },
-<span class="lineNum">     557 </span>                :            : 
-<span class="lineNum">     558 </span>                :            :         initializeLayout: function() {
-<span class="lineNum">     559 </span>                :<span class="lineNoCov">          0 :             var panels;</span>
-<span class="lineNum">     560 </span>                :            : 
-<span class="lineNum">     561 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'initialize');</span>
-<span class="lineNum">     562 </span>                :            : 
-<span class="lineNum">     563 </span>                :            :             // find and init all panels
-<span class="lineNum">     564 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = ZOOLU.UI.Layout.prototype.CONST.orientations.length; ++i &lt; length;) {</span>
-<span class="lineNum">     565 </span>                :<span class="lineNoCov">          0 :                 panels = this.$element.find('&gt; .' + ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
-<span class="lineNum">     566 </span>                :<span class="lineNoCov">          0 :                 if (panels.length) {</span>
-<span class="lineNum">     567 </span>                :<span class="lineNoCov">          0 :                     this.hasChildren = true;</span>
-<span class="lineNum">     568 </span>                :<span class="lineNoCov">          0 :                     this.initPanel(panels.first(), ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
-<span class="lineNum">     569 </span>                :            :                 }
-<span class="lineNum">     570 </span>                :            :             }
-<span class="lineNum">     571 </span>                :            :         },
-<span class="lineNum">     572 </span>                :            : 
-<span class="lineNum">     573 </span>                :            :         /**
-<span class="lineNum">     574 </span>                :            :          *
-<span class="lineNum">     575 </span>                :            :          * @param {Object} event
-<span class="lineNum">     576 </span>                :            :          * @triggers Layout.Panel.resize
-<span class="lineNum">     577 </span>                :            :          */
-<span class="lineNum">     578 </span>                :            :         resize: function(event) {
-<span class="lineNum">     579 </span>                :            :             //log(event.pageX + ', ' + event.pageY);
-<span class="lineNum">     580 </span>                :            : 
-<span class="lineNum">     581 </span>                :<span class="lineNoCov">          0 :             if (this.orientation === 'west') {</span>
-<span class="lineNum">     582 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(event.pageX + (this.$handler.width() / 2));</span>
-<span class="lineNum">     583 </span>                :            :             } else {
-<span class="lineNum">     584 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(null, event.pageY + (this.$handler.height() / 2));</span>
-<span class="lineNum">     585 </span>                :            :             }
-<span class="lineNum">     586 </span>                :            : 
-<span class="lineNum">     587 </span>                :<span class="lineNoCov">          0 :             this.trigger('Layout.Panel.resize');</span>
-<span class="lineNum">     588 </span>                :            :         },
-<span class="lineNum">     589 </span>                :            : 
-<span class="lineNum">     590 </span>                :            :         unbusy: function() {
-<span class="lineNum">     591 </span>                :<span class="lineNoCov">          0 :             this.$element.removeClass('busy');</span>
-<span class="lineNum">     592 </span>                :            :         },
+<span class="lineNum">     539 </span>                :<span class="lineNoCov">          0 :         if (this.orientation === 'center') {</span>
+<span class="lineNum">     540 </span>                :<span class="lineNoCov">          0 :             ZOOLU.UI.Layout.prototype.enable.call(this);</span>
+<span class="lineNum">     541 </span>                :<span class="lineNoCov">          0 :             this.panels = {};</span>
+<span class="lineNum">     542 </span>                :<span class="lineNoCov">          0 :             this.initializeLayout();</span>
+<span class="lineNum">     543 </span>                :            :         }
+<span class="lineNum">     544 </span>                :            :     };
+<span class="lineNum">     545 </span>                :            : 
+<span class="lineNum">     546 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Layout.Panel.prototype = /** @lends ZOOLU.UI.Layout.Panel# */ {</span>
+<span class="lineNum">     547 </span>                :            : 
+<span class="lineNum">     548 </span>                :            :         constructor: ZOOLU.UI.Layout.Panel,
+<span class="lineNum">     549 </span>                :            : 
+<span class="lineNum">     550 </span>                :            :         initialize: function() {
+<span class="lineNum">     551 </span>                :<span class="lineNoCov">          0 :             this.storedHeight = this.$element.height();</span>
+<span class="lineNum">     552 </span>                :<span class="lineNoCov">          0 :             this.storedWidth = this.$element.width();</span>
+<span class="lineNum">     553 </span>                :<span class="lineNoCov">          0 :             this.$handler = $('&lt;div class=&quot;handler&quot;/&gt;');</span>
+<span class="lineNum">     554 </span>                :<span class="lineNoCov">          0 :             this.$handler.appendTo(this.$element);</span>
+<span class="lineNum">     555 </span>                :<span class="lineNoCov">          0 :             this.$handlerCursor = this.$handler.css('cursor');</span>
+<span class="lineNum">     556 </span>                :<span class="lineNoCov">          0 :             this.addMinimizer(this.$handler, this.options.minimizeOrientations);</span>
+<span class="lineNum">     557 </span>                :            :             
+<span class="lineNum">     558 </span>                :<span class="lineNoCov">          0 :             this.$minimizer.click(function(event) {</span>
+<span class="lineNum">     559 </span>                :<span class="lineNoCov">          0 :                 event.stopPropagation();</span>
+<span class="lineNum">     560 </span>                :<span class="lineNoCov">          0 :                 if (this.closed === false) {</span>
+<span class="lineNum">     561 </span>                :<span class="lineNoCov">          0 :                     this.$handler.trigger('Layout.Panel.minimize');</span>
+<span class="lineNum">     562 </span>                :<span class="lineNoCov">          0 :                     this.minimize();</span>
+<span class="lineNum">     563 </span>                :            :                 } else {
+<span class="lineNum">     564 </span>                :<span class="lineNoCov">          0 :                     this.$handler.trigger('Layout.Panel.maximize');</span>
+<span class="lineNum">     565 </span>                :<span class="lineNoCov">          0 :                     this.maximize(this.storedHeight);</span>
+<span class="lineNum">     566 </span>                :            :                 }
+<span class="lineNum">     567 </span>                :            :             }.bind(this));
+<span class="lineNum">     568 </span>                :            :             
+<span class="lineNum">     569 </span>                :<span class="lineNoCov">          0 :             this.$handler.mousedown(function() {</span>
+<span class="lineNum">     570 </span>                :<span class="lineNoCov">          0 :                 this.$handler.on('Layout.Panel.minimize', this.minimize());</span>
+<span class="lineNum">     571 </span>                :<span class="lineNoCov">          0 :                 this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));</span>
+<span class="lineNum">     572 </span>                :            :             }.bind(this));
+<span class="lineNum">     573 </span>                :<span class="lineNoCov">          0 :             this.$handler.mouseup(function() {</span>
+<span class="lineNum">     574 </span>                :<span class="lineNoCov">          0 :                 this.$handler.off('Layout.Panel.minimize');</span>
+<span class="lineNum">     575 </span>                :<span class="lineNoCov">          0 :                 this.$handler.off('Layout.Panel.maximize');</span>
+<span class="lineNum">     576 </span>                :            :             }.bind(this));
+<span class="lineNum">     577 </span>                :            :             
+<span class="lineNum">     578 </span>                :<span class="lineNoCov">          0 :             this.toggleHandlerEvents();</span>
+<span class="lineNum">     579 </span>                :            :             
+<span class="lineNum">     580 </span>                :            :         },
+<span class="lineNum">     581 </span>                :            :         
+<span class="lineNum">     582 </span>                :            :         addMinimizer: function(element,orientations) {
+<span class="lineNum">     583 </span>                :<span class="lineNoCov">          0 :             this.$minimizer = $('&lt;div class=&quot;minimizer&quot;/&gt;');</span>
+<span class="lineNum">     584 </span>                :<span class="lineNoCov">          0 :             for (var i = 0; i &lt; orientations.length; i++) {</span>
+<span class="lineNum">     585 </span>                :<span class="lineNoCov">          0 :                 if (this.orientation === orientations[i]){</span>
+<span class="lineNum">     586 </span>                :<span class="lineNoCov">          0 :                     this.$minimizer.appendTo(element);</span>
+<span class="lineNum">     587 </span>                :            :                 }
+<span class="lineNum">     588 </span>                :            :             }
+<span class="lineNum">     589 </span>                :            :         },
+<span class="lineNum">     590 </span>                :            :         
+<span class="lineNum">     591 </span>                :            :         initializeLayout: function() {
+<span class="lineNum">     592 </span>                :<span class="lineNoCov">          0 :             var panels;</span>
 <span class="lineNum">     593 </span>                :            : 
-<span class="lineNum">     594 </span>                :            :         updateDimension: function(width, height) {
-<span class="lineNum">     595 </span>                :<span class="lineNoCov">          0 :             if (!!width) {</span>
-<span class="lineNum">     596 </span>                :<span class="lineNoCov">          0 :                 this.$element.width(width);</span>
-<span class="lineNum">     597 </span>                :            :             }
-<span class="lineNum">     598 </span>                :            : 
-<span class="lineNum">     599 </span>                :<span class="lineNoCov">          0 :             if (!!height) {</span>
-<span class="lineNum">     600 </span>                :<span class="lineNoCov">          0 :                 this.$element.height(height);</span>
-<span class="lineNum">     601 </span>                :            :             }
-<span class="lineNum">     602 </span>                :            : 
-<span class="lineNum">     603 </span>                :<span class="lineNoCov">          0 :             this.height = this.$element.outerHeight(true);</span>
-<span class="lineNum">     604 </span>                :<span class="lineNoCov">          0 :             this.width = this.$element.outerWidth(true);</span>
-<span class="lineNum">     605 </span>                :            :         },
-<span class="lineNum">     606 </span>                :            : 
-<span class="lineNum">     607 </span>                :            :         setPositionLeft: function(left) {
-<span class="lineNum">     608 </span>                :            : 
-<span class="lineNum">     609 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionLeft', this.orientation);</span>
-<span class="lineNum">     610 </span>                :            : 
-<span class="lineNum">     611 </span>                :<span class="lineNoCov">          0 :             this.$element.css({left: left});</span>
-<span class="lineNum">     612 </span>                :            :         },
-<span class="lineNum">     613 </span>                :            : 
-<span class="lineNum">     614 </span>                :            :         setPositionTop: function(top) {
-<span class="lineNum">     615 </span>                :            : 
-<span class="lineNum">     616 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionTop', this.orientation);</span>
-<span class="lineNum">     617 </span>                :            : 
-<span class="lineNum">     618 </span>                :<span class="lineNoCov">          0 :             this.$element.css({top: top});</span>
-<span class="lineNum">     619 </span>                :            :         }
-<span class="lineNum">     620 </span>                :            :     };
-<span class="lineNum">     621 </span>                :            : 
-<span class="lineNum">     622 </span>                :            : })(window, window.ZOOLU, window.jQuery);
+<span class="lineNum">     594 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'initialize');</span>
+<span class="lineNum">     595 </span>                :            : 
+<span class="lineNum">     596 </span>                :            :             // find and init all panels
+<span class="lineNum">     597 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = ZOOLU.UI.Layout.prototype.CONST.orientations.length; ++i &lt; length;) {</span>
+<span class="lineNum">     598 </span>                :<span class="lineNoCov">          0 :                 panels = this.$element.find('&gt; .' + ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
+<span class="lineNum">     599 </span>                :<span class="lineNoCov">          0 :                 if (panels.length) {</span>
+<span class="lineNum">     600 </span>                :<span class="lineNoCov">          0 :                     this.hasChildren = true;</span>
+<span class="lineNum">     601 </span>                :<span class="lineNoCov">          0 :                     this.initPanel(panels.first(), ZOOLU.UI.Layout.prototype.CONST.orientations[i]);</span>
+<span class="lineNum">     602 </span>                :            :                 }
+<span class="lineNum">     603 </span>                :            :             }
+<span class="lineNum">     604 </span>                :            :         },
+<span class="lineNum">     605 </span>                :            :         
+<span class="lineNum">     606 </span>                :            :         minimize: function() {
+<span class="lineNum">     607 </span>                :<span class="lineNoCov">          0 :             if (this.orientation === 'west') {</span>
+<span class="lineNum">     608 </span>                :<span class="lineNoCov">          0 :                 this.storedWidth = this.$element.width();</span>
+<span class="lineNum">     609 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(this.options.minimizeWidth);</span>
+<span class="lineNum">     610 </span>                :            :             } else {
+<span class="lineNum">     611 </span>                :<span class="lineNoCov">          0 :                 this.storedHeight = this.$element.height();</span>
+<span class="lineNum">     612 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(null, this.options.minimizeHeight);</span>
+<span class="lineNum">     613 </span>                :            :             }
+<span class="lineNum">     614 </span>                :<span class="lineNoCov">          0 :             this.trigger('Layout.Panel.resize');</span>
+<span class="lineNum">     615 </span>                :<span class="lineNoCov">          0 :             this.removeEvent(this.$handler, 'mousedown');</span>
+<span class="lineNum">     616 </span>                :<span class="lineNoCov">          0 :             this.toggleHandlerEvents(this.closed);</span>
+<span class="lineNum">     617 </span>                :<span class="lineNoCov">          0 :             this.closed = true;</span>
+<span class="lineNum">     618 </span>                :            :         },
+<span class="lineNum">     619 </span>                :            :         
+<span class="lineNum">     620 </span>                :            :         maximize: function() {
+<span class="lineNum">     621 </span>                :<span class="lineNoCov">          0 :             if (this.orientation === 'west') {</span>
+<span class="lineNum">     622 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(this.storedWidth);</span>
+<span class="lineNum">     623 </span>                :            :             } else {
+<span class="lineNum">     624 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(null, this.storedHeight);</span>
+<span class="lineNum">     625 </span>                :            :             }
+<span class="lineNum">     626 </span>                :<span class="lineNoCov">          0 :             this.trigger('Layout.Panel.resize');</span>
+<span class="lineNum">     627 </span>                :<span class="lineNoCov">          0 :             this.removeEvent(this.$handler, 'click');</span>
+<span class="lineNum">     628 </span>                :<span class="lineNoCov">          0 :             this.toggleHandlerEvents(this.closed);</span>
+<span class="lineNum">     629 </span>                :<span class="lineNoCov">          0 :             this.closed = false;</span>
+<span class="lineNum">     630 </span>                :            :         },
+<span class="lineNum">     631 </span>                :            :         
+<span class="lineNum">     632 </span>                :            :         toggleHandlerEvents: function(action) {
+<span class="lineNum">     633 </span>                :<span class="lineNoCov">          0 :             if (action === false) /*minimize*/ {</span>
+<span class="lineNum">     634 </span>                :<span class="lineNoCov">          0 :                 this.$handler.css('cursor', 'pointer');</span>
+<span class="lineNum">     635 </span>                :<span class="lineNoCov">          0 :                 this.$handler.click(function() {</span>
+<span class="lineNum">     636 </span>                :<span class="lineNoCov">          0 :                     this.$handler.trigger('Layout.Panel.maximize');</span>
+<span class="lineNum">     637 </span>                :<span class="lineNoCov">          0 :                     this.maximize(this.storedHeight);</span>
+<span class="lineNum">     638 </span>                :            :                 }.bind(this));
+<span class="lineNum">     639 </span>                :            :             } else /*maximize*/ {
+<span class="lineNum">     640 </span>                :<span class="lineNoCov">          0 :                 this.$handler.css('cursor', this.handlerCursor);</span>
+<span class="lineNum">     641 </span>                :            :                 // TODO cleanup!!!
+<span class="lineNum">     642 </span>                :<span class="lineNoCov">          0 :                 this.$handler.mousedown(function(event) {</span>
+<span class="lineNum">     643 </span>                :<span class="lineNoCov">          0 :                     event.preventDefault();</span>
+<span class="lineNum">     644 </span>                :<span class="lineNoCov">          0 :                     $(window).on('mousemove.layout', this.resize.bind(this));</span>
+<span class="lineNum">     645 </span>                :            :                 }.bind(this));
+<span class="lineNum">     646 </span>                :            :     
+<span class="lineNum">     647 </span>                :<span class="lineNoCov">          0 :                 $(window).mouseup(function() {</span>
+<span class="lineNum">     648 </span>                :<span class="lineNoCov">          0 :                     $(window).off('mousemove.layout');</span>
+<span class="lineNum">     649 </span>                :            :                 });
+<span class="lineNum">     650 </span>                :            :             }
+<span class="lineNum">     651 </span>                :            :         },
+<span class="lineNum">     652 </span>                :            :         
+<span class="lineNum">     653 </span>                :            :         removeEvent: function(element, event) {
+<span class="lineNum">     654 </span>                :<span class="lineNoCov">          0 :             element.unbind(event);</span>
+<span class="lineNum">     655 </span>                :            :         },
+<span class="lineNum">     656 </span>                :            : 
+<span class="lineNum">     657 </span>                :            :         /**
+<span class="lineNum">     658 </span>                :            :          *
+<span class="lineNum">     659 </span>                :            :          * @param {Object} event
+<span class="lineNum">     660 </span>                :            :          * @triggers Layout.Panel.resize
+<span class="lineNum">     661 </span>                :            :          */
+<span class="lineNum">     662 </span>                :            :         resize: function(event) {
+<span class="lineNum">     663 </span>                :            :             //log(event.pageX + ', ' + event.pageY);
+<span class="lineNum">     664 </span>                :            : 
+<span class="lineNum">     665 </span>                :<span class="lineNoCov">          0 :             if (this.orientation === 'west') {</span>
+<span class="lineNum">     666 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(event.pageX + (this.$handler.width() / 2));</span>
+<span class="lineNum">     667 </span>                :            :             } else {
+<span class="lineNum">     668 </span>                :<span class="lineNoCov">          0 :                 this.updateDimension(null, event.pageY + (this.$handler.height() / 2));</span>
+<span class="lineNum">     669 </span>                :            :             }
+<span class="lineNum">     670 </span>                :            : 
+<span class="lineNum">     671 </span>                :<span class="lineNoCov">          0 :             this.trigger('Layout.Panel.resize');</span>
+<span class="lineNum">     672 </span>                :            :         },
+<span class="lineNum">     673 </span>                :            : 
+<span class="lineNum">     674 </span>                :            :         unbusy: function() {
+<span class="lineNum">     675 </span>                :<span class="lineNoCov">          0 :             this.$element.removeClass('busy');</span>
+<span class="lineNum">     676 </span>                :            :         },
+<span class="lineNum">     677 </span>                :            : 
+<span class="lineNum">     678 </span>                :            :         updateDimension: function(width, height) {
+<span class="lineNum">     679 </span>                :<span class="lineNoCov">          0 :             if (!!width || width === 0) {</span>
+<span class="lineNum">     680 </span>                :<span class="lineNoCov">          0 :                 this.$element.width(width);</span>
+<span class="lineNum">     681 </span>                :            :             }
+<span class="lineNum">     682 </span>                :            : 
+<span class="lineNum">     683 </span>                :<span class="lineNoCov">          0 :             if (!!height || height === 0) {</span>
+<span class="lineNum">     684 </span>                :<span class="lineNoCov">          0 :                 this.$element.height(height);</span>
+<span class="lineNum">     685 </span>                :            :             }
+<span class="lineNum">     686 </span>                :            : 
+<span class="lineNum">     687 </span>                :<span class="lineNoCov">          0 :             this.height = this.$element.outerHeight(true);</span>
+<span class="lineNum">     688 </span>                :<span class="lineNoCov">          0 :             this.width = this.$element.outerWidth(true);</span>
+<span class="lineNum">     689 </span>                :            :         },
+<span class="lineNum">     690 </span>                :            : 
+<span class="lineNum">     691 </span>                :            :         setPositionLeft: function(left) {
+<span class="lineNum">     692 </span>                :            : 
+<span class="lineNum">     693 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionLeft', this.orientation);</span>
+<span class="lineNum">     694 </span>                :            : 
+<span class="lineNum">     695 </span>                :<span class="lineNoCov">          0 :             this.$element.css({left: left});</span>
+<span class="lineNum">     696 </span>                :            :         },
+<span class="lineNum">     697 </span>                :            : 
+<span class="lineNum">     698 </span>                :            :         setPositionTop: function(top) {
+<span class="lineNum">     699 </span>                :            : 
+<span class="lineNum">     700 </span>                :<span class="lineNoCov">          0 :             log('Layout', 'Panel', 'setPositionTop', this.orientation);</span>
+<span class="lineNum">     701 </span>                :            : 
+<span class="lineNum">     702 </span>                :<span class="lineNoCov">          0 :             this.$element.css({top: top});</span>
+<span class="lineNum">     703 </span>                :            :         }
+<span class="lineNum">     704 </span>                :            :         
+<span class="lineNum">     705 </span>                :            :     };
+<span class="lineNum">     706 </span>                :            : 
+<span class="lineNum">     707 </span>                :            : })(window, window.ZOOLU, window.jQuery);
 </pre>
       </td>
     </tr>

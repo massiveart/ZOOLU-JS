@@ -506,6 +506,11 @@
         this.orientation = orientation;
         this.hasChildren = false;
         this.handler = null;
+        this.handlerCursor = '';
+        this.minimizer = null;
+        this.closed = false;
+        this.storedHeight = 0;
+        this.storedWidth = 0;
 
         if (!this.$element.length) {
             throw new ZOOLU.UI.Exception("Panel doesn't exist!");
@@ -519,7 +524,9 @@
 
         // extend default options with given
         this.options = $.extend({
-
+            minimizeHeight: 5,
+            minimizeWidth: 50,
+            minimizeOrientations: ['north', 'west']
         }, options);
 
         // add event API
@@ -541,20 +548,46 @@
         constructor: ZOOLU.UI.Layout.Panel,
 
         initialize: function() {
+            this.storedHeight = this.$element.height();
+            this.storedWidth = this.$element.width();
             this.$handler = $('<div class="handler"/>');
             this.$handler.appendTo(this.$element);
-
-            // TODO cleanup!!!
-            this.$handler.mousedown(function(event) {
-                event.preventDefault();
-                $(window).on('mousemove.layout', this.resize.bind(this));
+            this.$handlerCursor = this.$handler.css('cursor');
+            this.addMinimizer(this.$handler, this.options.minimizeOrientations);
+            
+            this.$minimizer.click(function(event) {
+                event.stopPropagation();
+                if (this.closed === false) {
+                    this.$handler.trigger('Layout.Panel.minimize');
+                    this.minimize();
+                } else {
+                    this.$handler.trigger('Layout.Panel.maximize');
+                    this.maximize(this.storedHeight);
+                }
             }.bind(this));
-
-            $(window).mouseup(function() {
-                $(window).off('mousemove.layout');
-            });
+            
+            this.$handler.mousedown(function() {
+                this.$handler.on('Layout.Panel.minimize', this.minimize());
+                this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));
+            }.bind(this));
+            this.$handler.mouseup(function() {
+                this.$handler.off('Layout.Panel.minimize');
+                this.$handler.off('Layout.Panel.maximize');
+            }.bind(this));
+            
+            this.toggleHandlerEvents();
+            
         },
-
+        
+        addMinimizer: function(element,orientations) {
+            this.$minimizer = $('<div class="minimizer"/>');
+            for (var i = 0; i < orientations.length; i++) {
+                if (this.orientation === orientations[i]){
+                    this.$minimizer.appendTo(element);
+                }
+            }
+        },
+        
         initializeLayout: function() {
             var panels;
 
@@ -568,6 +601,57 @@
                     this.initPanel(panels.first(), ZOOLU.UI.Layout.prototype.CONST.orientations[i]);
                 }
             }
+        },
+        
+        minimize: function() {
+            if (this.orientation === 'west') {
+                this.storedWidth = this.$element.width();
+                this.updateDimension(this.options.minimizeWidth);
+            } else {
+                this.storedHeight = this.$element.height();
+                this.updateDimension(null, this.options.minimizeHeight);
+            }
+            this.trigger('Layout.Panel.resize');
+            this.removeEvent(this.$handler, 'mousedown');
+            this.toggleHandlerEvents(this.closed);
+            this.closed = true;
+        },
+        
+        maximize: function() {
+            if (this.orientation === 'west') {
+                this.updateDimension(this.storedWidth);
+            } else {
+                this.updateDimension(null, this.storedHeight);
+            }
+            this.trigger('Layout.Panel.resize');
+            this.removeEvent(this.$handler, 'click');
+            this.toggleHandlerEvents(this.closed);
+            this.closed = false;
+        },
+        
+        toggleHandlerEvents: function(action) {
+            if (action === false) /*minimize*/ {
+                this.$handler.css('cursor', 'pointer');
+                this.$handler.click(function() {
+                    this.$handler.trigger('Layout.Panel.maximize');
+                    this.maximize(this.storedHeight);
+                }.bind(this));
+            } else /*maximize*/ {
+                this.$handler.css('cursor', this.handlerCursor);
+                // TODO cleanup!!!
+                this.$handler.mousedown(function(event) {
+                    event.preventDefault();
+                    $(window).on('mousemove.layout', this.resize.bind(this));
+                }.bind(this));
+    
+                $(window).mouseup(function() {
+                    $(window).off('mousemove.layout');
+                });
+            }
+        },
+        
+        removeEvent: function(element, event) {
+            element.unbind(event);
         },
 
         /**
@@ -592,11 +676,11 @@
         },
 
         updateDimension: function(width, height) {
-            if (!!width) {
+            if (!!width || width === 0) {
                 this.$element.width(width);
             }
 
-            if (!!height) {
+            if (!!height || height === 0) {
                 this.$element.height(height);
             }
 
@@ -617,6 +701,7 @@
 
             this.$element.css({top: top});
         }
+        
     };
 
 })(window, window.ZOOLU, window.jQuery);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" errors="0" failures="0" tests="4" time="0.060000002">
-<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree instantiation" time="0.0020"/>
+<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" errors="0" failures="0" tests="4" time="0.059">
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree instantiation" time="0.0030"/>
 <testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree load nodes" time="0.011"/>
-<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select node" time="0.02"/>
-<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select nested node" time="0.027"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select node" time="0.019"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select nested node" time="0.026"/>
 </testsuite>
