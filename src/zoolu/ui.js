@@ -376,6 +376,8 @@
 
         enable: function() {
 
+            // FIXME ??
+
             /** @ignore */
             this.initPanel = function(panel, orientation) {
                 ZOOLU.UI.Layout.prototype.initPanel.call(this, panel, orientation);
@@ -577,9 +579,9 @@
             //log(event.pageX + ', ' + event.pageY);
 
             if (this.orientation === 'west') {
-                this.updateDimension(event.pageX);
+                this.updateDimension(event.pageX + (this.$handler.width() / 2));
             } else {
-                this.updateDimension(null, event.pageY);
+                this.updateDimension(null, event.pageY + (this.$handler.height() / 2));
             }
 
             this.trigger('Layout.Panel.resize');
