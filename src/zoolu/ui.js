@@ -376,6 +376,8 @@
 
         enable: function() {
 
+            // FIXME ??
+
             /** @ignore */
             this.initPanel = function(panel, orientation) {
                 ZOOLU.UI.Layout.prototype.initPanel.call(this, panel, orientation);
@@ -567,7 +569,7 @@
             this.$handler.mousedown(function() {
                 this.$handler.on('Layout.Panel.minimize', this.minimize());
                 this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));
-            }.bind(this))
+            }.bind(this));
             this.$handler.mouseup(function() {
                 this.$handler.off('Layout.Panel.minimize');
                 this.$handler.off('Layout.Panel.maximize');
@@ -602,9 +604,9 @@
         },
         
         minimize: function() {
-            if (this.orientation == 'west') {
+            if (this.orientation === 'west') {
                 this.storedWidth = this.$element.width();
-                this.updateDimension(this.options.minimizeWidth); 
+                this.updateDimension(this.options.minimizeWidth);
             } else {
                 this.storedHeight = this.$element.height();
                 this.updateDimension(null, this.options.minimizeHeight);
@@ -616,13 +618,13 @@
         },
         
         maximize: function() {
-            if (this.orientation == 'west') {
+            if (this.orientation === 'west') {
                 this.updateDimension(this.storedWidth);
             } else {
                 this.updateDimension(null, this.storedHeight);
             }
             this.trigger('Layout.Panel.resize');
-            this.removeEvent(this.$handler, 'click')
+            this.removeEvent(this.$handler, 'click');
             this.toggleHandlerEvents(this.closed);
             this.closed = false;
         },
@@ -661,9 +663,9 @@
             //log(event.pageX + ', ' + event.pageY);
 
             if (this.orientation === 'west') {
-                this.updateDimension(event.pageX);
+                this.updateDimension(event.pageX + (this.$handler.width() / 2));
             } else {
-                this.updateDimension(null, event.pageY);
+                this.updateDimension(null, event.pageY + (this.$handler.height() / 2));
             }
 
             this.trigger('Layout.Panel.resize');
