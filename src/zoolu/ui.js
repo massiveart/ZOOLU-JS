@@ -509,8 +509,8 @@
         this.handlerCursor = '';
         this.minimizer = null;
         this.closed = false;
-        this.storedHeight = 0;
-        this.storedWidth = 0;
+        this.tmpHeight = 0;
+        this.tmpWidth = 0;
 
         if (!this.$element.length) {
             throw new ZOOLU.UI.Exception("Panel doesn't exist!");
@@ -526,7 +526,8 @@
         this.options = $.extend({
             minimizeHeight: 5,
             minimizeWidth: 50,
-            minimizeOrientations: ['north', 'west']
+            minimizeOrientations: ['north', 'west'],
+            storeDimensions: true
         }, options);
 
         // add event API
@@ -548,12 +549,17 @@
         constructor: ZOOLU.UI.Layout.Panel,
 
         initialize: function() {
-            this.storedHeight = this.$element.height();
-            this.storedWidth = this.$element.width();
+            if (this.options.storeDimensions === true) {
+                this.store = ZOOLU.STORE.Cookie.getInstance();
+                log('PANEL.'+this.orientation+'.height',this.store.get('PANEL.'+this.orientation+'.height'));
+                log('PANEL.'+this.orientation+'.width',this.store.get('PANEL.'+this.orientation+'.width'));
+            }           
+            this.applyStoredDimensions();            
+            
             this.$handler = $('<div class="handler"/>');
             this.$handler.appendTo(this.$element);
             this.$handlerCursor = this.$handler.css('cursor');
-            this.addMinimizer(this.$handler, this.options.minimizeOrientations);
+            this.addMinimizer(this.$handler, this.options.minimizeOrientations);           
             
             this.$minimizer.click(function(event) {
                 event.stopPropagation();
@@ -562,13 +568,13 @@
                     this.minimize();
                 } else {
                     this.$handler.trigger('Layout.Panel.maximize');
-                    this.maximize(this.storedHeight);
+                    this.maximize(this.tmpHeight);
                 }
             }.bind(this));
             
             this.$handler.mousedown(function() {
                 this.$handler.on('Layout.Panel.minimize', this.minimize());
-                this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));
+                this.$handler.on('Layout.Panel.maximize', this.maximize(this.tmpHeight));
             }.bind(this));
             this.$handler.mouseup(function() {
                 this.$handler.off('Layout.Panel.minimize');
@@ -603,12 +609,37 @@
             }
         },
         
+        applyStoredDimensions: function() {
+            if (!!this.store) {
+                if (this.store.get('PANEL.'+this.orientation+'.height') != null) {
+                    this.updateDimension(null, this.store.get('PANEL.'+this.orientation+'.height'));
+                    this.trigger('Layout.Panel.resize');
+                }
+                if (this.store.get('PANEL.'+this.orientation+'.width') != null) {
+                    this.updateDimension(this.store.get('PANEL.'+this.orientation+'.width'));
+                    this.trigger('Layout.Panel.resize');
+                }
+                this.tmpWidth = this.$element.width();
+                this.tmpHeight = this.$element.height();
+            }
+        },
+        
+        storeDimensions: function(width, height) {
+            if (!!this.store) {
+                if (!!width || width === 0) {
+                    this.store.set('PANEL.'+this.orientation+'.width', width);
+                }
+                if(!!height || height === 0) {
+                    this.store.set('PANEL.'+this.orientation+'.height', height);
+                }
+            }
+        },
+        
         minimize: function() {
             if (this.orientation === 'west') {
-                this.storedWidth = this.$element.width();
                 this.updateDimension(this.options.minimizeWidth);
             } else {
-                this.storedHeight = this.$element.height();
+                this.tmpHeight = this.$element.height();
                 this.updateDimension(null, this.options.minimizeHeight);
             }
             this.trigger('Layout.Panel.resize');
@@ -619,9 +650,9 @@
         
         maximize: function() {
             if (this.orientation === 'west') {
-                this.updateDimension(this.storedWidth);
+                this.updateDimension(this.tmpWidth);
             } else {
-                this.updateDimension(null, this.storedHeight);
+                this.updateDimension(null, this.tmpHeight);
             }
             this.trigger('Layout.Panel.resize');
             this.removeEvent(this.$handler, 'click');
@@ -634,7 +665,7 @@
                 this.$handler.css('cursor', 'pointer');
                 this.$handler.click(function() {
                     this.$handler.trigger('Layout.Panel.maximize');
-                    this.maximize(this.storedHeight);
+                    this.maximize(this.tmpHeight);
                 }.bind(this));
             } else /*maximize*/ {
                 this.$handler.css('cursor', this.handlerCursor);
@@ -678,10 +709,12 @@
         updateDimension: function(width, height) {
             if (!!width || width === 0) {
                 this.$element.width(width);
+                this.storeDimensions(width);
             }
 
             if (!!height || height === 0) {
                 this.$element.height(height);
+                this.storeDimensions(null, height);
             }
 
             this.height = this.$element.outerHeight(true);
