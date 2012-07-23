@@ -520,7 +520,7 @@
 
         // extend default options with given
         this.options = $.extend({
-
+            minimizeHeight: 10
         }, options);
 
         // add event API
@@ -551,7 +551,7 @@
                 event.stopPropagation();
                 if (this.closed === false) {
                     this.$handler.trigger('Layout.Panel.minimize');
-                    this.minimize(10);
+                    this.minimize(this.options.minimizeHeight);
                 } else {
                     this.$handler.trigger('Layout.Panel.maximize');
                     this.maximize(this.storedHeight);
@@ -559,7 +559,7 @@
             }.bind(this));
             
             this.$handler.mousedown(function() {
-                this.$handler.on('Layout.Panel.minimize', this.minimize(10));
+                this.$handler.on('Layout.Panel.minimize', this.minimize(this.options.minimizeHeight));
                 this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));
             }.bind(this))
             this.$handler.mouseup(function() {
@@ -602,7 +602,6 @@
             this.removeEvent(this.$handler, 'mousedown');
             this.toggleHandlerEvents(this.closed);
             this.closed = true;
-            log('Minimize');
         },
         
         maximize: function() {
