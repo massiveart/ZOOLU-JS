@@ -509,8 +509,8 @@
         this.handlerCursor = '';
         this.minimizer = null;
         this.closed = false;
-        this.storedHeight = 0;
-        this.storedWidth = 0;
+        this.tmpHeight = 0;
+        this.tmpWidth = 0;
 
         if (!this.$element.length) {
             throw new ZOOLU.UI.Exception("Panel doesn't exist!");
@@ -526,7 +526,8 @@
         this.options = $.extend({
             minimizeHeight: 5,
             minimizeWidth: 50,
-            minimizeOrientations: ['north', 'west']
+            minimizeOrientations: ['north', 'west'],
+            storeDimensions: true
         }, options);
 
         // add event API
@@ -548,12 +549,17 @@
         constructor: ZOOLU.UI.Layout.Panel,
 
         initialize: function() {
-            this.storedHeight = this.$element.height();
-            this.storedWidth = this.$element.width();
+            if (this.options.storeDimensions === true) {
+                this.store = ZOOLU.STORE.Cookie.getInstance();
+                log('PANEL.'+this.orientation+'.height',this.store.get('PANEL.'+this.orientation+'.height'));
+                log('PANEL.'+this.orientation+'.width',this.store.get('PANEL.'+this.orientation+'.width'));
+            }           
+            this.applyStoredDimensions();            
+            
             this.$handler = $('<div class="handler"/>');
             this.$handler.appendTo(this.$element);
             this.$handlerCursor = this.$handler.css('cursor');
-            this.addMinimizer(this.$handler, this.options.minimizeOrientations);
+            this.addMinimizer(this.$handler, this.options.minimizeOrientations);           
             
             this.$minimizer.click(function(event) {
                 event.stopPropagation();
@@ -562,13 +568,13 @@
                     this.minimize();
                 } else {
                     this.$handler.trigger('Layout.Panel.maximize');
-                    this.maximize(this.storedHeight);
+                    this.maximize(this.tmpHeight);
                 }
             }.bind(this));
             
             this.$handler.mousedown(function() {
                 this.$handler.on('Layout.Panel.minimize', this.minimize());
-                this.$handler.on('Layout.Panel.maximize', this.maximize(this.storedHeight));
+                this.$handler.on('Layout.Panel.maximize', this.maximize(this.tmpHeight));
             }.bind(this));
             this.$handler.mouseup(function() {
                 this.$handler.off('Layout.Panel.minimize');
@@ -579,6 +585,16 @@
             
         },
         
+        /**
+         * Adds a Minimizer DOM-Element into an other DOM-Element
+         * 
+         * @private
+         * @param {Object} DOM-Object in which the minimizer is added
+         * @param {Array} Array that specifies to which panels Minimizer are added.
+         * @example
+         *  this.addMinimizer($('.handler'), ['west', 'north']);
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         addMinimizer: function(element,orientations) {
             this.$minimizer = $('<div class="minimizer"/>');
             for (var i = 0; i < orientations.length; i++) {
@@ -603,12 +619,60 @@
             }
         },
         
+        /**
+         * Gets the Cookies for the current panel and applys the width and height of
+         * the cookie to the element (if they are given)
+         * 
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        applyStoredDimensions: function() {
+            if (!!this.store) {
+                if (this.store.get('PANEL.'+this.orientation+'.height') != null) {
+                    this.updateDimension(null, this.store.get('PANEL.'+this.orientation+'.height'));
+                    this.trigger('Layout.Panel.resize');
+                }
+                if (this.store.get('PANEL.'+this.orientation+'.width') != null) {
+                    this.updateDimension(this.store.get('PANEL.'+this.orientation+'.width'));
+                    this.trigger('Layout.Panel.resize');
+                }
+                this.tmpWidth = this.$element.width();
+                this.tmpHeight = this.$element.height();
+            }
+        },
+        
+        /**
+         * Stores a width and a height in a cookie
+         * 
+         * @private
+         * @param {Integer} Width to store 
+         * @param {Integer} Height to store
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        storeDimensions: function(width, height) {
+            if (!!this.store) {
+                if (!!width || width === 0) {
+                    this.store.set('PANEL.'+this.orientation+'.width', width);
+                }
+                if(!!height || height === 0) {
+                    this.store.set('PANEL.'+this.orientation+'.height', height);
+                }
+            }
+        },
+        
+        
+        /**
+         * Minimize the panel, triggers resize event, removes the resize event from the handler
+         * and adds an onclick event to the handler
+         * 
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         minimize: function() {
             if (this.orientation === 'west') {
-                this.storedWidth = this.$element.width();
                 this.updateDimension(this.options.minimizeWidth);
             } else {
-                this.storedHeight = this.$element.height();
+                this.tmpHeight = this.$element.height();
                 this.updateDimension(null, this.options.minimizeHeight);
             }
             this.trigger('Layout.Panel.resize');
@@ -617,11 +681,18 @@
             this.closed = true;
         },
         
+        /**
+         * Maximize the panel to the last width/height, triggers a resize event,
+         * removes the click-Event from the handler, adds the resize event back to the handler
+         * 
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         maximize: function() {
             if (this.orientation === 'west') {
-                this.updateDimension(this.storedWidth);
+                this.updateDimension(this.tmpWidth);
             } else {
-                this.updateDimension(null, this.storedHeight);
+                this.updateDimension(null, this.tmpHeight);
             }
             this.trigger('Layout.Panel.resize');
             this.removeEvent(this.$handler, 'click');
@@ -629,12 +700,19 @@
             this.closed = false;
         },
         
+        /**
+         * Toggles the resize and the click event for the handler
+         * 
+         * @private
+         * @param {Boolean} In accordance with minimized/maximized - true: currently minimized
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         toggleHandlerEvents: function(action) {
             if (action === false) /*minimize*/ {
                 this.$handler.css('cursor', 'pointer');
                 this.$handler.click(function() {
                     this.$handler.trigger('Layout.Panel.maximize');
-                    this.maximize(this.storedHeight);
+                    this.maximize(this.tmpHeight);
                 }.bind(this));
             } else /*maximize*/ {
                 this.$handler.css('cursor', this.handlerCursor);
@@ -650,6 +728,14 @@
             }
         },
         
+        /**
+         * Removes an event from an element
+         * 
+         * @private
+         * @param {Object} DOM-Object from which the event will be removed
+         * @param {String} Event which will be removed
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
         removeEvent: function(element, event) {
             element.unbind(event);
         },
@@ -678,10 +764,12 @@
         updateDimension: function(width, height) {
             if (!!width || width === 0) {
                 this.$element.width(width);
+                this.storeDimensions(width);
             }
 
             if (!!height || height === 0) {
                 this.$element.height(height);
+                this.storeDimensions(null, height);
             }
 
             this.height = this.$element.outerHeight(true);
