@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Safari_5345122_Mac_OS.ZOOLU.MIXIN" errors="0" failures="0" tests="5" time="0.0020">
+<testsuite name="Safari_5345122_Mac_OS.ZOOLU.MIXIN" errors="0" failures="0" tests="5" time="0.0050000004">
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api log" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api enable" time="0.0010"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api on" time="0.0"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api trigger" time="0.0"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api off" time="0.0"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api on" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api trigger" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.MIXIN" name="test Event Api off" time="0.0010"/>
 </testsuite>

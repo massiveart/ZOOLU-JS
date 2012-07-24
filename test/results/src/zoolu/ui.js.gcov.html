@@ -622,16 +622,16 @@
 <span class="lineNum">     551 </span>                :            :         initialize: function() {
 <span class="lineNum">     552 </span>                :<span class="lineNoCov">          0 :             if (this.options.storeDimensions === true) {</span>
 <span class="lineNum">     553 </span>                :<span class="lineNoCov">          0 :                 this.store = ZOOLU.STORE.Cookie.getInstance();</span>
-<span class="lineNum">     554 </span>                :<span class="lineNoCov">          0 :                 log('PANEL.'+this.orientation+'.height',this.store.get('PANEL.'+this.orientation+'.height'));</span>
-<span class="lineNum">     555 </span>                :<span class="lineNoCov">          0 :                 log('PANEL.'+this.orientation+'.width',this.store.get('PANEL.'+this.orientation+'.width'));</span>
-<span class="lineNum">     556 </span>                :            :             }           
-<span class="lineNum">     557 </span>                :<span class="lineNoCov">          0 :             this.applyStoredDimensions();            </span>
-<span class="lineNum">     558 </span>                :            :             
+<span class="lineNum">     554 </span>                :<span class="lineNoCov">          0 :                 log('PANEL.' + this.orientation + '.height', this.store.get('PANEL.' + this.orientation + '.height'));</span>
+<span class="lineNum">     555 </span>                :<span class="lineNoCov">          0 :                 log('PANEL.' + this.orientation + '.width', this.store.get('PANEL.' + this.orientation + '.width'));</span>
+<span class="lineNum">     556 </span>                :            :             }
+<span class="lineNum">     557 </span>                :<span class="lineNoCov">          0 :             this.applyStoredDimensions();</span>
+<span class="lineNum">     558 </span>                :            : 
 <span class="lineNum">     559 </span>                :<span class="lineNoCov">          0 :             this.$handler = $('&lt;div class=&quot;handler&quot;/&gt;');</span>
 <span class="lineNum">     560 </span>                :<span class="lineNoCov">          0 :             this.$handler.appendTo(this.$element);</span>
 <span class="lineNum">     561 </span>                :<span class="lineNoCov">          0 :             this.$handlerCursor = this.$handler.css('cursor');</span>
-<span class="lineNum">     562 </span>                :<span class="lineNoCov">          0 :             this.addMinimizer(this.$handler, this.options.minimizeOrientations);           </span>
-<span class="lineNum">     563 </span>                :            :             
+<span class="lineNum">     562 </span>                :<span class="lineNoCov">          0 :             this.addMinimizer(this.$handler, this.options.minimizeOrientations);</span>
+<span class="lineNum">     563 </span>                :            : 
 <span class="lineNum">     564 </span>                :<span class="lineNoCov">          0 :             this.$minimizer.click(function(event) {</span>
 <span class="lineNum">     565 </span>                :<span class="lineNoCov">          0 :                 event.stopPropagation();</span>
 <span class="lineNum">     566 </span>                :<span class="lineNoCov">          0 :                 if (this.closed === false) {</span>
@@ -642,7 +642,7 @@
 <span class="lineNum">     571 </span>                :<span class="lineNoCov">          0 :                     this.maximize(this.tmpHeight);</span>
 <span class="lineNum">     572 </span>                :            :                 }
 <span class="lineNum">     573 </span>                :            :             }.bind(this));
-<span class="lineNum">     574 </span>                :            :             
+<span class="lineNum">     574 </span>                :            : 
 <span class="lineNum">     575 </span>                :<span class="lineNoCov">          0 :             this.$handler.mousedown(function() {</span>
 <span class="lineNum">     576 </span>                :<span class="lineNoCov">          0 :                 this.$handler.on('Layout.Panel.minimize', this.minimize());</span>
 <span class="lineNum">     577 </span>                :<span class="lineNoCov">          0 :                 this.$handler.on('Layout.Panel.maximize', this.maximize(this.tmpHeight));</span>
@@ -651,14 +651,14 @@
 <span class="lineNum">     580 </span>                :<span class="lineNoCov">          0 :                 this.$handler.off('Layout.Panel.minimize');</span>
 <span class="lineNum">     581 </span>                :<span class="lineNoCov">          0 :                 this.$handler.off('Layout.Panel.maximize');</span>
 <span class="lineNum">     582 </span>                :            :             }.bind(this));
-<span class="lineNum">     583 </span>                :            :             
+<span class="lineNum">     583 </span>                :            : 
 <span class="lineNum">     584 </span>                :<span class="lineNoCov">          0 :             this.toggleHandlerEvents();</span>
-<span class="lineNum">     585 </span>                :            :             
+<span class="lineNum">     585 </span>                :            : 
 <span class="lineNum">     586 </span>                :            :         },
-<span class="lineNum">     587 </span>                :            :         
+<span class="lineNum">     587 </span>                :            : 
 <span class="lineNum">     588 </span>                :            :         /**
 <span class="lineNum">     589 </span>                :            :          * Adds a Minimizer DOM-Element into an other DOM-Element
-<span class="lineNum">     590 </span>                :            :          * 
+<span class="lineNum">     590 </span>                :            :          *
 <span class="lineNum">     591 </span>                :            :          * @private
 <span class="lineNum">     592 </span>                :            :          * @param {Object} DOM-Object in which the minimizer is added
 <span class="lineNum">     593 </span>                :            :          * @param {Array} Array that specifies to which panels Minimizer are added.
@@ -666,15 +666,15 @@
 <span class="lineNum">     595 </span>                :            :          *  this.addMinimizer($('.handler'), ['west', 'north']);
 <span class="lineNum">     596 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     597 </span>                :            :          */
-<span class="lineNum">     598 </span>                :            :         addMinimizer: function(element,orientations) {
+<span class="lineNum">     598 </span>                :            :         addMinimizer: function(element, orientations) {
 <span class="lineNum">     599 </span>                :<span class="lineNoCov">          0 :             this.$minimizer = $('&lt;div class=&quot;minimizer&quot;/&gt;');</span>
 <span class="lineNum">     600 </span>                :<span class="lineNoCov">          0 :             for (var i = 0; i &lt; orientations.length; i++) {</span>
-<span class="lineNum">     601 </span>                :<span class="lineNoCov">          0 :                 if (this.orientation === orientations[i]){</span>
+<span class="lineNum">     601 </span>                :<span class="lineNoCov">          0 :                 if (this.orientation === orientations[i]) {</span>
 <span class="lineNum">     602 </span>                :<span class="lineNoCov">          0 :                     this.$minimizer.appendTo(element);</span>
 <span class="lineNum">     603 </span>                :            :                 }
 <span class="lineNum">     604 </span>                :            :             }
 <span class="lineNum">     605 </span>                :            :         },
-<span class="lineNum">     606 </span>                :            :         
+<span class="lineNum">     606 </span>                :            : 
 <span class="lineNum">     607 </span>                :            :         initializeLayout: function() {
 <span class="lineNum">     608 </span>                :<span class="lineNoCov">          0 :             var panels;</span>
 <span class="lineNum">     609 </span>                :            : 
@@ -689,32 +689,32 @@
 <span class="lineNum">     618 </span>                :            :                 }
 <span class="lineNum">     619 </span>                :            :             }
 <span class="lineNum">     620 </span>                :            :         },
-<span class="lineNum">     621 </span>                :            :         
+<span class="lineNum">     621 </span>                :            : 
 <span class="lineNum">     622 </span>                :            :         /**
 <span class="lineNum">     623 </span>                :            :          * Gets the Cookies for the current panel and applys the width and height of
 <span class="lineNum">     624 </span>                :            :          * the cookie to the element (if they are given)
-<span class="lineNum">     625 </span>                :            :          * 
+<span class="lineNum">     625 </span>                :            :          *
 <span class="lineNum">     626 </span>                :            :          * @private
 <span class="lineNum">     627 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     628 </span>                :            :          */
 <span class="lineNum">     629 </span>                :            :         applyStoredDimensions: function() {
 <span class="lineNum">     630 </span>                :<span class="lineNoCov">          0 :             if (!!this.store) {</span>
-<span class="lineNum">     631 </span>                :<span class="lineNoCov">          0 :                 if (this.store.get('PANEL.'+this.orientation+'.height') != null) {</span>
-<span class="lineNum">     632 </span>                :<span class="lineNoCov">          0 :                     this.updateDimension(null, this.store.get('PANEL.'+this.orientation+'.height'));</span>
+<span class="lineNum">     631 </span>                :<span class="lineNoCov">          0 :                 if (this.store.get('PANEL.' + this.orientation + '.height') !== null) {</span>
+<span class="lineNum">     632 </span>                :<span class="lineNoCov">          0 :                     this.updateDimension(null, this.store.get('PANEL.' + this.orientation + '.height'));</span>
 <span class="lineNum">     633 </span>                :<span class="lineNoCov">          0 :                     this.trigger('Layout.Panel.resize');</span>
 <span class="lineNum">     634 </span>                :            :                 }
-<span class="lineNum">     635 </span>                :<span class="lineNoCov">          0 :                 if (this.store.get('PANEL.'+this.orientation+'.width') != null) {</span>
-<span class="lineNum">     636 </span>                :<span class="lineNoCov">          0 :                     this.updateDimension(this.store.get('PANEL.'+this.orientation+'.width'));</span>
+<span class="lineNum">     635 </span>                :<span class="lineNoCov">          0 :                 if (this.store.get('PANEL.' + this.orientation + '.width') !== null) {</span>
+<span class="lineNum">     636 </span>                :<span class="lineNoCov">          0 :                     this.updateDimension(this.store.get('PANEL.' + this.orientation + '.width'));</span>
 <span class="lineNum">     637 </span>                :<span class="lineNoCov">          0 :                     this.trigger('Layout.Panel.resize');</span>
 <span class="lineNum">     638 </span>                :            :                 }
 <span class="lineNum">     639 </span>                :<span class="lineNoCov">          0 :                 this.tmpWidth = this.$element.width();</span>
 <span class="lineNum">     640 </span>                :<span class="lineNoCov">          0 :                 this.tmpHeight = this.$element.height();</span>
 <span class="lineNum">     641 </span>                :            :             }
 <span class="lineNum">     642 </span>                :            :         },
-<span class="lineNum">     643 </span>                :            :         
+<span class="lineNum">     643 </span>                :            : 
 <span class="lineNum">     644 </span>                :            :         /**
 <span class="lineNum">     645 </span>                :            :          * Stores a width and a height in a cookie
-<span class="lineNum">     646 </span>                :            :          * 
+<span class="lineNum">     646 </span>                :            :          *
 <span class="lineNum">     647 </span>                :            :          * @private
 <span class="lineNum">     648 </span>                :            :          * @param {Integer} width Width to store
 <span class="lineNum">     649 </span>                :            :          * @param {Integer} height Height to store
@@ -723,19 +723,19 @@
 <span class="lineNum">     652 </span>                :            :         storeDimensions: function(width, height) {
 <span class="lineNum">     653 </span>                :<span class="lineNoCov">          0 :             if (!!this.store) {</span>
 <span class="lineNum">     654 </span>                :<span class="lineNoCov">          0 :                 if (!!width || width === 0) {</span>
-<span class="lineNum">     655 </span>                :<span class="lineNoCov">          0 :                     this.store.set('PANEL.'+this.orientation+'.width', width);</span>
+<span class="lineNum">     655 </span>                :<span class="lineNoCov">          0 :                     this.store.set('PANEL.' + this.orientation + '.width', width);</span>
 <span class="lineNum">     656 </span>                :            :                 }
-<span class="lineNum">     657 </span>                :<span class="lineNoCov">          0 :                 if(!!height || height === 0) {</span>
-<span class="lineNum">     658 </span>                :<span class="lineNoCov">          0 :                     this.store.set('PANEL.'+this.orientation+'.height', height);</span>
+<span class="lineNum">     657 </span>                :<span class="lineNoCov">          0 :                 if (!!height || height === 0) {</span>
+<span class="lineNum">     658 </span>                :<span class="lineNoCov">          0 :                     this.store.set('PANEL.' + this.orientation + '.height', height);</span>
 <span class="lineNum">     659 </span>                :            :                 }
 <span class="lineNum">     660 </span>                :            :             }
 <span class="lineNum">     661 </span>                :            :         },
-<span class="lineNum">     662 </span>                :            :         
-<span class="lineNum">     663 </span>                :            :         
+<span class="lineNum">     662 </span>                :            : 
+<span class="lineNum">     663 </span>                :            : 
 <span class="lineNum">     664 </span>                :            :         /**
 <span class="lineNum">     665 </span>                :            :          * Minimize the panel, triggers resize event, removes the resize event from the handler
 <span class="lineNum">     666 </span>                :            :          * and adds an onclick event to the handler
-<span class="lineNum">     667 </span>                :            :          * 
+<span class="lineNum">     667 </span>                :            :          *
 <span class="lineNum">     668 </span>                :            :          * @private
 <span class="lineNum">     669 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     670 </span>                :            :          */
@@ -751,11 +751,11 @@
 <span class="lineNum">     680 </span>                :<span class="lineNoCov">          0 :             this.toggleHandlerEvents(this.closed);</span>
 <span class="lineNum">     681 </span>                :<span class="lineNoCov">          0 :             this.closed = true;</span>
 <span class="lineNum">     682 </span>                :            :         },
-<span class="lineNum">     683 </span>                :            :         
+<span class="lineNum">     683 </span>                :            : 
 <span class="lineNum">     684 </span>                :            :         /**
 <span class="lineNum">     685 </span>                :            :          * Maximize the panel to the last width/height, triggers a resize event,
 <span class="lineNum">     686 </span>                :            :          * removes the click-Event from the handler, adds the resize event back to the handler
-<span class="lineNum">     687 </span>                :            :          * 
+<span class="lineNum">     687 </span>                :            :          *
 <span class="lineNum">     688 </span>                :            :          * @private
 <span class="lineNum">     689 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     690 </span>                :            :          */
@@ -770,10 +770,10 @@
 <span class="lineNum">     699 </span>                :<span class="lineNoCov">          0 :             this.toggleHandlerEvents(this.closed);</span>
 <span class="lineNum">     700 </span>                :<span class="lineNoCov">          0 :             this.closed = false;</span>
 <span class="lineNum">     701 </span>                :            :         },
-<span class="lineNum">     702 </span>                :            :         
+<span class="lineNum">     702 </span>                :            : 
 <span class="lineNum">     703 </span>                :            :         /**
 <span class="lineNum">     704 </span>                :            :          * Toggles the resize and the click event for the handler
-<span class="lineNum">     705 </span>                :            :          * 
+<span class="lineNum">     705 </span>                :            :          *
 <span class="lineNum">     706 </span>                :            :          * @private
 <span class="lineNum">     707 </span>                :            :          * @param {Boolean} action In accordance with minimized/maximized - true: currently minimized
 <span class="lineNum">     708 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
@@ -792,16 +792,16 @@
 <span class="lineNum">     721 </span>                :<span class="lineNoCov">          0 :                     event.preventDefault();</span>
 <span class="lineNum">     722 </span>                :<span class="lineNoCov">          0 :                     $(window).on('mousemove.layout', this.resize.bind(this));</span>
 <span class="lineNum">     723 </span>                :            :                 }.bind(this));
-<span class="lineNum">     724 </span>                :            :     
+<span class="lineNum">     724 </span>                :            : 
 <span class="lineNum">     725 </span>                :<span class="lineNoCov">          0 :                 $(window).mouseup(function() {</span>
 <span class="lineNum">     726 </span>                :<span class="lineNoCov">          0 :                     $(window).off('mousemove.layout');</span>
 <span class="lineNum">     727 </span>                :            :                 });
 <span class="lineNum">     728 </span>                :            :             }
 <span class="lineNum">     729 </span>                :            :         },
-<span class="lineNum">     730 </span>                :            :         
+<span class="lineNum">     730 </span>                :            : 
 <span class="lineNum">     731 </span>                :            :         /**
 <span class="lineNum">     732 </span>                :            :          * Removes an event from an element
-<span class="lineNum">     733 </span>                :            :          * 
+<span class="lineNum">     733 </span>                :            :          *
 <span class="lineNum">     734 </span>                :            :          * @private
 <span class="lineNum">     735 </span>                :            :          * @param {Object} element DOM-Object from which the event will be removed
 <span class="lineNum">     736 </span>                :            :          * @param {String} event Event which will be removed
@@ -860,7 +860,7 @@
 <span class="lineNum">     789 </span>                :            : 
 <span class="lineNum">     790 </span>                :<span class="lineNoCov">          0 :             this.$element.css({top: top});</span>
 <span class="lineNum">     791 </span>                :            :         }
-<span class="lineNum">     792 </span>                :            :         
+<span class="lineNum">     792 </span>                :            : 
 <span class="lineNum">     793 </span>                :            :     };
 <span class="lineNum">     794 </span>                :            : 
 <span class="lineNum">     795 </span>                :            : })(window, window.ZOOLU, window.jQuery);
