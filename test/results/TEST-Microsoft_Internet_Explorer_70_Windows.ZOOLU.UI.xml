@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" errors="0" failures="0" tests="4" time="0.059">
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree instantiation" time="0.0030"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree load nodes" time="0.011"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select node" time="0.019"/>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select nested node" time="0.026"/>
+=======
 <testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" errors="0" failures="0" tests="9" time="0.084">
 <testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree instantiation" time="0.0030"/>
 <testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree throw exception" time="0.0010"/>
@@ -9,4 +16,5 @@
 <testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test column tree select nested node" time="0.026"/>
 <testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test update selected marker" time="0.01"/>
 <testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI" name="test ZOOLU.UI.Exception" time="0.0010"/>
+>>>>>>> origin/tests
 </testsuite>

@@ -46,7 +46,7 @@ TestCase('ZOOLU.UTIL', {
         containsOwnSep = truncatedByOwnSep.indexOf(ownSeparator) !== -1;
         containsDefaultSep = tooLongString.indexOf(' ... ') !== -1;
 
-        assertEquals('Too long string length', limit,tooLongString.length);
+        assertEquals('Too long string length', limit, tooLongString.length);
         assertEquals('Fiting string length', 8, shortString.length);
         assertTrue('Contains the own separator', containsOwnSep);
         assertTrue('Contains the default separator', containsDefaultSep);
