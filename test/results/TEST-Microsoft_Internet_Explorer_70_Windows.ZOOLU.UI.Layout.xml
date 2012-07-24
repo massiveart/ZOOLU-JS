@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI.Layout" errors="1" failures="0" tests="1" time="0.0080">
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.UI.Layout" name="test Layout instantiation" time="0.0080">
+<error type="error">[{"message":"F\u00fcr die Eigenschaft \"replace\" kann kein Wert abgerufen werden: Das Objekt ist Null oder undefiniert","name":"TypeError","description":"F\u00fcr die Eigenschaft \"replace\" kann kein Wert abgerufen werden: Das Objekt ist Null oder undefiniert","number":-2146823281}]</error>
+</testcase>
+</testsuite>

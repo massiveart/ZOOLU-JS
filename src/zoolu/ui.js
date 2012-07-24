@@ -571,18 +571,9 @@
                     this.maximize(this.tmpHeight);
                 }
             }.bind(this));
-
-            this.$handler.mousedown(function() {
-                this.$handler.on('Layout.Panel.minimize', this.minimize());
-                this.$handler.on('Layout.Panel.maximize', this.maximize(this.tmpHeight));
-            }.bind(this));
-            this.$handler.mouseup(function() {
-                this.$handler.off('Layout.Panel.minimize');
-                this.$handler.off('Layout.Panel.maximize');
-            }.bind(this));
-
+            
             this.toggleHandlerEvents();
-
+            
         },
 
         /**
@@ -710,7 +701,7 @@
         toggleHandlerEvents: function(action) {
             if (action === false) /*minimize*/ {
                 this.$handler.css('cursor', 'pointer');
-                this.$handler.click(function() {
+                this.$handler.bind('click', function() {
                     this.$handler.trigger('Layout.Panel.maximize');
                     this.maximize(this.tmpHeight);
                 }.bind(this));
@@ -718,12 +709,11 @@
                 this.$handler.css('cursor', this.handlerCursor);
                 // TODO cleanup!!!
                 this.$handler.mousedown(function(event) {
-                    event.preventDefault();
-                    $(window).on('mousemove.layout', this.resize.bind(this));
-                }.bind(this));
-
-                $(window).mouseup(function() {
-                    $(window).off('mousemove.layout');
+                    $(document).on('mousemove.layout', this.resize.bind(this));
+                }.bind(this));  
+                
+                this.$handler.mouseup(function() {
+                    $(document).off('mousemove.layout');
                 });
             }
         },

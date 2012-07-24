@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.Layout" errors="0" failures="0" tests="1" time="0.017">
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Layout" name="test Layout instantiation" time="0.017"/>
+</testsuite>
