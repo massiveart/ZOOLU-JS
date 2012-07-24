@@ -1,5 +1,6 @@
 .project
 .buildpath
+.externalToolBuilders/
 .settings/
 .idea/
 .DS_Store

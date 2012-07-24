@@ -551,16 +551,16 @@
         initialize: function() {
             if (this.options.storeDimensions === true) {
                 this.store = ZOOLU.STORE.Cookie.getInstance();
-                log('PANEL.'+this.orientation+'.height',this.store.get('PANEL.'+this.orientation+'.height'));
-                log('PANEL.'+this.orientation+'.width',this.store.get('PANEL.'+this.orientation+'.width'));
-            }           
-            this.applyStoredDimensions();            
-            
+                log('PANEL.' + this.orientation + '.height', this.store.get('PANEL.' + this.orientation + '.height'));
+                log('PANEL.' + this.orientation + '.width', this.store.get('PANEL.' + this.orientation + '.width'));
+            }
+            this.applyStoredDimensions();
+
             this.$handler = $('<div class="handler"/>');
             this.$handler.appendTo(this.$element);
             this.$handlerCursor = this.$handler.css('cursor');
-            this.addMinimizer(this.$handler, this.options.minimizeOrientations);           
-            
+            this.addMinimizer(this.$handler, this.options.minimizeOrientations);
+
             this.$minimizer.click(function(event) {
                 event.stopPropagation();
                 if (this.closed === false) {
@@ -571,7 +571,7 @@
                     this.maximize(this.tmpHeight);
                 }
             }.bind(this));
-            
+
             this.$handler.mousedown(function() {
                 this.$handler.on('Layout.Panel.minimize', this.minimize());
                 this.$handler.on('Layout.Panel.maximize', this.maximize(this.tmpHeight));
@@ -580,14 +580,14 @@
                 this.$handler.off('Layout.Panel.minimize');
                 this.$handler.off('Layout.Panel.maximize');
             }.bind(this));
-            
+
             this.toggleHandlerEvents();
-            
+
         },
-        
+
         /**
          * Adds a Minimizer DOM-Element into an other DOM-Element
-         * 
+         *
          * @private
          * @param {Object} DOM-Object in which the minimizer is added
          * @param {Array} Array that specifies to which panels Minimizer are added.
@@ -595,15 +595,15 @@
          *  this.addMinimizer($('.handler'), ['west', 'north']);
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
-        addMinimizer: function(element,orientations) {
+        addMinimizer: function(element, orientations) {
             this.$minimizer = $('<div class="minimizer"/>');
             for (var i = 0; i < orientations.length; i++) {
-                if (this.orientation === orientations[i]){
+                if (this.orientation === orientations[i]) {
                     this.$minimizer.appendTo(element);
                 }
             }
         },
-        
+
         initializeLayout: function() {
             var panels;
 
@@ -618,53 +618,53 @@
                 }
             }
         },
-        
+
         /**
          * Gets the Cookies for the current panel and applys the width and height of
          * the cookie to the element (if they are given)
-         * 
+         *
          * @private
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         applyStoredDimensions: function() {
             if (!!this.store) {
-                if (this.store.get('PANEL.'+this.orientation+'.height') != null) {
-                    this.updateDimension(null, this.store.get('PANEL.'+this.orientation+'.height'));
+                if (this.store.get('PANEL.' + this.orientation + '.height') !== null) {
+                    this.updateDimension(null, this.store.get('PANEL.' + this.orientation + '.height'));
                     this.trigger('Layout.Panel.resize');
                 }
-                if (this.store.get('PANEL.'+this.orientation+'.width') != null) {
-                    this.updateDimension(this.store.get('PANEL.'+this.orientation+'.width'));
+                if (this.store.get('PANEL.' + this.orientation + '.width') !== null) {
+                    this.updateDimension(this.store.get('PANEL.' + this.orientation + '.width'));
                     this.trigger('Layout.Panel.resize');
                 }
                 this.tmpWidth = this.$element.width();
                 this.tmpHeight = this.$element.height();
             }
         },
-        
+
         /**
          * Stores a width and a height in a cookie
-         * 
+         *
          * @private
-         * @param {Integer} Width to store 
-         * @param {Integer} Height to store
+         * @param {Integer} width Width to store
+         * @param {Integer} height Height to store
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         storeDimensions: function(width, height) {
             if (!!this.store) {
                 if (!!width || width === 0) {
-                    this.store.set('PANEL.'+this.orientation+'.width', width);
+                    this.store.set('PANEL.' + this.orientation + '.width', width);
                 }
-                if(!!height || height === 0) {
-                    this.store.set('PANEL.'+this.orientation+'.height', height);
+                if (!!height || height === 0) {
+                    this.store.set('PANEL.' + this.orientation + '.height', height);
                 }
             }
         },
-        
-        
+
+
         /**
          * Minimize the panel, triggers resize event, removes the resize event from the handler
          * and adds an onclick event to the handler
-         * 
+         *
          * @private
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
@@ -680,11 +680,11 @@
             this.toggleHandlerEvents(this.closed);
             this.closed = true;
         },
-        
+
         /**
          * Maximize the panel to the last width/height, triggers a resize event,
          * removes the click-Event from the handler, adds the resize event back to the handler
-         * 
+         *
          * @private
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
@@ -699,12 +699,12 @@
             this.toggleHandlerEvents(this.closed);
             this.closed = false;
         },
-        
+
         /**
          * Toggles the resize and the click event for the handler
-         * 
+         *
          * @private
-         * @param {Boolean} In accordance with minimized/maximized - true: currently minimized
+         * @param {Boolean} action In accordance with minimized/maximized - true: currently minimized
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         toggleHandlerEvents: function(action) {
@@ -721,19 +721,19 @@
                     event.preventDefault();
                     $(window).on('mousemove.layout', this.resize.bind(this));
                 }.bind(this));
-    
+
                 $(window).mouseup(function() {
                     $(window).off('mousemove.layout');
                 });
             }
         },
-        
+
         /**
          * Removes an event from an element
-         * 
+         *
          * @private
-         * @param {Object} DOM-Object from which the event will be removed
-         * @param {String} Event which will be removed
+         * @param {Object} element DOM-Object from which the event will be removed
+         * @param {String} event Event which will be removed
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         removeEvent: function(element, event) {
@@ -789,7 +789,7 @@
 
             this.$element.css({top: top});
         }
-        
+
     };
 
 })(window, window.ZOOLU, window.jQuery);
