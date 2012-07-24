@@ -645,8 +645,8 @@
          * Stores a width and a height in a cookie
          * 
          * @private
-         * @param {Integer} Width to store 
-         * @param {Integer} Height to store
+         * @param {Integer} width Width to store
+         * @param {Integer} height Height to store
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         storeDimensions: function(width, height) {
@@ -704,7 +704,7 @@
          * Toggles the resize and the click event for the handler
          * 
          * @private
-         * @param {Boolean} In accordance with minimized/maximized - true: currently minimized
+         * @param {Boolean} action In accordance with minimized/maximized - true: currently minimized
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         toggleHandlerEvents: function(action) {
@@ -732,8 +732,8 @@
          * Removes an event from an element
          * 
          * @private
-         * @param {Object} DOM-Object from which the event will be removed
-         * @param {String} Event which will be removed
+         * @param {Object} element DOM-Object from which the event will be removed
+         * @param {String} event Event which will be removed
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         removeEvent: function(element, event) {

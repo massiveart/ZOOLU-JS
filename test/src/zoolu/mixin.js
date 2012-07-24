@@ -7,6 +7,12 @@ TestCase('ZOOLU.MIXIN', {
     
     },
     
+    'test Event Api log': function() {
+        var testlog = "Testlog";
+        window.log(testlog);
+        assertEquals('Last entry of the log Array', testlog, window.log.history[window.log.history.length-1][0]);        
+    },
+    
     'test Event Api enable': function() {
         ZOOLU.MIXIN.Events.enable.call(this.eventApi);
     
@@ -30,8 +36,9 @@ TestCase('ZOOLU.MIXIN', {
     },
     
     'test Event Api trigger': function() {
-        var eventName, callbackResult, triggerArg, argValue;
+        var eventName, eventName2, callbackResult, triggerArg, triggerArg2, argValue;
         eventName = 'testEvent';
+        eventName2 = 'testEvent2';
         argValue = 'this is a string';
     
         ZOOLU.MIXIN.Events.enable.call(this.eventApi);
@@ -39,10 +46,16 @@ TestCase('ZOOLU.MIXIN', {
             callbackResult = 2 + 2;
             triggerArg = arg;
         });
+        this.eventApi.on(eventName2, function(arg) {
+           triggerArg2 = arg; 
+        });
         this.eventApi.trigger(eventName, [ argValue ]);
+        this.eventApi.trigger(eventName2);
+        
     
         assertEquals('Result of callback', 4, callbackResult);
         assertEquals('Trigger passed argument', argValue, triggerArg);
+        assertEquals('Trigger passed undefiened argument', undefined, triggerArg2);
     },
     
     'test Event Api off': function() {
