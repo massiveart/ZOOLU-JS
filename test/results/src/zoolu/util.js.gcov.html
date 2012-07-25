@@ -83,8 +83,8 @@
 <span class="lineNum">      12 </span>                :<span class="lineCov">          2 :     'use strict';</span>
 <span class="lineNum">      13 </span>                :            : 
 <span class="lineNum">      14 </span>                :<span class="lineCov">          2 :     function log() {</span>
-<span class="lineNum">      15 </span>                :<span class="lineCov">         66 :         if (window.debug) {</span>
-<span class="lineNum">      16 </span>                :<span class="lineCov">         66 :             window.log.apply(window, $.merge(['ZOOLU', 'UTIL'], arguments));</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">         82 :         if (window.debug) {</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">         82 :             window.log.apply(window, $.merge(['ZOOLU', 'UTIL'], arguments));</span>
 <span class="lineNum">      17 </span>                :            :         }
 <span class="lineNum">      18 </span>                :            :     }
 <span class="lineNum">      19 </span>                :            : 
@@ -163,13 +163,13 @@
 <span class="lineNum">      92 </span>                :            :          * @return string
 <span class="lineNum">      93 </span>                :            :          */
 <span class="lineNum">      94 </span>                :            :         truncateInBetween: function(str, limit, separator) {
-<span class="lineNum">      95 </span>                :<span class="lineCov">         48 :             log('String', 'truncateAtTheMiddle');</span>
+<span class="lineNum">      95 </span>                :<span class="lineCov">         64 :             log('String', 'truncateAtTheMiddle');</span>
 <span class="lineNum">      96 </span>                :            : 
-<span class="lineNum">      97 </span>                :<span class="lineCov">         48 :             if (typeof str !== 'string') {</span>
+<span class="lineNum">      97 </span>                :<span class="lineCov">         64 :             if (typeof str !== 'string') {</span>
 <span class="lineNum">      98 </span>                :<span class="lineCov">          4 :                 return '';</span>
 <span class="lineNum">      99 </span>                :            :             }
 <span class="lineNum">     100 </span>                :            : 
-<span class="lineNum">     101 </span>                :<span class="lineCov">         44 :             if (str.length &gt; limit) {</span>
+<span class="lineNum">     101 </span>                :<span class="lineCov">         60 :             if (str.length &gt; limit) {</span>
 <span class="lineNum">     102 </span>                :<span class="lineCov">          4 :                 separator = separator || ' ... ';</span>
 <span class="lineNum">     103 </span>                :            : 
 <span class="lineNum">     104 </span>                :<span class="lineCov">          4 :                 var sepLen = separator.length,</span>
@@ -179,7 +179,7 @@
 <span class="lineNum">     108 </span>                :            : 
 <span class="lineNum">     109 </span>                :<span class="lineCov">          4 :                 return str.substr(0, frontChars) + separator + str.substr(str.length - backChars);</span>
 <span class="lineNum">     110 </span>                :            :             } else {
-<span class="lineNum">     111 </span>                :<span class="lineCov">         40 :                 return str;</span>
+<span class="lineNum">     111 </span>                :<span class="lineCov">         56 :                 return str;</span>
 <span class="lineNum">     112 </span>                :            :             }
 <span class="lineNum">     113 </span>                :            :         }
 <span class="lineNum">     114 </span>                :            :     };
