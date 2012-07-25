@@ -127,7 +127,30 @@ TestCase('ZOOLU.UI.ColumnTree', {
         // select folder and load children
         $('#row-5-folder').click();
         this.server.respond();
+    },
+    
+    'test column tree unselect nested node': function() {
+        try {
+            var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
+            this.server.respond();
+        } catch (e) {
+            fail('Column tree instantiation');
+        }
 
+        var event = sinon.spy();
+        columnTree.on('ColumnTree.select', event);
+
+        // select folder and load children
+        $('#row-2-folder').click();
+        this.server.respond();
+
+        // select folder and load children
+        $('#row-5-folder').click();
+        this.server.respond();
+        
+        // select folder and load children
+        $('#row-1-page').click();
+        this.server.respond();        
     },
 
     'test update selected marker': function() {

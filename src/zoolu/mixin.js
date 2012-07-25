@@ -70,6 +70,8 @@
             this.off = function(event, callback) {
                 ZOOLU.MIXIN.Events.off.call(this, event, callback);
             }.bind(this);
+            
+            log('Event API enabled');
         },
 
         /**
