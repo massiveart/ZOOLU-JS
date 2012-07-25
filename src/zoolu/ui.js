@@ -367,7 +367,6 @@
                     this.initPanel(panels.first(), this.CONST.orientations[i]);
                 }
             }
-            log('passed threw')
             this.arrange();
 
             // resize observer
@@ -572,8 +571,8 @@
                     this.maximize(this.tmpHeight);
                 }
             }.bind(this));
-            
-            this.toggleHandlerEvents();            
+
+            this.toggleHandlerEvents();
         },
 
         /**
@@ -711,8 +710,8 @@
                 // TODO cleanup!!!
                 this.$handler.mousedown(function(event) {
                     $(document).on('mousemove.layout', this.resize.bind(this));
-                }.bind(this));  
-                
+                }.bind(this));
+
                 this.$handler.mouseup(function() {
                     $(document).off('mousemove.layout');
                 });
