@@ -191,7 +191,19 @@
          */
         addColumn: function() {
             log('ColumnTree', 'addColumn');
+            this.$container.width(this.totalColumnWidth());
             this.$container.append($('<div class="column"/>').attr('id', 'column-' + this.level).data('level', this.level));
+        },
+        
+        /**
+         * Returns the sum of all column widths + the width of the added one
+         */
+        totalColumnWidth: function() {
+            var intWidth = $('.column').outerWidth();
+            this.$container.find('.column').each(function() {
+                intWidth = intWidth + $(this).outerWidth();
+            });
+            return intWidth;
         },
 
         /**

@@ -34,6 +34,8 @@
         var instance;
 
         function init() {
+            log('Init ZOOLU.STORE.Cookies');
+            
             var properties = JSON.parse($.cookie('ZOOLU')) || { };
 
             return {
