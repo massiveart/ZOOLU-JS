@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" errors="0" failures="0" tests="1" time="0.033">
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test Layout instantiation" time="0.033"/>
+</testsuite>

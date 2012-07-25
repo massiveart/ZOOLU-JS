@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Layout" errors="0" failures="0" tests="10" time="2.008">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test Layout and layout.panel instantiation" time="0.71"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout update dimension" time="0.164"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel add minimizer" time="0.16"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel apply stored dimensions" time="0.165"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel minimize" time="0.21"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel maximize" time="0.224"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel resize" time="0.171"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel update dimension" time="0.102"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel set position left" time="0.053"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel set position top" time="0.049"/>
+</testsuite>
