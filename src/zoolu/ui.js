@@ -359,7 +359,7 @@
                     border: 'none'
                 });
             }
-
+            log('passed at');
             // find and init all panels
             for (var i = -1, length = this.CONST.orientations.length; ++i < length;) {
                 panels = this.$container.find('> .' + this.CONST.orientations[i]);
@@ -367,7 +367,6 @@
                     this.initPanel(panels.first(), this.CONST.orientations[i]);
                 }
             }
-
             this.arrange();
 
             // resize observer
@@ -549,6 +548,7 @@
         constructor: ZOOLU.UI.Layout.Panel,
 
         initialize: function() {
+
             if (this.options.storeDimensions === true) {
                 this.store = ZOOLU.STORE.Cookie.getInstance();
                 log('PANEL.' + this.orientation + '.height', this.store.get('PANEL.' + this.orientation + '.height'));
@@ -572,17 +572,7 @@
                 }
             }.bind(this));
 
-            this.$handler.mousedown(function() {
-                this.$handler.on('Layout.Panel.minimize', this.minimize());
-                this.$handler.on('Layout.Panel.maximize', this.maximize(this.tmpHeight));
-            }.bind(this));
-            this.$handler.mouseup(function() {
-                this.$handler.off('Layout.Panel.minimize');
-                this.$handler.off('Layout.Panel.maximize');
-            }.bind(this));
-
             this.toggleHandlerEvents();
-
         },
 
         /**
@@ -670,6 +660,7 @@
          */
         minimize: function() {
             if (this.orientation === 'west') {
+                this.tmpWidth = this.$element.width();
                 this.updateDimension(this.options.minimizeWidth);
             } else {
                 this.tmpHeight = this.$element.height();
@@ -710,7 +701,7 @@
         toggleHandlerEvents: function(action) {
             if (action === false) /*minimize*/ {
                 this.$handler.css('cursor', 'pointer');
-                this.$handler.click(function() {
+                this.$handler.bind('click', function() {
                     this.$handler.trigger('Layout.Panel.maximize');
                     this.maximize(this.tmpHeight);
                 }.bind(this));
@@ -718,12 +709,11 @@
                 this.$handler.css('cursor', this.handlerCursor);
                 // TODO cleanup!!!
                 this.$handler.mousedown(function(event) {
-                    event.preventDefault();
-                    $(window).on('mousemove.layout', this.resize.bind(this));
+                    $(document).on('mousemove.layout', this.resize.bind(this));
                 }.bind(this));
 
-                $(window).mouseup(function() {
-                    $(window).off('mousemove.layout');
+                this.$handler.mouseup(function() {
+                    $(document).off('mousemove.layout');
                 });
             }
         },

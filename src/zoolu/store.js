@@ -32,7 +32,6 @@
     ZOOLU.STORE.Cookie = /** @lends ZOOLU.STORE.Cookie */ (function() {
 
         var instance;
-        var counter = 1;
 
         function init() {
             var properties = JSON.parse($.cookie('ZOOLU')) || { };
