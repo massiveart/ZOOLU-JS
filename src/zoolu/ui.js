@@ -359,7 +359,7 @@
                     border: 'none'
                 });
             }
-
+            log('passed at');
             // find and init all panels
             for (var i = -1, length = this.CONST.orientations.length; ++i < length;) {
                 panels = this.$container.find('> .' + this.CONST.orientations[i]);
@@ -367,7 +367,7 @@
                     this.initPanel(panels.first(), this.CONST.orientations[i]);
                 }
             }
-
+            log('passed threw')
             this.arrange();
 
             // resize observer
@@ -549,6 +549,7 @@
         constructor: ZOOLU.UI.Layout.Panel,
 
         initialize: function() {
+
             if (this.options.storeDimensions === true) {
                 this.store = ZOOLU.STORE.Cookie.getInstance();
                 log('PANEL.' + this.orientation + '.height', this.store.get('PANEL.' + this.orientation + '.height'));
@@ -572,8 +573,7 @@
                 }
             }.bind(this));
             
-            this.toggleHandlerEvents();
-            
+            this.toggleHandlerEvents();            
         },
 
         /**
@@ -661,6 +661,7 @@
          */
         minimize: function() {
             if (this.orientation === 'west') {
+                this.tmpWidth = this.$element.width();
                 this.updateDimension(this.options.minimizeWidth);
             } else {
                 this.tmpHeight = this.$element.height();
