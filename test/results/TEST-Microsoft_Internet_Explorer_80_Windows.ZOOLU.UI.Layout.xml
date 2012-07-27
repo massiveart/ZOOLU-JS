@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" errors="0" failures="0" tests="1" time="0.033">
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test Layout instantiation" time="0.033"/>
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" errors="0" failures="0" tests="14" time="0.364">
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout throw exception" time="0.0050"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel throw exception" time="0.0050"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout and layout.panel instantiation" time="0.026"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout update dimension" time="0.026"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel add minimizer" time="0.026"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel apply stored dimensions" time="0.03"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel minimize" time="0.037"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel maximize" time="0.035"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel resize" time="0.029"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel minimizer click" time="0.046"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel toggle handler events" time="0.036"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel update dimension" time="0.021"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel set position left" time="0.021"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Layout" name="test layout.panel set position top" time="0.021"/>
 </testsuite>

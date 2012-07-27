@@ -194,7 +194,7 @@
             this.$container.width(this.totalColumnWidth());
             this.$container.append($('<div class="column"/>').attr('id', 'column-' + this.level).data('level', this.level));
         },
-        
+
         /**
          * Returns the sum of all column widths + the width of the added one
          */
@@ -793,7 +793,7 @@
         }
 
     };
-    
+
     /**
      * ZOOLU Modal View UI Element
      *
@@ -807,12 +807,12 @@
      * @triggers Modal.deactivate
      * @param {Object} options Default options will be merged with the given options
      * @example
-     * 
+     *
      *  var modal = new ZOOLU.UI.Modal({
      *      fadeIn: true,
      *      headerTitle. 'My first ZOOLU Modal View'
      *  });
-     * 
+     *
      * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
      */
     ZOOLU.UI.Modal = function(options) {
@@ -831,38 +831,38 @@
 
         // extend default options with given
         this.options = $.extend({
-            top: false,                             //CSS valid value or false
-            bottom: false,                          //CSS valid value or false         
-            left: false,                            //CSS valid value or false
-            right: false,                           //CSS valid value or false
-            fadeIn: false,                          //true for a pretty fade in
-            fadeInDuration: 600,                    // ms
-            fadeOut: false,                         //enable/disable fade out
-            fadeOutDuration: 600,                   //ms
-            header: true,                           //false for no footer
-            headerTitle: 'This is a title',         //String - Headline displayed in header
-            headerTitleClass: 'headline',           //String - CSS class for header
-            headerClose: true,                      //enable/disable closing in the header
-            headerCloseClass: 'close',              //String - CSS class
-            footer: true,                           //enable/disable footer
-            footerClose: true,                      //enable/disable closing in the footer
-            footerCloseClass: 'close',              //String - CSS class
-            footerCloseText: 'Cancel',              //String
-            footerButtons: true,                    //enable/disable buttons in the footer
+            top: false, //CSS valid value or false
+            bottom: false, //CSS valid value or false
+            left: false, //CSS valid value or false
+            right: false, //CSS valid value or false
+            fadeIn: false, //true for a pretty fade in
+            fadeInDuration: 600, // ms
+            fadeOut: false, //enable/disable fade out
+            fadeOutDuration: 600, //ms
+            header: true, //false for no footer
+            headerTitle: 'This is a title', //String - Headline displayed in header
+            headerTitleClass: 'headline', //String - CSS class for header
+            headerClose: true, //enable/disable closing in the header
+            headerCloseClass: 'close', //String - CSS class
+            footer: true, //enable/disable footer
+            footerClose: true, //enable/disable closing in the footer
+            footerCloseClass: 'close', //String - CSS class
+            footerCloseText: 'Cancel', //String
+            footerButtons: true, //enable/disable buttons in the footer
             footerButtonsContainerClass: 'buttons', //String - CSS class
-            footerButtonDefaultClass: 'button',     //String - CSS class
-            overlay: true,                          //false for no overlay
-            overlayClass: 'modalOverlay',           //String - CSS class
-            overlayColor: '#000000',                //CSS valid background-color
-            overlayClose: true,                     //enable/disable closing with click on the overlay
-            overlayOpacity: '0.5',                  //CSS valid value for opacity
-            draggable: true,                        //enable/disable dragging for the modal View
-            draggableGrid: false,                   //x,y values e.g. [50,30]
-            draggableOnlyOnHeader: true,            //enable/disable dragging only on the header
-            resizable: true,                        //enables/disables resizing for the modal view
-            resizeMinWidth: 10,                     //Integer or null
-            resizeMaxWidth: null,                   //Integer or null
-            resizeMinHeight: 10,                    //Integer or null
+            footerButtonDefaultClass: 'button', //String - CSS class
+            overlay: true, //false for no overlay
+            overlayClass: 'modalOverlay', //String - CSS class
+            overlayColor: '#000000', //CSS valid background-color
+            overlayClose: true, //enable/disable closing with click on the overlay
+            overlayOpacity: '0.5', //CSS valid value for opacity
+            draggable: true, //enable/disable dragging for the modal View
+            draggableGrid: false, //x,y values e.g. [50,30]
+            draggableOnlyOnHeader: true, //enable/disable dragging only on the header
+            resizable: true, //enables/disables resizing for the modal view
+            resizeMinWidth: 10, //Integer or null
+            resizeMaxWidth: null, //Integer or null
+            resizeMinHeight: 10, //Integer or null
             resizeMaxHeight: null                   //Integer or null
         }, options);
 
@@ -871,27 +871,27 @@
 
         log('Modal', 'construct', this);
     };
-    
+
     ZOOLU.UI.Modal.prototype = {
-        
+
         constructor: ZOOLU.UI.Layout.Modal,
-        
+
         /**
          * Displays the Modal View either with or without fading
          *
          * @public
          * @example
-         * 
+         *
          * var modal = new ZOOLU.UI.Modal();
          * modal.display();
-         * 
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         display: function() {
             this.buildModal();
             this.buildOverlay();
             this.initBoxEvents();
-            
+
             if (this.options.fadeIn === true) {
                 this.$element.hide();
                 this.$overlay.hide();
@@ -907,7 +907,7 @@
             }
             this.trigger('Modal.activate');
         },
-        
+
         /**
          * Pushes the passed CSS-Style into a private array <code>this.css</code>
          *
@@ -915,16 +915,16 @@
          * @param {String} prop - valid CSS property
          * @param {String} value - valid CSS value for the property
          * @example
-         * 
+         *
          * var modal = new ZOOLU.UI.Modal();
          * modal.addCSS('width', '200px');
-         * 
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         addCSS: function(prop, value) {
             this.css.push([prop, value]);
         },
-        
+
         /**
          * Initializes the CSS-Styles form the private array <code>this.css</code>
          *
@@ -935,12 +935,12 @@
             if (this.css !== []) {
                 for (var i = -1, length = this.css.length; ++i < length;) {
                     this.$element.css(this.css[i][0], this.css[i][1]);
-                } 
+                }
             }
         },
-        
+
         /**
-         * Executes all Initializing-Functions and appends the header, the content and 
+         * Executes all Initializing-Functions and appends the header, the content and
          * the footer the the Modal View
          *
          * @private
@@ -951,12 +951,12 @@
             this.initHeader();
             this.initContent();
             this.initFooter();
-            
+
             this.$element.append(this.$header);
             this.$element.append(this.$content);
             this.$element.append(this.$footer);
         },
-        
+
         /**
          * Initzializes the Overlay and sets important CSS-Styles
          *
@@ -965,18 +965,18 @@
          */
         buildOverlay: function() {
             if (this.options.overlay === true) {
-                this.$overlay = $('<div class="'+this.options.overlayClass+'"/>');
+                this.$overlay = $('<div class="' + this.options.overlayClass + '"/>');
                 this.$overlay.css({
-                    'position' : 'fixed',
-                    'top' : '0px',
-                    'left' : '0px',
-                    'width' : '100%',
-                    'height' : '100%',
-                    'background-color' : this.options.overlayColor
+                    'position': 'fixed',
+                    'top': '0px',
+                    'left': '0px',
+                    'width': '100%',
+                    'height': '100%',
+                    'background-color': this.options.overlayColor
                 });
             }
         },
-        
+
         /**
          * Initializes the Modal View
          *
@@ -988,25 +988,25 @@
             this.$element = $('<div class="modal"/>');
             this.initCSS();
         },
-        
+
         initHeader: function() {
             if (this.options.header === true) {
-                log('Init Header')
-                this.$header = $('<div class="header"/>')
-                
+                log('Init Header');
+                this.$header = $('<div class="header"/>');
+
                 if (!!this.options.headerTitle) {
-                    this.$headerTitle = $('<div class="'+this.options.headerTitleClass+'"/>');
+                    this.$headerTitle = $('<div class="' + this.options.headerTitleClass + '"/>');
                     this.$headerTitle.html(this.options.headerTitle);
                     this.$header.append(this.$headerTitle);
                 }
-                
+
                 if (this.options.headerClose === true) {
-                    this.$headerClose = $('<div class="'+this.options.headerCloseClass+'"/>');
+                    this.$headerClose = $('<div class="' + this.options.headerCloseClass + '"/>');
                     this.$header.append(this.$headerClose);
                 }
             }
         },
-        
+
         /**
          * Initializes the content
          *
@@ -1018,24 +1018,24 @@
             this.$content = $('<div class="content"/>');
             this.$content.html(this.content);
         },
-        
+
         /**
          * Adds the passed content to a privat variable <code>this.content</code>
          *
          * @public
          * @param content - a valid value for the jQuery .html()-Method
          * @example
-         * 
+         *
          *  var modal = new ZOOLU.UI.Modal();
          *  modal.addContent('<h1>Content Headline</h1>');
          *  modal.addContent($('<div class="subcontent"/>'));
-         * 
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         addContent: function(content) {
             this.content = this.content + content;
         },
-        
+
         /**
          * Initializes the footer
          *
@@ -1046,35 +1046,35 @@
             if (this.options.footer === true) {
                 log('Init Footer');
                 this.$footer = $('<div class="footer"/>');
-                
-                if (this.options.footerClose == true) {
-                    this.$footerClose = $('<div class="'+this.options.footerCloseClass+'"/>');
+
+                if (this.options.footerClose === true) {
+                    this.$footerClose = $('<div class="' + this.options.footerCloseClass + '"/>');
                     this.$footerClose.html(this.options.footerCloseText);
                     this.$footer.append(this.$footerClose);
                 }
-                
+
                 if (this.options.footerButtons === true && this.footerButtons !== []) {
                     this.initFooterButtons();
                     this.$footer.append(this.$footerButtons);
                 }
             }
         },
-        
+
         /**
          * Pushes buttons from the passed object into a private array <code>this.footerButtons</code>
          *
          * @public
          * @param {Object} buttons - the buttons are added to the footer
          * @example
-         * 
+         *
          *  var modal = new ZOOLU.UI.Modal();
-         *  
+         *
          *  modal.addFooterButtons([
          *   {content: 'Button 1', callBack: function(){ alert('Button 1 clicked'); }, cssClass:  'button', elementId: 'button1'},
          *   {content: 'Button 2', callBack: function(){ alert('Button 2 clicked'); }, cssClass:  'button', elementId: 'button2'},
          *   {content: 'Button 3', callBack: function(){ alert('Button 3 clicked'); }, cssClass:  'button', elementId: 'button3'}
          *  ]);
-         *  
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         addFooterButtons: function(buttons) {
@@ -1085,14 +1085,14 @@
                         bcallback = buttons[i].callBack,
                         bclass = buttons[i].cssClass || this.options.footerButtonDefaultClass,
                         bid = buttons[i].elementId || '';
-                        button.push(bhtml, bcallback, bclass, bid);
-                        this.footerButtons.push(button);
+                    button.push(bhtml, bcallback, bclass, bid);
+                    this.footerButtons.push(button);
                 }
             } else {
                 throw new ZOOLU.UI.Exception('Buttons argument must be an array but was ' + typeof buttons);
             }
         },
-        
+
         /**
          * Initializes the footer-buttons
          *
@@ -1100,7 +1100,8 @@
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         initFooterButtons: function() {
-            this.$footerButtons = $('<div class="'+this.options.footerButtonsContainerClass+'"/>')
+            this.$footerButtons = $('<div class="' + this.options.footerButtonsContainerClass + '"/>');
+
             for (var i = -1, length = this.footerButtons.length; ++i < length;) {
                 var button = $('<div/>'),
                     bhtml = this.footerButtons[i][0],
@@ -1115,7 +1116,7 @@
                 log(this.$footerButtons);
             }
         },
-        
+
         /**
          * Sets the position of the Modal View according to the options
          * default is the center of the screen
@@ -1125,30 +1126,30 @@
          */
         setPosition: function() {
             this.$element.css('position', 'absolute');
-            
+
             if (this.options.left !== false) {
                 this.$element.css('left', this.options.left);
             } else if (this.options.right !== false) {
                 this.$element.css('right', this.options.right);
             } else {
                 this.$element.css({
-                   'left': '50%',
-                   'margin-left': '-' + this.$element.outerWidth() / 2 + 'px'
+                    'left': '50%',
+                    'margin-left': '-' + this.$element.outerWidth() / 2 + 'px'
                 });
             }
-            
+
             if (this.options.top !== false) {
                 this.$element.css('top', this.options.top);
             } else if (this.options.bottom !== false) {
                 this.$element.css('bottom', this.options.bottom);
             } else {
                 this.$element.css({
-                   'top': '50%',
-                   'margin-top': '-' + this.$element.outerHeight() / 2 + 'px'
+                    'top': '50%',
+                    'margin-top': '-' + this.$element.outerHeight() / 2 + 'px'
                 });
             }
         },
-        
+
         /**
          * Initializes all events which are needed by the the Modal View itselfs
          * or by one of its children.
@@ -1183,27 +1184,27 @@
             }
             if (!!this.$headerClose) {
                 this.$headerClose.on('click', function() {
-                   this.close();
+                    this.close();
                 }.bind(this));
             }
             if (!!this.$footerClose) {
                 this.$footerClose.on('click', function() {
-                   this.close();
+                    this.close();
                 }.bind(this));
             }
-            if(!!this.$overlay && this.options.overlayClose === true) {
+            if (!!this.$overlay && this.options.overlayClose === true) {
                 this.$overlay.on('click', function() {
                     this.close();
                 }.bind(this));
             }
         },
-        
+
         /**
          * Closes the Modal View according to the given options. (Either with or
          * without fading)
-         * 
+         *
          * @example
-         * 
+         *
          *  var modal = new ZOOLU.UI.Modal();
          *  modal.display();
          *  modal.close();
@@ -1214,13 +1215,13 @@
         close: function() {
             if (this.options.fadeOut === true) {
                 this.$element.fadeOut(this.options.fadeOutDuration, function() {
-                    this.$element.remove(); 
+                    this.$element.remove();
                 }.bind(this));
                 if (!!this.$overlay) {
                     this.$overlay.fadeOut(this.options.fadeOutDuration, function() {
                         this.$overlay.remove();
-                    }.bind(this))
-                }                
+                    }.bind(this));
+                }
             } else {
                 this.$element.remove();
                 if (!!this.$overlay) {
