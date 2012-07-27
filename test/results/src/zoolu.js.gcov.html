@@ -74,23 +74,23 @@
 <span class="lineNum">       3 </span>                :            :      * @link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
 <span class="lineNum">       4 </span>                :            :      */
 <span class="lineNum">       5 </span>                :<span class="lineCov">          1 :     Function.prototype.bind = function(oThis) {</span>
-<span class="lineNum">       6 </span>                :<span class="lineCov">        511 :         if (typeof this !== 'function') {</span>
+<span class="lineNum">       6 </span>                :<span class="lineCov">        603 :         if (typeof this !== 'function') {</span>
 <span class="lineNum">       7 </span>                :            :             // closest thing possible to the ECMAScript 5 internal IsCallable function
 <span class="lineNum">       8 </span>                :<span class="lineNoCov">          0 :             throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');</span>
 <span class="lineNum">       9 </span>                :            :         }
 <span class="lineNum">      10 </span>                :            : 
-<span class="lineNum">      11 </span>                :<span class="lineCov">        511 :         var Args = Array.prototype.slice.call(arguments, 1),</span>
+<span class="lineNum">      11 </span>                :<span class="lineCov">        603 :         var Args = Array.prototype.slice.call(arguments, 1),</span>
 <span class="lineNum">      12 </span>                :            :             ToBind = this,
 <span class="lineNum">      13 </span>                :            :             NOP = function() {
 <span class="lineNum">      14 </span>                :            :             },
 <span class="lineNum">      15 </span>                :            :             Bound = function() {
-<span class="lineNum">      16 </span>                :<span class="lineCov">        238 :                 return ToBind.apply(this instanceof NOP ? this : oThis || window, Args.concat(Array.prototype.slice.call(arguments)));</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">        244 :                 return ToBind.apply(this instanceof NOP ? this : oThis || window, Args.concat(Array.prototype.slice.call(arguments)));</span>
 <span class="lineNum">      17 </span>                :            :             };
 <span class="lineNum">      18 </span>                :            : 
-<span class="lineNum">      19 </span>                :<span class="lineCov">        511 :         NOP.prototype = this.prototype;</span>
-<span class="lineNum">      20 </span>                :<span class="lineCov">        511 :         Bound.prototype = new NOP();</span>
+<span class="lineNum">      19 </span>                :<span class="lineCov">        603 :         NOP.prototype = this.prototype;</span>
+<span class="lineNum">      20 </span>                :<span class="lineCov">        603 :         Bound.prototype = new NOP();</span>
 <span class="lineNum">      21 </span>                :            : 
-<span class="lineNum">      22 </span>                :<span class="lineCov">        511 :         return Bound;</span>
+<span class="lineNum">      22 </span>                :<span class="lineCov">        603 :         return Bound;</span>
 <span class="lineNum">      23 </span>                :            :     };
 <span class="lineNum">      24 </span>                :            : }
 <span class="lineNum">      25 </span>                :            : 
@@ -100,10 +100,10 @@
 <span class="lineNum">      29 </span>                :            :  *  log('inside coolFunc',this,arguments);
 <span class="lineNum">      30 </span>                :            :  */
 <span class="lineNum">      31 </span>                :<span class="lineCov">          2 : window.log = function() {</span>
-<span class="lineNum">      32 </span>                :<span class="lineCov">       1364 :     this.log.history = this.log.history || [];   // store logs to an array for reference</span>
-<span class="lineNum">      33 </span>                :<span class="lineCov">       1364 :     this.log.history.push(arguments);</span>
-<span class="lineNum">      34 </span>                :<span class="lineCov">       1364 :     if (this.console) {</span>
-<span class="lineNum">      35 </span>                :<span class="lineCov">       1364 :         this.console.log(Array.prototype.slice.call(arguments));</span>
+<span class="lineNum">      32 </span>                :<span class="lineCov">       1514 :     this.log.history = this.log.history || [];   // store logs to an array for reference</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">       1514 :     this.log.history.push(arguments);</span>
+<span class="lineNum">      34 </span>                :<span class="lineCov">       1514 :     if (this.console) {</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">       1514 :         this.console.log(Array.prototype.slice.call(arguments));</span>
 <span class="lineNum">      36 </span>                :            :     }
 <span class="lineNum">      37 </span>                :            : };
 <span class="lineNum">      38 </span>                :            : 
