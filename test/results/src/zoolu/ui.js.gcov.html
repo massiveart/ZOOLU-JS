@@ -31,9 +31,9 @@
             <td class="headerValue">jsTestDriver.conf-coverage.dat</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">264</td>
+            <td class="headerCovTableEntry">382</td>
             <td class="headerCovTableEntry">391</td>
-            <td class="headerCovTableEntryLo">67.5 %</td>
+            <td class="headerCovTableEntryHi">97.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
@@ -83,8 +83,8 @@
 <span class="lineNum">      12 </span>                :<span class="lineCov">          2 :     'use strict';</span>
 <span class="lineNum">      13 </span>                :            : 
 <span class="lineNum">      14 </span>                :<span class="lineCov">          2 :     function log() {</span>
-<span class="lineNum">      15 </span>                :<span class="lineCov">       1134 :         if (window.debug) {</span>
-<span class="lineNum">      16 </span>                :<span class="lineCov">       1134 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">       1242 :         if (window.debug) {</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">       1242 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
 <span class="lineNum">      17 </span>                :            :         }
 <span class="lineNum">      18 </span>                :            :     }
 <span class="lineNum">      19 </span>                :            : 
@@ -103,8 +103,8 @@
 <span class="lineNum">      32 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
 <span class="lineNum">      33 </span>                :            :      */
 <span class="lineNum">      34 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Exception = function(message) {</span>
-<span class="lineNum">      35 </span>                :<span class="lineCov">         10 :         this.name = 'ZOOLU.UI.Exception';</span>
-<span class="lineNum">      36 </span>                :<span class="lineCov">         10 :         this.message = message || 'Something went wrong!';</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">         12 :         this.name = 'ZOOLU.UI.Exception';</span>
+<span class="lineNum">      36 </span>                :<span class="lineCov">         12 :         this.message = message || 'Something went wrong!';</span>
 <span class="lineNum">      37 </span>                :            :     };
 <span class="lineNum">      38 </span>                :            : 
 <span class="lineNum">      39 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Exception.prototype = /** @lends ZOOLU.UI.Exception# */ {</span>
@@ -887,21 +887,21 @@
 <span class="lineNum">     816 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     817 </span>                :            :      */
 <span class="lineNum">     818 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Modal = function(options) {</span>
-<span class="lineNum">     819 </span>                :<span class="lineNoCov">          0 :         this.$element = null;</span>
-<span class="lineNum">     820 </span>                :<span class="lineNoCov">          0 :         this.$background = null;</span>
-<span class="lineNum">     821 </span>                :<span class="lineNoCov">          0 :         this.$header = null;</span>
-<span class="lineNum">     822 </span>                :<span class="lineNoCov">          0 :         this.$headerTitle = null;</span>
-<span class="lineNum">     823 </span>                :<span class="lineNoCov">          0 :         this.$headerClose = null;</span>
-<span class="lineNum">     824 </span>                :<span class="lineNoCov">          0 :         this.$content = null;</span>
-<span class="lineNum">     825 </span>                :<span class="lineNoCov">          0 :         this.content = '';</span>
-<span class="lineNum">     826 </span>                :<span class="lineNoCov">          0 :         this.$footer = null;</span>
-<span class="lineNum">     827 </span>                :<span class="lineNoCov">          0 :         this.$footerClose = null;</span>
-<span class="lineNum">     828 </span>                :<span class="lineNoCov">          0 :         this.footerButtons = [];</span>
-<span class="lineNum">     829 </span>                :<span class="lineNoCov">          0 :         this.css = [];</span>
-<span class="lineNum">     830 </span>                :<span class="lineNoCov">          0 :         this.$footerButtons = null;</span>
+<span class="lineNum">     819 </span>                :<span class="lineCov">         42 :         this.$element = null;</span>
+<span class="lineNum">     820 </span>                :<span class="lineCov">         42 :         this.$background = null;</span>
+<span class="lineNum">     821 </span>                :<span class="lineCov">         42 :         this.$header = null;</span>
+<span class="lineNum">     822 </span>                :<span class="lineCov">         42 :         this.$headerTitle = null;</span>
+<span class="lineNum">     823 </span>                :<span class="lineCov">         42 :         this.$headerClose = null;</span>
+<span class="lineNum">     824 </span>                :<span class="lineCov">         42 :         this.$content = null;</span>
+<span class="lineNum">     825 </span>                :<span class="lineCov">         42 :         this.content = '';</span>
+<span class="lineNum">     826 </span>                :<span class="lineCov">         42 :         this.$footer = null;</span>
+<span class="lineNum">     827 </span>                :<span class="lineCov">         42 :         this.$footerClose = null;</span>
+<span class="lineNum">     828 </span>                :<span class="lineCov">         42 :         this.footerButtons = [];</span>
+<span class="lineNum">     829 </span>                :<span class="lineCov">         42 :         this.css = [];</span>
+<span class="lineNum">     830 </span>                :<span class="lineCov">         42 :         this.$footerButtons = null;</span>
 <span class="lineNum">     831 </span>                :            : 
 <span class="lineNum">     832 </span>                :            :         // extend default options with given
-<span class="lineNum">     833 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">     833 </span>                :<span class="lineCov">         42 :         this.options = $.extend({</span>
 <span class="lineNum">     834 </span>                :            :             top: false, //CSS valid value or false
 <span class="lineNum">     835 </span>                :            :             bottom: false, //CSS valid value or false
 <span class="lineNum">     836 </span>                :            :             left: false, //CSS valid value or false
@@ -938,9 +938,9 @@
 <span class="lineNum">     867 </span>                :            :         }, options);
 <span class="lineNum">     868 </span>                :            : 
 <span class="lineNum">     869 </span>                :            :         // add event API
-<span class="lineNum">     870 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">     870 </span>                :<span class="lineCov">         42 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">     871 </span>                :            : 
-<span class="lineNum">     872 </span>                :<span class="lineNoCov">          0 :         log('Modal', 'construct', this);</span>
+<span class="lineNum">     872 </span>                :<span class="lineCov">         42 :         log('Modal', 'construct', this);</span>
 <span class="lineNum">     873 </span>                :            :     };
 <span class="lineNum">     874 </span>                :            : 
 <span class="lineNum">     875 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Modal.prototype = {</span>
@@ -959,24 +959,24 @@
 <span class="lineNum">     888 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     889 </span>                :            :          */
 <span class="lineNum">     890 </span>                :            :         display: function() {
-<span class="lineNum">     891 </span>                :<span class="lineNoCov">          0 :             this.buildModal();</span>
-<span class="lineNum">     892 </span>                :<span class="lineNoCov">          0 :             this.buildOverlay();</span>
-<span class="lineNum">     893 </span>                :<span class="lineNoCov">          0 :             this.initBoxEvents();</span>
+<span class="lineNum">     891 </span>                :<span class="lineCov">          8 :             this.buildModal();</span>
+<span class="lineNum">     892 </span>                :<span class="lineCov">          8 :             this.buildOverlay();</span>
+<span class="lineNum">     893 </span>                :<span class="lineCov">          8 :             this.initBoxEvents();</span>
 <span class="lineNum">     894 </span>                :            : 
-<span class="lineNum">     895 </span>                :<span class="lineNoCov">          0 :             if (this.options.fadeIn === true) {</span>
-<span class="lineNum">     896 </span>                :<span class="lineNoCov">          0 :                 this.$element.hide();</span>
-<span class="lineNum">     897 </span>                :<span class="lineNoCov">          0 :                 this.$overlay.hide();</span>
-<span class="lineNum">     898 </span>                :<span class="lineNoCov">          0 :                 $('body').append(this.$element);</span>
-<span class="lineNum">     899 </span>                :<span class="lineNoCov">          0 :                 this.setPosition();</span>
-<span class="lineNum">     900 </span>                :<span class="lineNoCov">          0 :                 $('body').append(this.$overlay);</span>
-<span class="lineNum">     901 </span>                :<span class="lineNoCov">          0 :                 this.$element.fadeIn(this.options.fadeInDuration);</span>
-<span class="lineNum">     902 </span>                :<span class="lineNoCov">          0 :                 this.$overlay.fadeTo(this.options.fadeInDuration, this.options.overlayOpacity);</span>
+<span class="lineNum">     895 </span>                :<span class="lineCov">          8 :             if (this.options.fadeIn === true) {</span>
+<span class="lineNum">     896 </span>                :<span class="lineCov">          2 :                 this.$element.hide();</span>
+<span class="lineNum">     897 </span>                :<span class="lineCov">          2 :                 this.$overlay.hide();</span>
+<span class="lineNum">     898 </span>                :<span class="lineCov">          2 :                 $('body').append(this.$element);</span>
+<span class="lineNum">     899 </span>                :<span class="lineCov">          2 :                 this.setPosition();</span>
+<span class="lineNum">     900 </span>                :<span class="lineCov">          2 :                 $('body').append(this.$overlay);</span>
+<span class="lineNum">     901 </span>                :<span class="lineCov">          2 :                 this.$element.fadeIn(this.options.fadeInDuration);</span>
+<span class="lineNum">     902 </span>                :<span class="lineCov">          2 :                 this.$overlay.fadeTo(this.options.fadeInDuration, this.options.overlayOpacity);</span>
 <span class="lineNum">     903 </span>                :            :             } else {
-<span class="lineNum">     904 </span>                :<span class="lineNoCov">          0 :                 $('body').append(this.$element);</span>
-<span class="lineNum">     905 </span>                :<span class="lineNoCov">          0 :                 this.setPosition();</span>
-<span class="lineNum">     906 </span>                :<span class="lineNoCov">          0 :                 $('body').append(this.$overlay);</span>
+<span class="lineNum">     904 </span>                :<span class="lineCov">          6 :                 $('body').append(this.$element);</span>
+<span class="lineNum">     905 </span>                :<span class="lineCov">          6 :                 this.setPosition();</span>
+<span class="lineNum">     906 </span>                :<span class="lineCov">          6 :                 $('body').append(this.$overlay);</span>
 <span class="lineNum">     907 </span>                :            :             }
-<span class="lineNum">     908 </span>                :<span class="lineNoCov">          0 :             this.trigger('Modal.activate');</span>
+<span class="lineNum">     908 </span>                :<span class="lineCov">          8 :             this.trigger('Modal.activate');</span>
 <span class="lineNum">     909 </span>                :            :         },
 <span class="lineNum">     910 </span>                :            : 
 <span class="lineNum">     911 </span>                :            :         /**
@@ -993,7 +993,7 @@
 <span class="lineNum">     922 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     923 </span>                :            :          */
 <span class="lineNum">     924 </span>                :            :         addCSS: function(prop, value) {
-<span class="lineNum">     925 </span>                :<span class="lineNoCov">          0 :             this.css.push([prop, value]);</span>
+<span class="lineNum">     925 </span>                :<span class="lineCov">          4 :             this.css.push([prop, value]);</span>
 <span class="lineNum">     926 </span>                :            :         },
 <span class="lineNum">     927 </span>                :            : 
 <span class="lineNum">     928 </span>                :            :         /**
@@ -1003,9 +1003,9 @@
 <span class="lineNum">     932 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     933 </span>                :            :          */
 <span class="lineNum">     934 </span>                :            :         initCSS: function() {
-<span class="lineNum">     935 </span>                :<span class="lineNoCov">          0 :             if (this.css !== []) {</span>
-<span class="lineNum">     936 </span>                :<span class="lineNoCov">          0 :                 for (var i = -1, length = this.css.length; ++i &lt; length;) {</span>
-<span class="lineNum">     937 </span>                :<span class="lineNoCov">          0 :                     this.$element.css(this.css[i][0], this.css[i][1]);</span>
+<span class="lineNum">     935 </span>                :<span class="lineCov">         22 :             if (this.css !== []) {</span>
+<span class="lineNum">     936 </span>                :<span class="lineCov">         22 :                 for (var i = -1, length = this.css.length; ++i &lt; length;) {</span>
+<span class="lineNum">     937 </span>                :<span class="lineCov">          2 :                     this.$element.css(this.css[i][0], this.css[i][1]);</span>
 <span class="lineNum">     938 </span>                :            :                 }
 <span class="lineNum">     939 </span>                :            :             }
 <span class="lineNum">     940 </span>                :            :         },
@@ -1018,14 +1018,14 @@
 <span class="lineNum">     947 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     948 </span>                :            :          */
 <span class="lineNum">     949 </span>                :            :         buildModal: function() {
-<span class="lineNum">     950 </span>                :<span class="lineNoCov">          0 :             this.initElement();</span>
-<span class="lineNum">     951 </span>                :<span class="lineNoCov">          0 :             this.initHeader();</span>
-<span class="lineNum">     952 </span>                :<span class="lineNoCov">          0 :             this.initContent();</span>
-<span class="lineNum">     953 </span>                :<span class="lineNoCov">          0 :             this.initFooter();</span>
+<span class="lineNum">     950 </span>                :<span class="lineCov">         12 :             this.initElement();</span>
+<span class="lineNum">     951 </span>                :<span class="lineCov">         12 :             this.initHeader();</span>
+<span class="lineNum">     952 </span>                :<span class="lineCov">         12 :             this.initContent();</span>
+<span class="lineNum">     953 </span>                :<span class="lineCov">         12 :             this.initFooter();</span>
 <span class="lineNum">     954 </span>                :            : 
-<span class="lineNum">     955 </span>                :<span class="lineNoCov">          0 :             this.$element.append(this.$header);</span>
-<span class="lineNum">     956 </span>                :<span class="lineNoCov">          0 :             this.$element.append(this.$content);</span>
-<span class="lineNum">     957 </span>                :<span class="lineNoCov">          0 :             this.$element.append(this.$footer);</span>
+<span class="lineNum">     955 </span>                :<span class="lineCov">         12 :             this.$element.append(this.$header);</span>
+<span class="lineNum">     956 </span>                :<span class="lineCov">         12 :             this.$element.append(this.$content);</span>
+<span class="lineNum">     957 </span>                :<span class="lineCov">         12 :             this.$element.append(this.$footer);</span>
 <span class="lineNum">     958 </span>                :            :         },
 <span class="lineNum">     959 </span>                :            : 
 <span class="lineNum">     960 </span>                :            :         /**
@@ -1035,9 +1035,9 @@
 <span class="lineNum">     964 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     965 </span>                :            :          */
 <span class="lineNum">     966 </span>                :            :         buildOverlay: function() {
-<span class="lineNum">     967 </span>                :<span class="lineNoCov">          0 :             if (this.options.overlay === true) {</span>
-<span class="lineNum">     968 </span>                :<span class="lineNoCov">          0 :                 this.$overlay = $('&lt;div class=&quot;' + this.options.overlayClass + '&quot;/&gt;');</span>
-<span class="lineNum">     969 </span>                :<span class="lineNoCov">          0 :                 this.$overlay.css({</span>
+<span class="lineNum">     967 </span>                :<span class="lineCov">         14 :             if (this.options.overlay === true) {</span>
+<span class="lineNum">     968 </span>                :<span class="lineCov">         12 :                 this.$overlay = $('&lt;div class=&quot;' + this.options.overlayClass + '&quot;/&gt;');</span>
+<span class="lineNum">     969 </span>                :<span class="lineCov">         12 :                 this.$overlay.css({</span>
 <span class="lineNum">     970 </span>                :            :                     'position': 'fixed',
 <span class="lineNum">     971 </span>                :            :                     'top': '0px',
 <span class="lineNum">     972 </span>                :            :                     'left': '0px',
@@ -1055,25 +1055,25 @@
 <span class="lineNum">     984 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     985 </span>                :            :          */
 <span class="lineNum">     986 </span>                :            :         initElement: function() {
-<span class="lineNum">     987 </span>                :<span class="lineNoCov">          0 :             log('Init Element');</span>
-<span class="lineNum">     988 </span>                :<span class="lineNoCov">          0 :             this.$element = $('&lt;div class=&quot;modal&quot;/&gt;');</span>
-<span class="lineNum">     989 </span>                :<span class="lineNoCov">          0 :             this.initCSS();</span>
+<span class="lineNum">     987 </span>                :<span class="lineCov">         20 :             log('Init Element');</span>
+<span class="lineNum">     988 </span>                :<span class="lineCov">         20 :             this.$element = $('&lt;div class=&quot;modal&quot;/&gt;');</span>
+<span class="lineNum">     989 </span>                :<span class="lineCov">         20 :             this.initCSS();</span>
 <span class="lineNum">     990 </span>                :            :         },
 <span class="lineNum">     991 </span>                :            : 
 <span class="lineNum">     992 </span>                :            :         initHeader: function() {
-<span class="lineNum">     993 </span>                :<span class="lineNoCov">          0 :             if (this.options.header === true) {</span>
-<span class="lineNum">     994 </span>                :<span class="lineNoCov">          0 :                 log('Init Header');</span>
-<span class="lineNum">     995 </span>                :<span class="lineNoCov">          0 :                 this.$header = $('&lt;div class=&quot;header&quot;/&gt;');</span>
+<span class="lineNum">     993 </span>                :<span class="lineCov">         14 :             if (this.options.header === true) {</span>
+<span class="lineNum">     994 </span>                :<span class="lineCov">         14 :                 log('Init Header');</span>
+<span class="lineNum">     995 </span>                :<span class="lineCov">         14 :                 this.$header = $('&lt;div class=&quot;header&quot;/&gt;');</span>
 <span class="lineNum">     996 </span>                :            : 
-<span class="lineNum">     997 </span>                :<span class="lineNoCov">          0 :                 if (!!this.options.headerTitle) {</span>
-<span class="lineNum">     998 </span>                :<span class="lineNoCov">          0 :                     this.$headerTitle = $('&lt;div class=&quot;' + this.options.headerTitleClass + '&quot;/&gt;');</span>
-<span class="lineNum">     999 </span>                :<span class="lineNoCov">          0 :                     this.$headerTitle.html(this.options.headerTitle);</span>
-<span class="lineNum">    1000 </span>                :<span class="lineNoCov">          0 :                     this.$header.append(this.$headerTitle);</span>
+<span class="lineNum">     997 </span>                :<span class="lineCov">         14 :                 if (!!this.options.headerTitle) {</span>
+<span class="lineNum">     998 </span>                :<span class="lineCov">         14 :                     this.$headerTitle = $('&lt;div class=&quot;' + this.options.headerTitleClass + '&quot;/&gt;');</span>
+<span class="lineNum">     999 </span>                :<span class="lineCov">         14 :                     this.$headerTitle.html(this.options.headerTitle);</span>
+<span class="lineNum">    1000 </span>                :<span class="lineCov">         14 :                     this.$header.append(this.$headerTitle);</span>
 <span class="lineNum">    1001 </span>                :            :                 }
 <span class="lineNum">    1002 </span>                :            : 
-<span class="lineNum">    1003 </span>                :<span class="lineNoCov">          0 :                 if (this.options.headerClose === true) {</span>
-<span class="lineNum">    1004 </span>                :<span class="lineNoCov">          0 :                     this.$headerClose = $('&lt;div class=&quot;' + this.options.headerCloseClass + '&quot;/&gt;');</span>
-<span class="lineNum">    1005 </span>                :<span class="lineNoCov">          0 :                     this.$header.append(this.$headerClose);</span>
+<span class="lineNum">    1003 </span>                :<span class="lineCov">         14 :                 if (this.options.headerClose === true) {</span>
+<span class="lineNum">    1004 </span>                :<span class="lineCov">         12 :                     this.$headerClose = $('&lt;div class=&quot;' + this.options.headerCloseClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1005 </span>                :<span class="lineCov">         12 :                     this.$header.append(this.$headerClose);</span>
 <span class="lineNum">    1006 </span>                :            :                 }
 <span class="lineNum">    1007 </span>                :            :             }
 <span class="lineNum">    1008 </span>                :            :         },
@@ -1085,9 +1085,9 @@
 <span class="lineNum">    1014 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1015 </span>                :            :          */
 <span class="lineNum">    1016 </span>                :            :         initContent: function() {
-<span class="lineNum">    1017 </span>                :<span class="lineNoCov">          0 :             log('Init Content');</span>
-<span class="lineNum">    1018 </span>                :<span class="lineNoCov">          0 :             this.$content = $('&lt;div class=&quot;content&quot;/&gt;');</span>
-<span class="lineNum">    1019 </span>                :<span class="lineNoCov">          0 :             this.$content.html(this.content);</span>
+<span class="lineNum">    1017 </span>                :<span class="lineCov">         14 :             log('Init Content');</span>
+<span class="lineNum">    1018 </span>                :<span class="lineCov">         14 :             this.$content = $('&lt;div class=&quot;content&quot;/&gt;');</span>
+<span class="lineNum">    1019 </span>                :<span class="lineCov">         14 :             this.$content.html(this.content);</span>
 <span class="lineNum">    1020 </span>                :            :         },
 <span class="lineNum">    1021 </span>                :            : 
 <span class="lineNum">    1022 </span>                :            :         /**
@@ -1104,7 +1104,7 @@
 <span class="lineNum">    1033 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1034 </span>                :            :          */
 <span class="lineNum">    1035 </span>                :            :         addContent: function(content) {
-<span class="lineNum">    1036 </span>                :<span class="lineNoCov">          0 :             this.content = this.content + content;</span>
+<span class="lineNum">    1036 </span>                :<span class="lineCov">          2 :             this.content = this.content + content;</span>
 <span class="lineNum">    1037 </span>                :            :         },
 <span class="lineNum">    1038 </span>                :            : 
 <span class="lineNum">    1039 </span>                :            :         /**
@@ -1114,19 +1114,19 @@
 <span class="lineNum">    1043 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1044 </span>                :            :          */
 <span class="lineNum">    1045 </span>                :            :         initFooter: function() {
-<span class="lineNum">    1046 </span>                :<span class="lineNoCov">          0 :             if (this.options.footer === true) {</span>
-<span class="lineNum">    1047 </span>                :<span class="lineNoCov">          0 :                 log('Init Footer');</span>
-<span class="lineNum">    1048 </span>                :<span class="lineNoCov">          0 :                 this.$footer = $('&lt;div class=&quot;footer&quot;/&gt;');</span>
+<span class="lineNum">    1046 </span>                :<span class="lineCov">         14 :             if (this.options.footer === true) {</span>
+<span class="lineNum">    1047 </span>                :<span class="lineCov">         14 :                 log('Init Footer');</span>
+<span class="lineNum">    1048 </span>                :<span class="lineCov">         14 :                 this.$footer = $('&lt;div class=&quot;footer&quot;/&gt;');</span>
 <span class="lineNum">    1049 </span>                :            : 
-<span class="lineNum">    1050 </span>                :<span class="lineNoCov">          0 :                 if (this.options.footerClose === true) {</span>
-<span class="lineNum">    1051 </span>                :<span class="lineNoCov">          0 :                     this.$footerClose = $('&lt;div class=&quot;' + this.options.footerCloseClass + '&quot;/&gt;');</span>
-<span class="lineNum">    1052 </span>                :<span class="lineNoCov">          0 :                     this.$footerClose.html(this.options.footerCloseText);</span>
-<span class="lineNum">    1053 </span>                :<span class="lineNoCov">          0 :                     this.$footer.append(this.$footerClose);</span>
+<span class="lineNum">    1050 </span>                :<span class="lineCov">         14 :                 if (this.options.footerClose === true) {</span>
+<span class="lineNum">    1051 </span>                :<span class="lineCov">         12 :                     this.$footerClose = $('&lt;div class=&quot;' + this.options.footerCloseClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1052 </span>                :<span class="lineCov">         12 :                     this.$footerClose.html(this.options.footerCloseText);</span>
+<span class="lineNum">    1053 </span>                :<span class="lineCov">         12 :                     this.$footer.append(this.$footerClose);</span>
 <span class="lineNum">    1054 </span>                :            :                 }
 <span class="lineNum">    1055 </span>                :            : 
-<span class="lineNum">    1056 </span>                :<span class="lineNoCov">          0 :                 if (this.options.footerButtons === true &amp;&amp; this.footerButtons !== []) {</span>
-<span class="lineNum">    1057 </span>                :<span class="lineNoCov">          0 :                     this.initFooterButtons();</span>
-<span class="lineNum">    1058 </span>                :<span class="lineNoCov">          0 :                     this.$footer.append(this.$footerButtons);</span>
+<span class="lineNum">    1056 </span>                :<span class="lineCov">         14 :                 if (this.options.footerButtons === true &amp;&amp; this.footerButtons !== []) {</span>
+<span class="lineNum">    1057 </span>                :<span class="lineCov">         14 :                     this.initFooterButtons();</span>
+<span class="lineNum">    1058 </span>                :<span class="lineCov">         14 :                     this.$footer.append(this.$footerButtons);</span>
 <span class="lineNum">    1059 </span>                :            :                 }
 <span class="lineNum">    1060 </span>                :            :             }
 <span class="lineNum">    1061 </span>                :            :         },
@@ -1149,18 +1149,18 @@
 <span class="lineNum">    1078 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1079 </span>                :            :          */
 <span class="lineNum">    1080 </span>                :            :         addFooterButtons: function(buttons) {
-<span class="lineNum">    1081 </span>                :<span class="lineNoCov">          0 :             if (typeof buttons === 'object') {</span>
-<span class="lineNum">    1082 </span>                :<span class="lineNoCov">          0 :                 for (var i = -1, length = buttons.length; ++i &lt; length;) {</span>
-<span class="lineNum">    1083 </span>                :<span class="lineNoCov">          0 :                     var button = [],</span>
+<span class="lineNum">    1081 </span>                :<span class="lineCov">          8 :             if (typeof buttons === 'object') {</span>
+<span class="lineNum">    1082 </span>                :<span class="lineCov">          6 :                 for (var i = -1, length = buttons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1083 </span>                :<span class="lineCov">          6 :                     var button = [],</span>
 <span class="lineNum">    1084 </span>                :            :                         bhtml = buttons[i].content,
 <span class="lineNum">    1085 </span>                :            :                         bcallback = buttons[i].callBack,
 <span class="lineNum">    1086 </span>                :            :                         bclass = buttons[i].cssClass || this.options.footerButtonDefaultClass,
 <span class="lineNum">    1087 </span>                :            :                         bid = buttons[i].elementId || '';
-<span class="lineNum">    1088 </span>                :<span class="lineNoCov">          0 :                     button.push(bhtml, bcallback, bclass, bid);</span>
-<span class="lineNum">    1089 </span>                :<span class="lineNoCov">          0 :                     this.footerButtons.push(button);</span>
+<span class="lineNum">    1088 </span>                :<span class="lineCov">          6 :                     button.push(bhtml, bcallback, bclass, bid);</span>
+<span class="lineNum">    1089 </span>                :<span class="lineCov">          6 :                     this.footerButtons.push(button);</span>
 <span class="lineNum">    1090 </span>                :            :                 }
 <span class="lineNum">    1091 </span>                :            :             } else {
-<span class="lineNum">    1092 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('Buttons argument must be an array but was ' + typeof buttons);</span>
+<span class="lineNum">    1092 </span>                :<span class="lineCov">          2 :                 throw new ZOOLU.UI.Exception('Buttons argument must be an array but was ' + typeof buttons);</span>
 <span class="lineNum">    1093 </span>                :            :             }
 <span class="lineNum">    1094 </span>                :            :         },
 <span class="lineNum">    1095 </span>                :            : 
@@ -1171,20 +1171,20 @@
 <span class="lineNum">    1100 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1101 </span>                :            :          */
 <span class="lineNum">    1102 </span>                :            :         initFooterButtons: function() {
-<span class="lineNum">    1103 </span>                :<span class="lineNoCov">          0 :             this.$footerButtons = $('&lt;div class=&quot;' + this.options.footerButtonsContainerClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1103 </span>                :<span class="lineCov">         16 :             this.$footerButtons = $('&lt;div class=&quot;' + this.options.footerButtonsContainerClass + '&quot;/&gt;');</span>
 <span class="lineNum">    1104 </span>                :            : 
-<span class="lineNum">    1105 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = this.footerButtons.length; ++i &lt; length;) {</span>
-<span class="lineNum">    1106 </span>                :<span class="lineNoCov">          0 :                 var button = $('&lt;div/&gt;'),</span>
+<span class="lineNum">    1105 </span>                :<span class="lineCov">         16 :             for (var i = -1, length = this.footerButtons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1106 </span>                :<span class="lineCov">          4 :                 var button = $('&lt;div/&gt;'),</span>
 <span class="lineNum">    1107 </span>                :            :                     bhtml = this.footerButtons[i][0],
 <span class="lineNum">    1108 </span>                :            :                     bcallback = this.footerButtons[i][1],
 <span class="lineNum">    1109 </span>                :            :                     bclass = this.footerButtons[i][2],
 <span class="lineNum">    1110 </span>                :            :                     bid = this.footerButtons[i][3];
-<span class="lineNum">    1111 </span>                :<span class="lineNoCov">          0 :                 button.html(bhtml);</span>
-<span class="lineNum">    1112 </span>                :<span class="lineNoCov">          0 :                 button.addClass(bclass);</span>
-<span class="lineNum">    1113 </span>                :<span class="lineNoCov">          0 :                 button.attr('id', bid);</span>
-<span class="lineNum">    1114 </span>                :<span class="lineNoCov">          0 :                 button.on('click', bcallback);</span>
-<span class="lineNum">    1115 </span>                :<span class="lineNoCov">          0 :                 this.$footerButtons.append(button);</span>
-<span class="lineNum">    1116 </span>                :<span class="lineNoCov">          0 :                 log(this.$footerButtons);</span>
+<span class="lineNum">    1111 </span>                :<span class="lineCov">          4 :                 button.html(bhtml);</span>
+<span class="lineNum">    1112 </span>                :<span class="lineCov">          4 :                 button.addClass(bclass);</span>
+<span class="lineNum">    1113 </span>                :<span class="lineCov">          4 :                 button.attr('id', bid);</span>
+<span class="lineNum">    1114 </span>                :<span class="lineCov">          4 :                 button.on('click', bcallback);</span>
+<span class="lineNum">    1115 </span>                :<span class="lineCov">          4 :                 this.$footerButtons.append(button);</span>
+<span class="lineNum">    1116 </span>                :<span class="lineCov">          4 :                 log(this.$footerButtons);</span>
 <span class="lineNum">    1117 </span>                :            :             }
 <span class="lineNum">    1118 </span>                :            :         },
 <span class="lineNum">    1119 </span>                :            : 
@@ -1196,25 +1196,25 @@
 <span class="lineNum">    1125 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1126 </span>                :            :          */
 <span class="lineNum">    1127 </span>                :            :         setPosition: function() {
-<span class="lineNum">    1128 </span>                :<span class="lineNoCov">          0 :             this.$element.css('position', 'absolute');</span>
+<span class="lineNum">    1128 </span>                :<span class="lineCov">         14 :             this.$element.css('position', 'absolute');</span>
 <span class="lineNum">    1129 </span>                :            : 
-<span class="lineNum">    1130 </span>                :<span class="lineNoCov">          0 :             if (this.options.left !== false) {</span>
-<span class="lineNum">    1131 </span>                :<span class="lineNoCov">          0 :                 this.$element.css('left', this.options.left);</span>
-<span class="lineNum">    1132 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.right !== false) {</span>
-<span class="lineNum">    1133 </span>                :<span class="lineNoCov">          0 :                 this.$element.css('right', this.options.right);</span>
+<span class="lineNum">    1130 </span>                :<span class="lineCov">         14 :             if (this.options.left !== false) {</span>
+<span class="lineNum">    1131 </span>                :<span class="lineCov">          2 :                 this.$element.css('left', this.options.left);</span>
+<span class="lineNum">    1132 </span>                :<span class="lineCov">         12 :             } else if (this.options.right !== false) {</span>
+<span class="lineNum">    1133 </span>                :<span class="lineCov">          2 :                 this.$element.css('right', this.options.right);</span>
 <span class="lineNum">    1134 </span>                :            :             } else {
-<span class="lineNum">    1135 </span>                :<span class="lineNoCov">          0 :                 this.$element.css({</span>
+<span class="lineNum">    1135 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
 <span class="lineNum">    1136 </span>                :            :                     'left': '50%',
 <span class="lineNum">    1137 </span>                :            :                     'margin-left': '-' + this.$element.outerWidth() / 2 + 'px'
 <span class="lineNum">    1138 </span>                :            :                 });
 <span class="lineNum">    1139 </span>                :            :             }
 <span class="lineNum">    1140 </span>                :            : 
-<span class="lineNum">    1141 </span>                :<span class="lineNoCov">          0 :             if (this.options.top !== false) {</span>
-<span class="lineNum">    1142 </span>                :<span class="lineNoCov">          0 :                 this.$element.css('top', this.options.top);</span>
-<span class="lineNum">    1143 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.bottom !== false) {</span>
-<span class="lineNum">    1144 </span>                :<span class="lineNoCov">          0 :                 this.$element.css('bottom', this.options.bottom);</span>
+<span class="lineNum">    1141 </span>                :<span class="lineCov">         14 :             if (this.options.top !== false) {</span>
+<span class="lineNum">    1142 </span>                :<span class="lineCov">          2 :                 this.$element.css('top', this.options.top);</span>
+<span class="lineNum">    1143 </span>                :<span class="lineCov">         12 :             } else if (this.options.bottom !== false) {</span>
+<span class="lineNum">    1144 </span>                :<span class="lineCov">          2 :                 this.$element.css('bottom', this.options.bottom);</span>
 <span class="lineNum">    1145 </span>                :            :             } else {
-<span class="lineNum">    1146 </span>                :<span class="lineNoCov">          0 :                 this.$element.css({</span>
+<span class="lineNum">    1146 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
 <span class="lineNum">    1147 </span>                :            :                     'top': '50%',
 <span class="lineNum">    1148 </span>                :            :                     'margin-top': '-' + this.$element.outerHeight() / 2 + 'px'
 <span class="lineNum">    1149 </span>                :            :                 });
@@ -1229,14 +1229,14 @@
 <span class="lineNum">    1158 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1159 </span>                :            :          */
 <span class="lineNum">    1160 </span>                :            :         initBoxEvents: function() {
-<span class="lineNum">    1161 </span>                :<span class="lineNoCov">          0 :             if (this.options.draggable === true &amp;&amp; this.options.draggableOnlyOnHeader === true &amp;&amp; !!this.$header) {</span>
-<span class="lineNum">    1162 </span>                :<span class="lineNoCov">          0 :                 this.$header.on('mousedown', function() {</span>
+<span class="lineNum">    1161 </span>                :<span class="lineCov">         12 :             if (this.options.draggable === true &amp;&amp; this.options.draggableOnlyOnHeader === true &amp;&amp; !!this.$header) {</span>
+<span class="lineNum">    1162 </span>                :<span class="lineCov">         12 :                 this.$header.on('mousedown', function() {</span>
 <span class="lineNum">    1163 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({</span>
 <span class="lineNum">    1164 </span>                :            :                         disabled: false,
 <span class="lineNum">    1165 </span>                :            :                         grid: this.options.draggableGrid
 <span class="lineNum">    1166 </span>                :            :                     });
 <span class="lineNum">    1167 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1168 </span>                :<span class="lineNoCov">          0 :                 this.$header.on('mouseup', function() {</span>
+<span class="lineNum">    1168 </span>                :<span class="lineCov">         12 :                 this.$header.on('mouseup', function() {</span>
 <span class="lineNum">    1169 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({disabled: true});</span>
 <span class="lineNum">    1170 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1171 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.draggable === true) {</span>
@@ -1244,8 +1244,8 @@
 <span class="lineNum">    1173 </span>                :            :                     grid: this.options.draggableGrid
 <span class="lineNum">    1174 </span>                :            :                 });
 <span class="lineNum">    1175 </span>                :            :             }
-<span class="lineNum">    1176 </span>                :<span class="lineNoCov">          0 :             if (this.options.resizable === true) {</span>
-<span class="lineNum">    1177 </span>                :<span class="lineNoCov">          0 :                 this.$element.resizable({</span>
+<span class="lineNum">    1176 </span>                :<span class="lineCov">         12 :             if (this.options.resizable === true) {</span>
+<span class="lineNum">    1177 </span>                :<span class="lineCov">         10 :                 this.$element.resizable({</span>
 <span class="lineNum">    1178 </span>                :            :                     handles: 'se',
 <span class="lineNum">    1179 </span>                :            :                     maxHeight: this.options.resizeMaxHeight,
 <span class="lineNum">    1180 </span>                :            :                     minHeight: this.options.resizeMinHeight,
@@ -1253,18 +1253,18 @@
 <span class="lineNum">    1182 </span>                :            :                     minWidth: this.options.resizeMinWidth
 <span class="lineNum">    1183 </span>                :            :                 });
 <span class="lineNum">    1184 </span>                :            :             }
-<span class="lineNum">    1185 </span>                :<span class="lineNoCov">          0 :             if (!!this.$headerClose) {</span>
-<span class="lineNum">    1186 </span>                :<span class="lineNoCov">          0 :                 this.$headerClose.on('click', function() {</span>
+<span class="lineNum">    1185 </span>                :<span class="lineCov">         12 :             if (!!this.$headerClose) {</span>
+<span class="lineNum">    1186 </span>                :<span class="lineCov">         10 :                 this.$headerClose.on('click', function() {</span>
 <span class="lineNum">    1187 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
 <span class="lineNum">    1188 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1189 </span>                :            :             }
-<span class="lineNum">    1190 </span>                :<span class="lineNoCov">          0 :             if (!!this.$footerClose) {</span>
-<span class="lineNum">    1191 </span>                :<span class="lineNoCov">          0 :                 this.$footerClose.on('click', function() {</span>
+<span class="lineNum">    1190 </span>                :<span class="lineCov">         12 :             if (!!this.$footerClose) {</span>
+<span class="lineNum">    1191 </span>                :<span class="lineCov">         10 :                 this.$footerClose.on('click', function() {</span>
 <span class="lineNum">    1192 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
 <span class="lineNum">    1193 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1194 </span>                :            :             }
-<span class="lineNum">    1195 </span>                :<span class="lineNoCov">          0 :             if (!!this.$overlay &amp;&amp; this.options.overlayClose === true) {</span>
-<span class="lineNum">    1196 </span>                :<span class="lineNoCov">          0 :                 this.$overlay.on('click', function() {</span>
+<span class="lineNum">    1195 </span>                :<span class="lineCov">         12 :             if (!!this.$overlay &amp;&amp; this.options.overlayClose === true) {</span>
+<span class="lineNum">    1196 </span>                :<span class="lineCov">         10 :                 this.$overlay.on('click', function() {</span>
 <span class="lineNum">    1197 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
 <span class="lineNum">    1198 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1199 </span>                :            :             }
@@ -1284,22 +1284,22 @@
 <span class="lineNum">    1213 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1214 </span>                :            :          */
 <span class="lineNum">    1215 </span>                :            :         close: function() {
-<span class="lineNum">    1216 </span>                :<span class="lineNoCov">          0 :             if (this.options.fadeOut === true) {</span>
-<span class="lineNum">    1217 </span>                :<span class="lineNoCov">          0 :                 this.$element.fadeOut(this.options.fadeOutDuration, function() {</span>
-<span class="lineNum">    1218 </span>                :<span class="lineNoCov">          0 :                     this.$element.remove();</span>
+<span class="lineNum">    1216 </span>                :<span class="lineCov">          4 :             if (this.options.fadeOut === true) {</span>
+<span class="lineNum">    1217 </span>                :<span class="lineCov">          2 :                 this.$element.fadeOut(this.options.fadeOutDuration, function() {</span>
+<span class="lineNum">    1218 </span>                :<span class="lineCov">          1 :                     this.$element.remove();</span>
 <span class="lineNum">    1219 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1220 </span>                :<span class="lineNoCov">          0 :                 if (!!this.$overlay) {</span>
-<span class="lineNum">    1221 </span>                :<span class="lineNoCov">          0 :                     this.$overlay.fadeOut(this.options.fadeOutDuration, function() {</span>
-<span class="lineNum">    1222 </span>                :<span class="lineNoCov">          0 :                         this.$overlay.remove();</span>
+<span class="lineNum">    1220 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
+<span class="lineNum">    1221 </span>                :<span class="lineCov">          2 :                     this.$overlay.fadeOut(this.options.fadeOutDuration, function() {</span>
+<span class="lineNum">    1222 </span>                :<span class="lineCov">          1 :                         this.$overlay.remove();</span>
 <span class="lineNum">    1223 </span>                :            :                     }.bind(this));
 <span class="lineNum">    1224 </span>                :            :                 }
 <span class="lineNum">    1225 </span>                :            :             } else {
-<span class="lineNum">    1226 </span>                :<span class="lineNoCov">          0 :                 this.$element.remove();</span>
-<span class="lineNum">    1227 </span>                :<span class="lineNoCov">          0 :                 if (!!this.$overlay) {</span>
-<span class="lineNum">    1228 </span>                :<span class="lineNoCov">          0 :                     this.$overlay.remove();</span>
+<span class="lineNum">    1226 </span>                :<span class="lineCov">          2 :                 this.$element.remove();</span>
+<span class="lineNum">    1227 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
+<span class="lineNum">    1228 </span>                :<span class="lineCov">          2 :                     this.$overlay.remove();</span>
 <span class="lineNum">    1229 </span>                :            :                 }
 <span class="lineNum">    1230 </span>                :            :             }
-<span class="lineNum">    1231 </span>                :<span class="lineNoCov">          0 :             this.trigger('Modal.deactivate');</span>
+<span class="lineNum">    1231 </span>                :<span class="lineCov">          4 :             this.trigger('Modal.deactivate');</span>
 <span class="lineNum">    1232 </span>                :            :         }
 <span class="lineNum">    1233 </span>                :            :     };
 <span class="lineNum">    1234 </span>                :            : 
