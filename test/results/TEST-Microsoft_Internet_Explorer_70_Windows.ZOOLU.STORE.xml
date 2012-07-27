@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" errors="0" failures="0" tests="3" time="0.0">
-<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" name="test store get instance" time="0.0"/>
-<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" name="test store set cookie" time="0.0"/>
-<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" name="test store get cookie" time="0.0"/>
+<testsuite name="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" errors="0" failures="3" tests="3" time="0.0020">
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" name="test store get instance" time="0.0010">
+<failure type="failed" message="[{&quot;message&quot;:&quot;Store initialising&quot;,&quot;name&quot;:&quot;AssertError&quot;,&quot;description&quot;:&quot;Store initialising&quot;}]">
+
+</failure>
+</testcase>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" name="test store set cookie" time="0.0010">
+<failure type="failed" message="[{&quot;message&quot;:&quot;Store initialising&quot;,&quot;name&quot;:&quot;AssertError&quot;,&quot;description&quot;:&quot;Store initialising&quot;}]">
+
+</failure>
+</testcase>
+<testcase classname="Microsoft_Internet_Explorer_70_Windows.ZOOLU.STORE" name="test store get cookie" time="0.0">
+<failure type="failed" message="[{&quot;message&quot;:&quot;Store initialising&quot;,&quot;name&quot;:&quot;AssertError&quot;,&quot;description&quot;:&quot;Store initialising&quot;}]">
+
+</failure>
+</testcase>
 </testsuite>
