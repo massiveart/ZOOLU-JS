@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" errors="0" failures="0" tests="1" time="0.0">
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test" time="0.0"/>
+<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" errors="0" failures="0" tests="16" time="0.045">
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initialize modal view " time="0.0030"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal add css" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal initialize css" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal build overlay" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initialize the modal view dom" time="0.0"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initialize the header dom" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initialize the content dom" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal view add content" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal view add footer buttons" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test add footer buttons exception" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initzialize footer buttons" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initialize the footer dom" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal view set position" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal view display - fadein" time="0.015"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test modal view close" time="0.0090"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Modal" name="test initialize box events" time="0.0020"/>
 </testsuite>
