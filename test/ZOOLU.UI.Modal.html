@@ -1,0 +1,64 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="../assets/css/zoolu.css"/>
+
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<header>
+
+</header>
+<div role="main">
+    <button id="modalButton" onclick="createModal();">Click me!</button>
+</div>
+<footer>
+
+</footer>
+
+<script src="js/libs/jquery-1.7.2.min.js"></script>
+<script src="js/libs/jquery-ui.custom.min.js"></script>
+<script src="js/libs/sinon-1.3.4.js"></script>
+
+<!--script src="../zoolu.js"></script -->
+<script src="../src/zoolu.js"></script>
+<script src="../src/zoolu/util.js"></script>
+<script src="../src/zoolu/mixin.js"></script>
+<script src="../src/zoolu/ui.js"></script>
+
+<script>
+    function createModal() {
+        var modal = new ZOOLU.UI.Modal({
+            fadeIn: true,
+            fadeOut: true
+        });
+        modal.addFooterButtons([
+            {content: 'Button 1', callBack: function(){ alert('Button 1 clicked'); }, cssClass:  'button', elementId: 'button1'},
+            {content: 'Button 2', callBack: function(){ alert('Button 2 clicked'); }, cssClass:  'button' },
+            {content: 'Button 3', callBack: function(){ alert('Button 3 clicked'); } }
+        ]);
+        modal.display();
+    }
+    
+    $(document).ready(function(){
+        window.debug = true;
+    });
+</script>
+
+</body>
+</html>

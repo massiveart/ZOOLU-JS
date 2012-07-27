@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Layout" errors="0" failures="0" tests="14" time="0.37800002">
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout throw exception" time="0.0020"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel throw exception" time="0.0010"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout and layout.panel instantiation" time="0.032"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout update dimension" time="0.033"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel add minimizer" time="0.031"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel apply stored dimensions" time="0.03"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel minimize" time="0.039"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel maximize" time="0.036"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel resize" time="0.027"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel minimizer click" time="0.045"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel toggle handler events" time="0.038"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel update dimension" time="0.023"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel set position left" time="0.022"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel set position top" time="0.019"/>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Layout" errors="0" failures="0" tests="14" time="2.341">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout throw exception" time="0.0030"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel throw exception" time="0.0040"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout and layout.panel instantiation" time="0.19"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout update dimension" time="0.173"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel add minimizer" time="0.192"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel apply stored dimensions" time="0.177"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel minimize" time="0.212"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel maximize" time="0.236"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel resize" time="0.183"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel minimizer click" time="0.301"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel toggle handler events" time="0.226"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel update dimension" time="0.139"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel set position left" time="0.161"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Layout" name="test layout.panel set position top" time="0.144"/>
 </testsuite>
