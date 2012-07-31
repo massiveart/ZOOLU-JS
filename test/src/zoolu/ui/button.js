@@ -41,6 +41,19 @@ TestCase('ZOOLU.UI.Button', {
         assertTrue('Selected attribute of the button', button.selected);
     },
     
+    'test button autoselect': function() {
+        try {
+            var button = new ZOOLU.UI.Button('#button1', function(){2+2;}, {
+                autoselect: true
+            });
+        } catch(e) {
+            fail('Button instantiation failed!');
+        }
+        
+        assertTrue('Active Class added to the button', button.$element.hasClass(button.options.toggleClass));
+        assertTrue('Selected attribute of the button', button.selected);
+    },
+    
     'test button unselect': function() {
         try {
             var button = new ZOOLU.UI.Button('#button1', function(){2+2;}, {});
@@ -67,6 +80,21 @@ TestCase('ZOOLU.UI.Button', {
         button.exeCallback();
         
         assertEquals('Result of the callback', 4, callbackResult);
+    },
+    
+    'test button event select unselect': function() {
+        var callbackResult;
+        try {
+            var button = new ZOOLU.UI.Button('#button1', function(){
+                callbackResult = 2 + 2;
+            });
+        } catch(e) {
+            fail('Button instantiation failed!');
+        }
+        
+        //open/close
+        button.$element.click();
+        button.$element.click();
     },
     
     'test button add toggle class': function() {

@@ -63,23 +63,42 @@ TestCase('ZOOLU.UI.Dropdown', {
         assertEquals('Set width via addCSS', setWidth, dropdown.$dropdown.css('width'));
     },
     
+    'test dropdown add CSS exception': function() {
+        try {
+            var dropdown = new ZOOLU.UI.Dropdown('#button1', {});
+        } catch(e) {
+            fail('Dropdown instantiation failed!');
+        }
+        try {
+            dropdown.addCSS('This is not an object');
+        } catch(e) {
+            var error = e;
+        }        
+        assertEquals('Thrown ZOOLU.UI.Exception', 'ZOOLU.UI.Exception', error.name);
+    },
+    
+    
     'test dropdown bind events': function() {
         try {
             var dropdown = new ZOOLU.UI.Dropdown('#button1', {
                 closeOnClick: true,
-                resizable: true
+                resizable: true,
+                triggerEvent: 'click'
             });
             var dropdown2 = new ZOOLU.UI.Dropdown('#button1', {
                 closeOnClick: false,
                 closeOnMouseLeave: true,
-                resizable: false
+                resizable: false,
+                triggerEvent: 'click'
             });
         } catch(e) {
             fail('Dropdown instantiation failed!');
         }
         dropdown.bindEvents();
+        dropdown.$dropdown.click();
         $(document).click();
-        dropdown2.bindEvents();        
+        dropdown2.bindEvents();
+        dropdown2.$activator.click();
     },
     
     'test dropdown open': function() {

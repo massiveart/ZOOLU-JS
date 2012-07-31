@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Firefox_120_Mac_OS.ZOOLU.STORE" errors="0" failures="0" tests="3" time="0.013">
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.STORE" name="test store get instance" time="0.011"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.STORE" name="test store set cookie" time="0.0010"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.STORE" name="test store get cookie" time="0.0010"/>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.STORE" errors="0" failures="0" tests="3" time="0.0050">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.STORE" name="test store get instance" time="0.0010"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.STORE" name="test store set cookie" time="0.0020"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.STORE" name="test store get cookie" time="0.0020"/>
 </testsuite>
