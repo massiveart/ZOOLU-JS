@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Firefox_120_Mac_OS.ZOOLU.UTIL" errors="0" failures="0" tests="3" time="0.0080">
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UTIL" name="test truncate" time="0.0030"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UTIL" name="test truncate at word boundaries" time="0.0030"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UTIL" name="test truncate in between" time="0.0020"/>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UTIL" errors="0" failures="0" tests="3" time="0.07">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UTIL" name="test truncate" time="0.022"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UTIL" name="test truncate at word boundaries" time="0.024"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UTIL" name="test truncate in between" time="0.024"/>
 </testsuite>

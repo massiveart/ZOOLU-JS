@@ -31,13 +31,13 @@
             <td class="headerValue">jsTestDriver.conf-coverage.dat</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">382</td>
-            <td class="headerCovTableEntry">391</td>
-            <td class="headerCovTableEntryHi">97.7 %</td>
+            <td class="headerCovTableEntry">384</td>
+            <td class="headerCovTableEntry">520</td>
+            <td class="headerCovTableEntryLo">73.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-07-27</td>
+            <td class="headerValue">2012-07-31</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -1151,159 +1151,705 @@
 <span class="lineNum">    1080 </span>                :            :         addFooterButtons: function(buttons) {
 <span class="lineNum">    1081 </span>                :<span class="lineCov">          8 :             if (typeof buttons === 'object') {</span>
 <span class="lineNum">    1082 </span>                :<span class="lineCov">          6 :                 for (var i = -1, length = buttons.length; ++i &lt; length;) {</span>
-<span class="lineNum">    1083 </span>                :<span class="lineCov">          6 :                     var button = [],</span>
-<span class="lineNum">    1084 </span>                :            :                         bhtml = buttons[i].content,
-<span class="lineNum">    1085 </span>                :            :                         bcallback = buttons[i].callBack,
-<span class="lineNum">    1086 </span>                :            :                         bclass = buttons[i].cssClass || this.options.footerButtonDefaultClass,
-<span class="lineNum">    1087 </span>                :            :                         bid = buttons[i].elementId || '';
-<span class="lineNum">    1088 </span>                :<span class="lineCov">          6 :                     button.push(bhtml, bcallback, bclass, bid);</span>
-<span class="lineNum">    1089 </span>                :<span class="lineCov">          6 :                     this.footerButtons.push(button);</span>
-<span class="lineNum">    1090 </span>                :            :                 }
-<span class="lineNum">    1091 </span>                :            :             } else {
-<span class="lineNum">    1092 </span>                :<span class="lineCov">          2 :                 throw new ZOOLU.UI.Exception('Buttons argument must be an array but was ' + typeof buttons);</span>
-<span class="lineNum">    1093 </span>                :            :             }
-<span class="lineNum">    1094 </span>                :            :         },
-<span class="lineNum">    1095 </span>                :            : 
-<span class="lineNum">    1096 </span>                :            :         /**
-<span class="lineNum">    1097 </span>                :            :          * Initializes the footer-buttons
-<span class="lineNum">    1098 </span>                :            :          *
-<span class="lineNum">    1099 </span>                :            :          * @private
-<span class="lineNum">    1100 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
-<span class="lineNum">    1101 </span>                :            :          */
-<span class="lineNum">    1102 </span>                :            :         initFooterButtons: function() {
-<span class="lineNum">    1103 </span>                :<span class="lineCov">         16 :             this.$footerButtons = $('&lt;div class=&quot;' + this.options.footerButtonsContainerClass + '&quot;/&gt;');</span>
-<span class="lineNum">    1104 </span>                :            : 
-<span class="lineNum">    1105 </span>                :<span class="lineCov">         16 :             for (var i = -1, length = this.footerButtons.length; ++i &lt; length;) {</span>
-<span class="lineNum">    1106 </span>                :<span class="lineCov">          4 :                 var button = $('&lt;div/&gt;'),</span>
-<span class="lineNum">    1107 </span>                :            :                     bhtml = this.footerButtons[i][0],
-<span class="lineNum">    1108 </span>                :            :                     bcallback = this.footerButtons[i][1],
-<span class="lineNum">    1109 </span>                :            :                     bclass = this.footerButtons[i][2],
-<span class="lineNum">    1110 </span>                :            :                     bid = this.footerButtons[i][3];
-<span class="lineNum">    1111 </span>                :<span class="lineCov">          4 :                 button.html(bhtml);</span>
-<span class="lineNum">    1112 </span>                :<span class="lineCov">          4 :                 button.addClass(bclass);</span>
-<span class="lineNum">    1113 </span>                :<span class="lineCov">          4 :                 button.attr('id', bid);</span>
-<span class="lineNum">    1114 </span>                :<span class="lineCov">          4 :                 button.on('click', bcallback);</span>
-<span class="lineNum">    1115 </span>                :<span class="lineCov">          4 :                 this.$footerButtons.append(button);</span>
-<span class="lineNum">    1116 </span>                :<span class="lineCov">          4 :                 log(this.$footerButtons);</span>
-<span class="lineNum">    1117 </span>                :            :             }
-<span class="lineNum">    1118 </span>                :            :         },
-<span class="lineNum">    1119 </span>                :            : 
-<span class="lineNum">    1120 </span>                :            :         /**
-<span class="lineNum">    1121 </span>                :            :          * Sets the position of the Modal View according to the options
-<span class="lineNum">    1122 </span>                :            :          * default is the center of the screen
-<span class="lineNum">    1123 </span>                :            :          *
-<span class="lineNum">    1124 </span>                :            :          * @private
-<span class="lineNum">    1125 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
-<span class="lineNum">    1126 </span>                :            :          */
-<span class="lineNum">    1127 </span>                :            :         setPosition: function() {
-<span class="lineNum">    1128 </span>                :<span class="lineCov">         14 :             this.$element.css('position', 'absolute');</span>
-<span class="lineNum">    1129 </span>                :            : 
-<span class="lineNum">    1130 </span>                :<span class="lineCov">         14 :             if (this.options.left !== false) {</span>
-<span class="lineNum">    1131 </span>                :<span class="lineCov">          2 :                 this.$element.css('left', this.options.left);</span>
-<span class="lineNum">    1132 </span>                :<span class="lineCov">         12 :             } else if (this.options.right !== false) {</span>
-<span class="lineNum">    1133 </span>                :<span class="lineCov">          2 :                 this.$element.css('right', this.options.right);</span>
-<span class="lineNum">    1134 </span>                :            :             } else {
-<span class="lineNum">    1135 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
-<span class="lineNum">    1136 </span>                :            :                     'left': '50%',
-<span class="lineNum">    1137 </span>                :            :                     'margin-left': '-' + this.$element.outerWidth() / 2 + 'px'
-<span class="lineNum">    1138 </span>                :            :                 });
-<span class="lineNum">    1139 </span>                :            :             }
-<span class="lineNum">    1140 </span>                :            : 
-<span class="lineNum">    1141 </span>                :<span class="lineCov">         14 :             if (this.options.top !== false) {</span>
-<span class="lineNum">    1142 </span>                :<span class="lineCov">          2 :                 this.$element.css('top', this.options.top);</span>
-<span class="lineNum">    1143 </span>                :<span class="lineCov">         12 :             } else if (this.options.bottom !== false) {</span>
-<span class="lineNum">    1144 </span>                :<span class="lineCov">          2 :                 this.$element.css('bottom', this.options.bottom);</span>
-<span class="lineNum">    1145 </span>                :            :             } else {
-<span class="lineNum">    1146 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
-<span class="lineNum">    1147 </span>                :            :                     'top': '50%',
-<span class="lineNum">    1148 </span>                :            :                     'margin-top': '-' + this.$element.outerHeight() / 2 + 'px'
-<span class="lineNum">    1149 </span>                :            :                 });
-<span class="lineNum">    1150 </span>                :            :             }
-<span class="lineNum">    1151 </span>                :            :         },
-<span class="lineNum">    1152 </span>                :            : 
-<span class="lineNum">    1153 </span>                :            :         /**
-<span class="lineNum">    1154 </span>                :            :          * Initializes all events which are needed by the the Modal View itselfs
-<span class="lineNum">    1155 </span>                :            :          * or by one of its children.
-<span class="lineNum">    1156 </span>                :            :          *
-<span class="lineNum">    1157 </span>                :            :          * @private
-<span class="lineNum">    1158 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
-<span class="lineNum">    1159 </span>                :            :          */
-<span class="lineNum">    1160 </span>                :            :         initBoxEvents: function() {
-<span class="lineNum">    1161 </span>                :<span class="lineCov">         12 :             if (this.options.draggable === true &amp;&amp; this.options.draggableOnlyOnHeader === true &amp;&amp; !!this.$header) {</span>
-<span class="lineNum">    1162 </span>                :<span class="lineCov">         12 :                 this.$header.on('mousedown', function() {</span>
-<span class="lineNum">    1163 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({</span>
-<span class="lineNum">    1164 </span>                :            :                         disabled: false,
-<span class="lineNum">    1165 </span>                :            :                         grid: this.options.draggableGrid
-<span class="lineNum">    1166 </span>                :            :                     });
-<span class="lineNum">    1167 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1168 </span>                :<span class="lineCov">         12 :                 this.$header.on('mouseup', function() {</span>
-<span class="lineNum">    1169 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({disabled: true});</span>
-<span class="lineNum">    1170 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1171 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.draggable === true) {</span>
-<span class="lineNum">    1172 </span>                :<span class="lineNoCov">          0 :                 this.$element.draggable({</span>
-<span class="lineNum">    1173 </span>                :            :                     grid: this.options.draggableGrid
-<span class="lineNum">    1174 </span>                :            :                 });
-<span class="lineNum">    1175 </span>                :            :             }
-<span class="lineNum">    1176 </span>                :<span class="lineCov">         12 :             if (this.options.resizable === true) {</span>
-<span class="lineNum">    1177 </span>                :<span class="lineCov">         10 :                 this.$element.resizable({</span>
-<span class="lineNum">    1178 </span>                :            :                     handles: 'se',
-<span class="lineNum">    1179 </span>                :            :                     maxHeight: this.options.resizeMaxHeight,
-<span class="lineNum">    1180 </span>                :            :                     minHeight: this.options.resizeMinHeight,
-<span class="lineNum">    1181 </span>                :            :                     maxWidth: this.options.resizeMaxWidth,
-<span class="lineNum">    1182 </span>                :            :                     minWidth: this.options.resizeMinWidth
-<span class="lineNum">    1183 </span>                :            :                 });
-<span class="lineNum">    1184 </span>                :            :             }
-<span class="lineNum">    1185 </span>                :<span class="lineCov">         12 :             if (!!this.$headerClose) {</span>
-<span class="lineNum">    1186 </span>                :<span class="lineCov">         10 :                 this.$headerClose.on('click', function() {</span>
-<span class="lineNum">    1187 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
-<span class="lineNum">    1188 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1189 </span>                :            :             }
-<span class="lineNum">    1190 </span>                :<span class="lineCov">         12 :             if (!!this.$footerClose) {</span>
-<span class="lineNum">    1191 </span>                :<span class="lineCov">         10 :                 this.$footerClose.on('click', function() {</span>
-<span class="lineNum">    1192 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
-<span class="lineNum">    1193 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1194 </span>                :            :             }
-<span class="lineNum">    1195 </span>                :<span class="lineCov">         12 :             if (!!this.$overlay &amp;&amp; this.options.overlayClose === true) {</span>
-<span class="lineNum">    1196 </span>                :<span class="lineCov">         10 :                 this.$overlay.on('click', function() {</span>
-<span class="lineNum">    1197 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
-<span class="lineNum">    1198 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1199 </span>                :            :             }
-<span class="lineNum">    1200 </span>                :            :         },
-<span class="lineNum">    1201 </span>                :            : 
-<span class="lineNum">    1202 </span>                :            :         /**
-<span class="lineNum">    1203 </span>                :            :          * Closes the Modal View according to the given options. (Either with or
-<span class="lineNum">    1204 </span>                :            :          * without fading)
+<span class="lineNum">    1083 </span>                :<span class="lineCov">          6 :                     this.footerButtons.push(buttons[i]);</span>
+<span class="lineNum">    1084 </span>                :            :                 }
+<span class="lineNum">    1085 </span>                :            :             } else {
+<span class="lineNum">    1086 </span>                :<span class="lineCov">          2 :                 throw new ZOOLU.UI.Exception('Buttons argument must be an array but was ' + typeof buttons);</span>
+<span class="lineNum">    1087 </span>                :            :             }
+<span class="lineNum">    1088 </span>                :            :         },
+<span class="lineNum">    1089 </span>                :            : 
+<span class="lineNum">    1090 </span>                :            :         /**
+<span class="lineNum">    1091 </span>                :            :          * Initializes the footer-buttons
+<span class="lineNum">    1092 </span>                :            :          *
+<span class="lineNum">    1093 </span>                :            :          * @private
+<span class="lineNum">    1094 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1095 </span>                :            :          */
+<span class="lineNum">    1096 </span>                :            :         initFooterButtons: function() {
+<span class="lineNum">    1097 </span>                :<span class="lineCov">         16 :             this.$footerButtons = $('&lt;div class=&quot;' + this.options.footerButtonsContainerClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1098 </span>                :            : 
+<span class="lineNum">    1099 </span>                :<span class="lineCov">         16 :             for (var i = -1, length = this.footerButtons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1100 </span>                :<span class="lineCov">          4 :                 var button = $('&lt;div/&gt;'),</span>
+<span class="lineNum">    1101 </span>                :            :                     bhtml = this.footerButtons[i].content,
+<span class="lineNum">    1102 </span>                :            :                     bcallback = this.footerButtons[i].callBack || '',
+<span class="lineNum">    1103 </span>                :            :                     bclass = this.footerButtons[i].cssClass || this.options.footerButtonDefaultClass,
+<span class="lineNum">    1104 </span>                :            :                     bid = this.footerButtons[i].elementId;
+<span class="lineNum">    1105 </span>                :<span class="lineCov">          4 :                 button.html(bhtml);</span>
+<span class="lineNum">    1106 </span>                :<span class="lineCov">          4 :                 button.addClass(bclass);</span>
+<span class="lineNum">    1107 </span>                :<span class="lineCov">          4 :                 button.attr('id', bid);</span>
+<span class="lineNum">    1108 </span>                :<span class="lineCov">          4 :                 button.on('click', bcallback);</span>
+<span class="lineNum">    1109 </span>                :<span class="lineCov">          4 :                 this.$footerButtons.append(button);</span>
+<span class="lineNum">    1110 </span>                :<span class="lineCov">          4 :                 log(this.$footerButtons);</span>
+<span class="lineNum">    1111 </span>                :            :             }
+<span class="lineNum">    1112 </span>                :            :         },
+<span class="lineNum">    1113 </span>                :            : 
+<span class="lineNum">    1114 </span>                :            :         /**
+<span class="lineNum">    1115 </span>                :            :          * Sets the position of the Modal View according to the options
+<span class="lineNum">    1116 </span>                :            :          * default is the center of the screen
+<span class="lineNum">    1117 </span>                :            :          *
+<span class="lineNum">    1118 </span>                :            :          * @private
+<span class="lineNum">    1119 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1120 </span>                :            :          */
+<span class="lineNum">    1121 </span>                :            :         setPosition: function() {
+<span class="lineNum">    1122 </span>                :<span class="lineCov">         14 :             this.$element.css('position', 'absolute');</span>
+<span class="lineNum">    1123 </span>                :            : 
+<span class="lineNum">    1124 </span>                :<span class="lineCov">         14 :             if (this.options.left !== false) {</span>
+<span class="lineNum">    1125 </span>                :<span class="lineCov">          2 :                 this.$element.css('left', this.options.left);</span>
+<span class="lineNum">    1126 </span>                :<span class="lineCov">         12 :             } else if (this.options.right !== false) {</span>
+<span class="lineNum">    1127 </span>                :<span class="lineCov">          2 :                 this.$element.css('right', this.options.right);</span>
+<span class="lineNum">    1128 </span>                :            :             } else {
+<span class="lineNum">    1129 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
+<span class="lineNum">    1130 </span>                :            :                     'left': '50%',
+<span class="lineNum">    1131 </span>                :            :                     'margin-left': '-' + this.$element.outerWidth() / 2 + 'px'
+<span class="lineNum">    1132 </span>                :            :                 });
+<span class="lineNum">    1133 </span>                :            :             }
+<span class="lineNum">    1134 </span>                :            : 
+<span class="lineNum">    1135 </span>                :<span class="lineCov">         14 :             if (this.options.top !== false) {</span>
+<span class="lineNum">    1136 </span>                :<span class="lineCov">          2 :                 this.$element.css('top', this.options.top);</span>
+<span class="lineNum">    1137 </span>                :<span class="lineCov">         12 :             } else if (this.options.bottom !== false) {</span>
+<span class="lineNum">    1138 </span>                :<span class="lineCov">          2 :                 this.$element.css('bottom', this.options.bottom);</span>
+<span class="lineNum">    1139 </span>                :            :             } else {
+<span class="lineNum">    1140 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
+<span class="lineNum">    1141 </span>                :            :                     'top': '50%',
+<span class="lineNum">    1142 </span>                :            :                     'margin-top': '-' + this.$element.outerHeight() / 2 + 'px'
+<span class="lineNum">    1143 </span>                :            :                 });
+<span class="lineNum">    1144 </span>                :            :             }
+<span class="lineNum">    1145 </span>                :            :         },
+<span class="lineNum">    1146 </span>                :            : 
+<span class="lineNum">    1147 </span>                :            :         /**
+<span class="lineNum">    1148 </span>                :            :          * Initializes all events which are needed by the the Modal View itselfs
+<span class="lineNum">    1149 </span>                :            :          * or by one of its children.
+<span class="lineNum">    1150 </span>                :            :          *
+<span class="lineNum">    1151 </span>                :            :          * @private
+<span class="lineNum">    1152 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1153 </span>                :            :          */
+<span class="lineNum">    1154 </span>                :            :         initBoxEvents: function() {
+<span class="lineNum">    1155 </span>                :<span class="lineCov">         12 :             if (this.options.draggable === true &amp;&amp; this.options.draggableOnlyOnHeader === true &amp;&amp; !!this.$header) {</span>
+<span class="lineNum">    1156 </span>                :<span class="lineCov">         12 :                 this.$header.on('mousedown', function() {</span>
+<span class="lineNum">    1157 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({</span>
+<span class="lineNum">    1158 </span>                :            :                         disabled: false,
+<span class="lineNum">    1159 </span>                :            :                         grid: this.options.draggableGrid
+<span class="lineNum">    1160 </span>                :            :                     });
+<span class="lineNum">    1161 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1162 </span>                :<span class="lineCov">         12 :                 this.$header.on('mouseup', function() {</span>
+<span class="lineNum">    1163 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({disabled: true});</span>
+<span class="lineNum">    1164 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1165 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.draggable === true) {</span>
+<span class="lineNum">    1166 </span>                :<span class="lineNoCov">          0 :                 this.$element.draggable({</span>
+<span class="lineNum">    1167 </span>                :            :                     grid: this.options.draggableGrid
+<span class="lineNum">    1168 </span>                :            :                 });
+<span class="lineNum">    1169 </span>                :            :             }
+<span class="lineNum">    1170 </span>                :<span class="lineCov">         12 :             if (this.options.resizable === true) {</span>
+<span class="lineNum">    1171 </span>                :<span class="lineCov">         10 :                 this.$element.resizable({</span>
+<span class="lineNum">    1172 </span>                :            :                     handles: 'se',
+<span class="lineNum">    1173 </span>                :            :                     maxHeight: this.options.resizeMaxHeight,
+<span class="lineNum">    1174 </span>                :            :                     minHeight: this.options.resizeMinHeight,
+<span class="lineNum">    1175 </span>                :            :                     maxWidth: this.options.resizeMaxWidth,
+<span class="lineNum">    1176 </span>                :            :                     minWidth: this.options.resizeMinWidth
+<span class="lineNum">    1177 </span>                :            :                 });
+<span class="lineNum">    1178 </span>                :            :             }
+<span class="lineNum">    1179 </span>                :<span class="lineCov">         12 :             if (!!this.$headerClose) {</span>
+<span class="lineNum">    1180 </span>                :<span class="lineCov">         10 :                 this.$headerClose.on('click', function() {</span>
+<span class="lineNum">    1181 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1182 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1183 </span>                :            :             }
+<span class="lineNum">    1184 </span>                :<span class="lineCov">         12 :             if (!!this.$footerClose) {</span>
+<span class="lineNum">    1185 </span>                :<span class="lineCov">         10 :                 this.$footerClose.on('click', function() {</span>
+<span class="lineNum">    1186 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1187 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1188 </span>                :            :             }
+<span class="lineNum">    1189 </span>                :<span class="lineCov">         12 :             if (!!this.$overlay &amp;&amp; this.options.overlayClose === true) {</span>
+<span class="lineNum">    1190 </span>                :<span class="lineCov">         10 :                 this.$overlay.on('click', function() {</span>
+<span class="lineNum">    1191 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1192 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1193 </span>                :            :             }
+<span class="lineNum">    1194 </span>                :            :         },
+<span class="lineNum">    1195 </span>                :            : 
+<span class="lineNum">    1196 </span>                :            :         /**
+<span class="lineNum">    1197 </span>                :            :          * Closes the Modal View according to the given options. (Either with or
+<span class="lineNum">    1198 </span>                :            :          * without fading)
+<span class="lineNum">    1199 </span>                :            :          *
+<span class="lineNum">    1200 </span>                :            :          * @example
+<span class="lineNum">    1201 </span>                :            :          *
+<span class="lineNum">    1202 </span>                :            :          *  var modal = new ZOOLU.UI.Modal();
+<span class="lineNum">    1203 </span>                :            :          *  modal.display();
+<span class="lineNum">    1204 </span>                :            :          *  modal.close();
 <span class="lineNum">    1205 </span>                :            :          *
-<span class="lineNum">    1206 </span>                :            :          * @example
-<span class="lineNum">    1207 </span>                :            :          *
-<span class="lineNum">    1208 </span>                :            :          *  var modal = new ZOOLU.UI.Modal();
-<span class="lineNum">    1209 </span>                :            :          *  modal.display();
-<span class="lineNum">    1210 </span>                :            :          *  modal.close();
-<span class="lineNum">    1211 </span>                :            :          *
-<span class="lineNum">    1212 </span>                :            :          * @public
-<span class="lineNum">    1213 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
-<span class="lineNum">    1214 </span>                :            :          */
-<span class="lineNum">    1215 </span>                :            :         close: function() {
-<span class="lineNum">    1216 </span>                :<span class="lineCov">          4 :             if (this.options.fadeOut === true) {</span>
-<span class="lineNum">    1217 </span>                :<span class="lineCov">          2 :                 this.$element.fadeOut(this.options.fadeOutDuration, function() {</span>
-<span class="lineNum">    1218 </span>                :<span class="lineCov">          1 :                     this.$element.remove();</span>
-<span class="lineNum">    1219 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1220 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
-<span class="lineNum">    1221 </span>                :<span class="lineCov">          2 :                     this.$overlay.fadeOut(this.options.fadeOutDuration, function() {</span>
-<span class="lineNum">    1222 </span>                :<span class="lineCov">          1 :                         this.$overlay.remove();</span>
-<span class="lineNum">    1223 </span>                :            :                     }.bind(this));
-<span class="lineNum">    1224 </span>                :            :                 }
-<span class="lineNum">    1225 </span>                :            :             } else {
-<span class="lineNum">    1226 </span>                :<span class="lineCov">          2 :                 this.$element.remove();</span>
-<span class="lineNum">    1227 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
-<span class="lineNum">    1228 </span>                :<span class="lineCov">          2 :                     this.$overlay.remove();</span>
-<span class="lineNum">    1229 </span>                :            :                 }
-<span class="lineNum">    1230 </span>                :            :             }
-<span class="lineNum">    1231 </span>                :<span class="lineCov">          4 :             this.trigger('Modal.deactivate');</span>
-<span class="lineNum">    1232 </span>                :            :         }
-<span class="lineNum">    1233 </span>                :            :     };
-<span class="lineNum">    1234 </span>                :            : 
-<span class="lineNum">    1235 </span>                :            : })(window, window.ZOOLU, window.jQuery);
+<span class="lineNum">    1206 </span>                :            :          * @public
+<span class="lineNum">    1207 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1208 </span>                :            :          */
+<span class="lineNum">    1209 </span>                :            :         close: function() {
+<span class="lineNum">    1210 </span>                :<span class="lineCov">          4 :             if (this.options.fadeOut === true) {</span>
+<span class="lineNum">    1211 </span>                :<span class="lineCov">          2 :                 this.$element.fadeOut(this.options.fadeOutDuration, function() {</span>
+<span class="lineNum">    1212 </span>                :<span class="lineNoCov">          0 :                     this.$element.remove();</span>
+<span class="lineNum">    1213 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1214 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
+<span class="lineNum">    1215 </span>                :<span class="lineCov">          2 :                     this.$overlay.fadeOut(this.options.fadeOutDuration, function() {</span>
+<span class="lineNum">    1216 </span>                :<span class="lineNoCov">          0 :                         this.$overlay.remove();</span>
+<span class="lineNum">    1217 </span>                :            :                     }.bind(this));
+<span class="lineNum">    1218 </span>                :            :                 }
+<span class="lineNum">    1219 </span>                :            :             } else {
+<span class="lineNum">    1220 </span>                :<span class="lineCov">          2 :                 this.$element.remove();</span>
+<span class="lineNum">    1221 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
+<span class="lineNum">    1222 </span>                :<span class="lineCov">          2 :                     this.$overlay.remove();</span>
+<span class="lineNum">    1223 </span>                :            :                 }
+<span class="lineNum">    1224 </span>                :            :             }
+<span class="lineNum">    1225 </span>                :<span class="lineCov">          4 :             this.trigger('Modal.deactivate');</span>
+<span class="lineNum">    1226 </span>                :            :         }
+<span class="lineNum">    1227 </span>                :            : 
+<span class="lineNum">    1228 </span>                :            :     };
+<span class="lineNum">    1229 </span>                :            : 
+<span class="lineNum">    1230 </span>                :            :     /**
+<span class="lineNum">    1231 </span>                :            :      * ZOOLU Button UI Element
+<span class="lineNum">    1232 </span>                :            :      *
+<span class="lineNum">    1233 </span>                :            :      * @class
+<span class="lineNum">    1234 </span>                :            :      * @constructor
+<span class="lineNum">    1235 </span>                :            :      * @public
+<span class="lineNum">    1236 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+<span class="lineNum">    1237 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#on as #on
+<span class="lineNum">    1238 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#off as #off
+<span class="lineNum">    1239 </span>                :            :      * @triggers Button.select
+<span class="lineNum">    1240 </span>                :            :      * @triggers Button.unselect
+<span class="lineNum">    1241 </span>                :            :      * @param {String} element - jQuery selector for the button
+<span class="lineNum">    1242 </span>                :            :      * @param {Function} callback - Callback-function for the button
+<span class="lineNum">    1243 </span>                :            :      * @param {Object} options - Default options will be merged with the given options
+<span class="lineNum">    1244 </span>                :            :      * @example
+<span class="lineNum">    1245 </span>                :            :      *
+<span class="lineNum">    1246 </span>                :            :      *  var myButton = new ZOOLU.UI.Button('#myButton', myCallback, {
+<span class="lineNum">    1247 </span>                :            :      *      toggle: false,
+<span class="lineNum">    1248 </span>                :            :      *      triggerEvent: 'mouseenter'
+<span class="lineNum">    1249 </span>                :            :      *  });
+<span class="lineNum">    1250 </span>                :            :      *
+<span class="lineNum">    1251 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1252 </span>                :            :      */
+<span class="lineNum">    1253 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Button = function(element, callback, options) {</span>
+<span class="lineNum">    1254 </span>                :<span class="lineNoCov">          0 :         this.$element = $(element);</span>
+<span class="lineNum">    1255 </span>                :<span class="lineNoCov">          0 :         this.callback = callback;</span>
+<span class="lineNum">    1256 </span>                :<span class="lineNoCov">          0 :         this.selected = false;</span>
+<span class="lineNum">    1257 </span>                :            : 
+<span class="lineNum">    1258 </span>                :<span class="lineNoCov">          0 :         if (!this.$element.length) {</span>
+<span class="lineNum">    1259 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception('Button container does not exist');</span>
+<span class="lineNum">    1260 </span>                :            :         }
+<span class="lineNum">    1261 </span>                :            : 
+<span class="lineNum">    1262 </span>                :            :         // extend default options with given
+<span class="lineNum">    1263 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">    1264 </span>                :            :             toggle: true, //true/false - for unselecting and selecting
+<span class="lineNum">    1265 </span>                :            :             toggleBackOnlyOnButton: true, //true/false - for toggle back with click at the document
+<span class="lineNum">    1266 </span>                :            :             toggleBackOnMouseLeave: false, //true/false - for toggle back on mouseleave
+<span class="lineNum">    1267 </span>                :            :             triggerEvent: 'click', //Event which triggers the button
+<span class="lineNum">    1268 </span>                :            :             toggleClass: 'active', //CSS-Class gets added to clicked buttons
+<span class="lineNum">    1269 </span>                :            :             autoselect: false, //true/false - selects the button onload
+<span class="lineNum">    1270 </span>                :            :             unselect: true, //true/false - button can be selected but not unselected (toggle must be enabled)
+<span class="lineNum">    1271 </span>                :            :             callBackOnUnselect: false           //true/false - for executeing the callback on unselect
+<span class="lineNum">    1272 </span>                :            :         }, options);
+<span class="lineNum">    1273 </span>                :            : 
+<span class="lineNum">    1274 </span>                :            :         // add event API
+<span class="lineNum">    1275 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1276 </span>                :            : 
+<span class="lineNum">    1277 </span>                :<span class="lineNoCov">          0 :         log('Button', 'construct', this);</span>
+<span class="lineNum">    1278 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">    1279 </span>                :            :     };
+<span class="lineNum">    1280 </span>                :            : 
+<span class="lineNum">    1281 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Button.prototype = {</span>
+<span class="lineNum">    1282 </span>                :            : 
+<span class="lineNum">    1283 </span>                :            :         constructor: ZOOLU.UI.Button,
+<span class="lineNum">    1284 </span>                :            : 
+<span class="lineNum">    1285 </span>                :            :         initialize: function() {
+<span class="lineNum">    1286 </span>                :<span class="lineNoCov">          0 :             if (this.options.autoselect === true) {</span>
+<span class="lineNum">    1287 </span>                :<span class="lineNoCov">          0 :                 this.select();</span>
+<span class="lineNum">    1288 </span>                :<span class="lineNoCov">          0 :                 this.exeCallback();</span>
+<span class="lineNum">    1289 </span>                :            :             }
+<span class="lineNum">    1290 </span>                :            : 
+<span class="lineNum">    1291 </span>                :<span class="lineNoCov">          0 :             this.$element.bind(this.options.triggerEvent, function(event) {</span>
+<span class="lineNum">    1292 </span>                :<span class="lineNoCov">          0 :                 event.stopPropagation();</span>
+<span class="lineNum">    1293 </span>                :<span class="lineNoCov">          0 :                 if (this.options.toggle === false || this.selected === false) {</span>
+<span class="lineNum">    1294 </span>                :<span class="lineNoCov">          0 :                     this.select();</span>
+<span class="lineNum">    1295 </span>                :<span class="lineNoCov">          0 :                     this.exeCallback();</span>
+<span class="lineNum">    1296 </span>                :<span class="lineNoCov">          0 :                 } else if (this.options.unselect === true) {</span>
+<span class="lineNum">    1297 </span>                :<span class="lineNoCov">          0 :                     this.unselect();</span>
+<span class="lineNum">    1298 </span>                :<span class="lineNoCov">          0 :                     this.exeCallback();</span>
+<span class="lineNum">    1299 </span>                :            :                 }
+<span class="lineNum">    1300 </span>                :            :             }.bind(this));
+<span class="lineNum">    1301 </span>                :            :         },
+<span class="lineNum">    1302 </span>                :            : 
+<span class="lineNum">    1303 </span>                :            :         /**
+<span class="lineNum">    1304 </span>                :            :          * Selects the button (doesn't execute the callback)
+<span class="lineNum">    1305 </span>                :            :          *
+<span class="lineNum">    1306 </span>                :            :          * @public
+<span class="lineNum">    1307 </span>                :            :          * @triggers Button.select
+<span class="lineNum">    1308 </span>                :            :          * @example
+<span class="lineNum">    1309 </span>                :            :          *
+<span class="lineNum">    1310 </span>                :            :          *  var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+<span class="lineNum">    1311 </span>                :            :          *  myButton.select();
+<span class="lineNum">    1312 </span>                :            :          *
+<span class="lineNum">    1313 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1314 </span>                :            :          */
+<span class="lineNum">    1315 </span>                :            :         select: function() {
+<span class="lineNum">    1316 </span>                :<span class="lineNoCov">          0 :             this.addToggleClass();</span>
+<span class="lineNum">    1317 </span>                :<span class="lineNoCov">          0 :             this.trigger('Button.select');</span>
+<span class="lineNum">    1318 </span>                :<span class="lineNoCov">          0 :             this.selected = true;</span>
+<span class="lineNum">    1319 </span>                :<span class="lineNoCov">          0 :             this.bindToggleBackHandler();</span>
+<span class="lineNum">    1320 </span>                :            :         },
+<span class="lineNum">    1321 </span>                :            : 
+<span class="lineNum">    1322 </span>                :            :         /**
+<span class="lineNum">    1323 </span>                :            :          * Unselects the button
+<span class="lineNum">    1324 </span>                :            :          *
+<span class="lineNum">    1325 </span>                :            :          * @public
+<span class="lineNum">    1326 </span>                :            :          * @triggers Button.unselect
+<span class="lineNum">    1327 </span>                :            :          * @example
+<span class="lineNum">    1328 </span>                :            :          *
+<span class="lineNum">    1329 </span>                :            :          *  var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+<span class="lineNum">    1330 </span>                :            :          *  myButton.unselect();
+<span class="lineNum">    1331 </span>                :            :          *
+<span class="lineNum">    1332 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1333 </span>                :            :          */
+<span class="lineNum">    1334 </span>                :            :         unselect: function() {
+<span class="lineNum">    1335 </span>                :<span class="lineNoCov">          0 :             this.removeToggleClass();</span>
+<span class="lineNum">    1336 </span>                :<span class="lineNoCov">          0 :             this.trigger('Button.unselect');</span>
+<span class="lineNum">    1337 </span>                :<span class="lineNoCov">          0 :             this.selected = false;</span>
+<span class="lineNum">    1338 </span>                :            :         },
+<span class="lineNum">    1339 </span>                :            : 
+<span class="lineNum">    1340 </span>                :            :         /**
+<span class="lineNum">    1341 </span>                :            :          * Executes the callback-function of the button
+<span class="lineNum">    1342 </span>                :            :          *
+<span class="lineNum">    1343 </span>                :            :          * @public
+<span class="lineNum">    1344 </span>                :            :          * @example
+<span class="lineNum">    1345 </span>                :            :          *
+<span class="lineNum">    1346 </span>                :            :          *  var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+<span class="lineNum">    1347 </span>                :            :          *  myButton.exeCallback;
+<span class="lineNum">    1348 </span>                :            :          *
+<span class="lineNum">    1349 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1350 </span>                :            :          */
+<span class="lineNum">    1351 </span>                :            :         exeCallback: function() {
+<span class="lineNum">    1352 </span>                :<span class="lineNoCov">          0 :             if (typeof this.callback === 'function') {</span>
+<span class="lineNum">    1353 </span>                :<span class="lineNoCov">          0 :                 if (this.options.callBackOnUnselect === true || this.selected === true) {</span>
+<span class="lineNum">    1354 </span>                :<span class="lineNoCov">          0 :                     this.callback.call();</span>
+<span class="lineNum">    1355 </span>                :            :                 }
+<span class="lineNum">    1356 </span>                :            :             }
+<span class="lineNum">    1357 </span>                :            :         },
+<span class="lineNum">    1358 </span>                :            : 
+<span class="lineNum">    1359 </span>                :            :         /**
+<span class="lineNum">    1360 </span>                :            :          * Adds a CSS-Class to the button
+<span class="lineNum">    1361 </span>                :            :          *
+<span class="lineNum">    1362 </span>                :            :          * @private
+<span class="lineNum">    1363 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1364 </span>                :            :          */
+<span class="lineNum">    1365 </span>                :            :         addToggleClass: function() {
+<span class="lineNum">    1366 </span>                :<span class="lineNoCov">          0 :             if (this.options.toggle === true) {</span>
+<span class="lineNum">    1367 </span>                :<span class="lineNoCov">          0 :                 this.$element.addClass(this.options.toggleClass);</span>
+<span class="lineNum">    1368 </span>                :            :             }
+<span class="lineNum">    1369 </span>                :            :         },
+<span class="lineNum">    1370 </span>                :            : 
+<span class="lineNum">    1371 </span>                :            :         /**
+<span class="lineNum">    1372 </span>                :            :          * Removes the CSS-Class from the button
+<span class="lineNum">    1373 </span>                :            :          *
+<span class="lineNum">    1374 </span>                :            :          * @private
+<span class="lineNum">    1375 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1376 </span>                :            :          */
+<span class="lineNum">    1377 </span>                :            :         removeToggleClass: function() {
+<span class="lineNum">    1378 </span>                :<span class="lineNoCov">          0 :             if (this.options.toggle === true) {</span>
+<span class="lineNum">    1379 </span>                :<span class="lineNoCov">          0 :                 this.$element.removeClass(this.options.toggleClass);</span>
+<span class="lineNum">    1380 </span>                :            :             }
+<span class="lineNum">    1381 </span>                :            :         },
+<span class="lineNum">    1382 </span>                :            : 
+<span class="lineNum">    1383 </span>                :            :         /**
+<span class="lineNum">    1384 </span>                :            :          * Binds an event for unselecting the button - either with click at the document,
+<span class="lineNum">    1385 </span>                :            :          * or on mouseleave
+<span class="lineNum">    1386 </span>                :            :          *
+<span class="lineNum">    1387 </span>                :            :          * @private
+<span class="lineNum">    1388 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1389 </span>                :            :          */
+<span class="lineNum">    1390 </span>                :            :         bindToggleBackHandler: function() {
+<span class="lineNum">    1391 </span>                :<span class="lineNoCov">          0 :             if (this.options.toggleBackOnlyOnButton === false &amp;&amp; this.options.toggle === true) {</span>
+<span class="lineNum">    1392 </span>                :<span class="lineNoCov">          0 :                 $(document).bind(this.options.triggerEvent, function() {</span>
+<span class="lineNum">    1393 </span>                :<span class="lineNoCov">          0 :                     this.unselect();</span>
+<span class="lineNum">    1394 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1395 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.toggleBackOnMouseLeave === true &amp;&amp; this.options.toggle === true) {</span>
+<span class="lineNum">    1396 </span>                :<span class="lineNoCov">          0 :                 this.$element.bind('mouseleave', function() {</span>
+<span class="lineNum">    1397 </span>                :<span class="lineNoCov">          0 :                     this.unselect();</span>
+<span class="lineNum">    1398 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1399 </span>                :            :             }
+<span class="lineNum">    1400 </span>                :            :         }
+<span class="lineNum">    1401 </span>                :            :     };
+<span class="lineNum">    1402 </span>                :            : 
+<span class="lineNum">    1403 </span>                :            :     /**
+<span class="lineNum">    1404 </span>                :            :      * ZOOLU Button Group UI Element
+<span class="lineNum">    1405 </span>                :            :      *
+<span class="lineNum">    1406 </span>                :            :      * @class
+<span class="lineNum">    1407 </span>                :            :      * @constructor
+<span class="lineNum">    1408 </span>                :            :      * @public
+<span class="lineNum">    1409 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+<span class="lineNum">    1410 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#on as #on
+<span class="lineNum">    1411 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#off as #off
+<span class="lineNum">    1412 </span>                :            :      * @param {String} container - jQuery Selektor for the Button Group Container
+<span class="lineNum">    1413 </span>                :            :      * @param {Array} callbacks - Callback functions get applied to the buttons in the order they are declared
+<span class="lineNum">    1414 </span>                :            :      * @param {Object} options - Default options will be merged with the given options
+<span class="lineNum">    1415 </span>                :            :      * @example
+<span class="lineNum">    1416 </span>                :            :      *
+<span class="lineNum">    1417 </span>                :            :      *   var myButtonGroup = new ZOOLU.UI.ButtonGroup('#myButtonGroup', [
+<span class="lineNum">    1418 </span>                :            :      *       function(){alert('Callback 1');},
+<span class="lineNum">    1419 </span>                :            :      *       function(){alert('Callback 2');},
+<span class="lineNum">    1420 </span>                :            :      *       function(){alert('Callback 3');},
+<span class="lineNum">    1421 </span>                :            :      *   ], {
+<span class="lineNum">    1422 </span>                :            :      *      dataToggle: radio,
+<span class="lineNum">    1423 </span>                :            :      *      buttonClass: 'btn'
+<span class="lineNum">    1424 </span>                :            :      *   });
+<span class="lineNum">    1425 </span>                :            :      *
+<span class="lineNum">    1426 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1427 </span>                :            :      */
+<span class="lineNum">    1428 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.ButtonGroup = function(container, callbacks, options) {</span>
+<span class="lineNum">    1429 </span>                :<span class="lineNoCov">          0 :         this.$container = $(container);</span>
+<span class="lineNum">    1430 </span>                :<span class="lineNoCov">          0 :         this.callbacks = callbacks;</span>
+<span class="lineNum">    1431 </span>                :<span class="lineNoCov">          0 :         this.buttons = [];</span>
+<span class="lineNum">    1432 </span>                :            : 
+<span class="lineNum">    1433 </span>                :<span class="lineNoCov">          0 :         if (!this.$container.length) {</span>
+<span class="lineNum">    1434 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception('Button Group container does not exist');</span>
+<span class="lineNum">    1435 </span>                :            :         }
+<span class="lineNum">    1436 </span>                :            : 
+<span class="lineNum">    1437 </span>                :            :         // extend default options with given
+<span class="lineNum">    1438 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">    1439 </span>                :            :             dataToggle: false, //false or radio
+<span class="lineNum">    1440 </span>                :            :             buttonClass: 'button', //CSS-Class
+<span class="lineNum">    1441 </span>                :            :             buttonOptions: {}           //Options for ZOOLU.UI.Button
+<span class="lineNum">    1442 </span>                :            :         }, options);
+<span class="lineNum">    1443 </span>                :            : 
+<span class="lineNum">    1444 </span>                :            :         // add event API
+<span class="lineNum">    1445 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1446 </span>                :            : 
+<span class="lineNum">    1447 </span>                :<span class="lineNoCov">          0 :         log('Button Group', 'construct', this);</span>
+<span class="lineNum">    1448 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">    1449 </span>                :            :     };
+<span class="lineNum">    1450 </span>                :            : 
+<span class="lineNum">    1451 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.ButtonGroup.prototype = {</span>
+<span class="lineNum">    1452 </span>                :            : 
+<span class="lineNum">    1453 </span>                :            :         constructor: ZOOLU.UI.ButtonGroup,
+<span class="lineNum">    1454 </span>                :            : 
+<span class="lineNum">    1455 </span>                :            :         CONST: {
+<span class="lineNum">    1456 </span>                :            :             dataToggle: {
+<span class="lineNum">    1457 </span>                :            :                 radio: 'radio'
+<span class="lineNum">    1458 </span>                :            :             }
+<span class="lineNum">    1459 </span>                :            :         },
+<span class="lineNum">    1460 </span>                :            : 
+<span class="lineNum">    1461 </span>                :            :         initialize: function() {
+<span class="lineNum">    1462 </span>                :<span class="lineNoCov">          0 :             this.initButtons();</span>
+<span class="lineNum">    1463 </span>                :<span class="lineNoCov">          0 :             this.initCallbacks();</span>
+<span class="lineNum">    1464 </span>                :            :         },
+<span class="lineNum">    1465 </span>                :            : 
+<span class="lineNum">    1466 </span>                :            :         /**
+<span class="lineNum">    1467 </span>                :            :          * Initializes all buttons - ZOOLU.UI.Buttons get stored in {Array} this.buttons
+<span class="lineNum">    1468 </span>                :            :          *
+<span class="lineNum">    1469 </span>                :            :          * @private
+<span class="lineNum">    1470 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1471 </span>                :            :          */
+<span class="lineNum">    1472 </span>                :            :         initButtons: function() {
+<span class="lineNum">    1473 </span>                :<span class="lineNoCov">          0 :             var buttons = this.$container.find('.' + this.options.buttonClass);</span>
+<span class="lineNum">    1474 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = buttons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1475 </span>                :<span class="lineNoCov">          0 :                 this.buttons[i] = new ZOOLU.UI.Button(buttons[i], null, this.options.buttonOptions);</span>
+<span class="lineNum">    1476 </span>                :<span class="lineNoCov">          0 :                 this.attachObserver(i);</span>
+<span class="lineNum">    1477 </span>                :            :             }
+<span class="lineNum">    1478 </span>                :            :         },
+<span class="lineNum">    1479 </span>                :            : 
+<span class="lineNum">    1480 </span>                :            :         /**
+<span class="lineNum">    1481 </span>                :            :          * Sets the Callback for the ZOOLU.UI.Buttons
+<span class="lineNum">    1482 </span>                :            :          *
+<span class="lineNum">    1483 </span>                :            :          * @private
+<span class="lineNum">    1484 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1485 </span>                :            :          */
+<span class="lineNum">    1486 </span>                :            :         initCallbacks: function() {
+<span class="lineNum">    1487 </span>                :<span class="lineNoCov">          0 :             if (!!this.callbacks) {</span>
+<span class="lineNum">    1488 </span>                :<span class="lineNoCov">          0 :                 for (var i = -1, length = this.callbacks.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1489 </span>                :<span class="lineNoCov">          0 :                     if (!!this.buttons[i]) {</span>
+<span class="lineNum">    1490 </span>                :<span class="lineNoCov">          0 :                         if (typeof this.callbacks[i] === 'function') {</span>
+<span class="lineNum">    1491 </span>                :<span class="lineNoCov">          0 :                             this.buttons[i].callback = this.callbacks[i];</span>
+<span class="lineNum">    1492 </span>                :            :                         } else {
+<span class="lineNum">    1493 </span>                :<span class="lineNoCov">          0 :                             throw new ZOOLU.UI.Exception('Defined Callback is not a function');</span>
+<span class="lineNum">    1494 </span>                :            :                         }
+<span class="lineNum">    1495 </span>                :            :                     } else {
+<span class="lineNum">    1496 </span>                :<span class="lineNoCov">          0 :                         throw new ZOOLU.UI.Exception('Too many Callbacks or not enough buttons');</span>
+<span class="lineNum">    1497 </span>                :            :                     }
+<span class="lineNum">    1498 </span>                :            :                 }
+<span class="lineNum">    1499 </span>                :            :             }
+<span class="lineNum">    1500 </span>                :            :         },
+<span class="lineNum">    1501 </span>                :            : 
+<span class="lineNum">    1502 </span>                :            :         /**
+<span class="lineNum">    1503 </span>                :            :          * Attaches an observer, which listens for Button.select. On Button.select
+<span class="lineNum">    1504 </span>                :            :          * this.dataToggleHandler() is executed
+<span class="lineNum">    1505 </span>                :            :          *
+<span class="lineNum">    1506 </span>                :            :          * @private
+<span class="lineNum">    1507 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1508 </span>                :            :          */
+<span class="lineNum">    1509 </span>                :            :         attachObserver: function(index) {
+<span class="lineNum">    1510 </span>                :<span class="lineNoCov">          0 :             this.buttons[index].on('Button.select', function() {</span>
+<span class="lineNum">    1511 </span>                :<span class="lineNoCov">          0 :                 this.dataToggleHandler(index);</span>
+<span class="lineNum">    1512 </span>                :            :             }.bind(this));
+<span class="lineNum">    1513 </span>                :            :         },
+<span class="lineNum">    1514 </span>                :            : 
+<span class="lineNum">    1515 </span>                :            :         /**
+<span class="lineNum">    1516 </span>                :            :          * Handles the data toggling - unselects all buttons except the clicked one
+<span class="lineNum">    1517 </span>                :            :          * if dataToggle is radio
+<span class="lineNum">    1518 </span>                :            :          *
+<span class="lineNum">    1519 </span>                :            :          * @private
+<span class="lineNum">    1520 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1521 </span>                :            :          */
+<span class="lineNum">    1522 </span>                :            :         dataToggleHandler: function(selected) {
+<span class="lineNum">    1523 </span>                :<span class="lineNoCov">          0 :             if (this.options.dataToggle === this.CONST.dataToggle.radio) {</span>
+<span class="lineNum">    1524 </span>                :<span class="lineNoCov">          0 :                 for (var i = -1, length = this.buttons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1525 </span>                :<span class="lineNoCov">          0 :                     if (this.buttons[i] !== this.buttons[selected]) {</span>
+<span class="lineNum">    1526 </span>                :<span class="lineNoCov">          0 :                         this.buttons[i].unselect();</span>
+<span class="lineNum">    1527 </span>                :            :                     }
+<span class="lineNum">    1528 </span>                :            :                 }
+<span class="lineNum">    1529 </span>                :            :             }
+<span class="lineNum">    1530 </span>                :            :         },
+<span class="lineNum">    1531 </span>                :            : 
+<span class="lineNum">    1532 </span>                :            :         /**
+<span class="lineNum">    1533 </span>                :            :          * Returns an Array with all selected buttons of the Button Group in it
+<span class="lineNum">    1534 </span>                :            :          *
+<span class="lineNum">    1535 </span>                :            :          * @public
+<span class="lineNum">    1536 </span>                :            :          * @example
+<span class="lineNum">    1537 </span>                :            :          *
+<span class="lineNum">    1538 </span>                :            :          *   var myButtonGroup = new ZOOLU.UI.ButtonGroup('#myButtonGroup', [
+<span class="lineNum">    1539 </span>                :            :          *       function(){alert('Callback 1');},
+<span class="lineNum">    1540 </span>                :            :          *       function(){alert('Callback 2');},
+<span class="lineNum">    1541 </span>                :            :          *       function(){alert('Callback 3');},
+<span class="lineNum">    1542 </span>                :            :          *   ], {});
+<span class="lineNum">    1543 </span>                :            :          *
+<span class="lineNum">    1544 </span>                :            :          *   var selectedButtonsArray = myButtonGroup.getSelectedButtons();
+<span class="lineNum">    1545 </span>                :            :          *
+<span class="lineNum">    1546 </span>                :            :          * @return {Array}
+<span class="lineNum">    1547 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1548 </span>                :            :          */
+<span class="lineNum">    1549 </span>                :            :         getSelectedButtons: function() {
+<span class="lineNum">    1550 </span>                :<span class="lineNoCov">          0 :             var selectedButtons = [],</span>
+<span class="lineNum">    1551 </span>                :            :                 i = -1,
+<span class="lineNum">    1552 </span>                :            :                 length = this.buttons.length;
+<span class="lineNum">    1553 </span>                :<span class="lineNoCov">          0 :             for (; ++i &lt; length;) {</span>
+<span class="lineNum">    1554 </span>                :<span class="lineNoCov">          0 :                 if (this.buttons[i].selected === true) {</span>
+<span class="lineNum">    1555 </span>                :<span class="lineNoCov">          0 :                     selectedButtons.push(this.buttons[i]);</span>
+<span class="lineNum">    1556 </span>                :            :                 }
+<span class="lineNum">    1557 </span>                :            :             }
+<span class="lineNum">    1558 </span>                :<span class="lineNoCov">          0 :             return selectedButtons;</span>
+<span class="lineNum">    1559 </span>                :            :         }
+<span class="lineNum">    1560 </span>                :            :     };
+<span class="lineNum">    1561 </span>                :            : 
+<span class="lineNum">    1562 </span>                :            :     /**
+<span class="lineNum">    1563 </span>                :            :      * ZOOLU Dropdown UI Element
+<span class="lineNum">    1564 </span>                :            :      *
+<span class="lineNum">    1565 </span>                :            :      * @class
+<span class="lineNum">    1566 </span>                :            :      * @constructor
+<span class="lineNum">    1567 </span>                :            :      * @public
+<span class="lineNum">    1568 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+<span class="lineNum">    1569 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#on as #on
+<span class="lineNum">    1570 </span>                :            :      * @borrows ZOOLU.MIXIN.Events#off as #off
+<span class="lineNum">    1571 </span>                :            :      * @triggers Dropdown.open
+<span class="lineNum">    1572 </span>                :            :      * @triggers Dropdown.close
+<span class="lineNum">    1573 </span>                :            :      * @param {String} activator - jQuery Selektor for the activator
+<span class="lineNum">    1574 </span>                :            :      * @param {Object} options - Default options will be merged with the given options
+<span class="lineNum">    1575 </span>                :            :      * @example
+<span class="lineNum">    1576 </span>                :            :      *
+<span class="lineNum">    1577 </span>                :            :      *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {
+<span class="lineNum">    1578 </span>                :            :      *      fadeIn: true,
+<span class="lineNum">    1579 </span>                :            :      *      fadeOut: true,
+<span class="lineNum">    1580 </span>                :            :      *      closeOnMouseLeave: true
+<span class="lineNum">    1581 </span>                :            :      *  });
+<span class="lineNum">    1582 </span>                :            :      *
+<span class="lineNum">    1583 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1584 </span>                :            :      */
+<span class="lineNum">    1585 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Dropdown = function(activator, options) {</span>
+<span class="lineNum">    1586 </span>                :<span class="lineNoCov">          0 :         this.$activator = $(activator);</span>
+<span class="lineNum">    1587 </span>                :<span class="lineNoCov">          0 :         this.$dropdown = null;</span>
+<span class="lineNum">    1588 </span>                :<span class="lineNoCov">          0 :         this.opened = false;</span>
+<span class="lineNum">    1589 </span>                :            : 
+<span class="lineNum">    1590 </span>                :<span class="lineNoCov">          0 :         if (!this.$activator.length) {</span>
+<span class="lineNum">    1591 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception('Dropdown activator container does not exist');</span>
+<span class="lineNum">    1592 </span>                :            :         }
+<span class="lineNum">    1593 </span>                :            : 
+<span class="lineNum">    1594 </span>                :            :         // extend default options with given
+<span class="lineNum">    1595 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">    1596 </span>                :            :             dropdownClass: 'dropdown', //CSS-Class of the dropdown
+<span class="lineNum">    1597 </span>                :            :             closeOnClick: true, //true/false - for closing with click on the document
+<span class="lineNum">    1598 </span>                :            :             closeOnMouseLeave: false, //true/false - closes on mouseleave
+<span class="lineNum">    1599 </span>                :            :             triggerEvent: 'click', //Event which triggers the dropdown
+<span class="lineNum">    1600 </span>                :            :             resizable: true, //enables/disables resizing for the modal view
+<span class="lineNum">    1601 </span>                :            :             resizeMinWidth: 10, //Integer or null
+<span class="lineNum">    1602 </span>                :            :             resizeMaxWidth: null, //Integer or null
+<span class="lineNum">    1603 </span>                :            :             resizeMinHeight: 10, //Integer or null
+<span class="lineNum">    1604 </span>                :            :             resizeMaxHeight: null, //Integer or null
+<span class="lineNum">    1605 </span>                :            :             slideDown: false, //true/false
+<span class="lineNum">    1606 </span>                :            :             slideDownDuration: 500, //ms
+<span class="lineNum">    1607 </span>                :            :             slideUp: false, //true/false
+<span class="lineNum">    1608 </span>                :            :             slideUpDuration: 500, //ms
+<span class="lineNum">    1609 </span>                :            :             fadeIn: false, //true/false
+<span class="lineNum">    1610 </span>                :            :             fadeInDuration: 800, //ms
+<span class="lineNum">    1611 </span>                :            :             fadeOut: false, //true/false
+<span class="lineNum">    1612 </span>                :            :             fadeOutDuration: 800                    //ms
+<span class="lineNum">    1613 </span>                :            :         }, options);
+<span class="lineNum">    1614 </span>                :            : 
+<span class="lineNum">    1615 </span>                :            :         // add event API
+<span class="lineNum">    1616 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1617 </span>                :            : 
+<span class="lineNum">    1618 </span>                :<span class="lineNoCov">          0 :         log('Dropdown', 'construct', this);</span>
+<span class="lineNum">    1619 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">    1620 </span>                :            :     };
+<span class="lineNum">    1621 </span>                :            : 
+<span class="lineNum">    1622 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Dropdown.prototype = {</span>
+<span class="lineNum">    1623 </span>                :            : 
+<span class="lineNum">    1624 </span>                :            :         constructor: ZOOLU.UI.Dropdown,
+<span class="lineNum">    1625 </span>                :            : 
+<span class="lineNum">    1626 </span>                :            :         initialize: function() {
+<span class="lineNum">    1627 </span>                :<span class="lineNoCov">          0 :             this.getDropdownContainer();</span>
+<span class="lineNum">    1628 </span>                :<span class="lineNoCov">          0 :             this.applyStartingOptions();</span>
+<span class="lineNum">    1629 </span>                :<span class="lineNoCov">          0 :             this.bindEvents();</span>
+<span class="lineNum">    1630 </span>                :            :         },
+<span class="lineNum">    1631 </span>                :            : 
+<span class="lineNum">    1632 </span>                :            :         /**
+<span class="lineNum">    1633 </span>                :            :          * Gets the Dropdown-Container vom the DOM-Structure
+<span class="lineNum">    1634 </span>                :            :          *
+<span class="lineNum">    1635 </span>                :            :          * @private
+<span class="lineNum">    1636 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1637 </span>                :            :          */
+<span class="lineNum">    1638 </span>                :            :         getDropdownContainer: function() {
+<span class="lineNum">    1639 </span>                :<span class="lineNoCov">          0 :             var dropdown = this.$activator.find('.' + this.options.dropdownClass);</span>
+<span class="lineNum">    1640 </span>                :<span class="lineNoCov">          0 :             if (dropdown.length === 1) {</span>
+<span class="lineNum">    1641 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown = dropdown;</span>
+<span class="lineNum">    1642 </span>                :<span class="lineNoCov">          0 :             } else if (dropdown.length &gt; 1) {</span>
+<span class="lineNum">    1643 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('More than one Dropdowns found!');</span>
+<span class="lineNum">    1644 </span>                :<span class="lineNoCov">          0 :             } else if (dropdown.length &lt; 1) {</span>
+<span class="lineNum">    1645 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('No Dropdown found!');</span>
+<span class="lineNum">    1646 </span>                :            :             }
+<span class="lineNum">    1647 </span>                :            :         },
+<span class="lineNum">    1648 </span>                :            : 
+<span class="lineNum">    1649 </span>                :            :         /**
+<span class="lineNum">    1650 </span>                :            :          * Adds CSS to the dropdown Container
+<span class="lineNum">    1651 </span>                :            :          *
+<span class="lineNum">    1652 </span>                :            :          * @public
+<span class="lineNum">    1653 </span>                :            :          * @example
+<span class="lineNum">    1654 </span>                :            :          *
+<span class="lineNum">    1655 </span>                :            :          *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+<span class="lineNum">    1656 </span>                :            :          *  myDropdown.addCSS({
+<span class="lineNum">    1657 </span>                :            :          *      width: '200px',
+<span class="lineNum">    1658 </span>                :            :          *      height: '500px',
+<span class="lineNum">    1659 </span>                :            :          *      background-color: '#FFFFFF'
+<span class="lineNum">    1660 </span>                :            :          *  });
+<span class="lineNum">    1661 </span>                :            :          *
+<span class="lineNum">    1662 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1663 </span>                :            :          */
+<span class="lineNum">    1664 </span>                :            :         addCSS: function(css) {
+<span class="lineNum">    1665 </span>                :<span class="lineNoCov">          0 :             if (typeof css === 'object') {</span>
+<span class="lineNum">    1666 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.css(css);</span>
+<span class="lineNum">    1667 </span>                :            :             } else {
+<span class="lineNum">    1668 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('Type of CSS argument must be &quot;object&quot; but was ' + typeof css);</span>
+<span class="lineNum">    1669 </span>                :            :             }
+<span class="lineNum">    1670 </span>                :            :         },
+<span class="lineNum">    1671 </span>                :            : 
+<span class="lineNum">    1672 </span>                :            :         /**
+<span class="lineNum">    1673 </span>                :            :          * Applys options which are needed at the beginning
+<span class="lineNum">    1674 </span>                :            :          *
+<span class="lineNum">    1675 </span>                :            :          * @public
+<span class="lineNum">    1676 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1677 </span>                :            :          */
+<span class="lineNum">    1678 </span>                :            :         applyStartingOptions: function() {
+<span class="lineNum">    1679 </span>                :<span class="lineNoCov">          0 :             this.$dropdown.hide();</span>
+<span class="lineNum">    1680 </span>                :            :         },
+<span class="lineNum">    1681 </span>                :            : 
+<span class="lineNum">    1682 </span>                :            :         /**
+<span class="lineNum">    1683 </span>                :            :          * Binds diffrent events which are needed for the dropdown
+<span class="lineNum">    1684 </span>                :            :          *
+<span class="lineNum">    1685 </span>                :            :          * @private
+<span class="lineNum">    1686 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1687 </span>                :            :          */
+<span class="lineNum">    1688 </span>                :            :         bindEvents: function() {
+<span class="lineNum">    1689 </span>                :<span class="lineNoCov">          0 :             this.$activator.bind(this.options.triggerEvent, function() {</span>
+<span class="lineNum">    1690 </span>                :<span class="lineNoCov">          0 :                 this.toggle();</span>
+<span class="lineNum">    1691 </span>                :            :             }.bind(this));
+<span class="lineNum">    1692 </span>                :<span class="lineNoCov">          0 :             this.$dropdown.bind(this.options.triggerEvent, function(event) {</span>
+<span class="lineNum">    1693 </span>                :<span class="lineNoCov">          0 :                 event.stopPropagation();</span>
+<span class="lineNum">    1694 </span>                :            :             });
+<span class="lineNum">    1695 </span>                :            : 
+<span class="lineNum">    1696 </span>                :<span class="lineNoCov">          0 :             if (this.options.closeOnClick === true) {</span>
+<span class="lineNum">    1697 </span>                :<span class="lineNoCov">          0 :                 $(document).bind('click', function() {</span>
+<span class="lineNum">    1698 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1699 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1700 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.closeOnMouseLeave === true) {</span>
+<span class="lineNum">    1701 </span>                :<span class="lineNoCov">          0 :                 this.$activator.bind('mouseleave', function() {</span>
+<span class="lineNum">    1702 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1703 </span>                :            :                 }.bind(this));
+<span class="lineNum">    1704 </span>                :            :             }
+<span class="lineNum">    1705 </span>                :<span class="lineNoCov">          0 :             if (this.options.resizable === true) {</span>
+<span class="lineNum">    1706 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.resizable({</span>
+<span class="lineNum">    1707 </span>                :            :                     handles: 'se',
+<span class="lineNum">    1708 </span>                :            :                     maxHeight: this.options.resizeMaxHeight,
+<span class="lineNum">    1709 </span>                :            :                     minHeight: this.options.resizeMinHeight,
+<span class="lineNum">    1710 </span>                :            :                     maxWidth: this.options.resizeMaxWidth,
+<span class="lineNum">    1711 </span>                :            :                     minWidth: this.options.resizeMinWidth
+<span class="lineNum">    1712 </span>                :            :                 });
+<span class="lineNum">    1713 </span>                :            :             }
+<span class="lineNum">    1714 </span>                :            :         },
+<span class="lineNum">    1715 </span>                :            : 
+<span class="lineNum">    1716 </span>                :            :         /**
+<span class="lineNum">    1717 </span>                :            :          * Toggles the dropdown (open/close)
+<span class="lineNum">    1718 </span>                :            :          *
+<span class="lineNum">    1719 </span>                :            :          * @public
+<span class="lineNum">    1720 </span>                :            :          * @example
+<span class="lineNum">    1721 </span>                :            :          *
+<span class="lineNum">    1722 </span>                :            :          *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+<span class="lineNum">    1723 </span>                :            :          *  myDropdown.toggle();
+<span class="lineNum">    1724 </span>                :            :          *
+<span class="lineNum">    1725 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1726 </span>                :            :          */
+<span class="lineNum">    1727 </span>                :            :         toggle: function() {
+<span class="lineNum">    1728 </span>                :<span class="lineNoCov">          0 :             if (this.opened === false) {</span>
+<span class="lineNum">    1729 </span>                :<span class="lineNoCov">          0 :                 this.open();</span>
+<span class="lineNum">    1730 </span>                :            :             } else {
+<span class="lineNum">    1731 </span>                :<span class="lineNoCov">          0 :                 this.close();</span>
+<span class="lineNum">    1732 </span>                :            :             }
+<span class="lineNum">    1733 </span>                :            :         },
+<span class="lineNum">    1734 </span>                :            : 
+<span class="lineNum">    1735 </span>                :            :         /**
+<span class="lineNum">    1736 </span>                :            :          * Opens the dropdown
+<span class="lineNum">    1737 </span>                :            :          *
+<span class="lineNum">    1738 </span>                :            :          * @public
+<span class="lineNum">    1739 </span>                :            :          * @example
+<span class="lineNum">    1740 </span>                :            :          *
+<span class="lineNum">    1741 </span>                :            :          *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+<span class="lineNum">    1742 </span>                :            :          *  myDropdown.open();
+<span class="lineNum">    1743 </span>                :            :          *
+<span class="lineNum">    1744 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1745 </span>                :            :          */
+<span class="lineNum">    1746 </span>                :            :         open: function() {
+<span class="lineNum">    1747 </span>                :<span class="lineNoCov">          0 :             if (this.options.slideDown === true) {</span>
+<span class="lineNum">    1748 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.slideDown(this.options.slideDownDuration);</span>
+<span class="lineNum">    1749 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.fadeIn === true) {</span>
+<span class="lineNum">    1750 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.fadeIn(this.options.fadeInDuration);</span>
+<span class="lineNum">    1751 </span>                :            :             } else {
+<span class="lineNum">    1752 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.show();</span>
+<span class="lineNum">    1753 </span>                :            :             }
+<span class="lineNum">    1754 </span>                :<span class="lineNoCov">          0 :             this.trigger('Dropdown.open');</span>
+<span class="lineNum">    1755 </span>                :<span class="lineNoCov">          0 :             this.opened = true;</span>
+<span class="lineNum">    1756 </span>                :            :         },
+<span class="lineNum">    1757 </span>                :            : 
+<span class="lineNum">    1758 </span>                :            :         /**
+<span class="lineNum">    1759 </span>                :            :          * Closes the dropdown
+<span class="lineNum">    1760 </span>                :            :          *
+<span class="lineNum">    1761 </span>                :            :          * @public
+<span class="lineNum">    1762 </span>                :            :          * @example
+<span class="lineNum">    1763 </span>                :            :          *
+<span class="lineNum">    1764 </span>                :            :          *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+<span class="lineNum">    1765 </span>                :            :          *  myDropdown.close();
+<span class="lineNum">    1766 </span>                :            :          *
+<span class="lineNum">    1767 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
+<span class="lineNum">    1768 </span>                :            :          */
+<span class="lineNum">    1769 </span>                :            :         close: function() {
+<span class="lineNum">    1770 </span>                :<span class="lineNoCov">          0 :             if (this.options.slideUp === true) {</span>
+<span class="lineNum">    1771 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.slideUp(this.options.slideUpDuration);</span>
+<span class="lineNum">    1772 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.fadeOut === true) {</span>
+<span class="lineNum">    1773 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.fadeOut(this.options.fadeOutDuration);</span>
+<span class="lineNum">    1774 </span>                :            :             } else {
+<span class="lineNum">    1775 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.hide();</span>
+<span class="lineNum">    1776 </span>                :            :             }
+<span class="lineNum">    1777 </span>                :<span class="lineNoCov">          0 :             this.trigger('Dropdown.close');</span>
+<span class="lineNum">    1778 </span>                :<span class="lineNoCov">          0 :             this.opened = false;</span>
+<span class="lineNum">    1779 </span>                :            :         }
+<span class="lineNum">    1780 </span>                :            :     };
+<span class="lineNum">    1781 </span>                :            : })(window, window.ZOOLU, window.jQuery);
 </pre>
       </td>
     </tr>

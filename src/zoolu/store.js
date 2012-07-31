@@ -51,8 +51,6 @@
             };
         }
 
-        ;
-
         return {
             getInstance: function() {
                 if (!instance) {
