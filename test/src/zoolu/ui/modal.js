@@ -127,7 +127,9 @@ TestCase('ZOOLU.UI.Modal', {
     'test modal view add footer buttons': function() {
         var bContent = 'Button 1',
             bClass = 'button',
-            bId = 'button1';
+            bId = 'button1',
+            btn;
+
         try {
             var modal = new ZOOLU.UI.Modal({
                 footer: true,
@@ -139,11 +141,12 @@ TestCase('ZOOLU.UI.Modal', {
         modal.addFooterButtons([
             {content: bContent, callBack: function(){ 2+2; }, cssClass: bClass, elementId: bId}
         ]);
-        
-        assertEquals('Pushed Button content', bContent, modal.footerButtons[0][0]);
-        assertEquals('Pushed Button callback', 'function', typeof modal.footerButtons[0][1]);
-        assertEquals('Pushed Button CSS-class', bClass, modal.footerButtons[0][2]);
-        assertEquals('Pushed Button ID', bId, modal.footerButtons[0][3]);
+
+        btn = modal.footerButtons[0];
+        assertEquals('Pushed Button content', bContent, btn.content);
+        assertEquals('Pushed Button callback', 'function', typeof btn.callBack);
+        assertEquals('Pushed Button CSS-class', bClass, btn.cssClass);
+        assertEquals('Pushed Button ID', bId, btn.elementId);
     },
     
     'test add footer buttons exception': function() {

@@ -2,12 +2,12 @@
 -------------------------------------------------------------- */
 
 .treeWrapper {
-	padding: 0;
-	margin: 20px;
-	height: 100%;
-	border: 1px solid #666;
-	overflow: hidden;
-	overflow-x: scroll;
+    padding: 0;
+    margin: 20px;
+    height: 100%;
+    border: 1px solid #666;
+    overflow: hidden;
+    overflow-x: scroll;
 }
 
 .column-tree {
@@ -67,7 +67,6 @@
     height: 100%;
     width: 100%;
 
-
     .panel {
         overflow: hidden;
     }
@@ -96,17 +95,17 @@
             width: 5px;
             height: 100%;
             cursor: ew-resize;
-            
+
             .minimizer {
-            	width: 100%;
-            	height: 20px;
-            	background-color: red;
-            	cursor: pointer;
-            	vertical-align: middle;
-            	position: absolute;
-            	top: 50%;
-            	left: 0;
-            	margin-top: -10px;
+                width: 100%;
+                height: 20px;
+                background-color: red;
+                cursor: pointer;
+                vertical-align: middle;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -10px;
             }
         }
     }
@@ -124,13 +123,13 @@
             width: 100%;
             height: 5px;
             cursor: ns-resize;
-            
+
             .minimizer {
-            	height: 100%;
-            	width: 20px;
-            	background-color: red;
-            	margin: 0 auto;
-            	cursor: pointer;
+                height: 100%;
+                width: 20px;
+                background-color: red;
+                margin: 0 auto;
+                cursor: pointer;
             }
         }
     }
@@ -144,71 +143,135 @@
 -------------------------------------------------------------- */
 
 .modal {
-	width: 400px;
-	min-height: 500px;
-	border: 1px solid #000;
-	background: #fff;
-	z-index: 200;
-	.border-radius(5px);
-	box-shadow:0px 0px 10px #4D4D4D;
-	
-	.header {
-		border-bottom: 1px solid #cccccc;
-		padding: 10px;
-		.close {
-			width: 10px;
-			height: 10px;
-			background: url('../img/icons/close.png') no-repeat center center;
-			position: absolute;
-			top: 15px;
-			right: 10px;
-			cursor: pointer;
-		}
-	}
-	.content {
-		
-	}
-	.footer {
-		position: absolute;
-		left: 0px;
-		bottom: 0px;
-		width: 100%;
-		padding: 10px 0;
-		.clearfix();
-		border-top: 1px solid #cccccc;
-		
-		.close {
-			cursor: pointer;
-			float: left;
-			padding-left: 10px;
-		}
-		.buttons {
-			float: right;
-			.clearfix();
-			padding-right: 10px;
-			
-			.button {
-				float: left;
-				border: 1px solid #b9b9b9;
-				margin: 0 10px 5px 0;
-				cursor: pointer;
-				padding: 0 5px;
-				.border-radius(5px);
-				.top-gradient(#ffffff, #e4e4e4);
-			}
-			.button:active {
-				.top-gradient(#e4e4e4, #ffffff);
-			}
-		}
-	}
-	
-	.ui-resizable-handle {
-		height: 10px;
-		width: 10px;
-		background: url('../img/icons/resize.png') no-repeat center center;
-		position: absolute;
-		bottom: 0px;
-		right: 0px;
-		cursor: se-resize;
-	}
+    width: 400px;
+    min-width: 400px;
+    min-height: 500px;
+    border: 1px solid #000;
+    background: #fff;
+    z-index: 200;
+    .border-radius(5px);
+    box-shadow: 0px 0px 10px #4D4D4D;
+
+    .header {
+        border-bottom: 1px solid #cccccc;
+        padding: 10px;
+        .close {
+            width: 10px;
+            height: 10px;
+            background: url('../img/icons/close.png') no-repeat center center;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            cursor: pointer;
+        }
+    }
+    .content {
+
+    }
+    .footer {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        padding: 10px 0;
+        .clearfix();
+        border-top: 1px solid #cccccc;
+
+        .close {
+            cursor: pointer;
+            float: left;
+            padding-left: 10px;
+        }
+        .buttons {
+            float: right;
+            .clearfix();
+            padding-right: 10px;
+
+            .button {
+                float: left;
+                border: 1px solid #b9b9b9;
+                margin: 0 10px 5px 0;
+                cursor: pointer;
+                padding: 0 5px;
+                .border-radius(5px);
+                .top-gradient(#ffffff, #e4e4e4);
+            }
+            .button:active {
+                .top-gradient(#e4e4e4, #ffffff);
+            }
+        }
+    }
+}
+
+.ui-resizable-handle {
+    height: 10px;
+    width: 10px;
+    background: url('../img/icons/resize.png') no-repeat center center;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: se-resize;
+}
+
+/* Button classes
+-------------------------------------------------------------- */
+
+.bcontainer {
+    padding: 20px 0 0 20px;
+}
+
+.button {
+    width: 110px;
+    height: 22px;
+    cursor: pointer;
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #c7c7c7;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    .border-radius(5px);
+    .top-gradient(#ffffff, #cccccc);
+    color: #787878;
+    position: relative;
+}
+
+.button:hover {
+    color: #787878;
+}
+
+.buttons {
+    .clearfix();
+
+    .button {
+        float: left;
+        .border-radius(0);
+    }
+    .button:first-child {
+        .border-radius(5px 0 0 5px);
+    }
+    .button:last-child {
+        .border-radius(0 5px 5px 0);
+    }
+}
+
+.active {
+    .top-gradient(#cccccc, #ffffff);
+}
+
+/* Dropdown classes
+-------------------------------------------------------------- */
+
+.dropdown {
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff;
+    border: 1px solid #545454;
+    position: relative;
+    z-index: 200;
+    cursor: auto;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    .border-radius(5px);
+    box-shadow: 0px 0px 5px #bdbdbd;
 }
