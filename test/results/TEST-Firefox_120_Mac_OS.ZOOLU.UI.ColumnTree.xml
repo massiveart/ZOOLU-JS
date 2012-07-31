@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" errors="0" failures="0" tests="10" time="1.1460001">
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree instantiation" time="0.018"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree throw exception" time="0.0020"/>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" errors="0" failures="0" tests="10" time="1.1680001">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree instantiation" time="0.025"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree throw exception" time="0.0050"/>
 <testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree load nodes" time="0.097"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree load error" time="0.033"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree updateView error" time="0.103"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree select node" time="0.202"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree select nested node" time="0.28"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree unselect nested node" time="0.323"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test update selected marker" time="0.085"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test ZOOLU.UI.Exception" time="0.0030"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree load error" time="0.032"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree updateView error" time="0.099"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree select node" time="0.204"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree select nested node" time="0.287"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test column tree unselect nested node" time="0.329"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test update selected marker" time="0.089"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.ColumnTree" name="test ZOOLU.UI.Exception" time="0.0010"/>
 </testsuite>

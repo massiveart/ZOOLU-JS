@@ -31,9 +31,9 @@
             <td class="headerValue">jsTestDriver.conf-coverage.dat</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">384</td>
+            <td class="headerCovTableEntry">497</td>
             <td class="headerCovTableEntry">520</td>
-            <td class="headerCovTableEntryLo">73.8 %</td>
+            <td class="headerCovTableEntryHi">95.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
@@ -83,8 +83,8 @@
 <span class="lineNum">      12 </span>                :<span class="lineCov">          2 :     'use strict';</span>
 <span class="lineNum">      13 </span>                :            : 
 <span class="lineNum">      14 </span>                :<span class="lineCov">          2 :     function log() {</span>
-<span class="lineNum">      15 </span>                :<span class="lineCov">       1242 :         if (window.debug) {</span>
-<span class="lineNum">      16 </span>                :<span class="lineCov">       1242 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">       1352 :         if (window.debug) {</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">       1352 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
 <span class="lineNum">      17 </span>                :            :         }
 <span class="lineNum">      18 </span>                :            :     }
 <span class="lineNum">      19 </span>                :            : 
@@ -103,8 +103,8 @@
 <span class="lineNum">      32 </span>                :            :      * @author &lt;a href=&quot;mailto:thomas@chirimoya.at&quot;&gt;Thomas Schedler&lt;/a&gt;
 <span class="lineNum">      33 </span>                :            :      */
 <span class="lineNum">      34 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Exception = function(message) {</span>
-<span class="lineNum">      35 </span>                :<span class="lineCov">         12 :         this.name = 'ZOOLU.UI.Exception';</span>
-<span class="lineNum">      36 </span>                :<span class="lineCov">         12 :         this.message = message || 'Something went wrong!';</span>
+<span class="lineNum">      35 </span>                :<span class="lineCov">         22 :         this.name = 'ZOOLU.UI.Exception';</span>
+<span class="lineNum">      36 </span>                :<span class="lineCov">         22 :         this.message = message || 'Something went wrong!';</span>
 <span class="lineNum">      37 </span>                :            :     };
 <span class="lineNum">      38 </span>                :            : 
 <span class="lineNum">      39 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Exception.prototype = /** @lends ZOOLU.UI.Exception# */ {</span>
@@ -959,11 +959,11 @@
 <span class="lineNum">     888 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     889 </span>                :            :          */
 <span class="lineNum">     890 </span>                :            :         display: function() {
-<span class="lineNum">     891 </span>                :<span class="lineCov">          8 :             this.buildModal();</span>
-<span class="lineNum">     892 </span>                :<span class="lineCov">          8 :             this.buildOverlay();</span>
-<span class="lineNum">     893 </span>                :<span class="lineCov">          8 :             this.initBoxEvents();</span>
+<span class="lineNum">     891 </span>                :<span class="lineCov">         12 :             this.buildModal();</span>
+<span class="lineNum">     892 </span>                :<span class="lineCov">         12 :             this.buildOverlay();</span>
+<span class="lineNum">     893 </span>                :<span class="lineCov">         12 :             this.initBoxEvents();</span>
 <span class="lineNum">     894 </span>                :            : 
-<span class="lineNum">     895 </span>                :<span class="lineCov">          8 :             if (this.options.fadeIn === true) {</span>
+<span class="lineNum">     895 </span>                :<span class="lineCov">         12 :             if (this.options.fadeIn === true) {</span>
 <span class="lineNum">     896 </span>                :<span class="lineCov">          2 :                 this.$element.hide();</span>
 <span class="lineNum">     897 </span>                :<span class="lineCov">          2 :                 this.$overlay.hide();</span>
 <span class="lineNum">     898 </span>                :<span class="lineCov">          2 :                 $('body').append(this.$element);</span>
@@ -972,11 +972,11 @@
 <span class="lineNum">     901 </span>                :<span class="lineCov">          2 :                 this.$element.fadeIn(this.options.fadeInDuration);</span>
 <span class="lineNum">     902 </span>                :<span class="lineCov">          2 :                 this.$overlay.fadeTo(this.options.fadeInDuration, this.options.overlayOpacity);</span>
 <span class="lineNum">     903 </span>                :            :             } else {
-<span class="lineNum">     904 </span>                :<span class="lineCov">          6 :                 $('body').append(this.$element);</span>
-<span class="lineNum">     905 </span>                :<span class="lineCov">          6 :                 this.setPosition();</span>
-<span class="lineNum">     906 </span>                :<span class="lineCov">          6 :                 $('body').append(this.$overlay);</span>
+<span class="lineNum">     904 </span>                :<span class="lineCov">         10 :                 $('body').append(this.$element);</span>
+<span class="lineNum">     905 </span>                :<span class="lineCov">         10 :                 this.setPosition();</span>
+<span class="lineNum">     906 </span>                :<span class="lineCov">         10 :                 $('body').append(this.$overlay);</span>
 <span class="lineNum">     907 </span>                :            :             }
-<span class="lineNum">     908 </span>                :<span class="lineCov">          8 :             this.trigger('Modal.activate');</span>
+<span class="lineNum">     908 </span>                :<span class="lineCov">         12 :             this.trigger('Modal.activate');</span>
 <span class="lineNum">     909 </span>                :            :         },
 <span class="lineNum">     910 </span>                :            : 
 <span class="lineNum">     911 </span>                :            :         /**
@@ -1003,8 +1003,8 @@
 <span class="lineNum">     932 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     933 </span>                :            :          */
 <span class="lineNum">     934 </span>                :            :         initCSS: function() {
-<span class="lineNum">     935 </span>                :<span class="lineCov">         22 :             if (this.css !== []) {</span>
-<span class="lineNum">     936 </span>                :<span class="lineCov">         22 :                 for (var i = -1, length = this.css.length; ++i &lt; length;) {</span>
+<span class="lineNum">     935 </span>                :<span class="lineCov">         26 :             if (this.css !== []) {</span>
+<span class="lineNum">     936 </span>                :<span class="lineCov">         26 :                 for (var i = -1, length = this.css.length; ++i &lt; length;) {</span>
 <span class="lineNum">     937 </span>                :<span class="lineCov">          2 :                     this.$element.css(this.css[i][0], this.css[i][1]);</span>
 <span class="lineNum">     938 </span>                :            :                 }
 <span class="lineNum">     939 </span>                :            :             }
@@ -1018,14 +1018,14 @@
 <span class="lineNum">     947 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     948 </span>                :            :          */
 <span class="lineNum">     949 </span>                :            :         buildModal: function() {
-<span class="lineNum">     950 </span>                :<span class="lineCov">         12 :             this.initElement();</span>
-<span class="lineNum">     951 </span>                :<span class="lineCov">         12 :             this.initHeader();</span>
-<span class="lineNum">     952 </span>                :<span class="lineCov">         12 :             this.initContent();</span>
-<span class="lineNum">     953 </span>                :<span class="lineCov">         12 :             this.initFooter();</span>
+<span class="lineNum">     950 </span>                :<span class="lineCov">         16 :             this.initElement();</span>
+<span class="lineNum">     951 </span>                :<span class="lineCov">         16 :             this.initHeader();</span>
+<span class="lineNum">     952 </span>                :<span class="lineCov">         16 :             this.initContent();</span>
+<span class="lineNum">     953 </span>                :<span class="lineCov">         16 :             this.initFooter();</span>
 <span class="lineNum">     954 </span>                :            : 
-<span class="lineNum">     955 </span>                :<span class="lineCov">         12 :             this.$element.append(this.$header);</span>
-<span class="lineNum">     956 </span>                :<span class="lineCov">         12 :             this.$element.append(this.$content);</span>
-<span class="lineNum">     957 </span>                :<span class="lineCov">         12 :             this.$element.append(this.$footer);</span>
+<span class="lineNum">     955 </span>                :<span class="lineCov">         16 :             this.$element.append(this.$header);</span>
+<span class="lineNum">     956 </span>                :<span class="lineCov">         16 :             this.$element.append(this.$content);</span>
+<span class="lineNum">     957 </span>                :<span class="lineCov">         16 :             this.$element.append(this.$footer);</span>
 <span class="lineNum">     958 </span>                :            :         },
 <span class="lineNum">     959 </span>                :            : 
 <span class="lineNum">     960 </span>                :            :         /**
@@ -1035,9 +1035,9 @@
 <span class="lineNum">     964 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     965 </span>                :            :          */
 <span class="lineNum">     966 </span>                :            :         buildOverlay: function() {
-<span class="lineNum">     967 </span>                :<span class="lineCov">         14 :             if (this.options.overlay === true) {</span>
-<span class="lineNum">     968 </span>                :<span class="lineCov">         12 :                 this.$overlay = $('&lt;div class=&quot;' + this.options.overlayClass + '&quot;/&gt;');</span>
-<span class="lineNum">     969 </span>                :<span class="lineCov">         12 :                 this.$overlay.css({</span>
+<span class="lineNum">     967 </span>                :<span class="lineCov">         18 :             if (this.options.overlay === true) {</span>
+<span class="lineNum">     968 </span>                :<span class="lineCov">         16 :                 this.$overlay = $('&lt;div class=&quot;' + this.options.overlayClass + '&quot;/&gt;');</span>
+<span class="lineNum">     969 </span>                :<span class="lineCov">         16 :                 this.$overlay.css({</span>
 <span class="lineNum">     970 </span>                :            :                     'position': 'fixed',
 <span class="lineNum">     971 </span>                :            :                     'top': '0px',
 <span class="lineNum">     972 </span>                :            :                     'left': '0px',
@@ -1055,25 +1055,25 @@
 <span class="lineNum">     984 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">     985 </span>                :            :          */
 <span class="lineNum">     986 </span>                :            :         initElement: function() {
-<span class="lineNum">     987 </span>                :<span class="lineCov">         20 :             log('Init Element');</span>
-<span class="lineNum">     988 </span>                :<span class="lineCov">         20 :             this.$element = $('&lt;div class=&quot;modal&quot;/&gt;');</span>
-<span class="lineNum">     989 </span>                :<span class="lineCov">         20 :             this.initCSS();</span>
+<span class="lineNum">     987 </span>                :<span class="lineCov">         24 :             log('Init Element');</span>
+<span class="lineNum">     988 </span>                :<span class="lineCov">         24 :             this.$element = $('&lt;div class=&quot;modal&quot;/&gt;');</span>
+<span class="lineNum">     989 </span>                :<span class="lineCov">         24 :             this.initCSS();</span>
 <span class="lineNum">     990 </span>                :            :         },
 <span class="lineNum">     991 </span>                :            : 
 <span class="lineNum">     992 </span>                :            :         initHeader: function() {
-<span class="lineNum">     993 </span>                :<span class="lineCov">         14 :             if (this.options.header === true) {</span>
-<span class="lineNum">     994 </span>                :<span class="lineCov">         14 :                 log('Init Header');</span>
-<span class="lineNum">     995 </span>                :<span class="lineCov">         14 :                 this.$header = $('&lt;div class=&quot;header&quot;/&gt;');</span>
+<span class="lineNum">     993 </span>                :<span class="lineCov">         18 :             if (this.options.header === true) {</span>
+<span class="lineNum">     994 </span>                :<span class="lineCov">         18 :                 log('Init Header');</span>
+<span class="lineNum">     995 </span>                :<span class="lineCov">         18 :                 this.$header = $('&lt;div class=&quot;header&quot;/&gt;');</span>
 <span class="lineNum">     996 </span>                :            : 
-<span class="lineNum">     997 </span>                :<span class="lineCov">         14 :                 if (!!this.options.headerTitle) {</span>
-<span class="lineNum">     998 </span>                :<span class="lineCov">         14 :                     this.$headerTitle = $('&lt;div class=&quot;' + this.options.headerTitleClass + '&quot;/&gt;');</span>
-<span class="lineNum">     999 </span>                :<span class="lineCov">         14 :                     this.$headerTitle.html(this.options.headerTitle);</span>
-<span class="lineNum">    1000 </span>                :<span class="lineCov">         14 :                     this.$header.append(this.$headerTitle);</span>
+<span class="lineNum">     997 </span>                :<span class="lineCov">         18 :                 if (!!this.options.headerTitle) {</span>
+<span class="lineNum">     998 </span>                :<span class="lineCov">         18 :                     this.$headerTitle = $('&lt;div class=&quot;' + this.options.headerTitleClass + '&quot;/&gt;');</span>
+<span class="lineNum">     999 </span>                :<span class="lineCov">         18 :                     this.$headerTitle.html(this.options.headerTitle);</span>
+<span class="lineNum">    1000 </span>                :<span class="lineCov">         18 :                     this.$header.append(this.$headerTitle);</span>
 <span class="lineNum">    1001 </span>                :            :                 }
 <span class="lineNum">    1002 </span>                :            : 
-<span class="lineNum">    1003 </span>                :<span class="lineCov">         14 :                 if (this.options.headerClose === true) {</span>
-<span class="lineNum">    1004 </span>                :<span class="lineCov">         12 :                     this.$headerClose = $('&lt;div class=&quot;' + this.options.headerCloseClass + '&quot;/&gt;');</span>
-<span class="lineNum">    1005 </span>                :<span class="lineCov">         12 :                     this.$header.append(this.$headerClose);</span>
+<span class="lineNum">    1003 </span>                :<span class="lineCov">         18 :                 if (this.options.headerClose === true) {</span>
+<span class="lineNum">    1004 </span>                :<span class="lineCov">         16 :                     this.$headerClose = $('&lt;div class=&quot;' + this.options.headerCloseClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1005 </span>                :<span class="lineCov">         16 :                     this.$header.append(this.$headerClose);</span>
 <span class="lineNum">    1006 </span>                :            :                 }
 <span class="lineNum">    1007 </span>                :            :             }
 <span class="lineNum">    1008 </span>                :            :         },
@@ -1085,9 +1085,9 @@
 <span class="lineNum">    1014 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1015 </span>                :            :          */
 <span class="lineNum">    1016 </span>                :            :         initContent: function() {
-<span class="lineNum">    1017 </span>                :<span class="lineCov">         14 :             log('Init Content');</span>
-<span class="lineNum">    1018 </span>                :<span class="lineCov">         14 :             this.$content = $('&lt;div class=&quot;content&quot;/&gt;');</span>
-<span class="lineNum">    1019 </span>                :<span class="lineCov">         14 :             this.$content.html(this.content);</span>
+<span class="lineNum">    1017 </span>                :<span class="lineCov">         18 :             log('Init Content');</span>
+<span class="lineNum">    1018 </span>                :<span class="lineCov">         18 :             this.$content = $('&lt;div class=&quot;content&quot;/&gt;');</span>
+<span class="lineNum">    1019 </span>                :<span class="lineCov">         18 :             this.$content.html(this.content);</span>
 <span class="lineNum">    1020 </span>                :            :         },
 <span class="lineNum">    1021 </span>                :            : 
 <span class="lineNum">    1022 </span>                :            :         /**
@@ -1114,19 +1114,19 @@
 <span class="lineNum">    1043 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1044 </span>                :            :          */
 <span class="lineNum">    1045 </span>                :            :         initFooter: function() {
-<span class="lineNum">    1046 </span>                :<span class="lineCov">         14 :             if (this.options.footer === true) {</span>
-<span class="lineNum">    1047 </span>                :<span class="lineCov">         14 :                 log('Init Footer');</span>
-<span class="lineNum">    1048 </span>                :<span class="lineCov">         14 :                 this.$footer = $('&lt;div class=&quot;footer&quot;/&gt;');</span>
+<span class="lineNum">    1046 </span>                :<span class="lineCov">         18 :             if (this.options.footer === true) {</span>
+<span class="lineNum">    1047 </span>                :<span class="lineCov">         18 :                 log('Init Footer');</span>
+<span class="lineNum">    1048 </span>                :<span class="lineCov">         18 :                 this.$footer = $('&lt;div class=&quot;footer&quot;/&gt;');</span>
 <span class="lineNum">    1049 </span>                :            : 
-<span class="lineNum">    1050 </span>                :<span class="lineCov">         14 :                 if (this.options.footerClose === true) {</span>
-<span class="lineNum">    1051 </span>                :<span class="lineCov">         12 :                     this.$footerClose = $('&lt;div class=&quot;' + this.options.footerCloseClass + '&quot;/&gt;');</span>
-<span class="lineNum">    1052 </span>                :<span class="lineCov">         12 :                     this.$footerClose.html(this.options.footerCloseText);</span>
-<span class="lineNum">    1053 </span>                :<span class="lineCov">         12 :                     this.$footer.append(this.$footerClose);</span>
+<span class="lineNum">    1050 </span>                :<span class="lineCov">         18 :                 if (this.options.footerClose === true) {</span>
+<span class="lineNum">    1051 </span>                :<span class="lineCov">         16 :                     this.$footerClose = $('&lt;div class=&quot;' + this.options.footerCloseClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1052 </span>                :<span class="lineCov">         16 :                     this.$footerClose.html(this.options.footerCloseText);</span>
+<span class="lineNum">    1053 </span>                :<span class="lineCov">         16 :                     this.$footer.append(this.$footerClose);</span>
 <span class="lineNum">    1054 </span>                :            :                 }
 <span class="lineNum">    1055 </span>                :            : 
-<span class="lineNum">    1056 </span>                :<span class="lineCov">         14 :                 if (this.options.footerButtons === true &amp;&amp; this.footerButtons !== []) {</span>
-<span class="lineNum">    1057 </span>                :<span class="lineCov">         14 :                     this.initFooterButtons();</span>
-<span class="lineNum">    1058 </span>                :<span class="lineCov">         14 :                     this.$footer.append(this.$footerButtons);</span>
+<span class="lineNum">    1056 </span>                :<span class="lineCov">         18 :                 if (this.options.footerButtons === true &amp;&amp; this.footerButtons !== []) {</span>
+<span class="lineNum">    1057 </span>                :<span class="lineCov">         18 :                     this.initFooterButtons();</span>
+<span class="lineNum">    1058 </span>                :<span class="lineCov">         18 :                     this.$footer.append(this.$footerButtons);</span>
 <span class="lineNum">    1059 </span>                :            :                 }
 <span class="lineNum">    1060 </span>                :            :             }
 <span class="lineNum">    1061 </span>                :            :         },
@@ -1165,9 +1165,9 @@
 <span class="lineNum">    1094 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1095 </span>                :            :          */
 <span class="lineNum">    1096 </span>                :            :         initFooterButtons: function() {
-<span class="lineNum">    1097 </span>                :<span class="lineCov">         16 :             this.$footerButtons = $('&lt;div class=&quot;' + this.options.footerButtonsContainerClass + '&quot;/&gt;');</span>
+<span class="lineNum">    1097 </span>                :<span class="lineCov">         20 :             this.$footerButtons = $('&lt;div class=&quot;' + this.options.footerButtonsContainerClass + '&quot;/&gt;');</span>
 <span class="lineNum">    1098 </span>                :            : 
-<span class="lineNum">    1099 </span>                :<span class="lineCov">         16 :             for (var i = -1, length = this.footerButtons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1099 </span>                :<span class="lineCov">         20 :             for (var i = -1, length = this.footerButtons.length; ++i &lt; length;) {</span>
 <span class="lineNum">    1100 </span>                :<span class="lineCov">          4 :                 var button = $('&lt;div/&gt;'),</span>
 <span class="lineNum">    1101 </span>                :            :                     bhtml = this.footerButtons[i].content,
 <span class="lineNum">    1102 </span>                :            :                     bcallback = this.footerButtons[i].callBack || '',
@@ -1190,25 +1190,25 @@
 <span class="lineNum">    1119 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1120 </span>                :            :          */
 <span class="lineNum">    1121 </span>                :            :         setPosition: function() {
-<span class="lineNum">    1122 </span>                :<span class="lineCov">         14 :             this.$element.css('position', 'absolute');</span>
+<span class="lineNum">    1122 </span>                :<span class="lineCov">         18 :             this.$element.css('position', 'absolute');</span>
 <span class="lineNum">    1123 </span>                :            : 
-<span class="lineNum">    1124 </span>                :<span class="lineCov">         14 :             if (this.options.left !== false) {</span>
+<span class="lineNum">    1124 </span>                :<span class="lineCov">         18 :             if (this.options.left !== false) {</span>
 <span class="lineNum">    1125 </span>                :<span class="lineCov">          2 :                 this.$element.css('left', this.options.left);</span>
-<span class="lineNum">    1126 </span>                :<span class="lineCov">         12 :             } else if (this.options.right !== false) {</span>
+<span class="lineNum">    1126 </span>                :<span class="lineCov">         16 :             } else if (this.options.right !== false) {</span>
 <span class="lineNum">    1127 </span>                :<span class="lineCov">          2 :                 this.$element.css('right', this.options.right);</span>
 <span class="lineNum">    1128 </span>                :            :             } else {
-<span class="lineNum">    1129 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
+<span class="lineNum">    1129 </span>                :<span class="lineCov">         14 :                 this.$element.css({</span>
 <span class="lineNum">    1130 </span>                :            :                     'left': '50%',
 <span class="lineNum">    1131 </span>                :            :                     'margin-left': '-' + this.$element.outerWidth() / 2 + 'px'
 <span class="lineNum">    1132 </span>                :            :                 });
 <span class="lineNum">    1133 </span>                :            :             }
 <span class="lineNum">    1134 </span>                :            : 
-<span class="lineNum">    1135 </span>                :<span class="lineCov">         14 :             if (this.options.top !== false) {</span>
+<span class="lineNum">    1135 </span>                :<span class="lineCov">         18 :             if (this.options.top !== false) {</span>
 <span class="lineNum">    1136 </span>                :<span class="lineCov">          2 :                 this.$element.css('top', this.options.top);</span>
-<span class="lineNum">    1137 </span>                :<span class="lineCov">         12 :             } else if (this.options.bottom !== false) {</span>
+<span class="lineNum">    1137 </span>                :<span class="lineCov">         16 :             } else if (this.options.bottom !== false) {</span>
 <span class="lineNum">    1138 </span>                :<span class="lineCov">          2 :                 this.$element.css('bottom', this.options.bottom);</span>
 <span class="lineNum">    1139 </span>                :            :             } else {
-<span class="lineNum">    1140 </span>                :<span class="lineCov">         10 :                 this.$element.css({</span>
+<span class="lineNum">    1140 </span>                :<span class="lineCov">         14 :                 this.$element.css({</span>
 <span class="lineNum">    1141 </span>                :            :                     'top': '50%',
 <span class="lineNum">    1142 </span>                :            :                     'margin-top': '-' + this.$element.outerHeight() / 2 + 'px'
 <span class="lineNum">    1143 </span>                :            :                 });
@@ -1223,14 +1223,14 @@
 <span class="lineNum">    1152 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1153 </span>                :            :          */
 <span class="lineNum">    1154 </span>                :            :         initBoxEvents: function() {
-<span class="lineNum">    1155 </span>                :<span class="lineCov">         12 :             if (this.options.draggable === true &amp;&amp; this.options.draggableOnlyOnHeader === true &amp;&amp; !!this.$header) {</span>
-<span class="lineNum">    1156 </span>                :<span class="lineCov">         12 :                 this.$header.on('mousedown', function() {</span>
+<span class="lineNum">    1155 </span>                :<span class="lineCov">         16 :             if (this.options.draggable === true &amp;&amp; this.options.draggableOnlyOnHeader === true &amp;&amp; !!this.$header) {</span>
+<span class="lineNum">    1156 </span>                :<span class="lineCov">         16 :                 this.$header.on('mousedown', function() {</span>
 <span class="lineNum">    1157 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({</span>
 <span class="lineNum">    1158 </span>                :            :                         disabled: false,
 <span class="lineNum">    1159 </span>                :            :                         grid: this.options.draggableGrid
 <span class="lineNum">    1160 </span>                :            :                     });
 <span class="lineNum">    1161 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1162 </span>                :<span class="lineCov">         12 :                 this.$header.on('mouseup', function() {</span>
+<span class="lineNum">    1162 </span>                :<span class="lineCov">         16 :                 this.$header.on('mouseup', function() {</span>
 <span class="lineNum">    1163 </span>                :<span class="lineNoCov">          0 :                     this.$element.draggable({disabled: true});</span>
 <span class="lineNum">    1164 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1165 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.draggable === true) {</span>
@@ -1238,8 +1238,8 @@
 <span class="lineNum">    1167 </span>                :            :                     grid: this.options.draggableGrid
 <span class="lineNum">    1168 </span>                :            :                 });
 <span class="lineNum">    1169 </span>                :            :             }
-<span class="lineNum">    1170 </span>                :<span class="lineCov">         12 :             if (this.options.resizable === true) {</span>
-<span class="lineNum">    1171 </span>                :<span class="lineCov">         10 :                 this.$element.resizable({</span>
+<span class="lineNum">    1170 </span>                :<span class="lineCov">         16 :             if (this.options.resizable === true) {</span>
+<span class="lineNum">    1171 </span>                :<span class="lineCov">         14 :                 this.$element.resizable({</span>
 <span class="lineNum">    1172 </span>                :            :                     handles: 'se',
 <span class="lineNum">    1173 </span>                :            :                     maxHeight: this.options.resizeMaxHeight,
 <span class="lineNum">    1174 </span>                :            :                     minHeight: this.options.resizeMinHeight,
@@ -1247,19 +1247,19 @@
 <span class="lineNum">    1176 </span>                :            :                     minWidth: this.options.resizeMinWidth
 <span class="lineNum">    1177 </span>                :            :                 });
 <span class="lineNum">    1178 </span>                :            :             }
-<span class="lineNum">    1179 </span>                :<span class="lineCov">         12 :             if (!!this.$headerClose) {</span>
-<span class="lineNum">    1180 </span>                :<span class="lineCov">         10 :                 this.$headerClose.on('click', function() {</span>
-<span class="lineNum">    1181 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1179 </span>                :<span class="lineCov">         16 :             if (!!this.$headerClose) {</span>
+<span class="lineNum">    1180 </span>                :<span class="lineCov">         14 :                 this.$headerClose.on('click', function() {</span>
+<span class="lineNum">    1181 </span>                :<span class="lineCov">          2 :                     this.close();</span>
 <span class="lineNum">    1182 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1183 </span>                :            :             }
-<span class="lineNum">    1184 </span>                :<span class="lineCov">         12 :             if (!!this.$footerClose) {</span>
-<span class="lineNum">    1185 </span>                :<span class="lineCov">         10 :                 this.$footerClose.on('click', function() {</span>
-<span class="lineNum">    1186 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1184 </span>                :<span class="lineCov">         16 :             if (!!this.$footerClose) {</span>
+<span class="lineNum">    1185 </span>                :<span class="lineCov">         14 :                 this.$footerClose.on('click', function() {</span>
+<span class="lineNum">    1186 </span>                :<span class="lineCov">          2 :                     this.close();</span>
 <span class="lineNum">    1187 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1188 </span>                :            :             }
-<span class="lineNum">    1189 </span>                :<span class="lineCov">         12 :             if (!!this.$overlay &amp;&amp; this.options.overlayClose === true) {</span>
-<span class="lineNum">    1190 </span>                :<span class="lineCov">         10 :                 this.$overlay.on('click', function() {</span>
-<span class="lineNum">    1191 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1189 </span>                :<span class="lineCov">         16 :             if (!!this.$overlay &amp;&amp; this.options.overlayClose === true) {</span>
+<span class="lineNum">    1190 </span>                :<span class="lineCov">         14 :                 this.$overlay.on('click', function() {</span>
+<span class="lineNum">    1191 </span>                :<span class="lineCov">          2 :                     this.close();</span>
 <span class="lineNum">    1192 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1193 </span>                :            :             }
 <span class="lineNum">    1194 </span>                :            :         },
@@ -1278,22 +1278,22 @@
 <span class="lineNum">    1207 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1208 </span>                :            :          */
 <span class="lineNum">    1209 </span>                :            :         close: function() {
-<span class="lineNum">    1210 </span>                :<span class="lineCov">          4 :             if (this.options.fadeOut === true) {</span>
+<span class="lineNum">    1210 </span>                :<span class="lineCov">         10 :             if (this.options.fadeOut === true) {</span>
 <span class="lineNum">    1211 </span>                :<span class="lineCov">          2 :                 this.$element.fadeOut(this.options.fadeOutDuration, function() {</span>
-<span class="lineNum">    1212 </span>                :<span class="lineNoCov">          0 :                     this.$element.remove();</span>
+<span class="lineNum">    1212 </span>                :<span class="lineCov">          1 :                     this.$element.remove();</span>
 <span class="lineNum">    1213 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1214 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
 <span class="lineNum">    1215 </span>                :<span class="lineCov">          2 :                     this.$overlay.fadeOut(this.options.fadeOutDuration, function() {</span>
-<span class="lineNum">    1216 </span>                :<span class="lineNoCov">          0 :                         this.$overlay.remove();</span>
+<span class="lineNum">    1216 </span>                :<span class="lineCov">          1 :                         this.$overlay.remove();</span>
 <span class="lineNum">    1217 </span>                :            :                     }.bind(this));
 <span class="lineNum">    1218 </span>                :            :                 }
 <span class="lineNum">    1219 </span>                :            :             } else {
-<span class="lineNum">    1220 </span>                :<span class="lineCov">          2 :                 this.$element.remove();</span>
-<span class="lineNum">    1221 </span>                :<span class="lineCov">          2 :                 if (!!this.$overlay) {</span>
-<span class="lineNum">    1222 </span>                :<span class="lineCov">          2 :                     this.$overlay.remove();</span>
+<span class="lineNum">    1220 </span>                :<span class="lineCov">          8 :                 this.$element.remove();</span>
+<span class="lineNum">    1221 </span>                :<span class="lineCov">          8 :                 if (!!this.$overlay) {</span>
+<span class="lineNum">    1222 </span>                :<span class="lineCov">          8 :                     this.$overlay.remove();</span>
 <span class="lineNum">    1223 </span>                :            :                 }
 <span class="lineNum">    1224 </span>                :            :             }
-<span class="lineNum">    1225 </span>                :<span class="lineCov">          4 :             this.trigger('Modal.deactivate');</span>
+<span class="lineNum">    1225 </span>                :<span class="lineCov">         10 :             this.trigger('Modal.deactivate');</span>
 <span class="lineNum">    1226 </span>                :            :         }
 <span class="lineNum">    1227 </span>                :            : 
 <span class="lineNum">    1228 </span>                :            :     };
@@ -1322,16 +1322,16 @@
 <span class="lineNum">    1251 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1252 </span>                :            :      */
 <span class="lineNum">    1253 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Button = function(element, callback, options) {</span>
-<span class="lineNum">    1254 </span>                :<span class="lineNoCov">          0 :         this.$element = $(element);</span>
-<span class="lineNum">    1255 </span>                :<span class="lineNoCov">          0 :         this.callback = callback;</span>
-<span class="lineNum">    1256 </span>                :<span class="lineNoCov">          0 :         this.selected = false;</span>
+<span class="lineNum">    1254 </span>                :<span class="lineCov">         60 :         this.$element = $(element);</span>
+<span class="lineNum">    1255 </span>                :<span class="lineCov">         60 :         this.callback = callback;</span>
+<span class="lineNum">    1256 </span>                :<span class="lineCov">         60 :         this.selected = false;</span>
 <span class="lineNum">    1257 </span>                :            : 
-<span class="lineNum">    1258 </span>                :<span class="lineNoCov">          0 :         if (!this.$element.length) {</span>
-<span class="lineNum">    1259 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception('Button container does not exist');</span>
+<span class="lineNum">    1258 </span>                :<span class="lineCov">         60 :         if (!this.$element.length) {</span>
+<span class="lineNum">    1259 </span>                :<span class="lineCov">          2 :             throw new ZOOLU.UI.Exception('Button container does not exist');</span>
 <span class="lineNum">    1260 </span>                :            :         }
 <span class="lineNum">    1261 </span>                :            : 
 <span class="lineNum">    1262 </span>                :            :         // extend default options with given
-<span class="lineNum">    1263 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">    1263 </span>                :<span class="lineCov">         58 :         this.options = $.extend({</span>
 <span class="lineNum">    1264 </span>                :            :             toggle: true, //true/false - for unselecting and selecting
 <span class="lineNum">    1265 </span>                :            :             toggleBackOnlyOnButton: true, //true/false - for toggle back with click at the document
 <span class="lineNum">    1266 </span>                :            :             toggleBackOnMouseLeave: false, //true/false - for toggle back on mouseleave
@@ -1343,10 +1343,10 @@
 <span class="lineNum">    1272 </span>                :            :         }, options);
 <span class="lineNum">    1273 </span>                :            : 
 <span class="lineNum">    1274 </span>                :            :         // add event API
-<span class="lineNum">    1275 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1275 </span>                :<span class="lineCov">         58 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">    1276 </span>                :            : 
-<span class="lineNum">    1277 </span>                :<span class="lineNoCov">          0 :         log('Button', 'construct', this);</span>
-<span class="lineNum">    1278 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">    1277 </span>                :<span class="lineCov">         58 :         log('Button', 'construct', this);</span>
+<span class="lineNum">    1278 </span>                :<span class="lineCov">         58 :         this.initialize();</span>
 <span class="lineNum">    1279 </span>                :            :     };
 <span class="lineNum">    1280 </span>                :            : 
 <span class="lineNum">    1281 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Button.prototype = {</span>
@@ -1354,16 +1354,16 @@
 <span class="lineNum">    1283 </span>                :            :         constructor: ZOOLU.UI.Button,
 <span class="lineNum">    1284 </span>                :            : 
 <span class="lineNum">    1285 </span>                :            :         initialize: function() {
-<span class="lineNum">    1286 </span>                :<span class="lineNoCov">          0 :             if (this.options.autoselect === true) {</span>
+<span class="lineNum">    1286 </span>                :<span class="lineCov">         58 :             if (this.options.autoselect === true) {</span>
 <span class="lineNum">    1287 </span>                :<span class="lineNoCov">          0 :                 this.select();</span>
 <span class="lineNum">    1288 </span>                :<span class="lineNoCov">          0 :                 this.exeCallback();</span>
 <span class="lineNum">    1289 </span>                :            :             }
 <span class="lineNum">    1290 </span>                :            : 
-<span class="lineNum">    1291 </span>                :<span class="lineNoCov">          0 :             this.$element.bind(this.options.triggerEvent, function(event) {</span>
-<span class="lineNum">    1292 </span>                :<span class="lineNoCov">          0 :                 event.stopPropagation();</span>
-<span class="lineNum">    1293 </span>                :<span class="lineNoCov">          0 :                 if (this.options.toggle === false || this.selected === false) {</span>
-<span class="lineNum">    1294 </span>                :<span class="lineNoCov">          0 :                     this.select();</span>
-<span class="lineNum">    1295 </span>                :<span class="lineNoCov">          0 :                     this.exeCallback();</span>
+<span class="lineNum">    1291 </span>                :<span class="lineCov">         58 :             this.$element.bind(this.options.triggerEvent, function(event) {</span>
+<span class="lineNum">    1292 </span>                :<span class="lineCov">          4 :                 event.stopPropagation();</span>
+<span class="lineNum">    1293 </span>                :<span class="lineCov">          4 :                 if (this.options.toggle === false || this.selected === false) {</span>
+<span class="lineNum">    1294 </span>                :<span class="lineCov">          4 :                     this.select();</span>
+<span class="lineNum">    1295 </span>                :<span class="lineCov">          4 :                     this.exeCallback();</span>
 <span class="lineNum">    1296 </span>                :<span class="lineNoCov">          0 :                 } else if (this.options.unselect === true) {</span>
 <span class="lineNum">    1297 </span>                :<span class="lineNoCov">          0 :                     this.unselect();</span>
 <span class="lineNum">    1298 </span>                :<span class="lineNoCov">          0 :                     this.exeCallback();</span>
@@ -1384,10 +1384,10 @@
 <span class="lineNum">    1313 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1314 </span>                :            :          */
 <span class="lineNum">    1315 </span>                :            :         select: function() {
-<span class="lineNum">    1316 </span>                :<span class="lineNoCov">          0 :             this.addToggleClass();</span>
-<span class="lineNum">    1317 </span>                :<span class="lineNoCov">          0 :             this.trigger('Button.select');</span>
-<span class="lineNum">    1318 </span>                :<span class="lineNoCov">          0 :             this.selected = true;</span>
-<span class="lineNum">    1319 </span>                :<span class="lineNoCov">          0 :             this.bindToggleBackHandler();</span>
+<span class="lineNum">    1316 </span>                :<span class="lineCov">         12 :             this.addToggleClass();</span>
+<span class="lineNum">    1317 </span>                :<span class="lineCov">         12 :             this.trigger('Button.select');</span>
+<span class="lineNum">    1318 </span>                :<span class="lineCov">         12 :             this.selected = true;</span>
+<span class="lineNum">    1319 </span>                :<span class="lineCov">         12 :             this.bindToggleBackHandler();</span>
 <span class="lineNum">    1320 </span>                :            :         },
 <span class="lineNum">    1321 </span>                :            : 
 <span class="lineNum">    1322 </span>                :            :         /**
@@ -1403,9 +1403,9 @@
 <span class="lineNum">    1332 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1333 </span>                :            :          */
 <span class="lineNum">    1334 </span>                :            :         unselect: function() {
-<span class="lineNum">    1335 </span>                :<span class="lineNoCov">          0 :             this.removeToggleClass();</span>
-<span class="lineNum">    1336 </span>                :<span class="lineNoCov">          0 :             this.trigger('Button.unselect');</span>
-<span class="lineNum">    1337 </span>                :<span class="lineNoCov">          0 :             this.selected = false;</span>
+<span class="lineNum">    1335 </span>                :<span class="lineCov">         42 :             this.removeToggleClass();</span>
+<span class="lineNum">    1336 </span>                :<span class="lineCov">         42 :             this.trigger('Button.unselect');</span>
+<span class="lineNum">    1337 </span>                :<span class="lineCov">         42 :             this.selected = false;</span>
 <span class="lineNum">    1338 </span>                :            :         },
 <span class="lineNum">    1339 </span>                :            : 
 <span class="lineNum">    1340 </span>                :            :         /**
@@ -1420,9 +1420,9 @@
 <span class="lineNum">    1349 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1350 </span>                :            :          */
 <span class="lineNum">    1351 </span>                :            :         exeCallback: function() {
-<span class="lineNum">    1352 </span>                :<span class="lineNoCov">          0 :             if (typeof this.callback === 'function') {</span>
-<span class="lineNum">    1353 </span>                :<span class="lineNoCov">          0 :                 if (this.options.callBackOnUnselect === true || this.selected === true) {</span>
-<span class="lineNum">    1354 </span>                :<span class="lineNoCov">          0 :                     this.callback.call();</span>
+<span class="lineNum">    1352 </span>                :<span class="lineCov">          6 :             if (typeof this.callback === 'function') {</span>
+<span class="lineNum">    1353 </span>                :<span class="lineCov">          6 :                 if (this.options.callBackOnUnselect === true || this.selected === true) {</span>
+<span class="lineNum">    1354 </span>                :<span class="lineCov">          6 :                     this.callback.call();</span>
 <span class="lineNum">    1355 </span>                :            :                 }
 <span class="lineNum">    1356 </span>                :            :             }
 <span class="lineNum">    1357 </span>                :            :         },
@@ -1434,8 +1434,8 @@
 <span class="lineNum">    1363 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1364 </span>                :            :          */
 <span class="lineNum">    1365 </span>                :            :         addToggleClass: function() {
-<span class="lineNum">    1366 </span>                :<span class="lineNoCov">          0 :             if (this.options.toggle === true) {</span>
-<span class="lineNum">    1367 </span>                :<span class="lineNoCov">          0 :                 this.$element.addClass(this.options.toggleClass);</span>
+<span class="lineNum">    1366 </span>                :<span class="lineCov">         16 :             if (this.options.toggle === true) {</span>
+<span class="lineNum">    1367 </span>                :<span class="lineCov">         16 :                 this.$element.addClass(this.options.toggleClass);</span>
 <span class="lineNum">    1368 </span>                :            :             }
 <span class="lineNum">    1369 </span>                :            :         },
 <span class="lineNum">    1370 </span>                :            : 
@@ -1446,8 +1446,8 @@
 <span class="lineNum">    1375 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1376 </span>                :            :          */
 <span class="lineNum">    1377 </span>                :            :         removeToggleClass: function() {
-<span class="lineNum">    1378 </span>                :<span class="lineNoCov">          0 :             if (this.options.toggle === true) {</span>
-<span class="lineNum">    1379 </span>                :<span class="lineNoCov">          0 :                 this.$element.removeClass(this.options.toggleClass);</span>
+<span class="lineNum">    1378 </span>                :<span class="lineCov">         44 :             if (this.options.toggle === true) {</span>
+<span class="lineNum">    1379 </span>                :<span class="lineCov">         44 :                 this.$element.removeClass(this.options.toggleClass);</span>
 <span class="lineNum">    1380 </span>                :            :             }
 <span class="lineNum">    1381 </span>                :            :         },
 <span class="lineNum">    1382 </span>                :            : 
@@ -1459,12 +1459,12 @@
 <span class="lineNum">    1388 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1389 </span>                :            :          */
 <span class="lineNum">    1390 </span>                :            :         bindToggleBackHandler: function() {
-<span class="lineNum">    1391 </span>                :<span class="lineNoCov">          0 :             if (this.options.toggleBackOnlyOnButton === false &amp;&amp; this.options.toggle === true) {</span>
-<span class="lineNum">    1392 </span>                :<span class="lineNoCov">          0 :                 $(document).bind(this.options.triggerEvent, function() {</span>
-<span class="lineNum">    1393 </span>                :<span class="lineNoCov">          0 :                     this.unselect();</span>
+<span class="lineNum">    1391 </span>                :<span class="lineCov">         16 :             if (this.options.toggleBackOnlyOnButton === false &amp;&amp; this.options.toggle === true) {</span>
+<span class="lineNum">    1392 </span>                :<span class="lineCov">          4 :                 $(document).bind(this.options.triggerEvent, function() {</span>
+<span class="lineNum">    1393 </span>                :<span class="lineCov">         40 :                     this.unselect();</span>
 <span class="lineNum">    1394 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1395 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.toggleBackOnMouseLeave === true &amp;&amp; this.options.toggle === true) {</span>
-<span class="lineNum">    1396 </span>                :<span class="lineNoCov">          0 :                 this.$element.bind('mouseleave', function() {</span>
+<span class="lineNum">    1395 </span>                :<span class="lineCov">         12 :             } else if (this.options.toggleBackOnMouseLeave === true &amp;&amp; this.options.toggle === true) {</span>
+<span class="lineNum">    1396 </span>                :<span class="lineCov">          4 :                 this.$element.bind('mouseleave', function() {</span>
 <span class="lineNum">    1397 </span>                :<span class="lineNoCov">          0 :                     this.unselect();</span>
 <span class="lineNum">    1398 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1399 </span>                :            :             }
@@ -1497,26 +1497,26 @@
 <span class="lineNum">    1426 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1427 </span>                :            :      */
 <span class="lineNum">    1428 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.ButtonGroup = function(container, callbacks, options) {</span>
-<span class="lineNum">    1429 </span>                :<span class="lineNoCov">          0 :         this.$container = $(container);</span>
-<span class="lineNum">    1430 </span>                :<span class="lineNoCov">          0 :         this.callbacks = callbacks;</span>
-<span class="lineNum">    1431 </span>                :<span class="lineNoCov">          0 :         this.buttons = [];</span>
+<span class="lineNum">    1429 </span>                :<span class="lineCov">         14 :         this.$container = $(container);</span>
+<span class="lineNum">    1430 </span>                :<span class="lineCov">         14 :         this.callbacks = callbacks;</span>
+<span class="lineNum">    1431 </span>                :<span class="lineCov">         14 :         this.buttons = [];</span>
 <span class="lineNum">    1432 </span>                :            : 
-<span class="lineNum">    1433 </span>                :<span class="lineNoCov">          0 :         if (!this.$container.length) {</span>
-<span class="lineNum">    1434 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception('Button Group container does not exist');</span>
+<span class="lineNum">    1433 </span>                :<span class="lineCov">         14 :         if (!this.$container.length) {</span>
+<span class="lineNum">    1434 </span>                :<span class="lineCov">          2 :             throw new ZOOLU.UI.Exception('Button Group container does not exist');</span>
 <span class="lineNum">    1435 </span>                :            :         }
 <span class="lineNum">    1436 </span>                :            : 
 <span class="lineNum">    1437 </span>                :            :         // extend default options with given
-<span class="lineNum">    1438 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">    1438 </span>                :<span class="lineCov">         12 :         this.options = $.extend({</span>
 <span class="lineNum">    1439 </span>                :            :             dataToggle: false, //false or radio
 <span class="lineNum">    1440 </span>                :            :             buttonClass: 'button', //CSS-Class
 <span class="lineNum">    1441 </span>                :            :             buttonOptions: {}           //Options for ZOOLU.UI.Button
 <span class="lineNum">    1442 </span>                :            :         }, options);
 <span class="lineNum">    1443 </span>                :            : 
 <span class="lineNum">    1444 </span>                :            :         // add event API
-<span class="lineNum">    1445 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1445 </span>                :<span class="lineCov">         12 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">    1446 </span>                :            : 
-<span class="lineNum">    1447 </span>                :<span class="lineNoCov">          0 :         log('Button Group', 'construct', this);</span>
-<span class="lineNum">    1448 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">    1447 </span>                :<span class="lineCov">         12 :         log('Button Group', 'construct', this);</span>
+<span class="lineNum">    1448 </span>                :<span class="lineCov">         12 :         this.initialize();</span>
 <span class="lineNum">    1449 </span>                :            :     };
 <span class="lineNum">    1450 </span>                :            : 
 <span class="lineNum">    1451 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.ButtonGroup.prototype = {</span>
@@ -1530,8 +1530,8 @@
 <span class="lineNum">    1459 </span>                :            :         },
 <span class="lineNum">    1460 </span>                :            : 
 <span class="lineNum">    1461 </span>                :            :         initialize: function() {
-<span class="lineNum">    1462 </span>                :<span class="lineNoCov">          0 :             this.initButtons();</span>
-<span class="lineNum">    1463 </span>                :<span class="lineNoCov">          0 :             this.initCallbacks();</span>
+<span class="lineNum">    1462 </span>                :<span class="lineCov">         12 :             this.initButtons();</span>
+<span class="lineNum">    1463 </span>                :<span class="lineCov">         12 :             this.initCallbacks();</span>
 <span class="lineNum">    1464 </span>                :            :         },
 <span class="lineNum">    1465 </span>                :            : 
 <span class="lineNum">    1466 </span>                :            :         /**
@@ -1541,10 +1541,10 @@
 <span class="lineNum">    1470 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1471 </span>                :            :          */
 <span class="lineNum">    1472 </span>                :            :         initButtons: function() {
-<span class="lineNum">    1473 </span>                :<span class="lineNoCov">          0 :             var buttons = this.$container.find('.' + this.options.buttonClass);</span>
-<span class="lineNum">    1474 </span>                :<span class="lineNoCov">          0 :             for (var i = -1, length = buttons.length; ++i &lt; length;) {</span>
-<span class="lineNum">    1475 </span>                :<span class="lineNoCov">          0 :                 this.buttons[i] = new ZOOLU.UI.Button(buttons[i], null, this.options.buttonOptions);</span>
-<span class="lineNum">    1476 </span>                :<span class="lineNoCov">          0 :                 this.attachObserver(i);</span>
+<span class="lineNum">    1473 </span>                :<span class="lineCov">         14 :             var buttons = this.$container.find('.' + this.options.buttonClass);</span>
+<span class="lineNum">    1474 </span>                :<span class="lineCov">         14 :             for (var i = -1, length = buttons.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1475 </span>                :<span class="lineCov">         42 :                 this.buttons[i] = new ZOOLU.UI.Button(buttons[i], null, this.options.buttonOptions);</span>
+<span class="lineNum">    1476 </span>                :<span class="lineCov">         42 :                 this.attachObserver(i);</span>
 <span class="lineNum">    1477 </span>                :            :             }
 <span class="lineNum">    1478 </span>                :            :         },
 <span class="lineNum">    1479 </span>                :            : 
@@ -1555,16 +1555,16 @@
 <span class="lineNum">    1484 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1485 </span>                :            :          */
 <span class="lineNum">    1486 </span>                :            :         initCallbacks: function() {
-<span class="lineNum">    1487 </span>                :<span class="lineNoCov">          0 :             if (!!this.callbacks) {</span>
-<span class="lineNum">    1488 </span>                :<span class="lineNoCov">          0 :                 for (var i = -1, length = this.callbacks.length; ++i &lt; length;) {</span>
-<span class="lineNum">    1489 </span>                :<span class="lineNoCov">          0 :                     if (!!this.buttons[i]) {</span>
-<span class="lineNum">    1490 </span>                :<span class="lineNoCov">          0 :                         if (typeof this.callbacks[i] === 'function') {</span>
-<span class="lineNum">    1491 </span>                :<span class="lineNoCov">          0 :                             this.buttons[i].callback = this.callbacks[i];</span>
+<span class="lineNum">    1487 </span>                :<span class="lineCov">         14 :             if (!!this.callbacks) {</span>
+<span class="lineNum">    1488 </span>                :<span class="lineCov">         14 :                 for (var i = -1, length = this.callbacks.length; ++i &lt; length;) {</span>
+<span class="lineNum">    1489 </span>                :<span class="lineCov">         40 :                     if (!!this.buttons[i]) {</span>
+<span class="lineNum">    1490 </span>                :<span class="lineCov">         38 :                         if (typeof this.callbacks[i] === 'function') {</span>
+<span class="lineNum">    1491 </span>                :<span class="lineCov">         36 :                             this.buttons[i].callback = this.callbacks[i];</span>
 <span class="lineNum">    1492 </span>                :            :                         } else {
-<span class="lineNum">    1493 </span>                :<span class="lineNoCov">          0 :                             throw new ZOOLU.UI.Exception('Defined Callback is not a function');</span>
+<span class="lineNum">    1493 </span>                :<span class="lineCov">          2 :                             throw new ZOOLU.UI.Exception('Defined Callback is not a function');</span>
 <span class="lineNum">    1494 </span>                :            :                         }
 <span class="lineNum">    1495 </span>                :            :                     } else {
-<span class="lineNum">    1496 </span>                :<span class="lineNoCov">          0 :                         throw new ZOOLU.UI.Exception('Too many Callbacks or not enough buttons');</span>
+<span class="lineNum">    1496 </span>                :<span class="lineCov">          2 :                         throw new ZOOLU.UI.Exception('Too many Callbacks or not enough buttons');</span>
 <span class="lineNum">    1497 </span>                :            :                     }
 <span class="lineNum">    1498 </span>                :            :                 }
 <span class="lineNum">    1499 </span>                :            :             }
@@ -1578,8 +1578,8 @@
 <span class="lineNum">    1507 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1508 </span>                :            :          */
 <span class="lineNum">    1509 </span>                :            :         attachObserver: function(index) {
-<span class="lineNum">    1510 </span>                :<span class="lineNoCov">          0 :             this.buttons[index].on('Button.select', function() {</span>
-<span class="lineNum">    1511 </span>                :<span class="lineNoCov">          0 :                 this.dataToggleHandler(index);</span>
+<span class="lineNum">    1510 </span>                :<span class="lineCov">         42 :             this.buttons[index].on('Button.select', function() {</span>
+<span class="lineNum">    1511 </span>                :<span class="lineCov">          4 :                 this.dataToggleHandler(index);</span>
 <span class="lineNum">    1512 </span>                :            :             }.bind(this));
 <span class="lineNum">    1513 </span>                :            :         },
 <span class="lineNum">    1514 </span>                :            : 
@@ -1591,7 +1591,7 @@
 <span class="lineNum">    1520 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1521 </span>                :            :          */
 <span class="lineNum">    1522 </span>                :            :         dataToggleHandler: function(selected) {
-<span class="lineNum">    1523 </span>                :<span class="lineNoCov">          0 :             if (this.options.dataToggle === this.CONST.dataToggle.radio) {</span>
+<span class="lineNum">    1523 </span>                :<span class="lineCov">          4 :             if (this.options.dataToggle === this.CONST.dataToggle.radio) {</span>
 <span class="lineNum">    1524 </span>                :<span class="lineNoCov">          0 :                 for (var i = -1, length = this.buttons.length; ++i &lt; length;) {</span>
 <span class="lineNum">    1525 </span>                :<span class="lineNoCov">          0 :                     if (this.buttons[i] !== this.buttons[selected]) {</span>
 <span class="lineNum">    1526 </span>                :<span class="lineNoCov">          0 :                         this.buttons[i].unselect();</span>
@@ -1618,15 +1618,15 @@
 <span class="lineNum">    1547 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1548 </span>                :            :          */
 <span class="lineNum">    1549 </span>                :            :         getSelectedButtons: function() {
-<span class="lineNum">    1550 </span>                :<span class="lineNoCov">          0 :             var selectedButtons = [],</span>
+<span class="lineNum">    1550 </span>                :<span class="lineCov">          2 :             var selectedButtons = [],</span>
 <span class="lineNum">    1551 </span>                :            :                 i = -1,
 <span class="lineNum">    1552 </span>                :            :                 length = this.buttons.length;
-<span class="lineNum">    1553 </span>                :<span class="lineNoCov">          0 :             for (; ++i &lt; length;) {</span>
-<span class="lineNum">    1554 </span>                :<span class="lineNoCov">          0 :                 if (this.buttons[i].selected === true) {</span>
-<span class="lineNum">    1555 </span>                :<span class="lineNoCov">          0 :                     selectedButtons.push(this.buttons[i]);</span>
+<span class="lineNum">    1553 </span>                :<span class="lineCov">          2 :             for (; ++i &lt; length;) {</span>
+<span class="lineNum">    1554 </span>                :<span class="lineCov">          6 :                 if (this.buttons[i].selected === true) {</span>
+<span class="lineNum">    1555 </span>                :<span class="lineCov">          4 :                     selectedButtons.push(this.buttons[i]);</span>
 <span class="lineNum">    1556 </span>                :            :                 }
 <span class="lineNum">    1557 </span>                :            :             }
-<span class="lineNum">    1558 </span>                :<span class="lineNoCov">          0 :             return selectedButtons;</span>
+<span class="lineNum">    1558 </span>                :<span class="lineCov">          2 :             return selectedButtons;</span>
 <span class="lineNum">    1559 </span>                :            :         }
 <span class="lineNum">    1560 </span>                :            :     };
 <span class="lineNum">    1561 </span>                :            : 
@@ -1654,16 +1654,16 @@
 <span class="lineNum">    1583 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1584 </span>                :            :      */
 <span class="lineNum">    1585 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Dropdown = function(activator, options) {</span>
-<span class="lineNum">    1586 </span>                :<span class="lineNoCov">          0 :         this.$activator = $(activator);</span>
-<span class="lineNum">    1587 </span>                :<span class="lineNoCov">          0 :         this.$dropdown = null;</span>
-<span class="lineNum">    1588 </span>                :<span class="lineNoCov">          0 :         this.opened = false;</span>
+<span class="lineNum">    1586 </span>                :<span class="lineCov">         26 :         this.$activator = $(activator);</span>
+<span class="lineNum">    1587 </span>                :<span class="lineCov">         26 :         this.$dropdown = null;</span>
+<span class="lineNum">    1588 </span>                :<span class="lineCov">         26 :         this.opened = false;</span>
 <span class="lineNum">    1589 </span>                :            : 
-<span class="lineNum">    1590 </span>                :<span class="lineNoCov">          0 :         if (!this.$activator.length) {</span>
-<span class="lineNum">    1591 </span>                :<span class="lineNoCov">          0 :             throw new ZOOLU.UI.Exception('Dropdown activator container does not exist');</span>
+<span class="lineNum">    1590 </span>                :<span class="lineCov">         26 :         if (!this.$activator.length) {</span>
+<span class="lineNum">    1591 </span>                :<span class="lineCov">          2 :             throw new ZOOLU.UI.Exception('Dropdown activator container does not exist');</span>
 <span class="lineNum">    1592 </span>                :            :         }
 <span class="lineNum">    1593 </span>                :            : 
 <span class="lineNum">    1594 </span>                :            :         // extend default options with given
-<span class="lineNum">    1595 </span>                :<span class="lineNoCov">          0 :         this.options = $.extend({</span>
+<span class="lineNum">    1595 </span>                :<span class="lineCov">         24 :         this.options = $.extend({</span>
 <span class="lineNum">    1596 </span>                :            :             dropdownClass: 'dropdown', //CSS-Class of the dropdown
 <span class="lineNum">    1597 </span>                :            :             closeOnClick: true, //true/false - for closing with click on the document
 <span class="lineNum">    1598 </span>                :            :             closeOnMouseLeave: false, //true/false - closes on mouseleave
@@ -1684,10 +1684,10 @@
 <span class="lineNum">    1613 </span>                :            :         }, options);
 <span class="lineNum">    1614 </span>                :            : 
 <span class="lineNum">    1615 </span>                :            :         // add event API
-<span class="lineNum">    1616 </span>                :<span class="lineNoCov">          0 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1616 </span>                :<span class="lineCov">         24 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">    1617 </span>                :            : 
-<span class="lineNum">    1618 </span>                :<span class="lineNoCov">          0 :         log('Dropdown', 'construct', this);</span>
-<span class="lineNum">    1619 </span>                :<span class="lineNoCov">          0 :         this.initialize();</span>
+<span class="lineNum">    1618 </span>                :<span class="lineCov">         24 :         log('Dropdown', 'construct', this);</span>
+<span class="lineNum">    1619 </span>                :<span class="lineCov">         24 :         this.initialize();</span>
 <span class="lineNum">    1620 </span>                :            :     };
 <span class="lineNum">    1621 </span>                :            : 
 <span class="lineNum">    1622 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Dropdown.prototype = {</span>
@@ -1695,9 +1695,9 @@
 <span class="lineNum">    1624 </span>                :            :         constructor: ZOOLU.UI.Dropdown,
 <span class="lineNum">    1625 </span>                :            : 
 <span class="lineNum">    1626 </span>                :            :         initialize: function() {
-<span class="lineNum">    1627 </span>                :<span class="lineNoCov">          0 :             this.getDropdownContainer();</span>
-<span class="lineNum">    1628 </span>                :<span class="lineNoCov">          0 :             this.applyStartingOptions();</span>
-<span class="lineNum">    1629 </span>                :<span class="lineNoCov">          0 :             this.bindEvents();</span>
+<span class="lineNum">    1627 </span>                :<span class="lineCov">         24 :             this.getDropdownContainer();</span>
+<span class="lineNum">    1628 </span>                :<span class="lineCov">         24 :             this.applyStartingOptions();</span>
+<span class="lineNum">    1629 </span>                :<span class="lineCov">         24 :             this.bindEvents();</span>
 <span class="lineNum">    1630 </span>                :            :         },
 <span class="lineNum">    1631 </span>                :            : 
 <span class="lineNum">    1632 </span>                :            :         /**
@@ -1707,9 +1707,9 @@
 <span class="lineNum">    1636 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1637 </span>                :            :          */
 <span class="lineNum">    1638 </span>                :            :         getDropdownContainer: function() {
-<span class="lineNum">    1639 </span>                :<span class="lineNoCov">          0 :             var dropdown = this.$activator.find('.' + this.options.dropdownClass);</span>
-<span class="lineNum">    1640 </span>                :<span class="lineNoCov">          0 :             if (dropdown.length === 1) {</span>
-<span class="lineNum">    1641 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown = dropdown;</span>
+<span class="lineNum">    1639 </span>                :<span class="lineCov">         26 :             var dropdown = this.$activator.find('.' + this.options.dropdownClass);</span>
+<span class="lineNum">    1640 </span>                :<span class="lineCov">         26 :             if (dropdown.length === 1) {</span>
+<span class="lineNum">    1641 </span>                :<span class="lineCov">         26 :                 this.$dropdown = dropdown;</span>
 <span class="lineNum">    1642 </span>                :<span class="lineNoCov">          0 :             } else if (dropdown.length &gt; 1) {</span>
 <span class="lineNum">    1643 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('More than one Dropdowns found!');</span>
 <span class="lineNum">    1644 </span>                :<span class="lineNoCov">          0 :             } else if (dropdown.length &lt; 1) {</span>
@@ -1733,8 +1733,8 @@
 <span class="lineNum">    1662 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1663 </span>                :            :          */
 <span class="lineNum">    1664 </span>                :            :         addCSS: function(css) {
-<span class="lineNum">    1665 </span>                :<span class="lineNoCov">          0 :             if (typeof css === 'object') {</span>
-<span class="lineNum">    1666 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.css(css);</span>
+<span class="lineNum">    1665 </span>                :<span class="lineCov">          2 :             if (typeof css === 'object') {</span>
+<span class="lineNum">    1666 </span>                :<span class="lineCov">          2 :                 this.$dropdown.css(css);</span>
 <span class="lineNum">    1667 </span>                :            :             } else {
 <span class="lineNum">    1668 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('Type of CSS argument must be &quot;object&quot; but was ' + typeof css);</span>
 <span class="lineNum">    1669 </span>                :            :             }
@@ -1747,7 +1747,7 @@
 <span class="lineNum">    1676 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1677 </span>                :            :          */
 <span class="lineNum">    1678 </span>                :            :         applyStartingOptions: function() {
-<span class="lineNum">    1679 </span>                :<span class="lineNoCov">          0 :             this.$dropdown.hide();</span>
+<span class="lineNum">    1679 </span>                :<span class="lineCov">         24 :             this.$dropdown.hide();</span>
 <span class="lineNum">    1680 </span>                :            :         },
 <span class="lineNum">    1681 </span>                :            : 
 <span class="lineNum">    1682 </span>                :            :         /**
@@ -1757,24 +1757,24 @@
 <span class="lineNum">    1686 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1687 </span>                :            :          */
 <span class="lineNum">    1688 </span>                :            :         bindEvents: function() {
-<span class="lineNum">    1689 </span>                :<span class="lineNoCov">          0 :             this.$activator.bind(this.options.triggerEvent, function() {</span>
+<span class="lineNum">    1689 </span>                :<span class="lineCov">         28 :             this.$activator.bind(this.options.triggerEvent, function() {</span>
 <span class="lineNum">    1690 </span>                :<span class="lineNoCov">          0 :                 this.toggle();</span>
 <span class="lineNum">    1691 </span>                :            :             }.bind(this));
-<span class="lineNum">    1692 </span>                :<span class="lineNoCov">          0 :             this.$dropdown.bind(this.options.triggerEvent, function(event) {</span>
+<span class="lineNum">    1692 </span>                :<span class="lineCov">         28 :             this.$dropdown.bind(this.options.triggerEvent, function(event) {</span>
 <span class="lineNum">    1693 </span>                :<span class="lineNoCov">          0 :                 event.stopPropagation();</span>
 <span class="lineNum">    1694 </span>                :            :             });
 <span class="lineNum">    1695 </span>                :            : 
-<span class="lineNum">    1696 </span>                :<span class="lineNoCov">          0 :             if (this.options.closeOnClick === true) {</span>
-<span class="lineNum">    1697 </span>                :<span class="lineNoCov">          0 :                 $(document).bind('click', function() {</span>
-<span class="lineNum">    1698 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
+<span class="lineNum">    1696 </span>                :<span class="lineCov">         28 :             if (this.options.closeOnClick === true) {</span>
+<span class="lineNum">    1697 </span>                :<span class="lineCov">         24 :                 $(document).bind('click', function() {</span>
+<span class="lineNum">    1698 </span>                :<span class="lineCov">         82 :                     this.close();</span>
 <span class="lineNum">    1699 </span>                :            :                 }.bind(this));
-<span class="lineNum">    1700 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.closeOnMouseLeave === true) {</span>
-<span class="lineNum">    1701 </span>                :<span class="lineNoCov">          0 :                 this.$activator.bind('mouseleave', function() {</span>
+<span class="lineNum">    1700 </span>                :<span class="lineCov">          4 :             } else if (this.options.closeOnMouseLeave === true) {</span>
+<span class="lineNum">    1701 </span>                :<span class="lineCov">          4 :                 this.$activator.bind('mouseleave', function() {</span>
 <span class="lineNum">    1702 </span>                :<span class="lineNoCov">          0 :                     this.close();</span>
 <span class="lineNum">    1703 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1704 </span>                :            :             }
-<span class="lineNum">    1705 </span>                :<span class="lineNoCov">          0 :             if (this.options.resizable === true) {</span>
-<span class="lineNum">    1706 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.resizable({</span>
+<span class="lineNum">    1705 </span>                :<span class="lineCov">         28 :             if (this.options.resizable === true) {</span>
+<span class="lineNum">    1706 </span>                :<span class="lineCov">         24 :                 this.$dropdown.resizable({</span>
 <span class="lineNum">    1707 </span>                :            :                     handles: 'se',
 <span class="lineNum">    1708 </span>                :            :                     maxHeight: this.options.resizeMaxHeight,
 <span class="lineNum">    1709 </span>                :            :                     minHeight: this.options.resizeMinHeight,
@@ -1796,10 +1796,10 @@
 <span class="lineNum">    1725 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1726 </span>                :            :          */
 <span class="lineNum">    1727 </span>                :            :         toggle: function() {
-<span class="lineNum">    1728 </span>                :<span class="lineNoCov">          0 :             if (this.opened === false) {</span>
-<span class="lineNum">    1729 </span>                :<span class="lineNoCov">          0 :                 this.open();</span>
+<span class="lineNum">    1728 </span>                :<span class="lineCov">          4 :             if (this.opened === false) {</span>
+<span class="lineNum">    1729 </span>                :<span class="lineCov">          2 :                 this.open();</span>
 <span class="lineNum">    1730 </span>                :            :             } else {
-<span class="lineNum">    1731 </span>                :<span class="lineNoCov">          0 :                 this.close();</span>
+<span class="lineNum">    1731 </span>                :<span class="lineCov">          2 :                 this.close();</span>
 <span class="lineNum">    1732 </span>                :            :             }
 <span class="lineNum">    1733 </span>                :            :         },
 <span class="lineNum">    1734 </span>                :            : 
@@ -1815,15 +1815,15 @@
 <span class="lineNum">    1744 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1745 </span>                :            :          */
 <span class="lineNum">    1746 </span>                :            :         open: function() {
-<span class="lineNum">    1747 </span>                :<span class="lineNoCov">          0 :             if (this.options.slideDown === true) {</span>
-<span class="lineNum">    1748 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.slideDown(this.options.slideDownDuration);</span>
-<span class="lineNum">    1749 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.fadeIn === true) {</span>
-<span class="lineNum">    1750 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.fadeIn(this.options.fadeInDuration);</span>
+<span class="lineNum">    1747 </span>                :<span class="lineCov">         14 :             if (this.options.slideDown === true) {</span>
+<span class="lineNum">    1748 </span>                :<span class="lineCov">          2 :                 this.$dropdown.slideDown(this.options.slideDownDuration);</span>
+<span class="lineNum">    1749 </span>                :<span class="lineCov">         12 :             } else if (this.options.fadeIn === true) {</span>
+<span class="lineNum">    1750 </span>                :<span class="lineCov">          2 :                 this.$dropdown.fadeIn(this.options.fadeInDuration);</span>
 <span class="lineNum">    1751 </span>                :            :             } else {
-<span class="lineNum">    1752 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.show();</span>
+<span class="lineNum">    1752 </span>                :<span class="lineCov">         10 :                 this.$dropdown.show();</span>
 <span class="lineNum">    1753 </span>                :            :             }
-<span class="lineNum">    1754 </span>                :<span class="lineNoCov">          0 :             this.trigger('Dropdown.open');</span>
-<span class="lineNum">    1755 </span>                :<span class="lineNoCov">          0 :             this.opened = true;</span>
+<span class="lineNum">    1754 </span>                :<span class="lineCov">         14 :             this.trigger('Dropdown.open');</span>
+<span class="lineNum">    1755 </span>                :<span class="lineCov">         14 :             this.opened = true;</span>
 <span class="lineNum">    1756 </span>                :            :         },
 <span class="lineNum">    1757 </span>                :            : 
 <span class="lineNum">    1758 </span>                :            :         /**
@@ -1838,15 +1838,15 @@
 <span class="lineNum">    1767 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1768 </span>                :            :          */
 <span class="lineNum">    1769 </span>                :            :         close: function() {
-<span class="lineNum">    1770 </span>                :<span class="lineNoCov">          0 :             if (this.options.slideUp === true) {</span>
-<span class="lineNum">    1771 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.slideUp(this.options.slideUpDuration);</span>
-<span class="lineNum">    1772 </span>                :<span class="lineNoCov">          0 :             } else if (this.options.fadeOut === true) {</span>
-<span class="lineNum">    1773 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.fadeOut(this.options.fadeOutDuration);</span>
+<span class="lineNum">    1770 </span>                :<span class="lineCov">         90 :             if (this.options.slideUp === true) {</span>
+<span class="lineNum">    1771 </span>                :<span class="lineCov">          8 :                 this.$dropdown.slideUp(this.options.slideUpDuration);</span>
+<span class="lineNum">    1772 </span>                :<span class="lineCov">         82 :             } else if (this.options.fadeOut === true) {</span>
+<span class="lineNum">    1773 </span>                :<span class="lineCov">          8 :                 this.$dropdown.fadeOut(this.options.fadeOutDuration);</span>
 <span class="lineNum">    1774 </span>                :            :             } else {
-<span class="lineNum">    1775 </span>                :<span class="lineNoCov">          0 :                 this.$dropdown.hide();</span>
+<span class="lineNum">    1775 </span>                :<span class="lineCov">         74 :                 this.$dropdown.hide();</span>
 <span class="lineNum">    1776 </span>                :            :             }
-<span class="lineNum">    1777 </span>                :<span class="lineNoCov">          0 :             this.trigger('Dropdown.close');</span>
-<span class="lineNum">    1778 </span>                :<span class="lineNoCov">          0 :             this.opened = false;</span>
+<span class="lineNum">    1777 </span>                :<span class="lineCov">         90 :             this.trigger('Dropdown.close');</span>
+<span class="lineNum">    1778 </span>                :<span class="lineCov">         90 :             this.opened = false;</span>
 <span class="lineNum">    1779 </span>                :            :         }
 <span class="lineNum">    1780 </span>                :            :     };
 <span class="lineNum">    1781 </span>                :            : })(window, window.ZOOLU, window.jQuery);
