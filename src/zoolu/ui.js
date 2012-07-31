@@ -831,38 +831,38 @@
 
         // extend default options with given
         this.options = $.extend({
-            top: false, //CSS valid value or false
-            bottom: false, //CSS valid value or false
-            left: false, //CSS valid value or false
-            right: false, //CSS valid value or false
-            fadeIn: false, //true for a pretty fade in
-            fadeInDuration: 600, // ms
-            fadeOut: false, //enable/disable fade out
-            fadeOutDuration: 600, //ms
-            header: true, //false for no footer
-            headerTitle: 'This is a title', //String - Headline displayed in header
-            headerTitleClass: 'headline', //String - CSS class for header
-            headerClose: true, //enable/disable closing in the header
-            headerCloseClass: 'close', //String - CSS class
-            footer: true, //enable/disable footer
-            footerClose: true, //enable/disable closing in the footer
-            footerCloseClass: 'close', //String - CSS class
-            footerCloseText: 'Cancel', //String
-            footerButtons: true, //enable/disable buttons in the footer
+            top: false,                             //CSS valid value or false
+            bottom: false,                          //CSS valid value or false
+            left: false,                            //CSS valid value or false
+            right: false,                           //CSS valid value or false
+            fadeIn: false,                          //true for a pretty fade in
+            fadeInDuration: 600,                    // ms
+            fadeOut: false,                         //enable/disable fade out
+            fadeOutDuration: 600,                   //ms
+            header: true,                           //false for no footer
+            headerTitle: 'This is a title',         //String - Headline displayed in header
+            headerTitleClass: 'headline',           //String - CSS class for header
+            headerClose: true,                      //enable/disable closing in the header
+            headerCloseClass: 'close',              //String - CSS class
+            footer: true,                           //enable/disable footer
+            footerClose: true,                      //enable/disable closing in the footer
+            footerCloseClass: 'close',              //String - CSS class
+            footerCloseText: 'Cancel',              //String
+            footerButtons: true,                    //enable/disable buttons in the footer
             footerButtonsContainerClass: 'buttons', //String - CSS class
-            footerButtonDefaultClass: 'button', //String - CSS class
-            overlay: true, //false for no overlay
-            overlayClass: 'modalOverlay', //String - CSS class
-            overlayColor: '#000000', //CSS valid background-color
-            overlayClose: true, //enable/disable closing with click on the overlay
-            overlayOpacity: '0.5', //CSS valid value for opacity
-            draggable: true, //enable/disable dragging for the modal View
-            draggableGrid: false, //x,y values e.g. [50,30]
-            draggableOnlyOnHeader: true, //enable/disable dragging only on the header
-            resizable: true, //enables/disables resizing for the modal view
-            resizeMinWidth: 10, //Integer or null
-            resizeMaxWidth: null, //Integer or null
-            resizeMinHeight: 10, //Integer or null
+            footerButtonDefaultClass: 'button',     //String - CSS class
+            overlay: true,                          //false for no overlay
+            overlayClass: 'modalOverlay',           //String - CSS class
+            overlayColor: '#000000',                //CSS valid background-color
+            overlayClose: true,                     //enable/disable closing with click on the overlay
+            overlayOpacity: '0.5',                  //CSS valid value for opacity
+            draggable: true,                        //enable/disable dragging for the modal View
+            draggableGrid: false,                   //x,y values e.g. [50,30]
+            draggableOnlyOnHeader: true,            //enable/disable dragging only on the header
+            resizable: true,                        //enables/disables resizing for the modal view
+            resizeMinWidth: 10,                     //Integer or null
+            resizeMaxWidth: null,                   //Integer or null
+            resizeMinHeight: 10,                    //Integer or null
             resizeMaxHeight: null                   //Integer or null
         }, options);
 
@@ -1080,13 +1080,7 @@
         addFooterButtons: function(buttons) {
             if (typeof buttons === 'object') {
                 for (var i = -1, length = buttons.length; ++i < length;) {
-                    var button = [],
-                        bhtml = buttons[i].content,
-                        bcallback = buttons[i].callBack,
-                        bclass = buttons[i].cssClass || this.options.footerButtonDefaultClass,
-                        bid = buttons[i].elementId || '';
-                    button.push(bhtml, bcallback, bclass, bid);
-                    this.footerButtons.push(button);
+                    this.footerButtons.push(buttons[i]);
                 }
             } else {
                 throw new ZOOLU.UI.Exception('Buttons argument must be an array but was ' + typeof buttons);
@@ -1104,10 +1098,10 @@
 
             for (var i = -1, length = this.footerButtons.length; ++i < length;) {
                 var button = $('<div/>'),
-                    bhtml = this.footerButtons[i][0],
-                    bcallback = this.footerButtons[i][1],
-                    bclass = this.footerButtons[i][2],
-                    bid = this.footerButtons[i][3];
+                    bhtml = this.footerButtons[i].content,
+                    bcallback = this.footerButtons[i].callBack || '',
+                    bclass = this.footerButtons[i].cssClass || this.options.footerButtonDefaultClass,
+                    bid = this.footerButtons[i].elementId;
                 button.html(bhtml);
                 button.addClass(bclass);
                 button.attr('id', bid);
@@ -1230,6 +1224,559 @@
             }
             this.trigger('Modal.deactivate');
         }
-    };
 
+    };
+    
+    /**
+     * ZOOLU Button UI Element
+     *
+     * @class
+     * @constructor
+     * @public
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @triggers Button.select
+     * @triggers Button.unselect
+     * @param {String} element - jQuery selector for the button
+     * @param {Function} callback - Callback-function for the button
+     * @param {Object} options - Default options will be merged with the given options
+     * @example
+     * 
+     *  var myButton = new ZOOLU.UI.Button('#myButton', myCallback, {
+     *      toggle: false,
+     *      triggerEvent: 'mouseenter'
+     *  });
+     * 
+     * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+     */
+    ZOOLU.UI.Button = function(element, callback, options) {
+        this.$element = $(element);
+        this.callback = callback;
+        this.selected = false;
+        
+        if (!this.$element.length){
+            throw new ZOOLU.UI.Exception('Button container does not exist');
+        }
+        
+        // extend default options with given
+        this.options = $.extend({
+            toggle: true,                       //true/false - for unselecting and selecting
+            toggleBackOnlyOnButton: true,       //true/false - for toggle back with click at the document
+            toggleBackOnMouseLeave: false,      //true/false - for toggle back on mouseleave
+            triggerEvent: 'click',              //Event which triggers the button
+            toggleClass: 'active',              //CSS-Class gets added to clicked buttons
+            autoselect: false,                  //true/false - selects the button onload
+            unselect: true,                     //true/false - button can be selected but not unselected (toggle must be enabled)
+            callBackOnUnselect: false           //true/false - for executeing the callback on unselect
+        }, options);
+        
+        // add event API
+        ZOOLU.MIXIN.Events.enable.call(this);
+
+        log('Button', 'construct', this);
+        this.initialize();
+    };
+    
+    ZOOLU.UI.Button.prototype = {
+         
+        constructor: ZOOLU.UI.Button,
+
+        initialize: function() {
+            if (this.options.autoselect === true) {
+                this.select();
+                this.exeCallback();
+            }
+            
+            this.$element.bind(this.options.triggerEvent, function(event) {
+                event.stopPropagation();
+                if (this.options.toggle === false || this.selected === false) {
+                    this.select();
+                    this.exeCallback();
+                } else if (this.options.unselect === true){
+                    this.unselect();
+                    this.exeCallback();
+                }
+            }.bind(this));
+        },
+        
+        /**
+         * Selects the button (doesn't execute the callback)
+         *
+         * @public
+         * @triggers Button.select
+         * @example
+         *
+         *  var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+         *  myButton.select();
+         *
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        select: function() {
+            this.addToggleClass();
+            this.trigger('Button.select');
+            this.selected = true;
+            this.bindToggleBackHandler();
+        },
+        
+        /**
+         * Unselects the button
+         *
+         * @public
+         * @triggers Button.unselect
+         * @example
+         *
+         *  var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+         *  myButton.unselect();
+         *
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        unselect: function() {
+            this.removeToggleClass();
+            this.trigger('Button.unselect');
+            this.selected = false;
+        },
+        
+        /**
+         * Executes the callback-function of the button
+         *
+         * @public
+         * @example
+         *
+         *  var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+         *  myButton.exeCallback;
+         *
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        exeCallback: function() {
+            if(typeof this.callback === 'function') {
+                if (this.options.callBackOnUnselect === true || this.selected === true) {
+                    this.callback.call();
+                }
+            }
+        },
+        
+        /**
+         * Adds a CSS-Class to the button
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        addToggleClass: function() {
+            if (this.options.toggle === true) {
+                this.$element.addClass(this.options.toggleClass);
+            }
+        },
+        
+        /**
+         * Removes the CSS-Class from the button
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        removeToggleClass: function() {
+            if (this.options.toggle === true) {
+                this.$element.removeClass(this.options.toggleClass);
+            }
+        },
+        
+        /**
+         * Binds an event for unselecting the button - either with click at the document,
+         * or on mouseleave
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        bindToggleBackHandler: function() {
+            if (this.options.toggleBackOnlyOnButton === false && this.options.toggle === true) {
+                $(document).bind(this.options.triggerEvent, function() {
+                    this.unselect();
+                }.bind(this));
+            } else if (this.options.toggleBackOnMouseLeave === true && this.options.toggle === true) {
+                this.$element.bind('mouseleave', function() {
+                    this.unselect();
+                }.bind(this));
+            }
+        }
+    };
+    
+    /**
+     * ZOOLU Button Group UI Element
+     *
+     * @class
+     * @constructor
+     * @public
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @param {String} container - jQuery Selektor for the Button Group Container
+     * @param {Array} callbacks - Callback functions get applied to the buttons in the order they are declared
+     * @param {Object} options - Default options will be merged with the given options
+     * @example
+     * 
+     *   var myButtonGroup = new ZOOLU.UI.ButtonGroup('#myButtonGroup', [
+     *       function(){alert('Callback 1');},
+     *       function(){alert('Callback 2');},
+     *       function(){alert('Callback 3');},
+     *   ], {
+     *      dataToggle: radio,
+     *      buttonClass: 'btn'
+     *   });
+     *   
+     * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+     */
+    ZOOLU.UI.ButtonGroup = function(container, callbacks, options) {
+        this.$container = $(container);
+        this.callbacks = callbacks;
+        this.buttons = [];
+        
+        if (!this.$container.length){
+            throw new ZOOLU.UI.Exception('Button Group container does not exist');
+        }
+        
+        // extend default options with given
+        this.options = $.extend({
+            dataToggle: false,          //false or radio
+            buttonClass: 'button',      //CSS-Class
+            buttonOptions: {}           //Options for ZOOLU.UI.Button
+        }, options);
+        
+        // add event API
+        ZOOLU.MIXIN.Events.enable.call(this);
+
+        log('Button Group', 'construct', this);
+        this.initialize();
+    };
+    
+    ZOOLU.UI.ButtonGroup.prototype = {
+         
+        constructor: ZOOLU.UI.ButtonGroup,
+        
+        CONST: {
+            dataToggle: {
+                radio: 'radio'
+            }
+        },
+
+        initialize: function() {
+            this.initButtons();
+            this.initCallbacks();
+        },
+        
+        /**
+         * Initializes all buttons - ZOOLU.UI.Buttons get stored in {Array} this.buttons
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        initButtons: function() {
+            var buttons = this.$container.find('.' + this.options.buttonClass);
+            for (var i = -1, length = buttons.length; ++i < length;) {
+                this.buttons[i] = new ZOOLU.UI.Button(buttons[i], null, this.options.buttonOptions);
+                this.attachObserver(i);
+            }
+        },
+        
+        /**
+         * Sets the Callback for the ZOOLU.UI.Buttons
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        initCallbacks: function() {
+            if (!!this.callbacks){
+                for (var i = -1, length = this.callbacks.length; ++i < length;) {
+                    if (!!this.buttons[i]) {
+                        if (typeof this.callbacks[i] === 'function') {
+                            this.buttons[i].callback = this.callbacks[i];
+                        } else {
+                            throw new ZOOLU.UI.Exception('Defined Callback is not a function');
+                        }
+                    } else {
+                        throw new ZOOLU.UI.Exception('Too many Callbacks or not enough buttons');
+                    }
+                }
+            }
+        },
+        
+        /**
+         * Attaches an observer, which listens for Button.select. On Button.select
+         * this.dataToggleHandler() is executed
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        attachObserver: function(index) {
+            this.buttons[index].on('Button.select', function(){
+                this.dataToggleHandler(index);
+            }.bind(this));
+        },
+        
+        /**
+         * Handles the data toggling - unselects all buttons except the clicked one 
+         * if dataToggle is radio
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        dataToggleHandler: function(selected) {
+            if (this.options.dataToggle === this.CONST.dataToggle.radio) {
+                for (var i = -1, length = this.buttons.length; ++i < length;) {
+                    if (this.buttons[i] !== this.buttons[selected]){
+                        this.buttons[i].unselect();
+                    }
+                }
+            }
+        },
+        
+        /**
+         * Returns an Array with all selected buttons of the Button Group in it
+         *
+         * @public
+         * @example
+         * 
+         *   var myButtonGroup = new ZOOLU.UI.ButtonGroup('#myButtonGroup', [
+         *       function(){alert('Callback 1');},
+         *       function(){alert('Callback 2');},
+         *       function(){alert('Callback 3');},
+         *   ], {});
+         *   
+         *   var selectedButtonsArray = myButtonGroup.getSelectedButtons();
+         * 
+         * @return {Array}
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getSelectedButtons: function() {
+            var selectedButtons = [],
+                i = -1,
+                length = this.buttons.length;
+            for (; ++i < length;) {
+                if (this.buttons[i].selected === true) {
+                    selectedButtons.push(this.buttons[i]);
+                }
+            }
+            log(selectedButtons)
+            return selectedButtons;
+        }
+    };
+    
+    /**
+     * ZOOLU Dropdown UI Element
+     *
+     * @class
+     * @constructor
+     * @public
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @triggers Dropdown.open
+     * @triggers Dropdown.close
+     * @param {String} activator - jQuery Selektor for the activator
+     * @param {Object} options - Default options will be merged with the given options
+     * @example
+     * 
+     *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {
+     *      fadeIn: true,
+     *      fadeOut: true,
+     *      closeOnMouseLeave: true
+     *  });
+     * 
+     * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+     */
+    ZOOLU.UI.Dropdown = function(activator, options) {
+        this.$activator = $(activator);
+        this.$dropdown = null;
+        this.opened = false;
+        
+        if (!this.$activator.length){
+            throw new ZOOLU.UI.Exception('Dropdown activator container does not exist');
+        }
+        
+        // extend default options with given
+        this.options = $.extend({
+            dropdownClass: 'dropdown',              //CSS-Class of the dropdown
+            closeOnClick: true,                     //true/false - for closing with click on the document
+            closeOnMouseLeave: false,               //true/false - closes on mouseleave
+            triggerEvent: 'click',                  //Event which triggers the dropdown
+            resizable: true,                        //enables/disables resizing for the modal view
+            resizeMinWidth: 10,                     //Integer or null
+            resizeMaxWidth: null,                   //Integer or null
+            resizeMinHeight: 10,                    //Integer or null
+            resizeMaxHeight: null,                  //Integer or null
+            slideDown: false,                       //true/false
+            slideDownDuration: 500,                 //ms
+            slideUp: false,                         //true/false
+            slideUpDuration: 500,                   //ms
+            fadeIn: false,                          //true/false
+            fadeInDuration: 800,                    //ms
+            fadeOut: false,                         //true/false
+            fadeOutDuration: 800                    //ms
+        }, options);
+        
+        // add event API
+        ZOOLU.MIXIN.Events.enable.call(this);
+
+        log('Dropdown', 'construct', this);
+        this.initialize();
+    };
+    
+    ZOOLU.UI.Dropdown.prototype = {
+         
+        constructor: ZOOLU.UI.Dropdown,
+        
+        initialize: function() {
+            this.getDropdownContainer();
+            this.applyStartingOptions();
+            this.bindEvents();
+        },
+        
+        /**
+         * Gets the Dropdown-Container vom the DOM-Structure
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getDropdownContainer: function() {
+            var dropdown = this.$activator.find('.' + this.options.dropdownClass);
+            if (dropdown.length === 1) {
+                this.$dropdown = dropdown;
+            } else if (dropdown.length > 1) {
+                throw new ZOOLU.UI.Exception('More than one Dropdowns found!');
+            } else if (dropdown.length < 1) {
+                throw new ZOOLU.UI.Exception('No Dropdown found!');
+            }
+        },
+        
+        /**
+         * Adds CSS to the dropdown Container
+         *
+         * @public
+         * @example
+         * 
+         *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+         *  myDropdown.addCSS({
+         *      width: '200px',
+         *      height: '500px',
+         *      background-color: '#FFFFFF'
+         *  });
+         * 
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        addCSS: function(css) {
+            if (typeof css === 'object') {
+                this.$dropdown.css(css);
+            } else {
+                throw new ZOOLU.UI.Exception('Type of CSS argument must be "object" but was '+typeof css);
+            }
+        },
+        
+        /**
+         * Applys options which are needed at the beginning
+         *
+         * @public
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        applyStartingOptions: function() {
+            this.$dropdown.hide();
+        },
+        
+        /**
+         * Binds diffrent events which are needed for the dropdown
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        bindEvents: function() {
+            this.$activator.bind(this.options.triggerEvent, function() {
+                this.toggle();
+            }.bind(this));
+            this.$dropdown.bind(this.options.triggerEvent, function(event) {
+                event.stopPropagation();
+            });
+            
+            if (this.options.closeOnClick === true) {
+                $(document).bind('click', function() {
+                    this.close();
+                }.bind(this));
+            } else if (this.options.closeOnMouseLeave === true) {
+                this.$activator.bind('mouseleave', function() {
+                    this.close();
+                }.bind(this));
+            }
+            if (this.options.resizable === true) {
+                this.$dropdown.resizable({
+                    handles: 'se',
+                    maxHeight: this.options.resizeMaxHeight,
+                    minHeight: this.options.resizeMinHeight,
+                    maxWidth: this.options.resizeMaxWidth,
+                    minWidth: this.options.resizeMinWidth
+                });
+            }
+        },
+        
+        /**
+         * Toggles the dropdown (open/close)
+         *
+         * @public
+         * @example
+         * 
+         *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+         *  myDropdown.toggle();
+         * 
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        toggle: function() {
+            if (this.opened === false) {
+                this.open();
+            } else {
+                this.close();
+            }
+        },
+        
+        /**
+         * Opens the dropdown
+         *
+         * @public
+         * @example
+         * 
+         *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+         *  myDropdown.open();
+         * 
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        open: function() {
+            if (this.options.slideDown === true) {
+                this.$dropdown.slideDown(this.options.slideDownDuration);
+            } else if (this.options.fadeIn === true) {
+                this.$dropdown.fadeIn(this.options.fadeInDuration);
+            } else {
+                this.$dropdown.show()
+            }
+            this.trigger('Dropdown.open');
+            this.opened = true;
+        },
+        
+        /**
+         * Closes the dropdown
+         *
+         * @public
+         * @example
+         * 
+         *  var myDropdown = new ZOOLU.UI.Dropdown('#myDropdown', {});
+         *  myDropdown.close();
+         * 
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        close: function() {
+            if (this.options.slideUp === true) {
+                this.$dropdown.slideUp(this.options.slideUpDuration);
+            } else if (this.options.fadeOut === true) {
+                this.$dropdown.fadeOut(this.options.fadeOutDuration);
+            } else {
+                this.$dropdown.hide()
+            }
+            this.trigger('Dropdown.close');
+            this.opened = false;
+        }
+    };
 })(window, window.ZOOLU, window.jQuery);
