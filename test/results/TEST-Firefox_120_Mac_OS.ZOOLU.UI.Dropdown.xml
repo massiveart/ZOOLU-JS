@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" errors="0" failures="0" tests="8" time="0.18699999">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown instantiation" time="0.022"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown instantiation exception" time="0.0020"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown get dropdown container" time="0.025"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown add CSS" time="0.022"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown bind events" time="0.026"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown open" time="0.035"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown close" time="0.036"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown toggle" time="0.019"/>
+</testsuite>

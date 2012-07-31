@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" errors="0" failures="0" tests="8" time="0.044">
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown instantiation" time="0.0050"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown instantiation exception" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown get dropdown container" time="0.0040"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown add CSS" time="0.0050"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown bind events" time="0.0060"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown open" time="0.0090"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown close" time="0.0080"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Dropdown" name="test dropdown toggle" time="0.0050"/>
+</testsuite>

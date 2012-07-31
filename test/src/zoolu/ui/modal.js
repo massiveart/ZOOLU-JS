@@ -281,6 +281,8 @@ TestCase('ZOOLU.UI.Modal', {
     'test initialize box events': function() {
         try {
             var modal = new ZOOLU.UI.Modal({
+                fadeIn: false,
+                fadeOut: false,
                 draggable: true,
                 resizable : true,
                 headerClose: true,
@@ -301,6 +303,12 @@ TestCase('ZOOLU.UI.Modal', {
         modal.buildModal();
         modal.buildOverlay();
         modal.initBoxEvents();
+        
+        modal.$headerClose.click();
+        modal.display();
+        modal.$footerClose.click();
+        modal.display();
+        modal.$overlay.click();
         
         modal2.buildModal();
         modal2.buildOverlay();
