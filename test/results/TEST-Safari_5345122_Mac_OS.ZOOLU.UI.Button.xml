@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.Button" errors="0" failures="0" tests="8" time="0.011000001">
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button instantiation" time="0.0030"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button group instantiation exception" time="0.0"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button group instantiation exception" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button select" time="0.0010"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button unselect" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button unselect" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button execute callback" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button add toggle class" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Button" name="test button remove toggle class" time="0.0010"/>
