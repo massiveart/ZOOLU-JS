@@ -274,4 +274,64 @@
     left: 0px;
     .border-radius(5px);
     box-shadow: 0px 0px 5px #bdbdbd;
+    display: none;
+}
+
+/* List classes
+-------------------------------------------------------------- */
+.wrapper {
+	padding-top: 100px;
+	position: relative;
+	width: 700px;
+	margin: 0 auto;
+}
+.tablelist {
+	width: 100%;
+	thead {
+		text-align: left;
+		.title {
+			padding-right: 20px;
+			padding-right: 20px;
+			line-height: 40px;
+			cursor: pointer;
+		}
+		.asc {
+			background: url('../img/icons/arrow-up.png') no-repeat center center;
+		}
+		.desc {
+			background: url('../img/icons/arrow-down.png') no-repeat center center;
+		}
+	}
+	tbody {
+		td {
+			padding-right: 20px;
+			line-height: 40px;
+		}
+		.icon img {
+			height: 40px;
+		}
+		tr:hover {
+			background-color: #e0e0e0;
+		}
+		.row {
+			background-color: #f3f3f3;
+			border-bottom: 1px solid #cccccc;
+		}
+		.selected {
+			background-color: #e0e0e0;
+		}
+	}	
+}
+
+.tablelistnav {
+	.clearfix();
+	padding-top: 20px;
+	
+	.pageentries {
+		float: left;
+		padding-right: 50px;
+	}
+	.pagination {
+		float: right;
+	}
 }
