@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - ZOOLU.UI.Layout.Panel</title>
+		<title>JsDoc Reference - ZOOLU.UI.Modal</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -236,7 +236,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class ZOOLU.UI.Layout.Panel
+				Class ZOOLU.UI.Modal
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -253,7 +253,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.Layout.Panel.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.Modal.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -263,12 +263,12 @@ ul.inheritsList
 				</thead>
 				<tbody>
 					<tr>
-						<td class="attributes">&lt;private&gt; &nbsp;</td>
+						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#constructor">ZOOLU.UI.Layout.Panel</a></b>(element, layout, options, options)
+								<b><a href="../symbols/ZOOLU.UI.Modal.html#constructor">ZOOLU.UI.Modal</a></b>(options)
 							</div>
-							<div class="description">ZOOLU Layout Panel UI Element</div>
+							<div class="description">ZOOLU Modal View UI Element</div>
 						</td>
 					</tr>
 				</tbody>
@@ -282,7 +282,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.Layout.Panel.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.Modal.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -293,28 +293,128 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#addMinimizer">addMinimizer</a></b>(DOM-Object, Array)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#addContent">addContent</a></b>(content)
 								</div>
-								<div class="description">Adds a Minimizer DOM-Element into an other DOM-Element</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#applyStoredDimensions">applyStoredDimensions</a></b>()
-								</div>
-								<div class="description">Gets the Cookies for the current panel and applys the width and height of
-the cookie to the element (if they are given)</div>
+								<div class="description">Adds the passed content to a privat variable <code>this.content</code></div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#initialize">initialize</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#addCSS">addCSS</a></b>(prop, value)
+								</div>
+								<div class="description">Pushes the passed CSS-Style into a private array <code>this.css</code></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#addFooterButtons">addFooterButtons</a></b>(buttons)
+								</div>
+								<div class="description">Pushes buttons from the passed object into a private array <code>this.footerButtons</code></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#buildModal">buildModal</a></b>()
+								</div>
+								<div class="description">Executes all Initializing-Functions and appends the header, the content and
+the footer the the Modal View</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#buildOverlay">buildOverlay</a></b>()
+								</div>
+								<div class="description">Initzializes the Overlay and sets important CSS-Styles</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#close">close</a></b>()
+								</div>
+								<div class="description">Closes the Modal View according to the given options.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#display">display</a></b>()
+								</div>
+								<div class="description">Displays the Modal View either with or without fading</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initBoxEvents">initBoxEvents</a></b>()
+								</div>
+								<div class="description">Initializes all events which are needed by the the Modal View itselfs
+or by one of its children.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initContent">initContent</a></b>()
+								</div>
+								<div class="description">Initializes the content</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initCSS">initCSS</a></b>()
+								</div>
+								<div class="description">Initializes the CSS-Styles form the private array <code>this.css</code></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initElement">initElement</a></b>()
+								</div>
+								<div class="description">Initializes the Modal View</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initFooter">initFooter</a></b>()
+								</div>
+								<div class="description">Initializes the footer</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initFooterButtons">initFooterButtons</a></b>()
+								</div>
+								<div class="description">Initializes the footer-buttons</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#initHeader">initHeader</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -323,36 +423,7 @@ the cookie to the element (if they are given)</div>
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#initializeLayout">initializeLayout</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#maximize">maximize</a></b>()
-								</div>
-								<div class="description">Maximize the panel to the last width/height, triggers a resize event,
-removes the click-Event from the handler, adds the resize event back to the handler</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#minimize">minimize</a></b>()
-								</div>
-								<div class="description">Minimize the panel, triggers resize event, removes the resize event from the handler
-and adds an onclick event to the handler</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#off">off</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#off">off</a></b>(event, callback)
 								</div>
 								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
 							</td>
@@ -361,7 +432,7 @@ and adds an onclick event to the handler</div>
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#on">on</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#on">on</a></b>(event, callback)
 								</div>
 								<div class="description">Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.</div>
 							</td>
@@ -370,82 +441,20 @@ and adds an onclick event to the handler</div>
 						<tr>
 							<td class="attributes">&lt;private&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#removeEvent">removeEvent</a></b>(element, event)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#setPosition">setPosition</a></b>()
 								</div>
-								<div class="description">Removes an event from an element</div>
+								<div class="description">Sets the position of the Modal View according to the options
+default is the center of the screen</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#resize">resize</a></b>(event)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#setPositionLeft">setPositionLeft</a></b>(left)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#setPositionTop">setPositionTop</a></b>(top)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#storeDimensions">storeDimensions</a></b>(width, height)
-								</div>
-								<div class="description">Stores a width and a height in a cookie</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#toggleHandlerEvents">toggleHandlerEvents</a></b>(action)
-								</div>
-								<div class="description">Toggles the resize and the click event for the handler</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#trigger">trigger</a></b>(event, args)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Modal.html#trigger">trigger</a></b>(event, args)
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#unbusy">unbusy</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.Panel.html#updateDimension">updateDimension</a></b>(width, height)
-								</div>
-								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -465,14 +474,22 @@ to it.</div>
 					Class Detail
 				</div>
 				
-				<div class="fixedFont">&lt;private&gt; 
-						<b>ZOOLU.UI.Layout.Panel</b>(element, layout, options, options)
+				<div class="fixedFont">
+						<b>ZOOLU.UI.Modal</b>(options)
 				</div>
 				
 				<div class="description">
-					ZOOLU Layout Panel UI Element
-					<br /><i>Author: </i><a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>.
+					ZOOLU Modal View UI Element
+					<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 				</div>
+				
+				
+				
+				<pre class="code">
+ var modal = new ZOOLU.UI.Modal({
+     fadeIn: true,
+     headerTitle. 'My first ZOOLU Modal View'
+ });</pre>
 				
 				
 				
@@ -482,43 +499,15 @@ to it.</div>
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{String}</span>  <b>element</b>
-								
-							</dt>
-								<dd>Selector to get the panel</dd>
-						
-							<dt>
-								<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Layout.html">ZOOLU.UI.Layout</a>}</span>  <b>layout</b>
-								
-							</dt>
-								<dd>Instance of the parent ZOOLU.UI.Layout</dd>
-						
-							<dt>
 								<span class="light fixedFont">{Object}</span>  <b>options</b>
 								
 							</dt>
 								<dd>Default options will be merged with the given options</dd>
 						
-							<dt>
-								 <b>options</b>
-								
-							</dt>
-								<dd></dd>
-						
 						</dl>
 					
 					
 					
-					
-						<dl class="detailList">
-						<dt class="heading">Throws:</dt>
-						
-							<dt>
-								<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a>}</span>  <b></b>
-							</dt>
-								<dd>Panel doesn't exist!</dd>
-						
-						</dl>
 					
 					
 					
@@ -536,22 +525,25 @@ to it.</div>
 					Method Detail
 				</div>
 				
-					<a name="addMinimizer"> </a>
-					<div class="fixedFont">&lt;private&gt; 
+					<a name="addContent"> </a>
+					<div class="fixedFont">
 					
 					
-					<b>addMinimizer</b>(DOM-Object, Array)
+					<b>addContent</b>(content)
 					
 					</div>
 					<div class="description">
-						Adds a Minimizer DOM-Element into an other DOM-Element
+						Adds the passed content to a privat variable <code>this.content</code>
 						
 						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
 					
-					<pre class="code"> this.addMinimizer($('.handler'), ['west', 'north']);</pre>
+					<pre class="code">
+ var modal = new ZOOLU.UI.Modal();
+ modal.addContent('<h1>Content Headline</h1>');
+ modal.addContent($('<div class="subcontent"/>'));</pre>
 					
 					
 					
@@ -560,16 +552,10 @@ to it.</div>
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{Object}</span> <b>DOM-Object</b>
+									<b>content</b>
 									
 								</dt>
-								<dd>in which the minimizer is added</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Array}</span> <b>Array</b>
-									
-								</dt>
-								<dd>that specifies to which panels Minimizer are added.</dd>
+								<dd>- a valid value for the jQuery .html()-Method</dd>
 							
 							</dl>
 						
@@ -582,47 +568,44 @@ to it.</div>
 
 					<hr />
 				
-					<a name="applyStoredDimensions"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>applyStoredDimensions</b>()
-					
-					</div>
-					<div class="description">
-						Gets the Cookies for the current panel and applys the width and height of
-the cookie to the element (if they are given)
-						
-						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="initialize"> </a>
+					<a name="addCSS"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>initialize</b>()
+					<b>addCSS</b>(prop, value)
 					
 					</div>
 					<div class="description">
+						Pushes the passed CSS-Style into a private array <code>this.css</code>
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
 					
+					<pre class="code">
+var modal = new ZOOLU.UI.Modal();
+modal.addCSS('width', '200px');</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>prop</b>
+									
+								</dt>
+								<dd>- valid CSS property</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>value</b>
+									
+								</dt>
+								<dd>- valid CSS value for the property</dd>
+							
+							</dl>
 						
 						
 						
@@ -633,21 +616,43 @@ the cookie to the element (if they are given)
 
 					<hr />
 				
-					<a name="initializeLayout"> </a>
+					<a name="addFooterButtons"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>initializeLayout</b>()
+					<b>addFooterButtons</b>(buttons)
 					
 					</div>
 					<div class="description">
+						Pushes buttons from the passed object into a private array <code>this.footerButtons</code>
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
 					
+					<pre class="code">
+ var modal = new ZOOLU.UI.Modal();
+
+ modal.addFooterButtons([
+  {content: 'Button 1', callBack: function(){ alert('Button 1 clicked'); }, cssClass:  'button', elementId: 'button1'},
+  {content: 'Button 2', callBack: function(){ alert('Button 2 clicked'); }, cssClass:  'button', elementId: 'button2'},
+  {content: 'Button 3', callBack: function(){ alert('Button 3 clicked'); }, cssClass:  'button', elementId: 'button3'}
+ ]);</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>buttons</b>
+									
+								</dt>
+								<dd>- the buttons are added to the footer</dd>
+							
+							</dl>
 						
 						
 						
@@ -658,16 +663,16 @@ the cookie to the element (if they are given)
 
 					<hr />
 				
-					<a name="maximize"> </a>
+					<a name="buildModal"> </a>
 					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>maximize</b>()
+					<b>buildModal</b>()
 					
 					</div>
 					<div class="description">
-						Maximize the panel to the last width/height, triggers a resize event,
-removes the click-Event from the handler, adds the resize event back to the handler
+						Executes all Initializing-Functions and appends the header, the content and
+the footer the the Modal View
 						
 						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
@@ -684,18 +689,257 @@ removes the click-Event from the handler, adds the resize event back to the hand
 
 					<hr />
 				
-					<a name="minimize"> </a>
+					<a name="buildOverlay"> </a>
 					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>minimize</b>()
+					<b>buildOverlay</b>()
 					
 					</div>
 					<div class="description">
-						Minimize the panel, triggers resize event, removes the resize event from the handler
-and adds an onclick event to the handler
+						Initzializes the Overlay and sets important CSS-Styles
 						
 						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="close"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>close</b>()
+					
+					</div>
+					<div class="description">
+						Closes the Modal View according to the given options. (Either with or
+without fading)
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+					<pre class="code">
+ var modal = new ZOOLU.UI.Modal();
+ modal.display();
+ modal.close();</pre>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="display"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>display</b>()
+					
+					</div>
+					<div class="description">
+						Displays the Modal View either with or without fading
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+					<pre class="code">
+var modal = new ZOOLU.UI.Modal();
+modal.display();</pre>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initBoxEvents"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initBoxEvents</b>()
+					
+					</div>
+					<div class="description">
+						Initializes all events which are needed by the the Modal View itselfs
+or by one of its children.
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initContent"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initContent</b>()
+					
+					</div>
+					<div class="description">
+						Initializes the content
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initCSS"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initCSS</b>()
+					
+					</div>
+					<div class="description">
+						Initializes the CSS-Styles form the private array <code>this.css</code>
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initElement"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initElement</b>()
+					
+					</div>
+					<div class="description">
+						Initializes the Modal View
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initFooter"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initFooter</b>()
+					
+					</div>
+					<div class="description">
+						Initializes the footer
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initFooterButtons"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initFooterButtons</b>()
+					
+					</div>
+					<div class="description">
+						Initializes the footer-buttons
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initHeader"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initHeader</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
 					</div>
 					
 					
@@ -801,224 +1045,22 @@ provided, all listeners for this event are removed.
 
 					<hr />
 				
-					<a name="removeEvent"> </a>
+					<a name="setPosition"> </a>
 					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>removeEvent</b>(element, event)
+					<b>setPosition</b>()
 					
 					</div>
 					<div class="description">
-						Removes an event from an element
+						Sets the position of the Modal View according to the options
+default is the center of the screen
 						
 						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Object}</span> <b>element</b>
-									
-								</dt>
-								<dd>DOM-Object from which the event will be removed</dd>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>event</b>
-									
-								</dt>
-								<dd>Event which will be removed</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="resize"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>resize</b>(event)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Object}</span> <b>event</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="setPositionLeft"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setPositionLeft</b>(left)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>left</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="setPositionTop"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setPositionTop</b>(top)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>top</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="storeDimensions"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>storeDimensions</b>(width, height)
-					
-					</div>
-					<div class="description">
-						Stores a width and a height in a cookie
-						
-						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Integer}</span> <b>width</b>
-									
-								</dt>
-								<dd>Width to store</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Integer}</span> <b>height</b>
-									
-								</dt>
-								<dd>Height to store</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="toggleHandlerEvents"> </a>
-					<div class="fixedFont">&lt;private&gt; 
-					
-					
-					<b>toggleHandlerEvents</b>(action)
-					
-					</div>
-					<div class="description">
-						Toggles the resize and the click event for the handler
-						
-						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Boolean}</span> <b>action</b>
-									
-								</dt>
-								<dd>In accordance with minimized/maximized - true: currently minimized</dd>
-							
-							</dl>
 						
 						
 						
@@ -1073,73 +1115,6 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 						
 						
 
-					<hr />
-				
-					<a name="unbusy"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>unbusy</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="updateDimension"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>updateDimension</b>(width, height)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>width</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>height</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
 					
 				
 			
@@ -1154,7 +1129,7 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			&copy;2012<br />
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Aug 03 2012 14:55:08 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Aug 03 2012 14:55:09 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>

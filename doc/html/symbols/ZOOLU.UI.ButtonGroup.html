@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - ZOOLU.UI.Layout</title>
+		<title>JsDoc Reference - ZOOLU.UI.ButtonGroup</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -236,7 +236,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class ZOOLU.UI.Layout
+				Class ZOOLU.UI.ButtonGroup
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -253,7 +253,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.Layout.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.ButtonGroup.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -266,9 +266,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.UI.Layout.html#constructor">ZOOLU.UI.Layout</a></b>(container, options)
+								<b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#constructor">ZOOLU.UI.ButtonGroup</a></b>(container, callbacks, options)
 							</div>
-							<div class="description">ZOOLU Layout UI Element</div>
+							<div class="description">ZOOLU Button Group UI Element</div>
 						</td>
 					</tr>
 				</tbody>
@@ -282,7 +282,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.Layout.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.ButtonGroup.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -293,27 +293,55 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&nbsp;</td>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#addPanel">addPanel</a></b>(panel)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#attachObserver">attachObserver</a></b>(index)
 								</div>
-								<div class="description">Add instance of ZOOLU.UI.Layout.Panel to the current layout.</div>
+								<div class="description">Attaches an observer, which listens for Button.select.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#dataToggleHandler">dataToggleHandler</a></b>(selected)
+								</div>
+								<div class="description">Handles the data toggling - unselects all buttons except the clicked one
+if dataToggle is radio</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#arrange">arrange</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#getSelectedButtons">getSelectedButtons</a></b>()
 								</div>
-								<div class="description">Arrange all layout panels.</div>
+								<div class="description">Returns an Array with all selected buttons of the Button Group in it</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#initButtons">initButtons</a></b>()
+								</div>
+								<div class="description">Initializes all buttons - ZOOLU.UI.Buttons get stored in {Array} this.buttons</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#initCallbacks">initCallbacks</a></b>()
+								</div>
+								<div class="description">Sets the Callback for the ZOOLU.UI.Buttons</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#enable">enable</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#initialize">initialize</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -322,25 +350,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#initialize">initialize</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#initPanel">initPanel</a></b>(panel, orientation)
-								</div>
-								<div class="description">Initialize panel of the current layout.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#off">off</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#off">off</a></b>(event, callback)
 								</div>
 								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
 							</td>
@@ -349,7 +359,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#on">on</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#on">on</a></b>(event, callback)
 								</div>
 								<div class="description">Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.</div>
 							</td>
@@ -358,28 +368,10 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#trigger">trigger</a></b>(event, args)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.ButtonGroup.html#trigger">trigger</a></b>(event, args)
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#unbusy">unbusy</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#updateDimension">updateDimension</a></b>(width, height)
-								</div>
-								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -400,17 +392,25 @@ to it.</div>
 				</div>
 				
 				<div class="fixedFont">
-						<b>ZOOLU.UI.Layout</b>(container, options)
+						<b>ZOOLU.UI.ButtonGroup</b>(container, callbacks, options)
 				</div>
 				
 				<div class="description">
-					ZOOLU Layout UI Element
-					<br /><i>Author: </i><a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>.
+					ZOOLU Button Group UI Element
+					<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 				</div>
 				
 				
 				
-				<pre class="code"> var layout = new ZOOLU.UI.Layout('#layout');</pre>
+				<pre class="code">
+  var myButtonGroup = new ZOOLU.UI.ButtonGroup('#myButtonGroup', [
+      function(){alert('Callback 1');},
+      function(){alert('Callback 2');},
+      function(){alert('Callback 3');},
+  ], {
+     dataToggle: radio,
+     buttonClass: 'btn'
+  });</pre>
 				
 				
 				
@@ -423,28 +423,24 @@ to it.</div>
 								<span class="light fixedFont">{String}</span>  <b>container</b>
 								
 							</dt>
-								<dd>Selector to get the layout container</dd>
+								<dd>- jQuery Selektor for the Button Group Container</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Array}</span>  <b>callbacks</b>
+								
+							</dt>
+								<dd>- Callback functions get applied to the buttons in the order they are declared</dd>
 						
 							<dt>
 								<span class="light fixedFont">{Object}</span>  <b>options</b>
 								
 							</dt>
-								<dd>Default options will be merged with the given options</dd>
+								<dd>- Default options will be merged with the given options</dd>
 						
 						</dl>
 					
 					
 					
-					
-						<dl class="detailList">
-						<dt class="heading">Throws:</dt>
-						
-							<dt>
-								<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a>}</span>  <b></b>
-							</dt>
-								<dd>Layout container doesn't exist!</dd>
-						
-						</dl>
 					
 					
 					
@@ -462,17 +458,18 @@ to it.</div>
 					Method Detail
 				</div>
 				
-					<a name="addPanel"> </a>
-					<div class="fixedFont">
+					<a name="attachObserver"> </a>
+					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>addPanel</b>(panel)
+					<b>attachObserver</b>(index)
 					
 					</div>
 					<div class="description">
-						Add instance of ZOOLU.UI.Layout.Panel to the current layout.
+						Attaches an observer, which listens for Button.select. On Button.select
+this.dataToggleHandler() is executed
 						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
@@ -482,10 +479,10 @@ to it.</div>
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Layout.Panel.html">ZOOLU.UI.Layout.Panel</a>}</span> <b>panel</b>
+									<b>index</b>
 									
 								</dt>
-								<dd>Instance of ZOOLU.UI.Layout.Panel</dd>
+								<dd></dd>
 							
 							</dl>
 						
@@ -498,17 +495,97 @@ to it.</div>
 
 					<hr />
 				
-					<a name="arrange"> </a>
-					<div class="fixedFont">
+					<a name="dataToggleHandler"> </a>
+					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>arrange</b>()
+					<b>dataToggleHandler</b>(selected)
 					
 					</div>
 					<div class="description">
-						Arrange all layout panels.
+						Handles the data toggling - unselects all buttons except the clicked one
+if dataToggle is radio
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>selected</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
 						
 						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSelectedButtons"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getSelectedButtons</b>()
+					
+					</div>
+					<div class="description">
+						Returns an Array with all selected buttons of the Button Group in it
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+					<pre class="code">
+  var myButtonGroup = new ZOOLU.UI.ButtonGroup('#myButtonGroup', [
+      function(){alert('Callback 1');},
+      function(){alert('Callback 2');},
+      function(){alert('Callback 3');},
+  ], {});
+
+  var selectedButtonsArray = myButtonGroup.getSelectedButtons();</pre>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="initButtons"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>initButtons</b>()
+					
+					</div>
+					<div class="description">
+						Initializes all buttons - ZOOLU.UI.Buttons get stored in {Array} this.buttons
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
@@ -523,17 +600,17 @@ to it.</div>
 
 					<hr />
 				
-					<a name="enable"> </a>
-					<div class="fixedFont">
+					<a name="initCallbacks"> </a>
+					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>enable</b>()
+					<b>initCallbacks</b>()
 					
 					</div>
 					<div class="description">
+						Sets the Callback for the ZOOLU.UI.Buttons
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
@@ -563,48 +640,6 @@ to it.</div>
 					
 					
 					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="initPanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>initPanel</b>(panel, orientation)
-					
-					</div>
-					<div class="description">
-						Initialize panel of the current layout.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Object}</span> <b>panel</b>
-									
-								</dt>
-								<dd>Panel of the current layout</dd>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>orientation</b>
-									
-								</dt>
-								<dd>Orientation of the given panel</dd>
-							
-							</dl>
 						
 						
 						
@@ -740,73 +775,6 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 									
 								</dt>
 								<dd>Optional array of args to pass to the listeners</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="unbusy"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>unbusy</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="updateDimension"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>updateDimension</b>(width, height)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>width</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>height</b>
-									
-								</dt>
-								<dd></dd>
 							
 							</dl>
 						

@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - ZOOLU.UI.Layout</title>
+		<title>JsDoc Reference - ZOOLU.UI.Button</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -236,7 +236,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class ZOOLU.UI.Layout
+				Class ZOOLU.UI.Button
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -253,7 +253,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.Layout.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZOOLU.UI.Button.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -266,9 +266,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/ZOOLU.UI.Layout.html#constructor">ZOOLU.UI.Layout</a></b>(container, options)
+								<b><a href="../symbols/ZOOLU.UI.Button.html#constructor">ZOOLU.UI.Button</a></b>(element, callback, options)
 							</div>
-							<div class="description">ZOOLU Layout UI Element</div>
+							<div class="description">ZOOLU Button UI Element</div>
 						</td>
 					</tr>
 				</tbody>
@@ -282,7 +282,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.Layout.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZOOLU.UI.Button.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -293,27 +293,37 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&nbsp;</td>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#addPanel">addPanel</a></b>(panel)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#addToggleClass">addToggleClass</a></b>()
 								</div>
-								<div class="description">Add instance of ZOOLU.UI.Layout.Panel to the current layout.</div>
+								<div class="description">Adds a CSS-Class to the button</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#bindToggleBackHandler">bindToggleBackHandler</a></b>()
+								</div>
+								<div class="description">Binds an event for unselecting the button - either with click at the document,
+or on mouseleave</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#arrange">arrange</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#exeCallback">exeCallback</a></b>()
 								</div>
-								<div class="description">Arrange all layout panels.</div>
+								<div class="description">Executes the callback-function of the button</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#enable">enable</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#initialize">initialize</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -322,25 +332,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#initialize">initialize</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#initPanel">initPanel</a></b>(panel, orientation)
-								</div>
-								<div class="description">Initialize panel of the current layout.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#off">off</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#off">off</a></b>(event, callback)
 								</div>
 								<div class="description">Removes the provided <code>callback</code> from the <code>event</code>.</div>
 							</td>
@@ -349,16 +341,34 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#on">on</a></b>(event, callback)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#on">on</a></b>(event, callback)
 								</div>
 								<div class="description">Binds the execution of the provided <code>callback</code> when the <code>event</code> is triggered.</div>
 							</td>
 						</tr>
 					
 						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#removeToggleClass">removeToggleClass</a></b>()
+								</div>
+								<div class="description">Removes the CSS-Class from the button</div>
+							</td>
+						</tr>
+					
+						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#trigger">trigger</a></b>(event, args)
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#select">select</a></b>()
+								</div>
+								<div class="description">Selects the button (doesn't execute the callback)</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#trigger">trigger</a></b>(event, args)
 								</div>
 								<div class="description">Triggers the provided <code>event</code> and executes all listeners attached
 to it.</div>
@@ -368,18 +378,9 @@ to it.</div>
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#unbusy">unbusy</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Button.html#unselect">unselect</a></b>()
 								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/ZOOLU.UI.Layout.html#updateDimension">updateDimension</a></b>(width, height)
-								</div>
-								<div class="description"></div>
+								<div class="description">Unselects the button</div>
 							</td>
 						</tr>
 					
@@ -400,17 +401,21 @@ to it.</div>
 				</div>
 				
 				<div class="fixedFont">
-						<b>ZOOLU.UI.Layout</b>(container, options)
+						<b>ZOOLU.UI.Button</b>(element, callback, options)
 				</div>
 				
 				<div class="description">
-					ZOOLU Layout UI Element
-					<br /><i>Author: </i><a href="mailto:thomas@chirimoya.at">Thomas Schedler</a>.
+					ZOOLU Button UI Element
+					<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 				</div>
 				
 				
 				
-				<pre class="code"> var layout = new ZOOLU.UI.Layout('#layout');</pre>
+				<pre class="code">
+ var myButton = new ZOOLU.UI.Button('#myButton', myCallback, {
+     toggle: false,
+     triggerEvent: 'mouseenter'
+ });</pre>
 				
 				
 				
@@ -420,31 +425,27 @@ to it.</div>
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{String}</span>  <b>container</b>
+								<span class="light fixedFont">{String}</span>  <b>element</b>
 								
 							</dt>
-								<dd>Selector to get the layout container</dd>
+								<dd>- jQuery selector for the button</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span>  <b>callback</b>
+								
+							</dt>
+								<dd>- Callback-function for the button</dd>
 						
 							<dt>
 								<span class="light fixedFont">{Object}</span>  <b>options</b>
 								
 							</dt>
-								<dd>Default options will be merged with the given options</dd>
+								<dd>- Default options will be merged with the given options</dd>
 						
 						</dl>
 					
 					
 					
-					
-						<dl class="detailList">
-						<dt class="heading">Throws:</dt>
-						
-							<dt>
-								<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Exception.html">ZOOLU.UI.Exception</a>}</span>  <b></b>
-							</dt>
-								<dd>Layout container doesn't exist!</dd>
-						
-						</dl>
 					
 					
 					
@@ -462,53 +463,17 @@ to it.</div>
 					Method Detail
 				</div>
 				
-					<a name="addPanel"> </a>
-					<div class="fixedFont">
+					<a name="addToggleClass"> </a>
+					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>addPanel</b>(panel)
-					
-					</div>
-					<div class="description">
-						Add instance of ZOOLU.UI.Layout.Panel to the current layout.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/ZOOLU.UI.Layout.Panel.html">ZOOLU.UI.Layout.Panel</a>}</span> <b>panel</b>
-									
-								</dt>
-								<dd>Instance of ZOOLU.UI.Layout.Panel</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="arrange"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>arrange</b>()
+					<b>addToggleClass</b>()
 					
 					</div>
 					<div class="description">
-						Arrange all layout panels.
+						Adds a CSS-Class to the button
 						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
@@ -523,18 +488,50 @@ to it.</div>
 
 					<hr />
 				
-					<a name="enable"> </a>
-					<div class="fixedFont">
+					<a name="bindToggleBackHandler"> </a>
+					<div class="fixedFont">&lt;private&gt; 
 					
 					
-					<b>enable</b>()
+					<b>bindToggleBackHandler</b>()
 					
 					</div>
 					<div class="description">
+						Binds an event for unselecting the button - either with click at the document,
+or on mouseleave
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="exeCallback"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>exeCallback</b>()
+					
+					</div>
+					<div class="description">
+						Executes the callback-function of the button
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+					<pre class="code">
+ var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+ myButton.exeCallback;</pre>
 					
 					
 					
@@ -563,48 +560,6 @@ to it.</div>
 					
 					
 					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="initPanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>initPanel</b>(panel, orientation)
-					
-					</div>
-					<div class="description">
-						Initialize panel of the current layout.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Object}</span> <b>panel</b>
-									
-								</dt>
-								<dd>Panel of the current layout</dd>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>orientation</b>
-									
-								</dt>
-								<dd>Orientation of the given panel</dd>
-							
-							</dl>
 						
 						
 						
@@ -706,6 +661,62 @@ provided, all listeners for this event are removed.
 
 					<hr />
 				
+					<a name="removeToggleClass"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>removeToggleClass</b>()
+					
+					</div>
+					<div class="description">
+						Removes the CSS-Class from the button
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="select"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>select</b>()
+					
+					</div>
+					<div class="description">
+						Selects the button (doesn't execute the callback)
+						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
+					</div>
+					
+					
+					
+					<pre class="code">
+ var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+ myButton.select();</pre>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
 					<a name="trigger"> </a>
 					<div class="fixedFont">
 					
@@ -752,63 +763,27 @@ to it. If <code>args</code> is provided, they will be passed along to the listen
 
 					<hr />
 				
-					<a name="unbusy"> </a>
+					<a name="unselect"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>unbusy</b>()
+					<b>unselect</b>()
 					
 					</div>
 					<div class="description">
+						Unselects the button
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>.
 					</div>
 					
 					
 					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="updateDimension"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>updateDimension</b>(width, height)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
+					<pre class="code">
+ var myButton = new ZOOLU.UI.Button('#button', myCallback, {});
+ myButton.unselect();</pre>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>width</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>height</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" errors="0" failures="0" tests="10" time="0.019000001">
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button instantiation" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button group instantiation exception" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button select" time="0.0010"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button autoselect" time="0.0010"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button unselect" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button execute callback" time="0.0020"/>
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" errors="0" failures="0" tests="10" time="0.017">
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button group instantiation exception" time="0.0010"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button select" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button autoselect" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button unselect" time="0.0010"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button execute callback" time="0.0010"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button event select unselect" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button add toggle class" time="0.0010"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button add toggle class" time="0.0020"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button remove toggle class" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button bind toggle back handler" time="0.0040"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button bind toggle back handler" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.Button" name="test button instantiation" time="0.0020"/>
 </testsuite>

@@ -31,9 +31,9 @@
             <td class="headerValue">jsTestDriver.conf-coverage.dat</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">739</td>
+            <td class="headerCovTableEntry">761</td>
             <td class="headerCovTableEntry">789</td>
-            <td class="headerCovTableEntryHi">93.7 %</td>
+            <td class="headerCovTableEntryHi">96.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
@@ -83,8 +83,8 @@
 <span class="lineNum">      12 </span>                :<span class="lineCov">          2 :     'use strict';</span>
 <span class="lineNum">      13 </span>                :            : 
 <span class="lineNum">      14 </span>                :<span class="lineCov">          2 :     function log() {</span>
-<span class="lineNum">      15 </span>                :<span class="lineCov">       1768 :         if (window.debug) {</span>
-<span class="lineNum">      16 </span>                :<span class="lineCov">       1768 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">       1840 :         if (window.debug) {</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">       1840 :             window.log.apply(window, $.merge(['ZOOLU', 'UI'], arguments));</span>
 <span class="lineNum">      17 </span>                :            :         }
 <span class="lineNum">      18 </span>                :            :     }
 <span class="lineNum">      19 </span>                :            : 
@@ -1403,9 +1403,9 @@
 <span class="lineNum">    1332 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1333 </span>                :            :          */
 <span class="lineNum">    1334 </span>                :            :         unselect: function() {
-<span class="lineNum">    1335 </span>                :<span class="lineCov">         48 :             this.removeToggleClass();</span>
-<span class="lineNum">    1336 </span>                :<span class="lineCov">         48 :             this.trigger('Button.unselect');</span>
-<span class="lineNum">    1337 </span>                :<span class="lineCov">         48 :             this.selected = false;</span>
+<span class="lineNum">    1335 </span>                :<span class="lineCov">         60 :             this.removeToggleClass();</span>
+<span class="lineNum">    1336 </span>                :<span class="lineCov">         60 :             this.trigger('Button.unselect');</span>
+<span class="lineNum">    1337 </span>                :<span class="lineCov">         60 :             this.selected = false;</span>
 <span class="lineNum">    1338 </span>                :            :         },
 <span class="lineNum">    1339 </span>                :            : 
 <span class="lineNum">    1340 </span>                :            :         /**
@@ -1446,8 +1446,8 @@
 <span class="lineNum">    1375 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1376 </span>                :            :          */
 <span class="lineNum">    1377 </span>                :            :         removeToggleClass: function() {
-<span class="lineNum">    1378 </span>                :<span class="lineCov">         50 :             if (this.options.toggle === true) {</span>
-<span class="lineNum">    1379 </span>                :<span class="lineCov">         50 :                 this.$element.removeClass(this.options.toggleClass);</span>
+<span class="lineNum">    1378 </span>                :<span class="lineCov">         62 :             if (this.options.toggle === true) {</span>
+<span class="lineNum">    1379 </span>                :<span class="lineCov">         62 :                 this.$element.removeClass(this.options.toggleClass);</span>
 <span class="lineNum">    1380 </span>                :            :             }
 <span class="lineNum">    1381 </span>                :            :         },
 <span class="lineNum">    1382 </span>                :            : 
@@ -1461,7 +1461,7 @@
 <span class="lineNum">    1390 </span>                :            :         bindToggleBackHandler: function() {
 <span class="lineNum">    1391 </span>                :<span class="lineCov">         20 :             if (this.options.toggleBackOnlyOnButton === false &amp;&amp; this.options.toggle === true) {</span>
 <span class="lineNum">    1392 </span>                :<span class="lineCov">          4 :                 $(document).bind(this.options.triggerEvent, function() {</span>
-<span class="lineNum">    1393 </span>                :<span class="lineCov">         44 :                     this.unselect();</span>
+<span class="lineNum">    1393 </span>                :<span class="lineCov">         56 :                     this.unselect();</span>
 <span class="lineNum">    1394 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1395 </span>                :<span class="lineCov">         16 :             } else if (this.options.toggleBackOnMouseLeave === true &amp;&amp; this.options.toggle === true) {</span>
 <span class="lineNum">    1396 </span>                :<span class="lineCov">          4 :                 this.$element.bind('mouseleave', function() {</span>
@@ -1766,7 +1766,7 @@
 <span class="lineNum">    1695 </span>                :            : 
 <span class="lineNum">    1696 </span>                :<span class="lineCov">         30 :             if (this.options.closeOnClick === true) {</span>
 <span class="lineNum">    1697 </span>                :<span class="lineCov">         26 :                 $(document).bind('click', function() {</span>
-<span class="lineNum">    1698 </span>                :<span class="lineCov">        102 :                     this.close();</span>
+<span class="lineNum">    1698 </span>                :<span class="lineCov">        180 :                     this.close();</span>
 <span class="lineNum">    1699 </span>                :            :                 }.bind(this));
 <span class="lineNum">    1700 </span>                :<span class="lineCov">          4 :             } else if (this.options.closeOnMouseLeave === true) {</span>
 <span class="lineNum">    1701 </span>                :<span class="lineCov">          4 :                 this.$activator.bind('mouseleave', function() {</span>
@@ -1838,15 +1838,15 @@
 <span class="lineNum">    1767 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1768 </span>                :            :          */
 <span class="lineNum">    1769 </span>                :            :         close: function() {
-<span class="lineNum">    1770 </span>                :<span class="lineCov">        114 :             if (this.options.slideUp === true) {</span>
-<span class="lineNum">    1771 </span>                :<span class="lineCov">          8 :                 this.$dropdown.slideUp(this.options.slideUpDuration);</span>
-<span class="lineNum">    1772 </span>                :<span class="lineCov">        106 :             } else if (this.options.fadeOut === true) {</span>
-<span class="lineNum">    1773 </span>                :<span class="lineCov">          8 :                 this.$dropdown.fadeOut(this.options.fadeOutDuration);</span>
+<span class="lineNum">    1770 </span>                :<span class="lineCov">        192 :             if (this.options.slideUp === true) {</span>
+<span class="lineNum">    1771 </span>                :<span class="lineCov">         14 :                 this.$dropdown.slideUp(this.options.slideUpDuration);</span>
+<span class="lineNum">    1772 </span>                :<span class="lineCov">        178 :             } else if (this.options.fadeOut === true) {</span>
+<span class="lineNum">    1773 </span>                :<span class="lineCov">         14 :                 this.$dropdown.fadeOut(this.options.fadeOutDuration);</span>
 <span class="lineNum">    1774 </span>                :            :             } else {
-<span class="lineNum">    1775 </span>                :<span class="lineCov">         98 :                 this.$dropdown.hide();</span>
+<span class="lineNum">    1775 </span>                :<span class="lineCov">        164 :                 this.$dropdown.hide();</span>
 <span class="lineNum">    1776 </span>                :            :             }
-<span class="lineNum">    1777 </span>                :<span class="lineCov">        114 :             this.trigger('Dropdown.close');</span>
-<span class="lineNum">    1778 </span>                :<span class="lineCov">        114 :             this.opened = false;</span>
+<span class="lineNum">    1777 </span>                :<span class="lineCov">        192 :             this.trigger('Dropdown.close');</span>
+<span class="lineNum">    1778 </span>                :<span class="lineCov">        192 :             this.opened = false;</span>
 <span class="lineNum">    1779 </span>                :            :         }
 <span class="lineNum">    1780 </span>                :            :     };
 <span class="lineNum">    1781 </span>                :            : 
@@ -1863,43 +1863,43 @@
 <span class="lineNum">    1792 </span>                :            :      * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1793 </span>                :            :      */
 <span class="lineNum">    1794 </span>                :<span class="lineCov">          2 :     ZOOLU.UI.Tablelist = function(element, uri, options) {</span>
-<span class="lineNum">    1795 </span>                :<span class="lineCov">         52 :         this.$element = $(element);</span>
-<span class="lineNum">    1796 </span>                :<span class="lineCov">         52 :         this.pagination = {</span>
+<span class="lineNum">    1795 </span>                :<span class="lineCov">         60 :         this.$element = $(element);</span>
+<span class="lineNum">    1796 </span>                :<span class="lineCov">         60 :         this.pagination = {</span>
 <span class="lineNum">    1797 </span>                :            :             $element: null,
 <span class="lineNum">    1798 </span>                :            :             $pageentries: null,
 <span class="lineNum">    1799 </span>                :            :             $back: null,
 <span class="lineNum">    1800 </span>                :            :             $pagination: null,
 <span class="lineNum">    1801 </span>                :            :             $next: null
 <span class="lineNum">    1802 </span>                :            :         };
-<span class="lineNum">    1803 </span>                :<span class="lineCov">         52 :         this.$tbody = null;</span>
-<span class="lineNum">    1804 </span>                :<span class="lineCov">         52 :         this.$thead = null;</span>
-<span class="lineNum">    1805 </span>                :<span class="lineCov">         52 :         this.theadRow = {</span>
+<span class="lineNum">    1803 </span>                :<span class="lineCov">         60 :         this.$tbody = null;</span>
+<span class="lineNum">    1804 </span>                :<span class="lineCov">         60 :         this.$thead = null;</span>
+<span class="lineNum">    1805 </span>                :<span class="lineCov">         60 :         this.theadRow = {</span>
 <span class="lineNum">    1806 </span>                :            :             $element: null,
 <span class="lineNum">    1807 </span>                :            :             $checkboxCont: null,
 <span class="lineNum">    1808 </span>                :            :             $checkbox: null,
 <span class="lineNum">    1809 </span>                :            :             titleCells: []
 <span class="lineNum">    1810 </span>                :            :         };
-<span class="lineNum">    1811 </span>                :<span class="lineCov">         52 :         this.eventsBound = false;</span>
-<span class="lineNum">    1812 </span>                :<span class="lineCov">         52 :         this.tableRows = [];</span>
-<span class="lineNum">    1813 </span>                :<span class="lineCov">         52 :         this.allSelected = false;</span>
-<span class="lineNum">    1814 </span>                :<span class="lineCov">         52 :         this.amount = 0;</span>
-<span class="lineNum">    1815 </span>                :<span class="lineCov">         52 :         this.page = 0;</span>
-<span class="lineNum">    1816 </span>                :<span class="lineCov">         52 :         this.lastPage = 0;</span>
-<span class="lineNum">    1817 </span>                :<span class="lineCov">         52 :         this.pageEntries = 0;</span>
-<span class="lineNum">    1818 </span>                :<span class="lineCov">         52 :         this.sortname = '';</span>
-<span class="lineNum">    1819 </span>                :<span class="lineCov">         52 :         this.sortType = '';</span>
+<span class="lineNum">    1811 </span>                :<span class="lineCov">         60 :         this.eventsBound = false;</span>
+<span class="lineNum">    1812 </span>                :<span class="lineCov">         60 :         this.tableRows = [];</span>
+<span class="lineNum">    1813 </span>                :<span class="lineCov">         60 :         this.allSelected = false;</span>
+<span class="lineNum">    1814 </span>                :<span class="lineCov">         60 :         this.amount = 0;</span>
+<span class="lineNum">    1815 </span>                :<span class="lineCov">         60 :         this.page = 0;</span>
+<span class="lineNum">    1816 </span>                :<span class="lineCov">         60 :         this.lastPage = 0;</span>
+<span class="lineNum">    1817 </span>                :<span class="lineCov">         60 :         this.pageEntries = 0;</span>
+<span class="lineNum">    1818 </span>                :<span class="lineCov">         60 :         this.sortname = '';</span>
+<span class="lineNum">    1819 </span>                :<span class="lineCov">         60 :         this.sortType = '';</span>
 <span class="lineNum">    1820 </span>                :            : 
 <span class="lineNum">    1821 </span>                :            :         //attributes for JSON rendering
-<span class="lineNum">    1822 </span>                :<span class="lineCov">         52 :         this.uri = uri;</span>
-<span class="lineNum">    1823 </span>                :<span class="lineCov">         52 :         this.jsonObj = null;</span>
-<span class="lineNum">    1824 </span>                :<span class="lineCov">         52 :         this.$table = null;</span>
+<span class="lineNum">    1822 </span>                :<span class="lineCov">         60 :         this.uri = uri;</span>
+<span class="lineNum">    1823 </span>                :<span class="lineCov">         60 :         this.jsonObj = null;</span>
+<span class="lineNum">    1824 </span>                :<span class="lineCov">         60 :         this.$table = null;</span>
 <span class="lineNum">    1825 </span>                :            : 
-<span class="lineNum">    1826 </span>                :<span class="lineCov">         52 :         if (!this.$element.length) {</span>
+<span class="lineNum">    1826 </span>                :<span class="lineCov">         60 :         if (!this.$element.length) {</span>
 <span class="lineNum">    1827 </span>                :<span class="lineCov">          2 :             throw new ZOOLU.UI.Exception('Tablelist element does not exist');</span>
 <span class="lineNum">    1828 </span>                :            :         }
 <span class="lineNum">    1829 </span>                :            : 
 <span class="lineNum">    1830 </span>                :            :         // extend default options with given
-<span class="lineNum">    1831 </span>                :<span class="lineCov">         50 :         this.options = $.extend({</span>
+<span class="lineNum">    1831 </span>                :<span class="lineCov">         58 :         this.options = $.extend({</span>
 <span class="lineNum">    1832 </span>                :            :             tableClass: 'tablelist',
 <span class="lineNum">    1833 </span>                :            :             rowCSSClass: 'row', //CSS-Class or false
 <span class="lineNum">    1834 </span>                :            :             rowClassAddType: 'odd', //'odd' or 'even'
@@ -1929,16 +1929,16 @@
 <span class="lineNum">    1858 </span>                :            :         }, options);
 <span class="lineNum">    1859 </span>                :            : 
 <span class="lineNum">    1860 </span>                :            :         // add event API
-<span class="lineNum">    1861 </span>                :<span class="lineCov">         50 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
+<span class="lineNum">    1861 </span>                :<span class="lineCov">         58 :         ZOOLU.MIXIN.Events.enable.call(this);</span>
 <span class="lineNum">    1862 </span>                :            : 
-<span class="lineNum">    1863 </span>                :<span class="lineCov">         50 :         log('Tablelist', 'construct', this);</span>
+<span class="lineNum">    1863 </span>                :<span class="lineCov">         58 :         log('Tablelist', 'construct', this);</span>
 <span class="lineNum">    1864 </span>                :            : 
-<span class="lineNum">    1865 </span>                :<span class="lineCov">         50 :         if (!!this.uri) {</span>
-<span class="lineNum">    1866 </span>                :<span class="lineCov">         50 :             log('Render', this);</span>
-<span class="lineNum">    1867 </span>                :<span class="lineCov">         50 :             this.render();</span>
+<span class="lineNum">    1865 </span>                :<span class="lineCov">         58 :         if (!!this.uri) {</span>
+<span class="lineNum">    1866 </span>                :<span class="lineCov">         56 :             log('Render', this);</span>
+<span class="lineNum">    1867 </span>                :<span class="lineCov">         56 :             this.render();</span>
 <span class="lineNum">    1868 </span>                :            :         } else {
-<span class="lineNum">    1869 </span>                :<span class="lineNoCov">          0 :             log('Initialize', this);</span>
-<span class="lineNum">    1870 </span>                :<span class="lineNoCov">          0 :             this.initialize();</span>
+<span class="lineNum">    1869 </span>                :<span class="lineCov">          2 :             log('Initialize', this);</span>
+<span class="lineNum">    1870 </span>                :<span class="lineCov">          2 :             this.initialize();</span>
 <span class="lineNum">    1871 </span>                :            :         }
 <span class="lineNum">    1872 </span>                :            : 
 <span class="lineNum">    1873 </span>                :            :     };
@@ -1965,12 +1965,12 @@
 <span class="lineNum">    1894 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1895 </span>                :            :          */
 <span class="lineNum">    1896 </span>                :            :         initialize: function() {
-<span class="lineNum">    1897 </span>                :<span class="lineNoCov">          0 :             this.getStartingData();</span>
-<span class="lineNum">    1898 </span>                :<span class="lineNoCov">          0 :             this.initTableHeader();</span>
-<span class="lineNum">    1899 </span>                :<span class="lineNoCov">          0 :             this.initTableBody();</span>
-<span class="lineNum">    1900 </span>                :<span class="lineNoCov">          0 :             this.initPagination();</span>
-<span class="lineNum">    1901 </span>                :<span class="lineNoCov">          0 :             this.addCheckboxes();</span>
-<span class="lineNum">    1902 </span>                :<span class="lineNoCov">          0 :             this.bindEvents();</span>
+<span class="lineNum">    1897 </span>                :<span class="lineCov">          2 :             this.getStartingData();</span>
+<span class="lineNum">    1898 </span>                :<span class="lineCov">          2 :             this.initTableHeader();</span>
+<span class="lineNum">    1899 </span>                :<span class="lineCov">          2 :             this.initTableBody();</span>
+<span class="lineNum">    1900 </span>                :<span class="lineCov">          2 :             this.initPagination();</span>
+<span class="lineNum">    1901 </span>                :<span class="lineCov">          2 :             this.addCheckboxes();</span>
+<span class="lineNum">    1902 </span>                :<span class="lineCov">          2 :             this.bindEvents();</span>
 <span class="lineNum">    1903 </span>                :            :         },
 <span class="lineNum">    1904 </span>                :            : 
 <span class="lineNum">    1905 </span>                :            :         /**
@@ -1980,8 +1980,8 @@
 <span class="lineNum">    1909 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1910 </span>                :            :          */
 <span class="lineNum">    1911 </span>                :            :         render: function() {
-<span class="lineNum">    1912 </span>                :<span class="lineCov">         50 :             this.getStartingData();</span>
-<span class="lineNum">    1913 </span>                :<span class="lineCov">         50 :             this.loadJson(this.getURI());</span>
+<span class="lineNum">    1912 </span>                :<span class="lineCov">         56 :             this.getStartingData();</span>
+<span class="lineNum">    1913 </span>                :<span class="lineCov">         56 :             this.loadJson(this.getURI());</span>
 <span class="lineNum">    1914 </span>                :            :         },
 <span class="lineNum">    1915 </span>                :            : 
 <span class="lineNum">    1916 </span>                :            :         /**
@@ -1991,26 +1991,26 @@
 <span class="lineNum">    1920 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1921 </span>                :            :          */
 <span class="lineNum">    1922 </span>                :            :         build: function() {
-<span class="lineNum">    1923 </span>                :<span class="lineCov">         44 :             this.reset();</span>
-<span class="lineNum">    1924 </span>                :<span class="lineCov">         44 :             this.buildTable();</span>
-<span class="lineNum">    1925 </span>                :<span class="lineCov">         44 :             this.buildTHeader();</span>
-<span class="lineNum">    1926 </span>                :<span class="lineCov">         44 :             this.buildTBody();</span>
+<span class="lineNum">    1923 </span>                :<span class="lineCov">         52 :             this.reset();</span>
+<span class="lineNum">    1924 </span>                :<span class="lineCov">         52 :             this.buildTable();</span>
+<span class="lineNum">    1925 </span>                :<span class="lineCov">         52 :             this.buildTHeader();</span>
+<span class="lineNum">    1926 </span>                :<span class="lineCov">         52 :             this.buildTBody();</span>
 <span class="lineNum">    1927 </span>                :            : 
-<span class="lineNum">    1928 </span>                :<span class="lineCov">         44 :             if (this.options.domPagination === true) {</span>
+<span class="lineNum">    1928 </span>                :<span class="lineCov">         52 :             if (this.options.domPagination === true) {</span>
 <span class="lineNum">    1929 </span>                :<span class="lineNoCov">          0 :                 this.initPagination();</span>
 <span class="lineNum">    1930 </span>                :            :             } else {
-<span class="lineNum">    1931 </span>                :<span class="lineCov">         44 :                 this.buildPagination();</span>
+<span class="lineNum">    1931 </span>                :<span class="lineCov">         52 :                 this.buildPagination();</span>
 <span class="lineNum">    1932 </span>                :            :             }
 <span class="lineNum">    1933 </span>                :            : 
 <span class="lineNum">    1934 </span>                :            : 
-<span class="lineNum">    1935 </span>                :<span class="lineCov">         44 :             this.$table.append(this.$thead);</span>
-<span class="lineNum">    1936 </span>                :<span class="lineCov">         44 :             this.$table.append(this.$tbody);</span>
-<span class="lineNum">    1937 </span>                :<span class="lineCov">         44 :             this.$table.append(this.$tfoot);</span>
-<span class="lineNum">    1938 </span>                :<span class="lineCov">         44 :             this.$element.prepend(this.$table);</span>
-<span class="lineNum">    1939 </span>                :<span class="lineCov">         44 :             this.$element.append(this.pagination.$element);</span>
+<span class="lineNum">    1935 </span>                :<span class="lineCov">         52 :             this.$table.append(this.$thead);</span>
+<span class="lineNum">    1936 </span>                :<span class="lineCov">         52 :             this.$table.append(this.$tbody);</span>
+<span class="lineNum">    1937 </span>                :<span class="lineCov">         52 :             this.$table.append(this.$tfoot);</span>
+<span class="lineNum">    1938 </span>                :<span class="lineCov">         52 :             this.$element.prepend(this.$table);</span>
+<span class="lineNum">    1939 </span>                :<span class="lineCov">         52 :             this.$element.append(this.pagination.$element);</span>
 <span class="lineNum">    1940 </span>                :            : 
-<span class="lineNum">    1941 </span>                :<span class="lineCov">         44 :             this.addCheckboxes();</span>
-<span class="lineNum">    1942 </span>                :<span class="lineCov">         44 :             this.bindEvents();</span>
+<span class="lineNum">    1941 </span>                :<span class="lineCov">         52 :             this.addCheckboxes();</span>
+<span class="lineNum">    1942 </span>                :<span class="lineCov">         52 :             this.bindEvents();</span>
 <span class="lineNum">    1943 </span>                :            :         },
 <span class="lineNum">    1944 </span>                :            : 
 <span class="lineNum">    1945 </span>                :            :         /**
@@ -2020,14 +2020,14 @@
 <span class="lineNum">    1949 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1950 </span>                :            :          */
 <span class="lineNum">    1951 </span>                :            :         reset: function() {
-<span class="lineNum">    1952 </span>                :<span class="lineCov">         46 :             if (!!this.$tbody) {</span>
-<span class="lineNum">    1953 </span>                :<span class="lineCov">          4 :                 this.$tbody.html(' ');</span>
+<span class="lineNum">    1952 </span>                :<span class="lineCov">         54 :             if (!!this.$tbody) {</span>
+<span class="lineNum">    1953 </span>                :<span class="lineCov">          6 :                 this.$tbody.html(' ');</span>
 <span class="lineNum">    1954 </span>                :            :             }
 <span class="lineNum">    1955 </span>                :            : 
-<span class="lineNum">    1956 </span>                :<span class="lineCov">         46 :             this.tableRows = [];</span>
-<span class="lineNum">    1957 </span>                :<span class="lineCov">         46 :             if (!!this.theadRow.$checkbox) {</span>
-<span class="lineNum">    1958 </span>                :<span class="lineCov">          4 :                 this.theadRow.$checkbox.removeAttr('checked');</span>
-<span class="lineNum">    1959 </span>                :<span class="lineCov">          4 :                 this.allSelected = false;</span>
+<span class="lineNum">    1956 </span>                :<span class="lineCov">         54 :             this.tableRows = [];</span>
+<span class="lineNum">    1957 </span>                :<span class="lineCov">         54 :             if (!!this.theadRow.$checkbox) {</span>
+<span class="lineNum">    1958 </span>                :<span class="lineCov">          6 :                 this.theadRow.$checkbox.removeAttr('checked');</span>
+<span class="lineNum">    1959 </span>                :<span class="lineCov">          6 :                 this.allSelected = false;</span>
 <span class="lineNum">    1960 </span>                :            :             }
 <span class="lineNum">    1961 </span>                :            :         },
 <span class="lineNum">    1962 </span>                :            : 
@@ -2038,8 +2038,8 @@
 <span class="lineNum">    1967 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1968 </span>                :            :          */
 <span class="lineNum">    1969 </span>                :            :         getStartingData: function() {
-<span class="lineNum">    1970 </span>                :<span class="lineCov">         50 :             this.pageEntries = this.options.pageEntriesSteps[0];</span>
-<span class="lineNum">    1971 </span>                :<span class="lineCov">         50 :             this.page = 1;</span>
+<span class="lineNum">    1970 </span>                :<span class="lineCov">         58 :             this.pageEntries = this.options.pageEntriesSteps[0];</span>
+<span class="lineNum">    1971 </span>                :<span class="lineCov">         58 :             this.page = 1;</span>
 <span class="lineNum">    1972 </span>                :            :         },
 <span class="lineNum">    1973 </span>                :            : 
 <span class="lineNum">    1974 </span>                :            :         /**
@@ -2050,21 +2050,21 @@
 <span class="lineNum">    1979 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    1980 </span>                :            :          */
 <span class="lineNum">    1981 </span>                :            :         loadJson: function(uri) {
-<span class="lineNum">    1982 </span>                :<span class="lineCov">         58 :             $.ajax({</span>
+<span class="lineNum">    1982 </span>                :<span class="lineCov">         74 :             $.ajax({</span>
 <span class="lineNum">    1983 </span>                :            :                 url: uri,
 <span class="lineNum">    1984 </span>                :            :                 type: 'GET',
 <span class="lineNum">    1985 </span>                :            :                 dataType: 'JSON',
 <span class="lineNum">    1986 </span>                :            :                 success: function(data) {
-<span class="lineNum">    1987 </span>                :<span class="lineCov">         42 :                     this.jsonObj = data;</span>
-<span class="lineNum">    1988 </span>                :<span class="lineCov">         42 :                     this.amount = this.jsonObj.amount;</span>
-<span class="lineNum">    1989 </span>                :<span class="lineCov">         42 :                     this.page = this.jsonObj.page;</span>
-<span class="lineNum">    1990 </span>                :<span class="lineCov">         42 :                     this.lastPage = Math.ceil(this.amount / this.pageEntries);</span>
-<span class="lineNum">    1991 </span>                :<span class="lineCov">         42 :                     this.build();</span>
+<span class="lineNum">    1987 </span>                :<span class="lineCov">         48 :                     this.jsonObj = data;</span>
+<span class="lineNum">    1988 </span>                :<span class="lineCov">         48 :                     this.amount = this.jsonObj.amount;</span>
+<span class="lineNum">    1989 </span>                :<span class="lineCov">         48 :                     this.page = this.jsonObj.page;</span>
+<span class="lineNum">    1990 </span>                :<span class="lineCov">         48 :                     this.lastPage = Math.ceil(this.amount / this.pageEntries);</span>
+<span class="lineNum">    1991 </span>                :<span class="lineCov">         48 :                     this.build();</span>
 <span class="lineNum">    1992 </span>                :            :                 }.bind(this),
 <span class="lineNum">    1993 </span>                :            :                 error: function(jqXHR, textStatus) {
 <span class="lineNum">    1994 </span>                :            :                 }.bind(this)
 <span class="lineNum">    1995 </span>                :            :             });
-<span class="lineNum">    1996 </span>                :<span class="lineCov">         58 :             this.trigger('Tablelist.load');</span>
+<span class="lineNum">    1996 </span>                :<span class="lineCov">         74 :             this.trigger('Tablelist.load');</span>
 <span class="lineNum">    1997 </span>                :            :         },
 <span class="lineNum">    1998 </span>                :            : 
 <span class="lineNum">    1999 </span>                :            : 
@@ -2075,19 +2075,19 @@
 <span class="lineNum">    2004 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2005 </span>                :            :          */
 <span class="lineNum">    2006 </span>                :            :         getPageEntriesOptions: function() {
-<span class="lineNum">    2007 </span>                :<span class="lineCov">         46 :             var options = '&lt;option value=&quot;' + this.options.pageEntriesSteps[0] + '&quot;&gt;' + this.options.pageEntriesSteps[0] + '&lt;/option&gt;';</span>
-<span class="lineNum">    2008 </span>                :<span class="lineCov">         46 :             for (var i = -1, length = this.options.pageEntriesSteps.length; ++i &lt; length;) {</span>
-<span class="lineNum">    2009 </span>                :<span class="lineCov">         92 :                 if (this.amount &gt; this.options.pageEntriesSteps[i] &amp;&amp; !!this.options.pageEntriesSteps[i + 1]) {</span>
-<span class="lineNum">    2010 </span>                :<span class="lineCov">         46 :                     if (this.options.pageEntriesSteps[i + 1] === this.pageEntries) {</span>
-<span class="lineNum">    2011 </span>                :<span class="lineNoCov">          0 :                         options = options + '&lt;option value=&quot;' + this.options.pageEntriesSteps[i + 1] + '&quot; selected=&quot;selected&quot;&gt;' + this.options.pageEntriesSteps[i + 1] + '&lt;/option&gt;';</span>
+<span class="lineNum">    2007 </span>                :<span class="lineCov">         54 :             var options = '&lt;option value=&quot;' + this.options.pageEntriesSteps[0] + '&quot;&gt;' + this.options.pageEntriesSteps[0] + '&lt;/option&gt;';</span>
+<span class="lineNum">    2008 </span>                :<span class="lineCov">         54 :             for (var i = -1, length = this.options.pageEntriesSteps.length; ++i &lt; length;) {</span>
+<span class="lineNum">    2009 </span>                :<span class="lineCov">        106 :                 if (this.amount &gt; this.options.pageEntriesSteps[i] &amp;&amp; !!this.options.pageEntriesSteps[i + 1]) {</span>
+<span class="lineNum">    2010 </span>                :<span class="lineCov">         52 :                     if (this.options.pageEntriesSteps[i + 1] === this.pageEntries) {</span>
+<span class="lineNum">    2011 </span>                :<span class="lineCov">          2 :                         options = options + '&lt;option value=&quot;' + this.options.pageEntriesSteps[i + 1] + '&quot; selected=&quot;selected&quot;&gt;' + this.options.pageEntriesSteps[i + 1] + '&lt;/option&gt;';</span>
 <span class="lineNum">    2012 </span>                :            :                     } else {
-<span class="lineNum">    2013 </span>                :<span class="lineCov">         46 :                         options = options + '&lt;option value=&quot;' + this.options.pageEntriesSteps[i + 1] + '&quot;&gt;' + this.options.pageEntriesSteps[i + 1] + '&lt;/option&gt;';</span>
+<span class="lineNum">    2013 </span>                :<span class="lineCov">         50 :                         options = options + '&lt;option value=&quot;' + this.options.pageEntriesSteps[i + 1] + '&quot;&gt;' + this.options.pageEntriesSteps[i + 1] + '&lt;/option&gt;';</span>
 <span class="lineNum">    2014 </span>                :            :                     }
 <span class="lineNum">    2015 </span>                :            :                 } else {
-<span class="lineNum">    2016 </span>                :<span class="lineCov">         46 :                     break;</span>
+<span class="lineNum">    2016 </span>                :<span class="lineCov">         54 :                     break;</span>
 <span class="lineNum">    2017 </span>                :            :                 }
 <span class="lineNum">    2018 </span>                :            :             }
-<span class="lineNum">    2019 </span>                :<span class="lineCov">         46 :             return options;</span>
+<span class="lineNum">    2019 </span>                :<span class="lineCov">         54 :             return options;</span>
 <span class="lineNum">    2020 </span>                :            :         },
 <span class="lineNum">    2021 </span>                :            : 
 <span class="lineNum">    2022 </span>                :            :         /**
@@ -2097,15 +2097,15 @@
 <span class="lineNum">    2026 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2027 </span>                :            :          */
 <span class="lineNum">    2028 </span>                :            :         getPaginationOptions: function() {
-<span class="lineNum">    2029 </span>                :<span class="lineCov">         46 :             var options = '';</span>
-<span class="lineNum">    2030 </span>                :<span class="lineCov">         46 :             for (var i = 0; ++i &lt;= this.lastPage;) {</span>
-<span class="lineNum">    2031 </span>                :<span class="lineCov">        138 :                 if (i === this.page) {</span>
-<span class="lineNum">    2032 </span>                :<span class="lineCov">         46 :                     options = options + '&lt;option selected=&quot;selected&quot; value=&quot;' + i + '&quot;&gt;' + i + '&lt;/option&gt;';</span>
+<span class="lineNum">    2029 </span>                :<span class="lineCov">         54 :             var options = '';</span>
+<span class="lineNum">    2030 </span>                :<span class="lineCov">         54 :             for (var i = 0; ++i &lt;= this.lastPage;) {</span>
+<span class="lineNum">    2031 </span>                :<span class="lineCov">        156 :                 if (i === this.page) {</span>
+<span class="lineNum">    2032 </span>                :<span class="lineCov">         52 :                     options = options + '&lt;option selected=&quot;selected&quot; value=&quot;' + i + '&quot;&gt;' + i + '&lt;/option&gt;';</span>
 <span class="lineNum">    2033 </span>                :            :                 } else {
-<span class="lineNum">    2034 </span>                :<span class="lineCov">         92 :                     options = options + '&lt;option value=&quot;' + i + '&quot;&gt;' + i + '&lt;/option&gt;';</span>
+<span class="lineNum">    2034 </span>                :<span class="lineCov">        104 :                     options = options + '&lt;option value=&quot;' + i + '&quot;&gt;' + i + '&lt;/option&gt;';</span>
 <span class="lineNum">    2035 </span>                :            :                 }
 <span class="lineNum">    2036 </span>                :            :             }
-<span class="lineNum">    2037 </span>                :<span class="lineCov">         46 :             return options;</span>
+<span class="lineNum">    2037 </span>                :<span class="lineCov">         54 :             return options;</span>
 <span class="lineNum">    2038 </span>                :            :         },
 <span class="lineNum">    2039 </span>                :            : 
 <span class="lineNum">    2040 </span>                :            :         /**
@@ -2115,9 +2115,9 @@
 <span class="lineNum">    2044 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2045 </span>                :            :          */
 <span class="lineNum">    2046 </span>                :            :         buildTable: function() {
-<span class="lineNum">    2047 </span>                :<span class="lineCov">         44 :             if (!this.$table) {</span>
-<span class="lineNum">    2048 </span>                :<span class="lineCov">         42 :                 log('Build Table');</span>
-<span class="lineNum">    2049 </span>                :<span class="lineCov">         42 :                 this.$table = $('&lt;table class=&quot;' + this.options.tableClass + '&quot;/&gt;'),</span>
+<span class="lineNum">    2047 </span>                :<span class="lineCov">         52 :             if (!this.$table) {</span>
+<span class="lineNum">    2048 </span>                :<span class="lineCov">         48 :                 log('Build Table');</span>
+<span class="lineNum">    2049 </span>                :<span class="lineCov">         48 :                 this.$table = $('&lt;table class=&quot;' + this.options.tableClass + '&quot;/&gt;'),</span>
 <span class="lineNum">    2050 </span>                :            :                     this.$thead = $('&lt;thead/&gt;'),
 <span class="lineNum">    2051 </span>                :            :                     this.$tbody = $('&lt;tbody/&gt;'),
 <span class="lineNum">    2052 </span>                :            :                     this.$tfoot = $('&lt;tfoot/&gt;');
@@ -2131,25 +2131,25 @@
 <span class="lineNum">    2060 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2061 </span>                :            :          */
 <span class="lineNum">    2062 </span>                :            :         buildTHeader: function() {
-<span class="lineNum">    2063 </span>                :<span class="lineCov">         44 :             if (!this.theadRow.$element) {</span>
-<span class="lineNum">    2064 </span>                :<span class="lineCov">         42 :                 log('Build Table Header');</span>
-<span class="lineNum">    2065 </span>                :<span class="lineCov">         42 :                 this.theadRow.$element = $('&lt;tr/&gt;');</span>
-<span class="lineNum">    2066 </span>                :<span class="lineCov">         42 :                 for (var i = -1, length = this.options.header.length; ++i &lt; length;) {</span>
-<span class="lineNum">    2067 </span>                :<span class="lineCov">        168 :                     this.theadRow.titleCells[i] = {</span>
+<span class="lineNum">    2063 </span>                :<span class="lineCov">         52 :             if (!this.theadRow.$element) {</span>
+<span class="lineNum">    2064 </span>                :<span class="lineCov">         48 :                 log('Build Table Header');</span>
+<span class="lineNum">    2065 </span>                :<span class="lineCov">         48 :                 this.theadRow.$element = $('&lt;tr/&gt;');</span>
+<span class="lineNum">    2066 </span>                :<span class="lineCov">         48 :                 for (var i = -1, length = this.options.header.length; ++i &lt; length;) {</span>
+<span class="lineNum">    2067 </span>                :<span class="lineCov">        192 :                     this.theadRow.titleCells[i] = {</span>
 <span class="lineNum">    2068 </span>                :            :                         $element: $('&lt;th&gt;' + this.options.header[i].title + '&lt;/th&gt;'),
 <span class="lineNum">    2069 </span>                :            :                         name: this.options.header[i].name,
 <span class="lineNum">    2070 </span>                :            :                         sort: this.options.header[i].sort,
 <span class="lineNum">    2071 </span>                :            :                         sorted: false,
 <span class="lineNum">    2072 </span>                :            :                         sortType: this.CONST.sortTypes.desc
 <span class="lineNum">    2073 </span>                :            :                     };
-<span class="lineNum">    2074 </span>                :<span class="lineCov">        168 :                     if (this.theadRow.titleCells[i].$element.html() !== '') {</span>
-<span class="lineNum">    2075 </span>                :<span class="lineCov">        126 :                         log('add');</span>
-<span class="lineNum">    2076 </span>                :<span class="lineCov">        126 :                         this.theadRow.titleCells[i].$element.addClass(this.options.titleClass);</span>
+<span class="lineNum">    2074 </span>                :<span class="lineCov">        192 :                     if (this.theadRow.titleCells[i].$element.html() !== '') {</span>
+<span class="lineNum">    2075 </span>                :<span class="lineCov">        144 :                         log('add');</span>
+<span class="lineNum">    2076 </span>                :<span class="lineCov">        144 :                         this.theadRow.titleCells[i].$element.addClass(this.options.titleClass);</span>
 <span class="lineNum">    2077 </span>                :            :                     }
-<span class="lineNum">    2078 </span>                :<span class="lineCov">        168 :                     this.theadRow.$element.append(this.theadRow.titleCells[i].$element);</span>
-<span class="lineNum">    2079 </span>                :<span class="lineCov">        168 :                     this.bindCellEvents(i);</span>
+<span class="lineNum">    2078 </span>                :<span class="lineCov">        192 :                     this.theadRow.$element.append(this.theadRow.titleCells[i].$element);</span>
+<span class="lineNum">    2079 </span>                :<span class="lineCov">        192 :                     this.bindCellEvents(i);</span>
 <span class="lineNum">    2080 </span>                :            :                 }
-<span class="lineNum">    2081 </span>                :<span class="lineCov">         42 :                 this.$thead.append(this.theadRow.$element);</span>
+<span class="lineNum">    2081 </span>                :<span class="lineCov">         48 :                 this.$thead.append(this.theadRow.$element);</span>
 <span class="lineNum">    2082 </span>                :            :             }
 <span class="lineNum">    2083 </span>                :            :         },
 <span class="lineNum">    2084 </span>                :            : 
@@ -2161,23 +2161,23 @@
 <span class="lineNum">    2090 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2091 </span>                :            :          */
 <span class="lineNum">    2092 </span>                :            :         buildTBody: function() {
-<span class="lineNum">    2093 </span>                :<span class="lineCov">         44 :             log('Build Table Body');</span>
-<span class="lineNum">    2094 </span>                :<span class="lineCov">         44 :             var tablerow, tablecell;</span>
-<span class="lineNum">    2095 </span>                :<span class="lineCov">         44 :             for (var i = -1, amountRows = this.jsonObj.items.length; ++i &lt; amountRows;) {</span>
-<span class="lineNum">    2096 </span>                :<span class="lineCov">         88 :                 tablerow = $('&lt;tr/&gt;');</span>
-<span class="lineNum">    2097 </span>                :<span class="lineCov">         88 :                 for (var x = -1, amountCells = this.jsonObj.items[i].length; ++x &lt; amountCells;) {</span>
-<span class="lineNum">    2098 </span>                :<span class="lineCov">        352 :                     tablecell = $('&lt;td class=&quot;' + this.options.header[x].name + '&quot;&gt;' + this.jsonObj.items[i][x] + '&lt;/td&gt;');</span>
-<span class="lineNum">    2099 </span>                :<span class="lineCov">        352 :                     tablerow.append(tablecell);</span>
+<span class="lineNum">    2093 </span>                :<span class="lineCov">         52 :             log('Build Table Body');</span>
+<span class="lineNum">    2094 </span>                :<span class="lineCov">         52 :             var tablerow, tablecell;</span>
+<span class="lineNum">    2095 </span>                :<span class="lineCov">         52 :             for (var i = -1, amountRows = this.jsonObj.items.length; ++i &lt; amountRows;) {</span>
+<span class="lineNum">    2096 </span>                :<span class="lineCov">        104 :                 tablerow = $('&lt;tr/&gt;');</span>
+<span class="lineNum">    2097 </span>                :<span class="lineCov">        104 :                 for (var x = -1, amountCells = this.jsonObj.items[i].length; ++x &lt; amountCells;) {</span>
+<span class="lineNum">    2098 </span>                :<span class="lineCov">        416 :                     tablecell = $('&lt;td class=&quot;' + this.options.header[x].name + '&quot;&gt;' + this.jsonObj.items[i][x] + '&lt;/td&gt;');</span>
+<span class="lineNum">    2099 </span>                :<span class="lineCov">        416 :                     tablerow.append(tablecell);</span>
 <span class="lineNum">    2100 </span>                :            :                 }
-<span class="lineNum">    2101 </span>                :<span class="lineCov">         88 :                 this.tableRows.push({</span>
+<span class="lineNum">    2101 </span>                :<span class="lineCov">        104 :                 this.tableRows.push({</span>
 <span class="lineNum">    2102 </span>                :            :                     $element: $(tablerow),
 <span class="lineNum">    2103 </span>                :            :                     $checkboxCell: null,
 <span class="lineNum">    2104 </span>                :            :                     $checkbox: null,
 <span class="lineNum">    2105 </span>                :            :                     selected: false
 <span class="lineNum">    2106 </span>                :            :                 });
-<span class="lineNum">    2107 </span>                :<span class="lineCov">         88 :                 this.$tbody.append(this.tableRows[i].$element);</span>
-<span class="lineNum">    2108 </span>                :<span class="lineCov">         88 :                 this.addRowCSSClass(i);</span>
-<span class="lineNum">    2109 </span>                :<span class="lineCov">         88 :                 this.bindRowEvents(i);</span>
+<span class="lineNum">    2107 </span>                :<span class="lineCov">        104 :                 this.$tbody.append(this.tableRows[i].$element);</span>
+<span class="lineNum">    2108 </span>                :<span class="lineCov">        104 :                 this.addRowCSSClass(i);</span>
+<span class="lineNum">    2109 </span>                :<span class="lineCov">        104 :                 this.bindRowEvents(i);</span>
 <span class="lineNum">    2110 </span>                :            :             }
 <span class="lineNum">    2111 </span>                :            :         },
 <span class="lineNum">    2112 </span>                :            : 
@@ -2188,32 +2188,32 @@
 <span class="lineNum">    2117 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2118 </span>                :            :          */
 <span class="lineNum">    2119 </span>                :            :         buildPagination: function() {
-<span class="lineNum">    2120 </span>                :<span class="lineCov">         44 :             if (!this.pagination.$element) {</span>
-<span class="lineNum">    2121 </span>                :<span class="lineCov">         42 :                 this.pagination.$element = $('&lt;div class=' + this.options.paginationClass + '/&gt;');</span>
-<span class="lineNum">    2122 </span>                :<span class="lineCov">         42 :                 this.pagination.$pageentries = $('&lt;div class=&quot;' + this.options.navPageEntriesClass + '&quot;/&gt;');</span>
-<span class="lineNum">    2123 </span>                :<span class="lineCov">         42 :                 this.pagination.$pagination = $('&lt;div class=&quot;' + this.options.navPaginationClass + '&quot;/&gt;');</span>
-<span class="lineNum">    2124 </span>                :<span class="lineCov">         42 :                 this.pagination.$next = $('&lt;a href=&quot;#&quot; class=&quot;' + this.options.navPaginationNextClass + '&quot;&gt;Next&lt;/a&gt;');</span>
-<span class="lineNum">    2125 </span>                :<span class="lineCov">         42 :                 this.pagination.$back = $('&lt;a href=&quot;#&quot; class=&quot;' + this.options.navPaginationBackClass + '&quot;&gt;Back&lt;/a&gt;');</span>
+<span class="lineNum">    2120 </span>                :<span class="lineCov">         52 :             if (!this.pagination.$element) {</span>
+<span class="lineNum">    2121 </span>                :<span class="lineCov">         48 :                 this.pagination.$element = $('&lt;div class=' + this.options.paginationClass + '/&gt;');</span>
+<span class="lineNum">    2122 </span>                :<span class="lineCov">         48 :                 this.pagination.$pageentries = $('&lt;div class=&quot;' + this.options.navPageEntriesClass + '&quot;/&gt;');</span>
+<span class="lineNum">    2123 </span>                :<span class="lineCov">         48 :                 this.pagination.$pagination = $('&lt;div class=&quot;' + this.options.navPaginationClass + '&quot;/&gt;');</span>
+<span class="lineNum">    2124 </span>                :<span class="lineCov">         48 :                 this.pagination.$next = $('&lt;a href=&quot;#&quot; class=&quot;' + this.options.navPaginationNextClass + '&quot;&gt;Next&lt;/a&gt;');</span>
+<span class="lineNum">    2125 </span>                :<span class="lineCov">         48 :                 this.pagination.$back = $('&lt;a href=&quot;#&quot; class=&quot;' + this.options.navPaginationBackClass + '&quot;&gt;Back&lt;/a&gt;');</span>
 <span class="lineNum">    2126 </span>                :            : 
-<span class="lineNum">    2127 </span>                :<span class="lineCov">         42 :                 var entries = '&lt;span&gt;Page entries&lt;/span&gt;' +</span>
+<span class="lineNum">    2127 </span>                :<span class="lineCov">         48 :                 var entries = '&lt;span&gt;Page entries&lt;/span&gt;' +</span>
 <span class="lineNum">    2128 </span>                :            :                     '&lt;select&gt;' +
 <span class="lineNum">    2129 </span>                :            :                     this.getPageEntriesOptions() +
 <span class="lineNum">    2130 </span>                :            :                     '&lt;/select&gt;';
 <span class="lineNum">    2131 </span>                :            : 
-<span class="lineNum">    2132 </span>                :<span class="lineCov">         42 :                 var pager = '&lt;span&gt;Page&lt;/span&gt;' +</span>
+<span class="lineNum">    2132 </span>                :<span class="lineCov">         48 :                 var pager = '&lt;span&gt;Page&lt;/span&gt;' +</span>
 <span class="lineNum">    2133 </span>                :            :                     '&lt;select&gt;' +
 <span class="lineNum">    2134 </span>                :            :                     this.getPaginationOptions() +
 <span class="lineNum">    2135 </span>                :            :                     '&lt;/select&gt;';
 <span class="lineNum">    2136 </span>                :            : 
-<span class="lineNum">    2137 </span>                :<span class="lineCov">         42 :                 this.pagination.$pageentries.append(entries);</span>
-<span class="lineNum">    2138 </span>                :<span class="lineCov">         42 :                 this.pagination.$pagination.append(this.pagination.$back);</span>
-<span class="lineNum">    2139 </span>                :<span class="lineCov">         42 :                 this.pagination.$pagination.append(pager);</span>
-<span class="lineNum">    2140 </span>                :<span class="lineCov">         42 :                 this.pagination.$pagination.append(this.pagination.$next);</span>
+<span class="lineNum">    2137 </span>                :<span class="lineCov">         48 :                 this.pagination.$pageentries.append(entries);</span>
+<span class="lineNum">    2138 </span>                :<span class="lineCov">         48 :                 this.pagination.$pagination.append(this.pagination.$back);</span>
+<span class="lineNum">    2139 </span>                :<span class="lineCov">         48 :                 this.pagination.$pagination.append(pager);</span>
+<span class="lineNum">    2140 </span>                :<span class="lineCov">         48 :                 this.pagination.$pagination.append(this.pagination.$next);</span>
 <span class="lineNum">    2141 </span>                :            : 
-<span class="lineNum">    2142 </span>                :<span class="lineCov">         42 :                 this.pagination.$element.append(this.pagination.$pageentries);</span>
-<span class="lineNum">    2143 </span>                :<span class="lineCov">         42 :                 this.pagination.$element.append(this.pagination.$pagination);</span>
+<span class="lineNum">    2142 </span>                :<span class="lineCov">         48 :                 this.pagination.$element.append(this.pagination.$pageentries);</span>
+<span class="lineNum">    2143 </span>                :<span class="lineCov">         48 :                 this.pagination.$element.append(this.pagination.$pagination);</span>
 <span class="lineNum">    2144 </span>                :            : 
-<span class="lineNum">    2145 </span>                :<span class="lineCov">         42 :                 this.hidePaginationButtons();</span>
+<span class="lineNum">    2145 </span>                :<span class="lineCov">         48 :                 this.hidePaginationButtons();</span>
 <span class="lineNum">    2146 </span>                :            :             }
 <span class="lineNum">    2147 </span>                :            :         },
 <span class="lineNum">    2148 </span>                :            : 
@@ -2224,28 +2224,28 @@
 <span class="lineNum">    2153 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2154 </span>                :            :          */
 <span class="lineNum">    2155 </span>                :            :         initTableHeader: function() {
-<span class="lineNum">    2156 </span>                :<span class="lineCov">          4 :             this.$thead = this.$element.find('thead');</span>
-<span class="lineNum">    2157 </span>                :<span class="lineCov">          4 :             if (this.$thead.length !== 1) {</span>
+<span class="lineNum">    2156 </span>                :<span class="lineCov">          6 :             this.$thead = this.$element.find('thead');</span>
+<span class="lineNum">    2157 </span>                :<span class="lineCov">          6 :             if (this.$thead.length !== 1) {</span>
 <span class="lineNum">    2158 </span>                :<span class="lineCov">          2 :                 throw new ZOOLU.UI.Exception('Table Head initialisation failed');</span>
 <span class="lineNum">    2159 </span>                :            :             }
 <span class="lineNum">    2160 </span>                :            : 
-<span class="lineNum">    2161 </span>                :<span class="lineCov">          2 :             this.theadRow = {</span>
+<span class="lineNum">    2161 </span>                :<span class="lineCov">          4 :             this.theadRow = {</span>
 <span class="lineNum">    2162 </span>                :            :                 $element: $(this.$thead.find('tr')),
 <span class="lineNum">    2163 </span>                :            :                 $checkboxCont: null,
 <span class="lineNum">    2164 </span>                :            :                 $checkbox: null,
 <span class="lineNum">    2165 </span>                :            :                 titleCells: []
 <span class="lineNum">    2166 </span>                :            :             };
-<span class="lineNum">    2167 </span>                :<span class="lineCov">          2 :             if (this.theadRow.$element.length !== 1) {</span>
+<span class="lineNum">    2167 </span>                :<span class="lineCov">          4 :             if (this.theadRow.$element.length !== 1) {</span>
 <span class="lineNum">    2168 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('Table Head row initialisation failed');</span>
 <span class="lineNum">    2169 </span>                :            :             }
 <span class="lineNum">    2170 </span>                :            : 
-<span class="lineNum">    2171 </span>                :<span class="lineCov">          2 :             var titleCells = {</span>
-<span class="lineNum">    2172 </span>                :            :                 $element: this.theadRow.$element.find('th')
-<span class="lineNum">    2173 </span>                :            :             };
-<span class="lineNum">    2174 </span>                :<span class="lineCov">          2 :             for (var i = -1, length = titleCells.length; ++i &lt; length;) {</span>
-<span class="lineNum">    2175 </span>                :<span class="lineNoCov">          0 :                 this.theadRow.titleCells.push($(titleCells[i].$element));</span>
-<span class="lineNum">    2176 </span>                :<span class="lineNoCov">          0 :                 if ($(titleCells[i]).$element.html() !== '') {</span>
-<span class="lineNum">    2177 </span>                :<span class="lineNoCov">          0 :                     this.bindCellEvents(i);</span>
+<span class="lineNum">    2171 </span>                :<span class="lineCov">          4 :             var titleCells = this.theadRow.$element.find('th');</span>
+<span class="lineNum">    2172 </span>                :<span class="lineCov">          4 :             for (var i = -1, length = titleCells.length; ++i &lt; length;) {</span>
+<span class="lineNum">    2173 </span>                :<span class="lineCov">         20 :                 this.theadRow.titleCells.push({</span>
+<span class="lineNum">    2174 </span>                :            :                     $element: $(titleCells[i])
+<span class="lineNum">    2175 </span>                :            :                 });
+<span class="lineNum">    2176 </span>                :<span class="lineCov">         20 :                 if ($(titleCells[i]).html() !== '') {</span>
+<span class="lineNum">    2177 </span>                :<span class="lineCov">         16 :                     this.bindCellEvents(i);</span>
 <span class="lineNum">    2178 </span>                :            :                 }
 <span class="lineNum">    2179 </span>                :            :             }
 <span class="lineNum">    2180 </span>                :            :         },
@@ -2258,22 +2258,22 @@
 <span class="lineNum">    2187 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2188 </span>                :            :          */
 <span class="lineNum">    2189 </span>                :            :         initTableBody: function() {
-<span class="lineNum">    2190 </span>                :<span class="lineCov">          4 :             var tbody = this.$element.find('tbody');</span>
-<span class="lineNum">    2191 </span>                :<span class="lineCov">          4 :             if (tbody.length === 1) {</span>
-<span class="lineNum">    2192 </span>                :<span class="lineCov">          2 :                 this.$tbody = tbody;</span>
+<span class="lineNum">    2190 </span>                :<span class="lineCov">          6 :             var tbody = this.$element.find('tbody');</span>
+<span class="lineNum">    2191 </span>                :<span class="lineCov">          6 :             if (tbody.length === 1) {</span>
+<span class="lineNum">    2192 </span>                :<span class="lineCov">          4 :                 this.$tbody = tbody;</span>
 <span class="lineNum">    2193 </span>                :            :             } else {
 <span class="lineNum">    2194 </span>                :<span class="lineCov">          2 :                 throw new ZOOLU.UI.Exception('Table Body initialisation failed');</span>
 <span class="lineNum">    2195 </span>                :            :             }
-<span class="lineNum">    2196 </span>                :<span class="lineCov">          2 :             var rows = this.$tbody.find('tr');</span>
-<span class="lineNum">    2197 </span>                :<span class="lineCov">          2 :             for (var i = -1, length = rows.length; ++i &lt; length;) {</span>
-<span class="lineNum">    2198 </span>                :<span class="lineCov">          4 :                 this.tableRows.push({</span>
+<span class="lineNum">    2196 </span>                :<span class="lineCov">          4 :             var rows = this.$tbody.find('tr');</span>
+<span class="lineNum">    2197 </span>                :<span class="lineCov">          4 :             for (var i = -1, length = rows.length; ++i &lt; length;) {</span>
+<span class="lineNum">    2198 </span>                :<span class="lineCov">          8 :                 this.tableRows.push({</span>
 <span class="lineNum">    2199 </span>                :            :                     $element: $(rows[i]),
 <span class="lineNum">    2200 </span>                :            :                     $checkboxCell: null,
 <span class="lineNum">    2201 </span>                :            :                     $checkbox: null,
 <span class="lineNum">    2202 </span>                :            :                     selected: false
 <span class="lineNum">    2203 </span>                :            :                 });
-<span class="lineNum">    2204 </span>                :<span class="lineCov">          4 :                 this.bindRowEvents(i);</span>
-<span class="lineNum">    2205 </span>                :<span class="lineCov">          4 :                 this.addRowCSSClass(i);</span>
+<span class="lineNum">    2204 </span>                :<span class="lineCov">          8 :                 this.bindRowEvents(i);</span>
+<span class="lineNum">    2205 </span>                :<span class="lineCov">          8 :                 this.addRowCSSClass(i);</span>
 <span class="lineNum">    2206 </span>                :            :             }
 <span class="lineNum">    2207 </span>                :            :         },
 <span class="lineNum">    2208 </span>                :            : 
@@ -2284,25 +2284,25 @@
 <span class="lineNum">    2213 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2214 </span>                :            :          */
 <span class="lineNum">    2215 </span>                :            :         initPagination: function() {
-<span class="lineNum">    2216 </span>                :<span class="lineCov">          4 :             this.pagination.$element = this.$element.find('.' + this.options.paginationClass);</span>
-<span class="lineNum">    2217 </span>                :<span class="lineCov">          4 :             if (!this.pagination.$element.length) {</span>
+<span class="lineNum">    2216 </span>                :<span class="lineCov">          6 :             this.pagination.$element = this.$element.find('.' + this.options.paginationClass);</span>
+<span class="lineNum">    2217 </span>                :<span class="lineCov">          6 :             if (!this.pagination.$element.length) {</span>
 <span class="lineNum">    2218 </span>                :<span class="lineCov">          2 :                 throw new ZOOLU.UI.Exception('Tablelist pagination element does not exist');</span>
 <span class="lineNum">    2219 </span>                :            :             }
-<span class="lineNum">    2220 </span>                :<span class="lineCov">          2 :             this.pagination.$pageentries = this.pagination.$element.find('.' + this.options.navPageEntriesClass);</span>
-<span class="lineNum">    2221 </span>                :<span class="lineCov">          2 :             this.pagination.$back = this.pagination.$element.find('.' + this.options.navPaginationBackClass);</span>
-<span class="lineNum">    2222 </span>                :<span class="lineCov">          2 :             this.pagination.$pagination = this.pagination.$element.find('.' + this.options.navPaginationClass);</span>
-<span class="lineNum">    2223 </span>                :<span class="lineCov">          2 :             this.pagination.$next = this.pagination.$element.find('.' + this.options.navPaginationNextClass);</span>
+<span class="lineNum">    2220 </span>                :<span class="lineCov">          4 :             this.pagination.$pageentries = this.pagination.$element.find('.' + this.options.navPageEntriesClass);</span>
+<span class="lineNum">    2221 </span>                :<span class="lineCov">          4 :             this.pagination.$back = this.pagination.$element.find('.' + this.options.navPaginationBackClass);</span>
+<span class="lineNum">    2222 </span>                :<span class="lineCov">          4 :             this.pagination.$pagination = this.pagination.$element.find('.' + this.options.navPaginationClass);</span>
+<span class="lineNum">    2223 </span>                :<span class="lineCov">          4 :             this.pagination.$next = this.pagination.$element.find('.' + this.options.navPaginationNextClass);</span>
 <span class="lineNum">    2224 </span>                :            : 
-<span class="lineNum">    2225 </span>                :<span class="lineCov">          2 :             if (!this.pagination.$pageentries.length ||</span>
+<span class="lineNum">    2225 </span>                :<span class="lineCov">          4 :             if (!this.pagination.$pageentries.length ||</span>
 <span class="lineNum">    2226 </span>                :            :                 !this.pagination.$back.length ||
 <span class="lineNum">    2227 </span>                :            :                 !this.pagination.$pagination.length ||
 <span class="lineNum">    2228 </span>                :            :                 !this.pagination.$next.length) {
 <span class="lineNum">    2229 </span>                :<span class="lineNoCov">          0 :                 throw new ZOOLU.UI.Exception('Tablelist pagination initialisation failed');</span>
-<span class="lineNum">    2230 </span>                :<span class="lineCov">          2 :             } else if (this.options.calculatePagination === true) {</span>
-<span class="lineNum">    2231 </span>                :<span class="lineCov">          2 :                 this.pagination.$pageentries.find('select').html(this.getPageEntriesOptions());</span>
-<span class="lineNum">    2232 </span>                :<span class="lineCov">          2 :                 this.pagination.$pagination.find('select').html(this.getPaginationOptions());</span>
+<span class="lineNum">    2230 </span>                :<span class="lineCov">          4 :             } else if (this.options.calculatePagination === true) {</span>
+<span class="lineNum">    2231 </span>                :<span class="lineCov">          4 :                 this.pagination.$pageentries.find('select').html(this.getPageEntriesOptions());</span>
+<span class="lineNum">    2232 </span>                :<span class="lineCov">          4 :                 this.pagination.$pagination.find('select').html(this.getPaginationOptions());</span>
 <span class="lineNum">    2233 </span>                :            :             }
-<span class="lineNum">    2234 </span>                :<span class="lineCov">          2 :             this.hidePaginationButtons();</span>
+<span class="lineNum">    2234 </span>                :<span class="lineCov">          4 :             this.hidePaginationButtons();</span>
 <span class="lineNum">    2235 </span>                :            :         },
 <span class="lineNum">    2236 </span>                :            : 
 <span class="lineNum">    2237 </span>                :            :         /**
@@ -2313,13 +2313,13 @@
 <span class="lineNum">    2242 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2243 </span>                :            :          */
 <span class="lineNum">    2244 </span>                :            :         hidePaginationButtons: function() {
-<span class="lineNum">    2245 </span>                :<span class="lineCov">         46 :             if (this.options.hideNextOnLastPage === true &amp;&amp; this.page === this.lastPage) {</span>
+<span class="lineNum">    2245 </span>                :<span class="lineCov">         54 :             if (this.options.hideNextOnLastPage === true &amp;&amp; this.page === this.lastPage) {</span>
 <span class="lineNum">    2246 </span>                :<span class="lineNoCov">          0 :                 this.pagination.$next.hide();</span>
 <span class="lineNum">    2247 </span>                :            :             } else {
-<span class="lineNum">    2248 </span>                :<span class="lineCov">         46 :                 this.pagination.$next.show();</span>
+<span class="lineNum">    2248 </span>                :<span class="lineCov">         54 :                 this.pagination.$next.show();</span>
 <span class="lineNum">    2249 </span>                :            :             }
-<span class="lineNum">    2250 </span>                :<span class="lineCov">         46 :             if (this.options.hideBackOnFirstPage === true &amp;&amp; this.page === 1) {</span>
-<span class="lineNum">    2251 </span>                :<span class="lineCov">         46 :                 this.pagination.$back.hide();</span>
+<span class="lineNum">    2250 </span>                :<span class="lineCov">         54 :             if (this.options.hideBackOnFirstPage === true &amp;&amp; this.page === 1) {</span>
+<span class="lineNum">    2251 </span>                :<span class="lineCov">         54 :                 this.pagination.$back.hide();</span>
 <span class="lineNum">    2252 </span>                :            :             } else {
 <span class="lineNum">    2253 </span>                :<span class="lineNoCov">          0 :                 this.pagination.$back.show();</span>
 <span class="lineNum">    2254 </span>                :            :             }
@@ -2332,21 +2332,21 @@
 <span class="lineNum">    2261 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2262 </span>                :            :          */
 <span class="lineNum">    2263 </span>                :            :         addCheckboxes: function() {
-<span class="lineNum">    2264 </span>                :<span class="lineCov">         46 :             if (this.options.selectable === true) {</span>
-<span class="lineNum">    2265 </span>                :<span class="lineCov">         46 :                 var checkbox = '&lt;input type=&quot;checkbox&quot; /&gt;';</span>
+<span class="lineNum">    2264 </span>                :<span class="lineCov">         56 :             if (this.options.selectable === true) {</span>
+<span class="lineNum">    2265 </span>                :<span class="lineCov">         56 :                 var checkbox = '&lt;input type=&quot;checkbox&quot; /&gt;';</span>
 <span class="lineNum">    2266 </span>                :            : 
-<span class="lineNum">    2267 </span>                :<span class="lineCov">         46 :                 for (var i = -1, length = this.tableRows.length; ++i &lt; length;) {</span>
-<span class="lineNum">    2268 </span>                :<span class="lineCov">         92 :                     this.tableRows[i].$checkboxCell = $('&lt;td class=&quot;' + this.options.checkboxClass + '&quot;/&gt;');</span>
-<span class="lineNum">    2269 </span>                :<span class="lineCov">         92 :                     this.tableRows[i].$checkbox = $(checkbox);</span>
-<span class="lineNum">    2270 </span>                :<span class="lineCov">         92 :                     this.tableRows[i].$checkboxCell.append(this.tableRows[i].$checkbox);</span>
-<span class="lineNum">    2271 </span>                :<span class="lineCov">         92 :                     this.tableRows[i].$element.prepend(this.tableRows[i].$checkboxCell);</span>
+<span class="lineNum">    2267 </span>                :<span class="lineCov">         56 :                 for (var i = -1, length = this.tableRows.length; ++i &lt; length;) {</span>
+<span class="lineNum">    2268 </span>                :<span class="lineCov">        112 :                     this.tableRows[i].$checkboxCell = $('&lt;td class=&quot;' + this.options.checkboxClass + '&quot;/&gt;');</span>
+<span class="lineNum">    2269 </span>                :<span class="lineCov">        112 :                     this.tableRows[i].$checkbox = $(checkbox);</span>
+<span class="lineNum">    2270 </span>                :<span class="lineCov">        112 :                     this.tableRows[i].$checkboxCell.append(this.tableRows[i].$checkbox);</span>
+<span class="lineNum">    2271 </span>                :<span class="lineCov">        112 :                     this.tableRows[i].$element.prepend(this.tableRows[i].$checkboxCell);</span>
 <span class="lineNum">    2272 </span>                :            :                 }
 <span class="lineNum">    2273 </span>                :            : 
-<span class="lineNum">    2274 </span>                :<span class="lineCov">         46 :                 if (!this.theadRow.$checkboxCell) {</span>
-<span class="lineNum">    2275 </span>                :<span class="lineCov">         42 :                     this.theadRow.$checkboxCell = $('&lt;th class=&quot;' + this.options.checkboxClass + '&quot;/&gt;');</span>
-<span class="lineNum">    2276 </span>                :<span class="lineCov">         42 :                     this.theadRow.$checkbox = $(checkbox);</span>
-<span class="lineNum">    2277 </span>                :<span class="lineCov">         42 :                     this.theadRow.$checkboxCell.append(this.theadRow.$checkbox);</span>
-<span class="lineNum">    2278 </span>                :<span class="lineCov">         42 :                     this.theadRow.$element.prepend(this.theadRow.$checkboxCell);</span>
+<span class="lineNum">    2274 </span>                :<span class="lineCov">         56 :                 if (!this.theadRow.$checkboxCell) {</span>
+<span class="lineNum">    2275 </span>                :<span class="lineCov">         50 :                     this.theadRow.$checkboxCell = $('&lt;th class=&quot;' + this.options.checkboxClass + '&quot;/&gt;');</span>
+<span class="lineNum">    2276 </span>                :<span class="lineCov">         50 :                     this.theadRow.$checkbox = $(checkbox);</span>
+<span class="lineNum">    2277 </span>                :<span class="lineCov">         50 :                     this.theadRow.$checkboxCell.append(this.theadRow.$checkbox);</span>
+<span class="lineNum">    2278 </span>                :<span class="lineCov">         50 :                     this.theadRow.$element.prepend(this.theadRow.$checkboxCell);</span>
 <span class="lineNum">    2279 </span>                :            :                 }
 <span class="lineNum">    2280 </span>                :            :             }
 <span class="lineNum">    2281 </span>                :            :         },
@@ -2360,13 +2360,13 @@
 <span class="lineNum">    2289 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2290 </span>                :            :          */
 <span class="lineNum">    2291 </span>                :            :         addRowCSSClass: function(index) {
-<span class="lineNum">    2292 </span>                :<span class="lineCov">        104 :             if (this.options.rowCSSClass !== false) {</span>
-<span class="lineNum">    2293 </span>                :<span class="lineCov">        104 :                 if (this.options.rowClassAddType === false) {</span>
-<span class="lineNum">    2294 </span>                :<span class="lineCov">          4 :                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);</span>
-<span class="lineNum">    2295 </span>                :<span class="lineCov">        100 :                 } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.odd &amp;&amp; (index + 1) % 2 !== 0) {</span>
-<span class="lineNum">    2296 </span>                :<span class="lineCov">         48 :                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);</span>
-<span class="lineNum">    2297 </span>                :<span class="lineCov">         52 :                 } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.even &amp;&amp; (index + 1) % 2 === 0) {</span>
-<span class="lineNum">    2298 </span>                :<span class="lineCov">          2 :                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);</span>
+<span class="lineNum">    2292 </span>                :<span class="lineCov">        112 :             if (this.options.rowCSSClass !== false) {</span>
+<span class="lineNum">    2293 </span>                :<span class="lineCov">        112 :                 if (this.options.rowClassAddType === false) {</span>
+<span class="lineNum">    2294 </span>                :<span class="lineNoCov">          0 :                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);</span>
+<span class="lineNum">    2295 </span>                :<span class="lineCov">        112 :                 } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.odd &amp;&amp; (index + 1) % 2 !== 0) {</span>
+<span class="lineNum">    2296 </span>                :<span class="lineCov">         56 :                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);</span>
+<span class="lineNum">    2297 </span>                :<span class="lineCov">         56 :                 } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.even &amp;&amp; (index + 1) % 2 === 0) {</span>
+<span class="lineNum">    2298 </span>                :<span class="lineNoCov">          0 :                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);</span>
 <span class="lineNum">    2299 </span>                :            :                 }
 <span class="lineNum">    2300 </span>                :            :             }
 <span class="lineNum">    2301 </span>                :            :         },
@@ -2379,30 +2379,30 @@
 <span class="lineNum">    2308 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2309 </span>                :            :          */
 <span class="lineNum">    2310 </span>                :            :         bindEvents: function() {
-<span class="lineNum">    2311 </span>                :<span class="lineCov">         44 :             if (this.eventsBound === false) {</span>
-<span class="lineNum">    2312 </span>                :<span class="lineCov">         42 :                 if (this.options.selectable === true) {</span>
-<span class="lineNum">    2313 </span>                :<span class="lineCov">         42 :                     this.theadRow.$checkbox.on('click', function() {</span>
-<span class="lineNum">    2314 </span>                :<span class="lineNoCov">          0 :                         this.toggleAll();</span>
+<span class="lineNum">    2311 </span>                :<span class="lineCov">         56 :             if (this.eventsBound === false) {</span>
+<span class="lineNum">    2312 </span>                :<span class="lineCov">         50 :                 if (this.options.selectable === true) {</span>
+<span class="lineNum">    2313 </span>                :<span class="lineCov">         50 :                     this.theadRow.$checkbox.on('click', function() {</span>
+<span class="lineNum">    2314 </span>                :<span class="lineCov">          2 :                         this.toggleAll();</span>
 <span class="lineNum">    2315 </span>                :            :                     }.bind(this));
-<span class="lineNum">    2316 </span>                :<span class="lineCov">         42 :                     this.on('Tablelist.row.toggle', function() {</span>
+<span class="lineNum">    2316 </span>                :<span class="lineCov">         50 :                     this.on('Tablelist.row.toggle', function() {</span>
 <span class="lineNum">    2317 </span>                :<span class="lineCov">          4 :                         this.observeSelect();</span>
 <span class="lineNum">    2318 </span>                :            :                     }.bind(this));
 <span class="lineNum">    2319 </span>                :            :                 }
 <span class="lineNum">    2320 </span>                :            : 
-<span class="lineNum">    2321 </span>                :<span class="lineCov">         42 :                 this.pagination.$pageentries.on('change', function() {</span>
+<span class="lineNum">    2321 </span>                :<span class="lineCov">         50 :                 this.pagination.$pageentries.on('change', function() {</span>
 <span class="lineNum">    2322 </span>                :<span class="lineNoCov">          0 :                     this.changePageEntries();</span>
 <span class="lineNum">    2323 </span>                :            :                 }.bind(this));
-<span class="lineNum">    2324 </span>                :<span class="lineCov">         42 :                 this.pagination.$pagination.on('change', function() {</span>
+<span class="lineNum">    2324 </span>                :<span class="lineCov">         50 :                 this.pagination.$pagination.on('change', function() {</span>
 <span class="lineNum">    2325 </span>                :<span class="lineNoCov">          0 :                     this.changePage();</span>
 <span class="lineNum">    2326 </span>                :            :                 }.bind(this));
-<span class="lineNum">    2327 </span>                :<span class="lineCov">         42 :                 this.pagination.$back.on('click', function() {</span>
-<span class="lineNum">    2328 </span>                :<span class="lineNoCov">          0 :                     this.changePage(this.page - 1);</span>
+<span class="lineNum">    2327 </span>                :<span class="lineCov">         50 :                 this.pagination.$back.on('click', function() {</span>
+<span class="lineNum">    2328 </span>                :<span class="lineCov">          2 :                     this.changePage(this.page - 1);</span>
 <span class="lineNum">    2329 </span>                :            :                 }.bind(this));
-<span class="lineNum">    2330 </span>                :<span class="lineCov">         42 :                 this.pagination.$next.on('click', function() {</span>
-<span class="lineNum">    2331 </span>                :<span class="lineNoCov">          0 :                     this.changePage(this.page + 1);</span>
+<span class="lineNum">    2330 </span>                :<span class="lineCov">         50 :                 this.pagination.$next.on('click', function() {</span>
+<span class="lineNum">    2331 </span>                :<span class="lineCov">          2 :                     this.changePage(this.page + 1);</span>
 <span class="lineNum">    2332 </span>                :            :                 }.bind(this));
 <span class="lineNum">    2333 </span>                :            : 
-<span class="lineNum">    2334 </span>                :<span class="lineCov">         42 :                 this.eventsBound = true;</span>
+<span class="lineNum">    2334 </span>                :<span class="lineCov">         50 :                 this.eventsBound = true;</span>
 <span class="lineNum">    2335 </span>                :            :             }
 <span class="lineNum">    2336 </span>                :            :         },
 <span class="lineNum">    2337 </span>                :            : 
@@ -2413,8 +2413,8 @@
 <span class="lineNum">    2342 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2343 </span>                :            :          */
 <span class="lineNum">    2344 </span>                :            :         bindRowEvents: function(index) {
-<span class="lineNum">    2345 </span>                :<span class="lineCov">         92 :             if (this.options.selectable === true) {</span>
-<span class="lineNum">    2346 </span>                :<span class="lineCov">         92 :                 this.tableRows[index].$element.bind(this.options.selectEvent, function() {</span>
+<span class="lineNum">    2345 </span>                :<span class="lineCov">        112 :             if (this.options.selectable === true) {</span>
+<span class="lineNum">    2346 </span>                :<span class="lineCov">        112 :                 this.tableRows[index].$element.bind(this.options.selectEvent, function() {</span>
 <span class="lineNum">    2347 </span>                :<span class="lineNoCov">          0 :                     this.toggle(index);</span>
 <span class="lineNum">    2348 </span>                :            :                 }.bind(this));
 <span class="lineNum">    2349 </span>                :            :             }
@@ -2427,8 +2427,8 @@
 <span class="lineNum">    2356 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2357 </span>                :            :          */
 <span class="lineNum">    2358 </span>                :            :         bindCellEvents: function(index) {
-<span class="lineNum">    2359 </span>                :<span class="lineCov">        168 :             if (this.options.sortable === true &amp;&amp; this.theadRow.titleCells[index].sort === true) {</span>
-<span class="lineNum">    2360 </span>                :<span class="lineCov">        126 :                 this.theadRow.titleCells[index].$element.bind('click', function() {</span>
+<span class="lineNum">    2359 </span>                :<span class="lineCov">        208 :             if (this.options.sortable === true &amp;&amp; this.theadRow.titleCells[index].sort === true) {</span>
+<span class="lineNum">    2360 </span>                :<span class="lineCov">        144 :                 this.theadRow.titleCells[index].$element.bind('click', function() {</span>
 <span class="lineNum">    2361 </span>                :<span class="lineNoCov">          0 :                     this.sort(this.theadRow.titleCells[index]);</span>
 <span class="lineNum">    2362 </span>                :            :                 }.bind(this));
 <span class="lineNum">    2363 </span>                :            :             }
@@ -2447,12 +2447,12 @@
 <span class="lineNum">    2376 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2377 </span>                :            :          */
 <span class="lineNum">    2378 </span>                :            :         changePageEntries: function(entries) {
-<span class="lineNum">    2379 </span>                :<span class="lineNoCov">          0 :             if (!!entries) {</span>
-<span class="lineNum">    2380 </span>                :<span class="lineNoCov">          0 :                 this.pageEntries = entries;</span>
+<span class="lineNum">    2379 </span>                :<span class="lineCov">          6 :             if (!!entries) {</span>
+<span class="lineNum">    2380 </span>                :<span class="lineCov">          2 :                 this.pageEntries = entries;</span>
 <span class="lineNum">    2381 </span>                :            :             } else {
-<span class="lineNum">    2382 </span>                :<span class="lineNoCov">          0 :                 this.pageEntries = parseInt(this.pagination.$pageentries.find('select option:selected').val(), 10);</span>
+<span class="lineNum">    2382 </span>                :<span class="lineCov">          4 :                 this.pageEntries = parseInt(this.pagination.$pageentries.find('select option:selected').val(), 10);</span>
 <span class="lineNum">    2383 </span>                :            :             }
-<span class="lineNum">    2384 </span>                :<span class="lineNoCov">          0 :             this.loadJson(this.getURI());</span>
+<span class="lineNum">    2384 </span>                :<span class="lineCov">          6 :             this.loadJson(this.getURI());</span>
 <span class="lineNum">    2385 </span>                :            :         },
 <span class="lineNum">    2386 </span>                :            : 
 <span class="lineNum">    2387 </span>                :            :         /**
@@ -2468,12 +2468,12 @@
 <span class="lineNum">    2397 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2398 </span>                :            :          */
 <span class="lineNum">    2399 </span>                :            :         changePage: function(page) {
-<span class="lineNum">    2400 </span>                :<span class="lineNoCov">          0 :             if (!!page) {</span>
-<span class="lineNum">    2401 </span>                :<span class="lineNoCov">          0 :                 if (page &lt;= this.lastPage) /*Back or next clicked*/ {</span>
-<span class="lineNum">    2402 </span>                :<span class="lineNoCov">          0 :                     this.page = page;</span>
-<span class="lineNum">    2403 </span>                :<span class="lineNoCov">          0 :                     this.loadJson(this.getURI());</span>
+<span class="lineNum">    2400 </span>                :<span class="lineCov">          6 :             if (!!page) {</span>
+<span class="lineNum">    2401 </span>                :<span class="lineCov">          4 :                 if (page &lt;= this.lastPage) /*Back or next clicked*/ {</span>
+<span class="lineNum">    2402 </span>                :<span class="lineCov">          4 :                     this.page = page;</span>
+<span class="lineNum">    2403 </span>                :<span class="lineCov">          4 :                     this.loadJson(this.getURI());</span>
 <span class="lineNum">    2404 </span>                :            :                 }
-<span class="lineNum">    2405 </span>                :<span class="lineNoCov">          0 :             } else if (page !== 0) /*Select changed*/ {</span>
+<span class="lineNum">    2405 </span>                :<span class="lineCov">          2 :             } else if (page !== 0) /*Select changed*/ {</span>
 <span class="lineNum">    2406 </span>                :<span class="lineNoCov">          0 :                 this.page = parseInt(this.pagination.$pagination.find('select option:selected').val(), 10);</span>
 <span class="lineNum">    2407 </span>                :<span class="lineNoCov">          0 :                 this.loadJson(this.getURI());</span>
 <span class="lineNum">    2408 </span>                :            :             }
@@ -2486,13 +2486,13 @@
 <span class="lineNum">    2415 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2416 </span>                :            :          */
 <span class="lineNum">    2417 </span>                :            :         getURI: function() {
-<span class="lineNum">    2418 </span>                :<span class="lineCov">         56 :             var uri = this.uri +</span>
+<span class="lineNum">    2418 </span>                :<span class="lineCov">         74 :             var uri = this.uri +</span>
 <span class="lineNum">    2419 </span>                :            :                 '?' + this.options.sortParameterName + '=' + this.sortname +
 <span class="lineNum">    2420 </span>                :            :                 '&amp;' + this.options.sortTypeParameterName + '=' + this.sortType +
 <span class="lineNum">    2421 </span>                :            :                 '&amp;' + this.options.pageEntriesParameterName + '=' + this.pageEntries +
 <span class="lineNum">    2422 </span>                :            :                 '&amp;' + this.options.pageParameterName + '=' + this.page;
-<span class="lineNum">    2423 </span>                :<span class="lineCov">         56 :             log(uri);</span>
-<span class="lineNum">    2424 </span>                :<span class="lineCov">         56 :             return uri;</span>
+<span class="lineNum">    2423 </span>                :<span class="lineCov">         74 :             log(uri);</span>
+<span class="lineNum">    2424 </span>                :<span class="lineCov">         74 :             return uri;</span>
 <span class="lineNum">    2425 </span>                :            :         },
 <span class="lineNum">    2426 </span>                :            : 
 <span class="lineNum">    2427 </span>                :            :         /**
@@ -2561,10 +2561,10 @@
 <span class="lineNum">    2490 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2491 </span>                :            :          */
 <span class="lineNum">    2492 </span>                :            :         select: function(index) {
-<span class="lineNum">    2493 </span>                :<span class="lineCov">         16 :             this.tableRows[index].$element.addClass(this.options.selectedClass);</span>
-<span class="lineNum">    2494 </span>                :<span class="lineCov">         16 :             this.tableRows[index].$checkbox.attr('checked', true);</span>
-<span class="lineNum">    2495 </span>                :<span class="lineCov">         16 :             this.tableRows[index].selected = true;</span>
-<span class="lineNum">    2496 </span>                :<span class="lineCov">         16 :             this.trigger('Tablelist.row.select');</span>
+<span class="lineNum">    2493 </span>                :<span class="lineCov">         20 :             this.tableRows[index].$element.addClass(this.options.selectedClass);</span>
+<span class="lineNum">    2494 </span>                :<span class="lineCov">         20 :             this.tableRows[index].$checkbox.attr('checked', true);</span>
+<span class="lineNum">    2495 </span>                :<span class="lineCov">         20 :             this.tableRows[index].selected = true;</span>
+<span class="lineNum">    2496 </span>                :<span class="lineCov">         20 :             this.trigger('Tablelist.row.select');</span>
 <span class="lineNum">    2497 </span>                :            :         },
 <span class="lineNum">    2498 </span>                :            : 
 <span class="lineNum">    2499 </span>                :            :         /**
@@ -2590,14 +2590,14 @@
 <span class="lineNum">    2519 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2520 </span>                :            :          */
 <span class="lineNum">    2521 </span>                :            :         toggleAll: function() {
-<span class="lineNum">    2522 </span>                :<span class="lineCov">          4 :             if (this.allSelected === false) {</span>
-<span class="lineNum">    2523 </span>                :<span class="lineCov">          2 :                 this.selectAll();</span>
-<span class="lineNum">    2524 </span>                :<span class="lineCov">          2 :                 this.allSelected = true;</span>
+<span class="lineNum">    2522 </span>                :<span class="lineCov">          6 :             if (this.allSelected === false) {</span>
+<span class="lineNum">    2523 </span>                :<span class="lineCov">          4 :                 this.selectAll();</span>
+<span class="lineNum">    2524 </span>                :<span class="lineCov">          4 :                 this.allSelected = true;</span>
 <span class="lineNum">    2525 </span>                :            :             } else {
 <span class="lineNum">    2526 </span>                :<span class="lineCov">          2 :                 this.unselectAll();</span>
 <span class="lineNum">    2527 </span>                :<span class="lineCov">          2 :                 this.allSelected = false;</span>
 <span class="lineNum">    2528 </span>                :            :             }
-<span class="lineNum">    2529 </span>                :<span class="lineCov">          4 :             this.trigger('Tablelist.toggleall');</span>
+<span class="lineNum">    2529 </span>                :<span class="lineCov">          6 :             this.trigger('Tablelist.toggleall');</span>
 <span class="lineNum">    2530 </span>                :            :         },
 <span class="lineNum">    2531 </span>                :            : 
 <span class="lineNum">    2532 </span>                :            :         /**
@@ -2608,10 +2608,10 @@
 <span class="lineNum">    2537 </span>                :            :          * @author &lt;a href=&quot;mailto:marcel.moosbrugger@bws.ac.at&quot;&gt;Marcel Moosbrugger&lt;/a&gt;
 <span class="lineNum">    2538 </span>                :            :          */
 <span class="lineNum">    2539 </span>                :            :         selectAll: function() {
-<span class="lineNum">    2540 </span>                :<span class="lineCov">          4 :             for (var i = -1, length = this.tableRows.length; ++i &lt; length;) {</span>
-<span class="lineNum">    2541 </span>                :<span class="lineCov">          8 :                 this.select(i);</span>
+<span class="lineNum">    2540 </span>                :<span class="lineCov">          6 :             for (var i = -1, length = this.tableRows.length; ++i &lt; length;) {</span>
+<span class="lineNum">    2541 </span>                :<span class="lineCov">         12 :                 this.select(i);</span>
 <span class="lineNum">    2542 </span>                :            :             }
-<span class="lineNum">    2543 </span>                :<span class="lineCov">          4 :             this.trigger('Tablelist.selectall');</span>
+<span class="lineNum">    2543 </span>                :<span class="lineCov">          6 :             this.trigger('Tablelist.selectall');</span>
 <span class="lineNum">    2544 </span>                :            :         },
 <span class="lineNum">    2545 </span>                :            : 
 <span class="lineNum">    2546 </span>                :            :         /**
