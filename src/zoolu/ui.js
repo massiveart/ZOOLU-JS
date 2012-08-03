@@ -1788,7 +1788,34 @@
      * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
      * @borrows ZOOLU.MIXIN.Events#on as #on
      * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @triggers Tablelist.load
+     * @triggers Tablelist.sort
+     * @triggers Tablelist.row.toggle
+     * @triggers Tablelist.row.select
+     * @triggers Tablelist.row.unselect
+     * @triggers Tablelist.toggleall
+     * @triggers Tablelist.selectall
+     * @triggers Tablelist.unselectall
+     * @param {String} element - Element-ID which contains the DOM or in which the DOM gets rendered
+     * @param {String} uri - URI for the AJAX-Request, important: don't set parameteres here
      * @param {Object} options - Default options will be merged with the given options
+     * @example
+     *  
+     *  //Initializes a Tablelist from the DOM
+     *  var myDOMlist = new ZOOLU.UI.Tablelist('#DOMcontainer', null, { });
+     *  
+     *  //Gets JSON from an URL, renders it, and appends it to a container
+     *  var myJSONlist = new ZOOLU.UI.Tablelist('#JSONcontainer', '/list', {
+     *       domPagination: true,
+     *       calculatePagination: true,
+     *       header: [
+     *          { name: 'icon', title: '', sort: false }, 
+     *          { name: 'title', title: 'Titel', sort: true },
+     *          { name: 'language', title: 'Language', sort: true },
+     *          { name: 'creator', title: 'Creator', sort: true }
+     *       ]
+     *   });
+     * 
      * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
      */
     ZOOLU.UI.Tablelist = function(element, uri, options) {
@@ -1829,32 +1856,32 @@
 
         // extend default options with given
         this.options = $.extend({
-            tableClass: 'tablelist',
+            tableClass: 'tablelist', //CSS-Class of the table
             rowCSSClass: 'row', //CSS-Class or false
             rowClassAddType: 'odd', //'odd' or 'even'
-            selectable: true,
-            selectEvent: 'click',
-            selectedClass: 'selected',
-            checkboxClass: 'checkbox',
-            domPagination: false,
-            calculatePagination: false,
-            paginationClass: 'tablelistnav',
-            navPageEntriesClass: 'pageentries',
-            navPaginationClass: 'pagination',
-            navPaginationBackClass: 'back',
-            navPaginationNextClass: 'next',
-            hideNextOnLastPage: true,
-            hideBackOnFirstPage: true,
-            sortable: true,
-            header: false,
-            pageEntriesSteps: [2, 20, 50, 100, 500],
-            descClass: 'desc',
-            ascClass: 'asc',
-            titleClass: 'title',
-            sortParameterName: 'sort',
-            sortTypeParameterName: 'sortType',
-            pageEntriesParameterName: 'pageEntries',
-            pageParameterName: 'page'
+            selectable: true,   //true or false - adds checkboxes
+            selectEvent: 'click',   //event for selecting the rows
+            selectedClass: 'selected',  //CSS-Class gets added to the selected rows
+            checkboxClass: 'checkbox',  //CSS-Class gets added to the checkboxes
+            domPagination: false,   //set to true if a dom pagination should be used, false for default pagination
+            calculatePagination: false, //if true page entries and pages get calculated and inserted
+            paginationClass: 'tablelistnav', //CSS-Class of the pagination
+            navPageEntriesClass: 'pageentries', //CSS-Class of the page-entries container
+            navPaginationClass: 'pagination', //CSS-Class of the pagination container
+            navPaginationBackClass: 'back', //CSS-Class of the pagination back element
+            navPaginationNextClass: 'next', //CSS-Class of the pagination next element
+            hideNextOnLastPage: true, //if true next-element gets hidden on the last page
+            hideBackOnFirstPage: true, //if true back-element gets hidden on the first page
+            sortable: true, //if true ajax requst with sorting parameters is sent at click at column-titles
+            header: false, //Array which contains the title elements - false for DOM-Element
+            pageEntriesSteps: [2, 20, 50, 100, 500], //Array - Steps in which page entries can be selected
+            descClass: 'desc', //CSS-Class gets added to the title-th if its sorted desc
+            ascClass: 'asc', //CSS-Class gets added to the title-th if its sorted asc
+            titleClass: 'title', //CSS-Class for the title-th
+            sortParameterName: 'sort', //parameter name which is used in the url for the ajax request
+            sortTypeParameterName: 'sortType', //parameter name which is used in the url for the ajax request
+            pageEntriesParameterName: 'pageEntries', //parameter name which is used in the url for the ajax request
+            pageParameterName: 'page' //parameter name which is used in the url for the ajax request
         }, options);
 
         // add event API
@@ -2262,7 +2289,7 @@
          */
         addCheckboxes: function() {
             if (this.options.selectable === true) {
-                var checkbox = '<input type="checkbox" />';
+                var checkbox = '<input type="checkbox"/>';
 
                 for (var i = -1, length = this.tableRows.length; ++i < length;) {
                     this.tableRows[i].$checkboxCell = $('<td class="' + this.options.checkboxClass + '"/>');
