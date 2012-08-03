@@ -1778,4 +1778,823 @@
             this.opened = false;
         }
     };
+
+    /**
+     * ZOOLU Tablelist UI Element
+     *
+     * @class
+     * @constructor
+     * @public
+     * @borrows ZOOLU.MIXIN.Events#trigger as #trigger
+     * @borrows ZOOLU.MIXIN.Events#on as #on
+     * @borrows ZOOLU.MIXIN.Events#off as #off
+     * @param {Object} options - Default options will be merged with the given options
+     * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+     */
+    ZOOLU.UI.Tablelist = function(element, uri, options) {
+        this.$element = $(element);
+        this.pagination = {
+            $element: null,
+            $pageentries: null,
+            $back: null,
+            $pagination: null,
+            $next: null
+        };
+        this.$tbody = null;
+        this.$thead = null;
+        this.theadRow = {
+            $element: null,
+            $checkboxCont: null,
+            $checkbox: null,
+            titleCells: []
+        };
+        this.eventsBound = false;
+        this.tableRows = [];
+        this.allSelected = false;
+        this.amount = 0;
+        this.page = 0;
+        this.lastPage = 0;
+        this.pageEntries = 0;
+        this.sortname = '';
+        this.sortType = '';
+
+        //attributes for JSON rendering
+        this.uri = uri;
+        this.jsonObj = null;
+        this.$table = null;
+
+        if (!this.$element.length) {
+            throw new ZOOLU.UI.Exception('Tablelist element does not exist');
+        }
+
+        // extend default options with given
+        this.options = $.extend({
+            tableClass: 'tablelist',
+            rowCSSClass: 'row', //CSS-Class or false
+            rowClassAddType: 'odd', //'odd' or 'even'
+            selectable: true,
+            selectEvent: 'click',
+            selectedClass: 'selected',
+            checkboxClass: 'checkbox',
+            domPagination: false,
+            calculatePagination: false,
+            paginationClass: 'tablelistnav',
+            navPageEntriesClass: 'pageentries',
+            navPaginationClass: 'pagination',
+            navPaginationBackClass: 'back',
+            navPaginationNextClass: 'next',
+            hideNextOnLastPage: true,
+            hideBackOnFirstPage: true,
+            sortable: true,
+            header: false,
+            pageEntriesSteps: [2, 20, 50, 100, 500],
+            descClass: 'desc',
+            ascClass: 'asc',
+            titleClass: 'title',
+            sortParameterName: 'sort',
+            sortTypeParameterName: 'sortType',
+            pageEntriesParameterName: 'pageEntries',
+            pageParameterName: 'page'
+        }, options);
+
+        // add event API
+        ZOOLU.MIXIN.Events.enable.call(this);
+
+        log('Tablelist', 'construct', this);
+
+        if (!!this.uri) {
+            log('Render', this);
+            this.render();
+        } else {
+            log('Initialize', this);
+            this.initialize();
+        }
+
+    };
+
+    ZOOLU.UI.Tablelist.prototype = {
+
+        constructor: ZOOLU.UI.Tablelist,
+
+        CONST: {
+            sortTypes: {
+                desc: 'desc',
+                asc: 'asc'
+            },
+            rowClassAddTypes: {
+                odd: 'odd',
+                even: 'even'
+            }
+        },
+
+        /**
+         * Initializes the Tablelist form the DOM (DOM)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        initialize: function() {
+            this.getStartingData();
+            this.initTableHeader();
+            this.initTableBody();
+            this.initPagination();
+            this.addCheckboxes();
+            this.bindEvents();
+        },
+
+        /**
+         * Renders JSON into the Tablelist (JSON)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        render: function() {
+            this.getStartingData();
+            this.loadJson(this.getURI());
+        },
+
+        /**
+         * Executes all building-methods and appends the elements to the DOM (JSON)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        build: function() {
+            this.reset();
+            this.buildTable();
+            this.buildTHeader();
+            this.buildTBody();
+
+            if (this.options.domPagination === true) {
+                this.initPagination();
+            } else {
+                this.buildPagination();
+            }
+
+
+            this.$table.append(this.$thead);
+            this.$table.append(this.$tbody);
+            this.$table.append(this.$tfoot);
+            this.$element.prepend(this.$table);
+            this.$element.append(this.pagination.$element);
+
+            this.addCheckboxes();
+            this.bindEvents();
+        },
+
+        /**
+         * Delets the table body dom and resets some variables for new loading (JSON)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        reset: function() {
+            if (!!this.$tbody) {
+                this.$tbody.html(' ');
+            }
+
+            this.tableRows = [];
+            this.allSelected = false;
+        },
+
+        /**
+         * Configures variables for the beginning
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getStartingData: function() {
+            this.pageEntries = this.options.pageEntriesSteps[0];
+            this.page = 1;
+        },
+
+        /**
+         * Loads JSON from an URI and calls methods for building (JSON)
+         *
+         * @private
+         * @param {String} uri - Location of the JSON and parameters
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        loadJson: function(uri) {
+            $.ajax({
+                url: uri,
+                type: 'GET',
+                dataType: 'JSON',
+                success: function(data) {
+                    this.jsonObj = data;
+                    this.amount = this.jsonObj.amount;
+                    this.page = this.jsonObj.page;
+                    this.lastPage = Math.ceil(this.amount / this.pageEntries);
+                    this.build();
+                }.bind(this),
+                error: function(jqXHR, textStatus) {
+                }.bind(this)
+            });
+            this.trigger('Tablelist.load');
+        },
+
+
+        /**
+         * Generates the <option> tags for the Page-Entries-Select
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getPageEntriesOptions: function() {
+            var options = '<option value="' + this.options.pageEntriesSteps[0] + '">' + this.options.pageEntriesSteps[0] + '</option>';
+            for (var i = -1, length = this.options.pageEntriesSteps.length; ++i < length;) {
+                if (this.amount > this.options.pageEntriesSteps[i] && !!this.options.pageEntriesSteps[i + 1]) {
+                    if (this.options.pageEntriesSteps[i + 1] === this.pageEntries) {
+                        options = options + '<option value="' + this.options.pageEntriesSteps[i + 1] + '" selected="selected">' + this.options.pageEntriesSteps[i + 1] + '</option>';
+                    } else {
+                        options = options + '<option value="' + this.options.pageEntriesSteps[i + 1] + '">' + this.options.pageEntriesSteps[i + 1] + '</option>';
+                    }
+                } else {
+                    break;
+                }
+            }
+            return options;
+        },
+
+        /**
+         * Generates the <option> tags for the Pagination-Select
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getPaginationOptions: function() {
+            var options = '';
+            for (var i = 0; ++i <= this.lastPage;) {
+                if (i === this.page) {
+                    options = options + '<option selected="selected" value="' + i + '">' + i + '</option>';
+                } else {
+                    options = options + '<option value="' + i + '">' + i + '</option>';
+                }
+            }
+            return options;
+        },
+
+        /**
+         * Builds the DOM-Objects for the Tablelist-Table (JSON)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        buildTable: function() {
+            if (!this.$table) {
+                log('Build Table');
+                this.$table = $('<table class="' + this.options.tableClass + '"/>'),
+                    this.$thead = $('<thead/>'),
+                    this.$tbody = $('<tbody/>'),
+                    this.$tfoot = $('<tfoot/>');
+            }
+        },
+
+        /**
+         * Builds the Table-Head, Table-Row and the Title Cells DOM Objects (JSON)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        buildTHeader: function() {
+            if (!this.theadRow.$element) {
+                log('Build Table Header');
+                this.theadRow.$element = $('<tr/>');
+                for (var i = -1, length = this.options.header.length; ++i < length;) {
+                    this.theadRow.titleCells[i] = {
+                        $element: $('<th>' + this.options.header[i].title + '</th>'),
+                        name: this.options.header[i].name,
+                        sort: this.options.header[i].sort,
+                        sorted: false,
+                        sortType: this.CONST.sortTypes.desc
+                    };
+                    if (this.theadRow.titleCells[i].$element.html() !== '') {
+                        log('add');
+                        this.theadRow.titleCells[i].$element.addClass(this.options.titleClass);
+                    }
+                    this.theadRow.$element.append(this.theadRow.titleCells[i].$element);
+                    this.bindCellEvents(i);
+                }
+                this.$thead.append(this.theadRow.$element);
+            }
+        },
+
+        /**
+         * Builds the Table-Body DOM Object with the Table-Row Objects
+         * Calls the <code>bindRowEvents</code> method for each row
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        buildTBody: function() {
+            log('Build Table Body');
+            var tablerow, tablecell;
+            for (var i = -1, amountRows = this.jsonObj.items.length; ++i < amountRows;) {
+                tablerow = $('<tr/>');
+                for (var x = -1, amountCells = this.jsonObj.items[i].length; ++x < amountCells;) {
+                    tablecell = $('<td class="' + this.options.header[x].name + '">' + this.jsonObj.items[i][x] + '</td>');
+                    tablerow.append(tablecell);
+                }
+                this.tableRows.push({
+                    $element: $(tablerow),
+                    $checkboxCell: null,
+                    $checkbox: null,
+                    selected: false
+                });
+                this.$tbody.append(this.tableRows[i].$element);
+                this.addRowCSSClass(i);
+                this.bindRowEvents(i);
+            }
+        },
+
+        /**
+         * Builds a default Pagination-DOM-Object if no Pagination is in the DOM yet (JSON)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        buildPagination: function() {
+            if (!this.pagination.$element) {
+                this.pagination.$element = $('<div class=' + this.options.paginationClass + '/>');
+                this.pagination.$pageentries = $('<div class="' + this.options.navPageEntriesClass + '"/>');
+                this.pagination.$pagination = $('<div class="' + this.options.navPaginationClass + '"/>');
+                this.pagination.$next = $('<a href="#" class="' + this.options.navPaginationNextClass + '">Next</a>');
+                this.pagination.$back = $('<a href="#" class="' + this.options.navPaginationBackClass + '">Back</a>');
+
+                var entries = '<span>Page entries</span>' +
+                    '<select>' +
+                    this.getPageEntriesOptions() +
+                    '</select>';
+
+                var pager = '<span>Page</span>' +
+                    '<select>' +
+                    this.getPaginationOptions() +
+                    '</select>';
+
+                this.pagination.$pageentries.append(entries);
+                this.pagination.$pagination.append(this.pagination.$back);
+                this.pagination.$pagination.append(pager);
+                this.pagination.$pagination.append(this.pagination.$next);
+
+                this.pagination.$element.append(this.pagination.$pageentries);
+                this.pagination.$element.append(this.pagination.$pagination);
+
+                this.hidePaginationButtons();
+            }
+        },
+
+        /**
+         * Initializes the Table Header and the Title Cells (DOM)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        initTableHeader: function() {
+            this.$thead = this.$element.find('thead');
+            if (this.$thead.length !== 1) {
+                throw new ZOOLU.UI.Exception('Table Head initialisation failed');
+            }
+
+            this.theadRow = {
+                $element: $(this.$thead.find('tr')),
+                $checkboxCont: null,
+                $checkbox: null,
+                titleCells: []
+            };
+            if (this.theadRow.$element.length !== 1) {
+                throw new ZOOLU.UI.Exception('Table Head row initialisation failed');
+            }
+
+            var titleCells = {
+                $element: this.theadRow.$element.find('th')
+            };
+            for (var i = -1, length = titleCells.length; ++i < length;) {
+                this.theadRow.titleCells.push($(titleCells[i].$element));
+                if ($(titleCells[i]).$element.html() !== '') {
+                    this.bindCellEvents(i);
+                }
+            }
+        },
+
+        /**
+         * Initializes the Table Body, with the Table-Rows
+         * Calls the <code>bindRowEvents</code> method for each row (DOM)
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        initTableBody: function() {
+            var tbody = this.$element.find('tbody');
+            if (tbody.length === 1) {
+                this.$tbody = tbody;
+            } else {
+                throw new ZOOLU.UI.Exception('Table Body initialisation failed');
+            }
+            var rows = this.$tbody.find('tr');
+            for (var i = -1, length = rows.length; ++i < length;) {
+                this.tableRows.push({
+                    $element: $(rows[i]),
+                    $checkboxCell: null,
+                    $checkbox: null,
+                    selected: false
+                });
+                this.bindRowEvents(i);
+                this.addRowCSSClass(i);
+            }
+        },
+
+        /**
+         * Initializes the Pagination
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        initPagination: function() {
+            this.pagination.$element = this.$element.find('.' + this.options.paginationClass);
+            if (!this.pagination.$element.length) {
+                throw new ZOOLU.UI.Exception('Tablelist pagination element does not exist');
+            }
+            this.pagination.$pageentries = this.pagination.$element.find('.' + this.options.navPageEntriesClass);
+            this.pagination.$back = this.pagination.$element.find('.' + this.options.navPaginationBackClass);
+            this.pagination.$pagination = this.pagination.$element.find('.' + this.options.navPaginationClass);
+            this.pagination.$next = this.pagination.$element.find('.' + this.options.navPaginationNextClass);
+
+            if (!this.pagination.$pageentries.length ||
+                !this.pagination.$back.length ||
+                !this.pagination.$pagination.length ||
+                !this.pagination.$next.length) {
+                throw new ZOOLU.UI.Exception('Tablelist pagination initialisation failed');
+            } else if (this.options.calculatePagination === true) {
+                this.pagination.$pageentries.find('select').html(this.getPageEntriesOptions());
+                this.pagination.$pagination.find('select').html(this.getPaginationOptions());
+            }
+            this.hidePaginationButtons();
+        },
+
+        /**
+         * Hides (if activated) the back button on the first page and the next
+         * button on the last page
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        hidePaginationButtons: function() {
+            if (this.options.hideNextOnLastPage === true && this.page === this.lastPage) {
+                this.pagination.$next.hide();
+            } else {
+                this.pagination.$next.show();
+            }
+            if (this.options.hideBackOnFirstPage === true && this.page === 1) {
+                this.pagination.$back.hide();
+            } else {
+                this.pagination.$back.show();
+            }
+        },
+
+        /**
+         * Adds Checkboxes for each row and a Select-All-Checkbox for the header
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        addCheckboxes: function() {
+            if (this.options.selectable === true) {
+                var checkbox = '<input type="checkbox" />';
+
+                for (var i = -1, length = this.tableRows.length; ++i < length;) {
+                    this.tableRows[i].$checkboxCell = $('<td class="' + this.options.checkboxClass + '"/>');
+                    this.tableRows[i].$checkbox = $(checkbox);
+                    this.tableRows[i].$checkboxCell.append(this.tableRows[i].$checkbox);
+                    this.tableRows[i].$element.prepend(this.tableRows[i].$checkboxCell);
+                }
+
+                if (!this.theadRow.$checkboxCell) {
+                    this.theadRow.$checkboxCell = $('<th class="' + this.options.checkboxClass + '"/>');
+                    this.theadRow.$checkbox = $(checkbox);
+                    this.theadRow.$checkboxCell.append(this.theadRow.$checkbox);
+                    this.theadRow.$element.prepend(this.theadRow.$checkboxCell);
+                } else {
+                    this.theadRow.$checkbox.removeAttr('checked');
+                }
+            }
+        },
+
+        /**
+         * Adds the CSS-Class configured in <code>this.options.rowCSSClass</code>
+         * to the Table rows according to the rule configured in <code>this.options.rowClassAddType</code>
+         *
+         * @private
+         * @param {Integer} index - Index of the row in the tableRows Array
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        addRowCSSClass: function(index) {
+            if (this.options.rowCSSClass !== false) {
+                if (this.options.rowClassAddType === false) {
+                    this.tableRows[index].$element.addClass(this.options.rowCSSClass);
+                } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.odd && (index + 1) % 2 !== 0) {
+                    this.tableRows[index].$element.addClass(this.options.rowCSSClass);
+                } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.even && (index + 1) % 2 === 0) {
+                    this.tableRows[index].$element.addClass(this.options.rowCSSClass);
+                }
+            }
+        },
+
+        /**
+         * Binds various events for the checkboxes and pagination
+         * The eventsBound attribute ensures that all events get only bound once.
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        bindEvents: function() {
+            if (this.eventsBound === false) {
+                if (this.options.selectable === true) {
+                    this.theadRow.$checkbox.on('click', function() {
+                        this.toggleAll();
+                    }.bind(this));
+                    this.on('Tablelist.row.toggle', function() {
+                        this.observeSelect();
+                    }.bind(this));
+                }
+
+                this.pagination.$pageentries.on('change', function() {
+                    this.changePageEntries();
+                }.bind(this));
+                this.pagination.$pagination.on('change', function() {
+                    this.changePage();
+                }.bind(this));
+                this.pagination.$back.on('click', function() {
+                    this.changePage(this.page - 1);
+                }.bind(this));
+                this.pagination.$next.on('click', function() {
+                    this.changePage(this.page + 1);
+                }.bind(this));
+
+                this.eventsBound = true;
+            }
+        },
+
+        /**
+         * Binds Events for each Row
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        bindRowEvents: function(index) {
+            if (this.options.selectable === true) {
+                this.tableRows[index].$element.bind(this.options.selectEvent, function() {
+                    this.toggle(index);
+                }.bind(this));
+            }
+        },
+
+        /**
+         * Binds Events for each title cell
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        bindCellEvents: function(index) {
+            if (this.options.sortable === true && this.theadRow.titleCells[index].sort === true) {
+                this.theadRow.titleCells[index].$element.bind('click', function() {
+                    this.sort(this.theadRow.titleCells[index]);
+                }.bind(this));
+            }
+        },
+
+        /**
+         * Changes the pageEntries attribute and sends an AJAX request
+         *
+         * @public
+         * @param {Integer} entries - amount of page entries
+         * @example
+         *
+         *  var myTablelist = new ZOOLU.UI.Tablelist('#myContainer', '/list', { });
+         *  myTablelist.changePageEntries(500);
+         *
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        changePageEntries: function(entries) {
+            if (!!entries) {
+                this.pageEntries = entries;
+            } else {
+                this.pageEntries = parseInt(this.pagination.$pageentries.find('select option:selected').val(), 10);
+            }
+            this.loadJson(this.getURI());
+        },
+
+        /**
+         * Changes the page attribute and sends an AJAX request
+         *
+         * @public
+         * @param {Integer} page - Page to load
+         * @example
+         *
+         *  var myTablelist = new ZOOLU.UI.Tablelist('#myContainer', '/list', { });
+         *  myTablelist.changePage(2);
+         *
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        changePage: function(page) {
+            if (!!page) {
+                if (page <= this.lastPage) /*Back or next clicked*/ {
+                    this.page = page;
+                    this.loadJson(this.getURI());
+                }
+            } else if (page !== 0) /*Select changed*/ {
+                this.page = parseInt(this.pagination.$pagination.find('select option:selected').val(), 10);
+                this.loadJson(this.getURI());
+            }
+        },
+
+        /**
+         * Generates the URI for the AJAX-Requests
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getURI: function() {
+            var uri = this.uri +
+                '?' + this.options.sortParameterName + '=' + this.sortname +
+                '&' + this.options.sortTypeParameterName + '=' + this.sortType +
+                '&' + this.options.pageEntriesParameterName + '=' + this.pageEntries +
+                '&' + this.options.pageParameterName + '=' + this.page;
+            log(uri);
+            return uri;
+        },
+
+        /**
+         * Generates the URI with the parameters, which are needed to get data sorted
+         * Calls the <code>loadJson</code> method and passes the URI
+         * Sets and removes CSS-Classes
+         *
+         * @private
+         * @triggers Tablelist.sort
+         * @param {Object} cell - Object which contains the TitleCell DOM Object and various other attributes
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        sort: function(cell) {
+            var cssClass;
+            this.sortname = cell.name;
+
+            if (cell.sortType === this.CONST.sortTypes.desc) {
+                this.sortType = this.CONST.sortTypes.asc;
+                cssClass = this.options.ascClass;
+                cell.$element.removeClass(this.options.descClass);
+            } else {
+                this.sortType = this.CONST.sortTypes.desc;
+                cssClass = this.options.descClass;
+                cell.$element.removeClass(this.options.ascClass);
+            }
+
+            cell.$element.addClass(cssClass);
+            cell.sortType = this.sortType;
+            cell.sorted = true;
+            for (var i = -1, length = this.theadRow.titleCells.length; ++i < length;) {
+                if (this.theadRow.titleCells[i].name !== cell.name) {
+                    this.theadRow.titleCells[i].$element.removeClass(this.options.ascClass);
+                    this.theadRow.titleCells[i].$element.removeClass(this.options.descClass);
+                    this.theadRow.titleCells[i].sorted = false;
+                    this.theadRow.titleCells[i].sortType = this.CONST.sortTypes.desc;
+                }
+            }
+
+            this.loadJson(this.getURI());
+            this.trigger('Tablelist.sort');
+        },
+
+        /**
+         * Selects or unselects a row
+         *
+         * @public
+         * @triggers Tablelist.row.toggle
+         * @param {Integer} index - Index of the row in the tableRows Array
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        toggle: function(index) {
+            if (this.tableRows[index].selected === false) {
+                this.select(index);
+            } else {
+                this.unselect(index);
+            }
+            this.trigger('Tablelist.row.toggle');
+        },
+
+        /**
+         * Selects a row
+         *
+         * @prublic
+         * @triggers Tablelist.row.select
+         * @param {Integer} index - Index of the row in the tableRows Array
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        select: function(index) {
+            this.tableRows[index].$element.addClass(this.options.selectedClass);
+            this.tableRows[index].$checkbox.attr('checked', true);
+            this.tableRows[index].selected = true;
+            this.trigger('Tablelist.row.select');
+        },
+
+        /**
+         * Unselects a row
+         *
+         * @public
+         * @triggers Tablelist.row.unselect
+         * @param {Integer} index - Index of the row in the tableRows Array
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        unselect: function(index) {
+            this.tableRows[index].$element.removeClass(this.options.selectedClass);
+            this.tableRows[index].$checkbox.attr('checked', false);
+            this.tableRows[index].selected = false;
+            this.trigger('Tablelist.row.unselect');
+        },
+
+        /**
+         * Selects or unselects all rows
+         *
+         * @public
+         * @triggers Tablelist.toggleall
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        toggleAll: function() {
+            if (this.allSelected === false) {
+                this.selectAll();
+                this.allSelected = true;
+            } else {
+                this.unselectAll();
+                this.allSelected = false;
+            }
+            this.trigger('Tablelist.toggleall');
+        },
+
+        /**
+         * Selects all rows
+         *
+         * @public
+         * @triggers Tablelist.selectall
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        selectAll: function() {
+            for (var i = -1, length = this.tableRows.length; ++i < length;) {
+                this.select(i);
+            }
+            this.trigger('Tablelist.selectall');
+        },
+
+        /**
+         * Unselects all rows
+         *
+         * @public
+         * @triggers Tablelist.unselectall
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        unselectAll: function() {
+            for (var i = -1, length = this.tableRows.length; ++i < length;) {
+                this.unselect(i);
+            }
+            this.trigger('Tablelist.unselectall');
+        },
+
+        /**
+         * Ensures that the Select-All-Checkbox is checked if all rows got selected manually,
+         * or is unchecked if not all are selected
+         *
+         * @private
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        observeSelect: function() {
+            var allselected = true;
+            for (var i = -1, length = this.tableRows.length; ++i < length;) {
+                if (this.tableRows[i].selected === false) {
+                    allselected = false;
+                    break;
+                }
+            }
+            this.allSelected = allselected;
+            this.theadRow.$checkbox.attr('checked', allselected);
+        },
+
+        /**
+         * Returns an Array with all selected rows in it
+         *
+         * @public
+         * @return {Array} rows
+         * @example
+         *
+         *  var myTablelist('#myContainer', '/folder', { });
+         *  var selectedContainer = myTablelist.getSelectedRows();
+         *
+         * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
+         */
+        getSelectedRows: function() {
+            var rows = [];
+            for (var i = -1, length = this.tableRows.length; ++i < length;) {
+                if (this.tableRows[i].selected === true) {
+                    rows.push(this.tableRows[i].$element);
+                }
+            }
+            return rows;
+        }
+    };
 })(window, window.ZOOLU, window.jQuery);
