@@ -128,7 +128,7 @@ TestCase('ZOOLU.UI.ColumnTree', {
         $('#row-5-folder').click();
         this.server.respond();
     },
-    
+
     'test column tree unselect nested node': function() {
         try {
             var columnTree = new ZOOLU.UI.ColumnTree('#tree', { url: '/nodes', hasChildren: { 'folder': true } });
@@ -147,10 +147,10 @@ TestCase('ZOOLU.UI.ColumnTree', {
         // select folder and load children
         $('#row-5-folder').click();
         this.server.respond();
-        
+
         // select folder and load children
         $('#row-1-page').click();
-        this.server.respond();        
+        this.server.respond();
     },
 
     'test update selected marker': function() {

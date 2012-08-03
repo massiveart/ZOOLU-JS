@@ -28,24 +28,24 @@ TestCase('ZOOLU.UI.Layout', {
     tearDown: function() {
 
     },
-    
+
     'test layout throw exception': function() {
         try {
             var layout = new ZOOLU.UI.Layout('#thisContainerDoesntExist');
         } catch (e) {
             error = e;
         }
-        
+
         assertEquals('Thrown ZOOLU.UI Exception', 'ZOOLU.UI.Exception', error.name);
     },
-    
+
     'test layout.panel throw exception': function() {
         try {
             var panel = new ZOOLU.UI.Layout.Panel('#thisContainerDoesntExist');
         } catch (e) {
             error = e;
         }
-        
+
         assertEquals('Thrown ZOOLU.UI Exception', 'ZOOLU.UI.Exception', error.name);
     },
 
@@ -171,25 +171,25 @@ TestCase('ZOOLU.UI.Layout', {
         assertTrue('Width changed - Panel West', beginningWidth != layout.panels['west'].$element.width());
         assertTrue('Height changed - Panel North', beginningHeight != layout.panels['center'].panels['north'].$element.width());
     },
-    
+
     'test layout.panel minimizer click': function() {
         try {
             var layout = new ZOOLU.UI.Layout('#layout', {});
         } catch (e) {
             fail('Layout instantiation');
         }
-        
+
         var eventMinimize = sinon.spy(),
             eventMaximize = sinon.spy();
         layout.panels['west'].$handler.on('Layout.Panel.minimize', eventMinimize);
         layout.panels['west'].$handler.on('Layout.Panel.maximize', eventMaximize);
         layout.panels['west'].$minimizer.click();
         layout.panels['west'].$minimizer.click();
-        
+
         assertTrue('Minimize Event called', eventMinimize.calledOnce);
         assertTrue('Maximize Event called', eventMaximize.calledOnce);
     },
-    
+
     'test layout.panel toggle handler events': function() {
         var handlerClick = sinon.spy();
         try {
@@ -197,11 +197,11 @@ TestCase('ZOOLU.UI.Layout', {
         } catch (e) {
             fail('Layout instantiation');
         }
-        
+
         layout.panels['west'].toggleHandlerEvents(false);
         layout.panels['west'].$handler.on('Layout.Panel.maximize', handlerClick);
         layout.panels['west'].$handler.click();
-        
+
         assertTrue('Maximize with click on handler', handlerClick.calledOnce);
     },
 

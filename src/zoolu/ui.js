@@ -863,7 +863,7 @@
             resizeMinWidth: 10, //Integer or null
             resizeMaxWidth: null, //Integer or null
             resizeMinHeight: 10, //Integer or null
-            resizeMaxHeight: null                   //Integer or null
+            resizeMaxHeight: null //Integer or null
         }, options);
 
         // add event API
@@ -1268,7 +1268,7 @@
             toggleClass: 'active', //CSS-Class gets added to clicked buttons
             autoselect: false, //true/false - selects the button onload
             unselect: true, //true/false - button can be selected but not unselected (toggle must be enabled)
-            callBackOnUnselect: false           //true/false - for executeing the callback on unselect
+            callBackOnUnselect: false //true/false - for executeing the callback on unselect
         }, options);
 
         // add event API
@@ -1438,7 +1438,7 @@
         this.options = $.extend({
             dataToggle: false, //false or radio
             buttonClass: 'button', //CSS-Class
-            buttonOptions: {}           //Options for ZOOLU.UI.Button
+            buttonOptions: {} //Options for ZOOLU.UI.Button
         }, options);
 
         // add event API
@@ -1609,7 +1609,7 @@
             fadeIn: false, //true/false
             fadeInDuration: 800, //ms
             fadeOut: false, //true/false
-            fadeOutDuration: 800                    //ms
+            fadeOutDuration: 800 //ms
         }, options);
 
         // add event API
@@ -1956,7 +1956,7 @@
             this.tableRows = [];
             if (!!this.theadRow.$checkbox) {
                 this.theadRow.$checkbox.removeAttr('checked');
-                this.allSelected = false; 
+                this.allSelected = false;
             }
         },
 
