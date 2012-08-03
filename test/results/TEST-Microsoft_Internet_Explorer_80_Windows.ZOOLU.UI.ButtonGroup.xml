@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" errors="0" failures="0" tests="7" time="0.022000002">
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group instantiation exception" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group instantiation" time="0.0040"/>
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" errors="0" failures="0" tests="7" time="0.020000001">
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group instantiation exception" time="0.0010"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group instantiation" time="0.0030"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group buttons init" time="0.0040"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group callback init" time="0.0020"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group callback init" time="0.0030"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group callback init exception" time="0.0030"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group callback init exception 2" time="0.0030"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group data toggle handler" time="0.0040"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ButtonGroup" name="test button group data toggle handler" time="0.0030"/>
 </testsuite>

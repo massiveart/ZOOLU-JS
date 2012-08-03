@@ -102,23 +102,22 @@ TestCase('ZOOLU.UI.ButtonGroup', {
   'test button group data toggle handler': function() {
       try {
           var buttonGroup = new ZOOLU.UI.ButtonGroup('#button-group1', [
-              function(){2+2;},
-              function(){3+3;},
-              function(){4+4;}
-          ], {
-              dataToggle: 'radio'
-          })
+             function(){2+2;},
+             function(){3+3;},  
+             function(){4+4;}      
+         ], {
+             dataToggle: 'radio'
+         });
       } catch(e) {
           fail('Button Group instantiation failed!');
       }
-      var buttons = buttonGroup.buttons;
       
-      buttons[0].select();
-      buttons[1].select();
+      buttonGroup.buttons[0].select();
+      buttonGroup.buttons[1].select();
       buttonGroup.dataToggleHandler(1);
       
-      assertFalse('Removed CSS-Class form the first selected button', buttons[0].$element.hasClass(buttons[0].options.toggleClass));
-      assertTrue('Active CSS-Class from the second selected button', buttons[1].$element.hasClass(buttons[1].options.toggleClass));
+      assertFalse('Removed CSS-Class form the first selected button', buttonGroup.buttons[0].$element.hasClass(buttonGroup.buttons[0].options.toggleClass));
+      assertTrue('Active CSS-Class from the second selected button', buttonGroup.buttons[1].$element.hasClass(buttonGroup.buttons[1].options.toggleClass));
   },
   
   'test button group data toggle handler': function() {
