@@ -1778,7 +1778,7 @@
             this.opened = false;
         }
     };
-    
+
     /**
      * ZOOLU Tablelist UI Element
      *
@@ -1817,12 +1817,12 @@
         this.pageEntries = 0;
         this.sortname = '';
         this.sortType = '';
-        
+
         //attributes for JSON rendering
         this.uri = uri;
         this.jsonObj = null;
         this.$table = null;
-        
+
         if (!this.$element.length) {
             throw new ZOOLU.UI.Exception('Tablelist element does not exist');
         }
@@ -1830,8 +1830,8 @@
         // extend default options with given
         this.options = $.extend({
             tableClass: 'tablelist',
-            rowCSSClass: 'row',                //CSS-Class or false
-            rowClassAddType: 'odd',           //'odd' or 'even'
+            rowCSSClass: 'row', //CSS-Class or false
+            rowClassAddType: 'odd', //'odd' or 'even'
             selectable: true,
             selectEvent: 'click',
             selectedClass: 'selected',
@@ -1847,7 +1847,7 @@
             hideBackOnFirstPage: true,
             sortable: true,
             header: false,
-            pageEntriesSteps: [2,20,50,100,500],
+            pageEntriesSteps: [2, 20, 50, 100, 500],
             descClass: 'desc',
             ascClass: 'asc',
             titleClass: 'title',
@@ -1859,9 +1859,9 @@
 
         // add event API
         ZOOLU.MIXIN.Events.enable.call(this);
-        
+
         log('Tablelist', 'construct', this);
-        
+
         if (!!this.uri) {
             log('Render', this);
             this.render();
@@ -1869,13 +1869,13 @@
             log('Initialize', this);
             this.initialize();
         }
-        
+
     };
 
     ZOOLU.UI.Tablelist.prototype = {
 
         constructor: ZOOLU.UI.Tablelist,
-        
+
         CONST: {
             sortTypes: {
                 desc: 'desc',
@@ -1886,7 +1886,7 @@
                 even: 'even'
             }
         },
-        
+
         /**
          * Initializes the Tablelist form the DOM (DOM)
          *
@@ -1901,7 +1901,7 @@
             this.addCheckboxes();
             this.bindEvents();
         },
-        
+
         /**
          * Renders JSON into the Tablelist (JSON)
          *
@@ -1912,7 +1912,7 @@
             this.getStartingData();
             this.loadJson(this.getURI());
         },
-        
+
         /**
          * Executes all building-methods and appends the elements to the DOM (JSON)
          *
@@ -1924,24 +1924,24 @@
             this.buildTable();
             this.buildTHeader();
             this.buildTBody();
-            
+
             if (this.options.domPagination === true) {
                 this.initPagination();
             } else {
                 this.buildPagination();
             }
-            
-            
+
+
             this.$table.append(this.$thead);
             this.$table.append(this.$tbody);
             this.$table.append(this.$tfoot);
             this.$element.prepend(this.$table);
             this.$element.append(this.pagination.$element);
-            
+
             this.addCheckboxes();
             this.bindEvents();
         },
-        
+
         /**
          * Delets the table body dom and resets some variables for new loading (JSON)
          *
@@ -1949,13 +1949,14 @@
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         reset: function() {
-            if(!!this.$tbody)
+            if (!!this.$tbody) {
                 this.$tbody.html(' ');
-            
+            }
+
             this.tableRows = [];
             this.allSelected = false;
         },
-        
+
         /**
          * Configures variables for the beginning
          *
@@ -1966,7 +1967,7 @@
             this.pageEntries = this.options.pageEntriesSteps[0];
             this.page = 1;
         },
-        
+
         /**
          * Loads JSON from an URI and calls methods for building (JSON)
          *
@@ -1974,7 +1975,7 @@
          * @param {String} uri - Location of the JSON and parameters
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
-        loadJson: function(uri) {            
+        loadJson: function(uri) {
             $.ajax({
                 url: uri,
                 type: 'GET',
@@ -1991,8 +1992,8 @@
             });
             this.trigger('Tablelist.load');
         },
-        
-        
+
+
         /**
          * Generates the <option> tags for the Page-Entries-Select
          *
@@ -2000,13 +2001,13 @@
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         getPageEntriesOptions: function() {
-            var options = '<option value="'+this.options.pageEntriesSteps[0]+'">'+this.options.pageEntriesSteps[0]+'</option>';
+            var options = '<option value="' + this.options.pageEntriesSteps[0] + '">' + this.options.pageEntriesSteps[0] + '</option>';
             for (var i = -1, length = this.options.pageEntriesSteps.length; ++i < length;) {
                 if (this.amount > this.options.pageEntriesSteps[i] && !!this.options.pageEntriesSteps[i + 1]) {
-                    if (this.options.pageEntriesSteps[i+1] === this.pageEntries) {
-                        options = options + '<option value="'+this.options.pageEntriesSteps[i+1]+'" selected="selected">'+this.options.pageEntriesSteps[i+1]+'</option>';
+                    if (this.options.pageEntriesSteps[i + 1] === this.pageEntries) {
+                        options = options + '<option value="' + this.options.pageEntriesSteps[i + 1] + '" selected="selected">' + this.options.pageEntriesSteps[i + 1] + '</option>';
                     } else {
-                        options = options + '<option value="'+this.options.pageEntriesSteps[i+1]+'">'+this.options.pageEntriesSteps[i+1]+'</option>';
+                        options = options + '<option value="' + this.options.pageEntriesSteps[i + 1] + '">' + this.options.pageEntriesSteps[i + 1] + '</option>';
                     }
                 } else {
                     break;
@@ -2014,7 +2015,7 @@
             }
             return options;
         },
-        
+
         /**
          * Generates the <option> tags for the Pagination-Select
          *
@@ -2023,16 +2024,16 @@
          */
         getPaginationOptions: function() {
             var options = '';
-                for (var i = 0; ++i <= this.lastPage;) {
-                    if (i === this.page) {
-                        options = options + '<option selected="selected" value="'+i+'">'+i+'</option>';
-                    } else {
-                        options = options + '<option value="'+i+'">'+i+'</option>';
-                    }
-                }            
+            for (var i = 0; ++i <= this.lastPage;) {
+                if (i === this.page) {
+                    options = options + '<option selected="selected" value="' + i + '">' + i + '</option>';
+                } else {
+                    options = options + '<option value="' + i + '">' + i + '</option>';
+                }
+            }
             return options;
         },
-        
+
         /**
          * Builds the DOM-Objects for the Tablelist-Table (JSON)
          *
@@ -2042,13 +2043,13 @@
         buildTable: function() {
             if (!this.$table) {
                 log('Build Table');
-                this.$table = $('<table class="'+this.options.tableClass+'"/>'),
-                this.$thead = $('<thead/>'),
-                this.$tbody = $('<tbody/>'),
-                this.$tfoot = $('<tfoot/>');
+                this.$table = $('<table class="' + this.options.tableClass + '"/>'),
+                    this.$thead = $('<thead/>'),
+                    this.$tbody = $('<tbody/>'),
+                    this.$tfoot = $('<tfoot/>');
             }
         },
-        
+
         /**
          * Builds the Table-Head, Table-Row and the Title Cells DOM Objects (JSON)
          *
@@ -2061,7 +2062,7 @@
                 this.theadRow.$element = $('<tr/>');
                 for (var i = -1, length = this.options.header.length; ++i < length;) {
                     this.theadRow.titleCells[i] = {
-                        $element: $('<th>'+this.options.header[i].title+'</th>'),
+                        $element: $('<th>' + this.options.header[i].title + '</th>'),
                         name: this.options.header[i].name,
                         sort: this.options.header[i].sort,
                         sorted: false,
@@ -2077,7 +2078,7 @@
                 this.$thead.append(this.theadRow.$element);
             }
         },
-        
+
         /**
          * Builds the Table-Body DOM Object with the Table-Row Objects
          * Calls the <code>bindRowEvents</code> method for each row
@@ -2091,7 +2092,7 @@
             for (var i = -1, amountRows = this.jsonObj.items.length; ++i < amountRows;) {
                 tablerow = $('<tr/>');
                 for (var x = -1, amountCells = this.jsonObj.items[i].length; ++x < amountCells;) {
-                    tablecell = $('<td class="'+this.options.header[x].name+'">'+this.jsonObj.items[i][x]+'</td>');
+                    tablecell = $('<td class="' + this.options.header[x].name + '">' + this.jsonObj.items[i][x] + '</td>');
                     tablerow.append(tablecell);
                 }
                 this.tableRows.push({
@@ -2105,7 +2106,7 @@
                 this.bindRowEvents(i);
             }
         },
-        
+
         /**
          * Builds a default Pagination-DOM-Object if no Pagination is in the DOM yet (JSON)
          *
@@ -2114,33 +2115,34 @@
          */
         buildPagination: function() {
             if (!this.pagination.$element) {
-                this.pagination.$element = $('<div class='+this.options.paginationClass+'/>');
-                this.pagination.$pageentries = $('<div class="'+this.options.navPageEntriesClass+'"/>');
-                this.pagination.$pagination = $('<div class="'+this.options.navPaginationClass+'"/>');
-                this.pagination.$next = $('<a href="#" class="'+this.options.navPaginationNextClass+'">Next</a>');
-                this.pagination.$back = $('<a href="#" class="'+this.options.navPaginationBackClass+'">Back</a>');
-                
+                this.pagination.$element = $('<div class=' + this.options.paginationClass + '/>');
+                this.pagination.$pageentries = $('<div class="' + this.options.navPageEntriesClass + '"/>');
+                this.pagination.$pagination = $('<div class="' + this.options.navPaginationClass + '"/>');
+                this.pagination.$next = $('<a href="#" class="' + this.options.navPaginationNextClass + '">Next</a>');
+                this.pagination.$back = $('<a href="#" class="' + this.options.navPaginationBackClass + '">Back</a>');
+
                 var entries = '<span>Page entries</span>' +
-                              '<select>' +
-                                  this.getPageEntriesOptions();
-                              '</select>';
-                
+                    '<select>' +
+                    this.getPageEntriesOptions() +
+                    '</select>';
+
                 var pager = '<span>Page</span>' +
-                            '<select>' +
-                                this.getPaginationOptions();
-                            '</select>';
+                    '<select>' +
+                    this.getPaginationOptions() +
+                    '</select>';
+
                 this.pagination.$pageentries.append(entries);
                 this.pagination.$pagination.append(this.pagination.$back);
                 this.pagination.$pagination.append(pager);
                 this.pagination.$pagination.append(this.pagination.$next);
-                
+
                 this.pagination.$element.append(this.pagination.$pageentries);
                 this.pagination.$element.append(this.pagination.$pagination);
-                
+
                 this.hidePaginationButtons();
             }
         },
-        
+
         /**
          * Initializes the Table Header and the Title Cells (DOM)
          *
@@ -2152,17 +2154,17 @@
             if (this.$thead.length !== 1) {
                 throw new ZOOLU.UI.Exception('Table Head initialisation failed');
             }
-            
+
             this.theadRow = {
-                    $element: $(this.$thead.find('tr')),
-                    $checkboxCont: null,
-                    $checkbox: null,
-                    titleCells: []
+                $element: $(this.$thead.find('tr')),
+                $checkboxCont: null,
+                $checkbox: null,
+                titleCells: []
             };
             if (this.theadRow.$element.length !== 1) {
                 throw new ZOOLU.UI.Exception('Table Head row initialisation failed');
             }
-            
+
             var titleCells = {
                 $element: this.theadRow.$element.find('th')
             };
@@ -2170,10 +2172,10 @@
                 this.theadRow.titleCells.push($(titleCells[i].$element));
                 if ($(titleCells[i]).$element.html() !== '') {
                     this.bindCellEvents(i);
-                }                    
+                }
             }
         },
-        
+
         /**
          * Initializes the Table Body, with the Table-Rows
          * Calls the <code>bindRowEvents</code> method for each row (DOM)
@@ -2200,7 +2202,7 @@
                 this.addRowCSSClass(i);
             }
         },
-        
+
         /**
          * Initializes the Pagination
          *
@@ -2208,14 +2210,14 @@
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         initPagination: function() {
-            this.pagination.$element = this.$element.find('.'+this.options.paginationClass);
+            this.pagination.$element = this.$element.find('.' + this.options.paginationClass);
             if (!this.pagination.$element.length) {
                 throw new ZOOLU.UI.Exception('Tablelist pagination element does not exist');
             }
-            this.pagination.$pageentries = this.pagination.$element.find('.'+this.options.navPageEntriesClass);
-            this.pagination.$back = this.pagination.$element.find('.'+this.options.navPaginationBackClass);
-            this.pagination.$pagination = this.pagination.$element.find('.'+this.options.navPaginationClass);
-            this.pagination.$next = this.pagination.$element.find('.'+this.options.navPaginationNextClass);
+            this.pagination.$pageentries = this.pagination.$element.find('.' + this.options.navPageEntriesClass);
+            this.pagination.$back = this.pagination.$element.find('.' + this.options.navPaginationBackClass);
+            this.pagination.$pagination = this.pagination.$element.find('.' + this.options.navPaginationClass);
+            this.pagination.$next = this.pagination.$element.find('.' + this.options.navPaginationNextClass);
 
             if (!this.pagination.$pageentries.length ||
                 !this.pagination.$back.length ||
@@ -2228,7 +2230,7 @@
             }
             this.hidePaginationButtons();
         },
-        
+
         /**
          * Hides (if activated) the back button on the first page and the next
          * button on the last page
@@ -2248,7 +2250,7 @@
                 this.pagination.$back.show();
             }
         },
-        
+
         /**
          * Adds Checkboxes for each row and a Select-All-Checkbox for the header
          *
@@ -2258,25 +2260,25 @@
         addCheckboxes: function() {
             if (this.options.selectable === true) {
                 var checkbox = '<input type="checkbox" />';
-                
+
                 for (var i = -1, length = this.tableRows.length; ++i < length;) {
-                    this.tableRows[i].$checkboxCell = $('<td class="'+this.options.checkboxClass+'"/>');
+                    this.tableRows[i].$checkboxCell = $('<td class="' + this.options.checkboxClass + '"/>');
                     this.tableRows[i].$checkbox = $(checkbox);
                     this.tableRows[i].$checkboxCell.append(this.tableRows[i].$checkbox);
                     this.tableRows[i].$element.prepend(this.tableRows[i].$checkboxCell);
                 }
-                
+
                 if (!this.theadRow.$checkboxCell) {
-                    this.theadRow.$checkboxCell = $('<th class="'+this.options.checkboxClass+'"/>');
+                    this.theadRow.$checkboxCell = $('<th class="' + this.options.checkboxClass + '"/>');
                     this.theadRow.$checkbox = $(checkbox);
                     this.theadRow.$checkboxCell.append(this.theadRow.$checkbox);
-                    this.theadRow.$element.prepend(this.theadRow.$checkboxCell); 
+                    this.theadRow.$element.prepend(this.theadRow.$checkboxCell);
                 } else {
                     this.theadRow.$checkbox.removeAttr('checked');
                 }
             }
         },
-        
+
         /**
          * Adds the CSS-Class configured in <code>this.options.rowCSSClass</code>
          * to the Table rows according to the rule configured in <code>this.options.rowClassAddType</code>
@@ -2289,18 +2291,18 @@
             if (this.options.rowCSSClass !== false) {
                 if (this.options.rowClassAddType === false) {
                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);
-                } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.odd && (index+1) % 2 !== 0) {
+                } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.odd && (index + 1) % 2 !== 0) {
                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);
-                } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.even && (index+1) % 2 === 0) {
+                } else if (this.options.rowClassAddType === this.CONST.rowClassAddTypes.even && (index + 1) % 2 === 0) {
                     this.tableRows[index].$element.addClass(this.options.rowCSSClass);
                 }
             }
         },
-        
+
         /**
          * Binds various events for the checkboxes and pagination
          * The eventsBound attribute ensures that all events get only bound once.
-         *          
+         *
          * @private
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
@@ -2312,9 +2314,9 @@
                     }.bind(this));
                     this.on('Tablelist.row.toggle', function() {
                         this.observeSelect();
-                    }.bind(this))
+                    }.bind(this));
                 }
-                
+
                 this.pagination.$pageentries.on('change', function() {
                     this.changePageEntries();
                 }.bind(this));
@@ -2327,11 +2329,11 @@
                 this.pagination.$next.on('click', function() {
                     this.changePage(this.page + 1);
                 }.bind(this));
-                
+
                 this.eventsBound = true;
             }
         },
-        
+
         /**
          * Binds Events for each Row
          *
@@ -2341,11 +2343,11 @@
         bindRowEvents: function(index) {
             if (this.options.selectable === true) {
                 this.tableRows[index].$element.bind(this.options.selectEvent, function() {
-                    this.toggle(index)
+                    this.toggle(index);
                 }.bind(this));
             }
         },
-        
+
         /**
          * Binds Events for each title cell
          *
@@ -2359,52 +2361,52 @@
                 }.bind(this));
             }
         },
-        
+
         /**
          * Changes the pageEntries attribute and sends an AJAX request
          *
          * @public
          * @param {Integer} entries - amount of page entries
          * @example
-         * 
+         *
          *  var myTablelist = new ZOOLU.UI.Tablelist('#myContainer', '/list', { });
          *  myTablelist.changePageEntries(500);
-         * 
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         changePageEntries: function(entries) {
             if (!!entries) {
                 this.pageEntries = entries;
             } else {
-                this.pageEntries = parseInt(this.pagination.$pageentries.find('select option:selected').val());
+                this.pageEntries = parseInt(this.pagination.$pageentries.find('select option:selected').val(), 10);
             }
             this.loadJson(this.getURI());
         },
-        
+
         /**
          * Changes the page attribute and sends an AJAX request
          *
          * @public
          * @param {Integer} page - Page to load
          * @example
-         * 
+         *
          *  var myTablelist = new ZOOLU.UI.Tablelist('#myContainer', '/list', { });
          *  myTablelist.changePage(2);
-         * 
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         changePage: function(page) {
             if (!!page) {
-                if (page <= this.lastPage) /*Back or next clicked*/ { 
+                if (page <= this.lastPage) /*Back or next clicked*/ {
                     this.page = page;
                     this.loadJson(this.getURI());
                 }
             } else if (page !== 0) /*Select changed*/ {
-                this.page = parseInt(this.pagination.$pagination.find('select option:selected').val());
+                this.page = parseInt(this.pagination.$pagination.find('select option:selected').val(), 10);
                 this.loadJson(this.getURI());
             }
         },
-        
+
         /**
          * Generates the URI for the AJAX-Requests
          *
@@ -2413,14 +2415,14 @@
          */
         getURI: function() {
             var uri = this.uri +
-                      '?' + this.options.sortParameterName + '=' + this.sortname +
-                      '&' + this.options.sortTypeParameterName + '=' + this.sortType +
-                      '&' + this.options.pageEntriesParameterName + '=' + this.pageEntries +
-                      '&' + this.options.pageParameterName + '=' + this.page;
+                '?' + this.options.sortParameterName + '=' + this.sortname +
+                '&' + this.options.sortTypeParameterName + '=' + this.sortType +
+                '&' + this.options.pageEntriesParameterName + '=' + this.pageEntries +
+                '&' + this.options.pageParameterName + '=' + this.page;
             log(uri);
             return uri;
         },
-        
+
         /**
          * Generates the URI with the parameters, which are needed to get data sorted
          * Calls the <code>loadJson</code> method and passes the URI
@@ -2432,9 +2434,9 @@
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         sort: function(cell) {
-            var cssClass; 
+            var cssClass;
             this.sortname = cell.name;
-            
+
             if (cell.sortType === this.CONST.sortTypes.desc) {
                 this.sortType = this.CONST.sortTypes.asc;
                 cssClass = this.options.ascClass;
@@ -2444,7 +2446,7 @@
                 cssClass = this.options.descClass;
                 cell.$element.removeClass(this.options.ascClass);
             }
-            
+
             cell.$element.addClass(cssClass);
             cell.sortType = this.sortType;
             cell.sorted = true;
@@ -2456,11 +2458,11 @@
                     this.theadRow.titleCells[i].sortType = this.CONST.sortTypes.desc;
                 }
             }
-            
+
             this.loadJson(this.getURI());
             this.trigger('Tablelist.sort');
         },
-        
+
         /**
          * Selects or unselects a row
          *
@@ -2477,7 +2479,7 @@
             }
             this.trigger('Tablelist.row.toggle');
         },
-        
+
         /**
          * Selects a row
          *
@@ -2492,7 +2494,7 @@
             this.tableRows[index].selected = true;
             this.trigger('Tablelist.row.select');
         },
-        
+
         /**
          * Unselects a row
          *
@@ -2507,7 +2509,7 @@
             this.tableRows[index].selected = false;
             this.trigger('Tablelist.row.unselect');
         },
-        
+
         /**
          * Selects or unselects all rows
          *
@@ -2517,7 +2519,7 @@
          */
         toggleAll: function() {
             if (this.allSelected === false) {
-                this.selectAll()
+                this.selectAll();
                 this.allSelected = true;
             } else {
                 this.unselectAll();
@@ -2525,7 +2527,7 @@
             }
             this.trigger('Tablelist.toggleall');
         },
-        
+
         /**
          * Selects all rows
          *
@@ -2539,7 +2541,7 @@
             }
             this.trigger('Tablelist.selectall');
         },
-        
+
         /**
          * Unselects all rows
          *
@@ -2553,7 +2555,7 @@
             }
             this.trigger('Tablelist.unselectall');
         },
-        
+
         /**
          * Ensures that the Select-All-Checkbox is checked if all rows got selected manually,
          * or is unchecked if not all are selected
@@ -2572,17 +2574,17 @@
             this.allSelected = allselected;
             this.theadRow.$checkbox.attr('checked', allselected);
         },
-        
+
         /**
          * Returns an Array with all selected rows in it
          *
          * @public
          * @return {Array} rows
          * @example
-         * 
+         *
          *  var myTablelist('#myContainer', '/folder', { });
          *  var selectedContainer = myTablelist.getSelectedRows();
-         * 
+         *
          * @author <a href="mailto:marcel.moosbrugger@bws.ac.at">Marcel Moosbrugger</a>
          */
         getSelectedRows: function() {

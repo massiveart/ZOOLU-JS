@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" errors="0" failures="0" tests="5" time="0.0050000004">
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" name="test Event Api log" time="0.0010"/>
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" errors="0" failures="0" tests="5" time="0.0040">
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" name="test Event Api log" time="0.0"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" name="test Event Api enable" time="0.0010"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" name="test Event Api on" time="0.0010"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.MIXIN" name="test Event Api trigger" time="0.0010"/>
