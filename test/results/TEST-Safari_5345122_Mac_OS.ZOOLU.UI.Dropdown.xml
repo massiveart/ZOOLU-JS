@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" errors="0" failures="0" tests="9" time="0.029000001">
+<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" errors="0" failures="0" tests="9" time="0.022">
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown instantiation" time="0.0040"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown instantiation exception" time="0.0"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown instantiation exception" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown get dropdown container" time="0.0020"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown add CSS" time="0.0020"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown add CSS exception" time="0.0010"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown bind events" time="0.0040"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown open" time="0.0080"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown close" time="0.0050"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown toggle" time="0.0030"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown bind events" time="0.0030"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown open" time="0.0050"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown close" time="0.0030"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.Dropdown" name="test dropdown toggle" time="0.0010"/>
 </testsuite>
