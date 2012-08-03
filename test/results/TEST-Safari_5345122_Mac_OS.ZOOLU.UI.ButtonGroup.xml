@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" errors="0" failures="0" tests="7" time="0.014000001">
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group instantiation exception" time="0.0020"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group instantiation" time="0.0030"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group buttons init" time="0.0020"/>
+<testsuite name="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" errors="0" failures="0" tests="7" time="0.0070000007">
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group instantiation exception" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group instantiation" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group buttons init" time="0.0010"/>
 <testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group callback init" time="0.0010"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group callback init exception" time="0.0020"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group callback init exception 2" time="0.0020"/>
-<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group data toggle handler" time="0.0020"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group callback init exception" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group callback init exception 2" time="0.0010"/>
+<testcase classname="Safari_5345122_Mac_OS.ZOOLU.UI.ButtonGroup" name="test button group data toggle handler" time="0.0010"/>
 </testsuite>
