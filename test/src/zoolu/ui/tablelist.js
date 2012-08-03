@@ -119,6 +119,32 @@ TestCase('ZOOLU.UI.Tablelist', {
         assertEquals('Table DOM Object', 'object', typeof jsonList.$table);
     },
     
+    'test tablelist initialize': function() {
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.build();
+        
+        var domList = new ZOOLU.UI.Tablelist('#jsonList', null, {
+            domPagination: true,
+            calculatePagination: true
+        });
+        
+        assertEquals('Table DOM Object', 'object', typeof domList.$table);
+    },
+    
     'test tablelist initialize table header': function() {
         try {
             var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
@@ -323,6 +349,7 @@ TestCase('ZOOLU.UI.Tablelist', {
         } catch(e) {
             fail('Tablelist instantiation failed');
         }
+        jsonList.pageEntries = 20;
         options = jsonList.getPageEntriesOptions();
         
         assertEquals('Returned HTML-String', 'string', typeof options);
@@ -369,7 +396,8 @@ TestCase('ZOOLU.UI.Tablelist', {
         } catch(e) {
             fail('Tablelist instantiation failed');
         }
-        jsonList.loadJson('/list?sort=&sortType=&pageEntries=20&page=1');
+        jsonList.pageEntries = 20;
+        jsonList.loadJson(jsonList.getURI());
         jsonList.hidePaginationButtons();
     },
     
@@ -439,6 +467,29 @@ TestCase('ZOOLU.UI.Tablelist', {
         assertFalse('Has no CSS Class - odd', jsonList.tableRows[0].$element.hasClass(cssClass));
     },
     
+    'test tablelist add row CSS-Class': function() {
+        var options;
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.bindEvents();
+        jsonList.theadRow.$checkbox.click();
+        jsonList.pagination.$back.click();
+        jsonList.pagination.$next.click();
+    },
+    
     'test tablelist get URI': function() {
         try {
             var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
@@ -457,6 +508,48 @@ TestCase('ZOOLU.UI.Tablelist', {
         }
         var uri = jsonList.getURI();
         assertEquals('Returned uri string', 'string', typeof uri);
+    },
+    
+    'test tablelist change page entries': function() {
+        var cell;
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.changePageEntries(20);
+        jsonList.changePageEntries();
+    },
+    
+    'test tablelist change page': function() {
+        var cell;
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.changePage(2);
+        jsonList.changePageEntries();
     },
     
     'test tablelist sort': function() {

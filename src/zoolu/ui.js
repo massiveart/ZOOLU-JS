@@ -2168,12 +2168,12 @@
                 throw new ZOOLU.UI.Exception('Table Head row initialisation failed');
             }
 
-            var titleCells = {
-                $element: this.theadRow.$element.find('th')
-            };
+            var titleCells = this.theadRow.$element.find('th');
             for (var i = -1, length = titleCells.length; ++i < length;) {
-                this.theadRow.titleCells.push($(titleCells[i].$element));
-                if ($(titleCells[i]).$element.html() !== '') {
+                this.theadRow.titleCells.push({
+                    $element: $(titleCells[i])
+                });
+                if ($(titleCells[i]).html() !== '') {
                     this.bindCellEvents(i);
                 }
             }
