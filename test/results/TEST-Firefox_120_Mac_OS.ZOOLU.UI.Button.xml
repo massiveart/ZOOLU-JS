@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Button" errors="0" failures="0" tests="10" time="0.088">
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button instantiation" time="0.015"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button group instantiation exception" time="0.0010"/>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Button" errors="0" failures="0" tests="10" time="0.106000006">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button instantiation" time="0.029"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button group instantiation exception" time="0.0"/>
 <testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button select" time="0.0090"/>
 <testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button autoselect" time="0.0090"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button unselect" time="0.01"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button execute callback" time="0.0090"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button event select unselect" time="0.0070"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button add toggle class" time="0.0060"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button remove toggle class" time="0.01"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button bind toggle back handler" time="0.012"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button unselect" time="0.0080"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button execute callback" time="0.0080"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button event select unselect" time="0.01"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button add toggle class" time="0.0080"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button remove toggle class" time="0.0080"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Button" name="test button bind toggle back handler" time="0.017"/>
 </testsuite>
