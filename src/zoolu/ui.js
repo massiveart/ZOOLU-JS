@@ -1954,7 +1954,10 @@
             }
 
             this.tableRows = [];
-            this.allSelected = false;
+            if (!!this.theadRow.$checkbox) {
+                this.theadRow.$checkbox.removeAttr('checked');
+                this.allSelected = false; 
+            }
         },
 
         /**
@@ -2273,8 +2276,6 @@
                     this.theadRow.$checkbox = $(checkbox);
                     this.theadRow.$checkboxCell.append(this.theadRow.$checkbox);
                     this.theadRow.$element.prepend(this.theadRow.$checkboxCell);
-                } else {
-                    this.theadRow.$checkbox.removeAttr('checked');
                 }
             }
         },
@@ -2424,7 +2425,7 @@
         },
 
         /**
-         * Generates the URI with the parameters, which are needed to get data sorted
+         * Setts the attributes which are needed to get data sorted
          * Calls the <code>loadJson</code> method and passes the URI
          * Sets and removes CSS-Classes
          *
