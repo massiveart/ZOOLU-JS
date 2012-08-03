@@ -1,0 +1,191 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="../assets/css/zoolu.css"/>
+
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<header>
+
+</header>
+<div role="main">
+    <div id="domList1" class="wrapper">
+        <table class="tablelist">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Language</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="icon"><img src="../assets/img/icons/tmp_icon.png" /></td>
+                    <td>Mediatitle</td>
+                    <td>EN</td>
+                    <td>Mickey Mouse</td>
+                </tr>
+                <tr>
+                    <td class="icon"><img src="../assets/img/icons/tmp_icon.png" /></td>
+                    <td>Pdf Ttile</td>
+                    <td>DE</td>
+                    <td>Donald Duck</td>
+                </tr>
+                <tr>
+                    <td class="icon"><img src="../assets/img/icons/tmp_icon.png" /></td>
+                    <td>Title of the PDF</td>
+                    <td>DE/EN</td>
+                    <td>Dagobert Duck</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+        <div id="tablelistnav" class="tablelistnav">
+            <div class="pageentries">
+                <span>Page entries</span>
+                <select>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                </select>
+            </div>
+            <div class="pagination">
+                <a href="#" class="back">back</a>
+                <span>Seite</span>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <a href="#" class="next">next</a>
+            </div>
+        </div>
+    </div>
+    <div id="jsonList1" class="wrapper">
+        <div class="tablelistnav">
+            <div class="pageentries">
+                <span>Page entries</span>
+                <select>
+                </select>
+            </div>
+            <div class="pagination">
+                <a href="#" class="back">back</a>
+                <span>Seite</span>
+                <select>
+                </select>
+                <a href="#" class="next">next</a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+</footer>
+
+<script src="js/libs/jquery-1.7.2.min.js"></script>
+<script src="js/libs/jquery-ui.custom.min.js"></script>
+<script src="js/libs/sinon-1.3.4.js"></script>
+
+<!--script src="../zoolu.js"></script -->
+<script src="../src/zoolu.js"></script>
+<script src="../src/zoolu/util.js"></script>
+<script src="../src/zoolu/mixin.js"></script>
+<script src="../src/zoolu/ui.js"></script>
+
+<script>
+    var server;
+    $(document).ready(function(){
+        window.debug = true;
+
+        server = sinon.fakeServer.create();
+
+
+        /*Sorting requests begin*/
+        server.respondWith('GET', '/list?sort=&sortType=&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"],["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"]]}']);
+
+        server.respondWith('GET', '/list?sort=title&sortType=asc&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"]]}']);
+
+        server.respondWith('GET', '/list?sort=title&sortType=desc&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"]]}']);
+
+        server.respondWith('GET', '/list?sort=language&sortType=asc&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"]]}']);
+
+        server.respondWith('GET', '/list?sort=language&sortType=desc&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"]]}']);
+
+        server.respondWith('GET', '/list?sort=creator&sortType=asc&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"],["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"]]}']);
+
+        server.respondWith('GET', '/list?sort=creator&sortType=desc&pageEntries=20&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"],["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"],["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"]]}']);
+        /*Sorting request end*/
+        
+        
+        /*Paging requests begin*/
+        server.respondWith('GET', '/list??sort=&sortType=&pageEntries=2&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"],["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"]]}']);
+        
+        server.respondWith('GET', '/list?sort=&sortType=&pageEntries=2&page=1',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":1,"items":[["<img src=../assets/img/icons/tmp_icon.png />","A Title","en","Netsky"],["<img src=../assets/img/icons/tmp_icon.png />","B Title","de","Kurt Cobain"]]}']);
+
+        server.respondWith('GET', '/list?sort=&sortType=&pageEntries=2&page=2',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":2,"items":[["<img src=../assets/img/icons/tmp_icon.png />","C Title","cn","Marylin Monroe"],["<img src=../assets/img/icons/tmp_icon.png />","D Title","be","Elvis Presley"]]}']);
+
+        server.respondWith('GET', '/list?sort=&sortType=&pageEntries=2&page=3',
+                [200, { 'Content-Type': 'application/json' },
+                    '{"amount":6,"page":3,"items":[["<img src=../assets/img/icons/tmp_icon.png />","E Title","ga","Johnny Cash"],["<img src=../assets/img/icons/tmp_icon.png />","F Title","ru","John Lennon"]]}']);    
+        /*Paging request end*/        
+
+        var tablelist = new ZOOLU.UI.Tablelist('#domList1', null, { });
+        
+        var jsonTablelist = new ZOOLU.UI.Tablelist('#jsonList1', '/list', {
+            domPagination: true,
+            calculatePagination: true,
+            header: [
+	           { name: 'icon', title: '', sort: false }, 
+               { name: 'title', title: 'Titel', sort: true },
+               { name: 'language', title: 'Language', sort: true },
+               { name: 'creator', title: 'Creator', sort: true }
+            ]
+        });
+        server.respond();
+        
+        jsonTablelist.on('Tablelist.load', function() {
+            setTimeout('server.respond()', 100);
+        });
+        
+    });
+</script>
+
+</body>
+</html>
