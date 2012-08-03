@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" errors="0" failures="0" tests="10" time="0.15799999">
+<testsuite name="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" errors="0" failures="0" tests="10" time="0.177">
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree instantiation" time="0.0030"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree throw exception" time="0.0020"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree load nodes" time="0.035"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree load error" time="0.014"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree updateView error" time="0.0090"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree select node" time="0.018"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree select nested node" time="0.029"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree unselect nested node" time="0.037"/>
-<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test update selected marker" time="0.01"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree load nodes" time="0.017"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree load error" time="0.0080"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree updateView error" time="0.013"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree select node" time="0.026"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree select nested node" time="0.043"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test column tree unselect nested node" time="0.05"/>
+<testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test update selected marker" time="0.014"/>
 <testcase classname="Microsoft_Internet_Explorer_80_Windows.ZOOLU.UI.ColumnTree" name="test ZOOLU.UI.Exception" time="0.0010"/>
 </testsuite>

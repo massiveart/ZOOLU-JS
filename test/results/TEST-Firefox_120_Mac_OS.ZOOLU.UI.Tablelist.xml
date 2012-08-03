@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" errors="0" failures="0" tests="20" time="1.444">
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist instantiation" time="0.035"/>
+<testsuite name="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" errors="0" failures="0" tests="26" time="1.8790001">
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist instantiation" time="0.055"/>
 <testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist instantiation exception" time="0.0010"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist build" time="0.088"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist reset" time="0.074"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist load JSON" time="0.09"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get PageEntries options" time="0.074"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get Pagination options" time="0.067"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist hide pagination buttons" time="0.109"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist add checkboxes" time="0.076"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist add row CSS-Class" time="0.067"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get URI" time="0.085"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist sort" time="0.08"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist select" time="0.083"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist unselect" time="0.073"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist toggle" time="0.067"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist select all" time="0.082"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist unselect all" time="0.071"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist toggle all" time="0.068"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist observe select" time="0.082"/>
-<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get selected rows" time="0.072"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist build" time="0.101"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist initialize table header" time="0.083"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist initialize table header exceptions" time="0.031"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist initialize table body" time="0.079"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist initialize table body exceptions" time="0.022"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist initialize pagination" time="0.092"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist initialize pagination exception" time="0.021"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist reset" time="0.087"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist load JSON" time="0.075"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get PageEntries options" time="0.069"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get Pagination options" time="0.086"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist hide pagination buttons" time="0.076"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist add checkboxes" time="0.086"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist add row CSS-Class" time="0.086"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get URI" time="0.093"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist sort" time="0.101"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist select" time="0.084"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist unselect" time="0.072"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist toggle" time="0.086"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist select all" time="0.071"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist unselect all" time="0.069"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist toggle all" time="0.088"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist observe select" time="0.08"/>
+<testcase classname="Firefox_120_Mac_OS.ZOOLU.UI.Tablelist" name="test tablelist get selected rows" time="0.085"/>
 </testsuite>

@@ -119,6 +119,148 @@ TestCase('ZOOLU.UI.Tablelist', {
         assertEquals('Table DOM Object', 'object', typeof jsonList.$table);
     },
     
+    'test tablelist initialize table header': function() {
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.initTableHeader();
+        
+        assertEquals('Initialized Table-Head-Row Object', 'object', typeof jsonList.theadRow);
+    },
+    
+    'test tablelist initialize table header exceptions': function() {
+        var error;
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        try {
+            jsonList.initTableHeader();
+        } catch(e) {
+            error = e;
+        }
+        
+        assertEquals('Thrown ZOOLU.UI.Exception', 'ZOOLU.UI.Exception', error.name);
+    },
+    
+    'test tablelist initialize table body': function() {
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.initTableBody();
+        
+        assertEquals('Initialized Table-Body Object', 'object', typeof jsonList.$tbody);
+    },
+    
+    'test tablelist initialize table body exceptions': function() {
+        var error;
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        try {
+            jsonList.initTableBody();
+        } catch(e) {
+            error = e;
+        }
+        
+        assertEquals('Thrown ZOOLU.UI.Exception', 'ZOOLU.UI.Exception', error.name);
+    },
+    
+    'test tablelist initialize pagination': function() {
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+            this.server.respond();
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        jsonList.initPagination();
+        
+        assertEquals('Initialized Pagination DOM-Object', 'object', typeof jsonList.pagination.$element);
+        assertEquals('Initialized PageEntries DOM-Object', 'object', typeof jsonList.pagination.$pageentries);
+        assertEquals('Initialized Back DOM-Object', 'object', typeof jsonList.pagination.$back);
+        assertEquals('Initialized Pager DOM-Object', 'object', typeof jsonList.pagination.$pagination);
+        assertEquals('Initialized Next DOM-Object', 'object', typeof jsonList.pagination.$next);
+    },
+    
+    'test tablelist initialize pagination exception': function() {
+        var error;
+        try {
+            var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
+                domPagination: false,
+                calculatePagination: true,
+                header: [
+                   { name: 'icon', title: '', sort: false }, 
+                   { name: 'title', title: 'Titel', sort: true },
+                   { name: 'language', title: 'Language', sort: true },
+                   { name: 'creator', title: 'Creator', sort: true }
+                ]
+            });
+        } catch(e) {
+            fail('Tablelist instantiation failed');
+        }
+        try {
+            jsonList.initPagination(); 
+        } catch(e) {
+            error = e;
+        }
+        
+        assertEquals('Thrown ZOOLU.UI.Exception', 'ZOOLU.UI.Exception', error.name);
+    },
+    
     'test tablelist reset': function() {
         try {
             var jsonList = new ZOOLU.UI.Tablelist('#jsonList', '/list', {
